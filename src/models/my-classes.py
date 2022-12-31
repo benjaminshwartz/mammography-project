@@ -336,7 +336,10 @@ class PaperModel(nn.Module):
                                                     data_shape, hidden_output_fnn, dropout,
                                                     number_of_layers, num_layers_global)
 
-        self.classification_head = ClassificationHead(
+        self.classification_head_left = ClassificationHead(
+            input_layer=1024, hidden_output_class=512, dropout=0.5)
+
+        self.classification_head_right = ClassificationHead(
             input_layer=1024, hidden_output_class=512, dropout=0.5)
 
     def forward(self, data):
@@ -346,6 +349,8 @@ class PaperModel(nn.Module):
 
         X = self.global_transformer(X)
 
-        X = self.classification_head(X)
+        left_pred = self.classification_head_left(X)
 
-        return X
+        right_pred = self.classification_head_right(X)
+
+        return torch.vstack((left_pred, right_pred)).T
