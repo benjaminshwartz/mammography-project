@@ -217,7 +217,7 @@ class LocalEncoderBlock(nn.Module):
 
 class VisualTransformer(nn.Module):
     # embedding parameters, local encoder parameters
-    def __init__(self, x_amount=7, y_amount=7, x_con=3518, y_con=2800,
+    def __init__(self, x_amount=7, y_amount=7, x_con=3500, y_con=2800,
                  data_shape=(4, 50, 256), hidden_output_fnn=1024, dropout=.5,
                  number_of_layers=10):
         super(VisualTransformer, self).__init__()
@@ -261,7 +261,7 @@ class GlobalEncoderBlock(nn.Module):
 
 
 class GlobalTransformer(nn.Module):
-    def __init__(self, x_amount=7, y_amount=7, x_con=3518, y_con=2800,
+    def __init__(self, x_amount=7, y_amount=7, x_con=3500, y_con=2800,
                  data_shape=(4, 50, 256), hidden_output_fnn=1024, dropout=.5,
                  number_of_layers=10, num_layers_global=10):
         super(GlobalTransformer, self).__init__()
@@ -319,7 +319,7 @@ class ClassificationHead(nn.Module):
 
 
 class PaperModel(nn.Module):
-    def __init__(self, x_amount=7, y_amount=7, x_con=3518, y_con=2800,
+    def __init__(self, x_amount=7, y_amount=7, x_con=3500, y_con=2800,
                  data_shape=(4, 50, 256), hidden_output_fnn=1024, dropout=.5,
                  number_of_layers=10, num_layers_global=10):
 

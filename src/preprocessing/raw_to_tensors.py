@@ -71,13 +71,13 @@ for patient in patients:
     rcc_dicom = dicom.dcmread(
         f'{RAW_PATH}/image/{patient}/{rcc_image_id}.dicom')
 
-    lmlo_torch = torch.tensor(lmlo_dicom.pixel_array)
-    lcc_torch = torch.tensor(lcc_dicom.pixel_array)
-    rmlo_torch = torch.tensor(rmlo_dicom.pixel_array)
-    rcc_torch = torch.tensor(rcc_dicom.pixel_array)
+    lmlo_torch = torch.from_numpy(np.array(lmlo_dicom.pixel_array, dtype= np.float32))
+    lcc_torch = torch.from_numpy(np.array(lcc_dicom.pixel_array, dtype = np.float32))
+    rmlo_torch = torch.flip(torch.from_numpy(np.array(rmlo_dicom.pixel_array, dtype = np.float32)),(1,))
+    rcc_torch = torch.flip(torch.from_numpy(np.array(rcc_dicom.pixel_array, dtype= np.float32),(1,)))
 
     pickle.dump(lmlo_torch, open(
         f'{PREPROCESSED_PATH}/{patient}/LMLO.pt', "wb"))
-    pickle.dump(lcc_torch, open(f'{PREPROCESSED_PATH}/LCC.pt', "wb"))
-    pickle.dump(rmlo_torch, open(f'{PREPROCESSED_PATH}/RMLO.pt', "wb"))
-    pickle.dump(rcc_torch, open(f'{PREPROCESSED_PATH}/RCC.pt', "wb"))
+    pickle.dump(lcc_torch, open(f'{PREPROCESSED_PATH}/{patient}/LCC.pt', "wb"))
+    pickle.dump(rmlo_torch, open(f'{PREPROCESSED_PATH}/{patient}/RMLO.pt', "wb"))
+    pickle.dump(rcc_torch, open(f'{PREPROCESSED_PATH}/{patient}/RCC.pt', "wb"))
