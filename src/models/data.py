@@ -5,6 +5,7 @@ from torch.utils.data import Dataset, DataLoader
 from typing import Tuple
 import boto3 as boto
 import random
+import pickle
 
 PATH = ""
 
@@ -68,19 +69,29 @@ def random_train_test_split(split: tuple, labels:dict):
 
     test_patients = patient_set - training_patients
 
-
     return list(training_patients), list(test_patients)
 
 
-def get_train_test_dataset() -> Tuple[MammographyDataset, MammographyDataset]:
+def get_train_test_dataset(split: tuple, sequential: bool, path: str = None) -> Tuple[MammographyDataset, MammographyDataset]:
 
-    training_set, test_set = None, None
+    label_dic = pickle.load(s3_resource.Bucket('mammographydata').download_file(key = f'Dataset/', Filename = 'label_dict.pt'))
+    if sequential:
+        train, test = sequential_train_test_split(split,label_dic)
+    else:
+        train, test = random_train_test_split(split,label_dic)
 
-    return training_set, test_set
+    train_set = MammographyDataset(train,label_dic,path)
+    test_set = MammographyDataset(test,label_dic,path)
+
+    return train_set, test_set
 
 
-def get_train_test_dataloader() -> Tuple[DataLoader, DataLoader]:
+def get_train_test_dataloader(split: tuple, sequential: bool, path:str = None, batch:int = 1) -> Tuple[DataLoader, DataLoader]:
 
-    training_generator, test_generator = None, None
+    train_set, test_set = get_train_test_dataset(split,sequential,path)
+
+    training_generator = DataLoader(train_set, batch_size = batch, shuffle = True)
+    test_generator = DataLoader(test_set, batch_size = 1, shuffle = True)
+
 
     return training_generator, test_generator
