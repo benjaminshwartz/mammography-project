@@ -7,28 +7,43 @@ import boto3 as boto
 
 PATH = ""
 
-s3_client = boto.client('s3')
+s3_resource= boto.resource('s3')
 
 class MammographyDataset(Dataset):
 
-    def __init__(self, scan_ids: list, labels: dict, path :str):
-        self.scan_ids = scan_ids
+    def __init__(self, patient_id: list, labels: dict, path :str = None):
+        self.patient_ids = patient_id
         self.labels = labels
-        self.path = path
+        self.path = path or 'DataSet/processed'
 
     def __len__(self):
         return len(self.scan_ids)
 
     def __getitem__(self, idx):
-        id = self.scan_ids[idx]
-        tensor = torch.load(s3_client.get_object(bucket = 'mammographydata', key = self.path))
-        labels = self.labels[id]
+        id = self.patient_ids[idx]
+        
+        LCC = torch.load(s3_resource.Bucket('mammographydata').download_file(key = (f'{self.path}/{id}'), key = LCC.pt))
+        LMLO = torch.load(s3_resource.Bucket('mammographydata').download_file(key = (f'{self.path}/{id}'), key = LMLO.pt))
+        RCC = torch.load(s3_resource.Bucket('mammographydata').download_file(key = (f'{self.path}/{id}'), key = RCC_flipped.pt))
+        RMLO = torch.load(s3_resource.Bucket('mammographydata').download_file(key = (f'{self.path}/{id}'), key = RMLO_flipped.pt))
+
+        assert(LCC.shape == LMLO.shape)
+        assert(RCC.shape == RMLO.shape)
+        assert(LCC.shape == RMLO.shape)
+
+        tensor = torch.zeros(4,LCC.shape[0],LCC.shape[1])
+        tensor[0] = LCC
+        tensor[1] = LMLO
+        tensor[2] = RCC
+        tensor[3] = RMLO
+        
+        labels = (self.labels[id]['L'], self.labels[id]['R'])
 
         return tensor.float(), labels
 
 
-def sequential_train_test_split():
-    train_scans, test_scans = None, None
+def sequential_train_test_split(split: tuple, labels:dict):
+    
 
     return train_scans, test_scans
 
