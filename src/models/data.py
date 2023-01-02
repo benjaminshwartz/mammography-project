@@ -39,7 +39,7 @@ class MammographyDataset(Dataset):
         tensor[2] = RCC
         tensor[3] = RMLO
         
-        labels = (self.labels[id]['L'], self.labels[id]['R'])
+        labels = torch.tensor((self.labels[id]['L'], self.labels[id]['R']))
 
         return tensor.float(), labels
 

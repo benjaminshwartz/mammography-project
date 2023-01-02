@@ -4,9 +4,9 @@ from torch.utils.data import Dataset, DataLoader
 import pickle
 from datetime import datetime, timedelta
 
-from data import get_train_test_dataloader
-from MyClasses import PaperModel 
-from runners import Trainer
+from models.data import get_train_test_dataloader
+from models.MyClasses import PaperModel 
+from models.runners import Trainer
 
 def main(batch_size: int = 1, sequential : bool = False,split: tuple = (.8,.2), path :str = None):
 
