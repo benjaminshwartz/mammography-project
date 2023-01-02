@@ -14,6 +14,7 @@ from datetime import datetime, timedelta
 from torchmetrics import ROC
 from torchmetrics.classification import BinaryROC
 from matplotlib import pyplot as plt
+import boto3 as boto
 
 CHECKPOINT_PATH = ""
 
@@ -24,7 +25,7 @@ class Trainer():
         model: torch.nn.Module,
         optimizer: torch.optim.Optimizer,
         loss_fn: torch.nn,
-        gpu_id: int,
+        gpu_id: str,
         save_interval: int,
         metric_interval: int,
         train_data: DataLoader,
@@ -40,6 +41,7 @@ class Trainer():
         self.metric_interval = metric_interval
         self.validation_data = validation_data
         self.test_data = test_data
+        self.s3 = boto.client('s3')
 
     def _run_batch(self, batch_tensor: torch.tensor, batch_labels: torch.tensor):
         self.optimizer.zero_grad()
@@ -60,10 +62,12 @@ class Trainer():
             batch_labels = batch_labels.to(self.gpu_id)
             self._run_batch(batch_tensor, batch_labels.float())
 
-    #TODO Need to fix to save to s3 bucket
+    #TODO delete checkpoint file after upload to s3 bucket
     def _save_checkpoint(self, epoch: int):
         checkpoint = self.model.state_dict()
-        torch.save(checkpoint, CHECKPOINT_PATH)
+        #torch.save(checkpoint, CHECKPOINT_PATH)
+        pickle.dump(checkpoint, open(f'checkpoint_{epoch}.pt','wb'))
+        self.s3.upload_file(f'checkpoint_{epoch}.pt', 'mammographydata', f'DataSet/checkpointmodels/checkpoint_{epoch}.pt')
         print(f'\tModel Saved at Epoch {epoch}')
 
     def train(self, num_epochs: int, sv_roc: bool = False):
