@@ -62,7 +62,7 @@ def random_train_test_split(split: tuple, labels:dict):
     training_num = int(split[0] * num_patients)
     
     i = 0
-    while i != num_patients:
+    while i != training_num:
         curr_patient = random.choice(list(patient_set-training_patients))
         training_patients.add(curr_patient)
         i += 1
