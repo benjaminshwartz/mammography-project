@@ -32,7 +32,10 @@ class Trainer():
         validation_data: DataLoader = None,
         test_data: DataLoader = None
     ) -> None:
-        self.model = model.to(gpu_id)
+        ############ GPU RUNNING ########
+        # self.model = model.to(gpu_id)
+        
+        self.model = model
         self.train_data = train_data
         self.optimizer = optimizer
         self.loss_fn = loss_fn
@@ -46,6 +49,9 @@ class Trainer():
     def _run_batch(self, batch_tensor: torch.tensor, batch_labels: torch.tensor):
         self.optimizer.zero_grad()
         predicted_output = self.model(batch_tensor)
+        # print(f'SHAPE OF PREDICTED OUTPUT: {predicted_output.shape}')
+        batch_labels = torch.reshape(batch_labels, (2,))
+        # print(f'SHAPE OF LABELS: {batch_labels.shape}')
         loss = self.loss_fn(predicted_output, batch_labels.long())
         loss.backward()
         self.optimizer.step()
@@ -58,8 +64,12 @@ class Trainer():
         for batch_tensor, batch_labels in self.train_data:
             # print(f'\t{i}/{len(self.train_data)}')
             # i += 1
-            batch_tensor = batch_tensor.to(self.gpu_id)
-            batch_labels = batch_labels.to(self.gpu_id)
+            
+            ########## GPU RUNNING ##############
+            # batch_tensor = batch_tensor.to(self.gpu_id)
+            # batch_labels = batch_labels.to(self.gpu_id)
+            
+            
             self._run_batch(batch_tensor, batch_labels.float())
 
     #TODO delete checkpoint file after upload to s3 bucket
@@ -108,16 +118,18 @@ class Trainer():
             # all_preds = []  # torch.tensor([]).to(self.gpu_id)
 
             for batch_tensor, batch_labels in dataloader:
-                batch_tensor = batch_tensor.to(self.gpu_id)
+                # batch_tensor = batch_tensor.to(self.gpu_id)
                 # we want batch_labels.shape = B, 5, 2
                 # we want predicted_output = B, 5, 2
-                batch_labels = batch_labels.to(self.gpu_id).long()
-                left_labels = batch_labels[:, :, 0]
-                right_labels = batch_labels[:, :, 1]
+                # batch_labels = batch_labels.to(self.gpu_id).long()
+                batch_labels = batch_labels.long()
+                batch_labels = torch.reshape(batch_labels, (2,))
+                left_labels = batch_labels[0]
+                right_labels = batch_labels[1]
 
                 predicted_output = self.model(batch_tensor)
-                left_preds = predicted_output[:, :, 0]
-                right_preds = predicted_output[:, :, 1]
+                left_preds = predicted_output[0]
+                right_preds = predicted_output[1]
 
                 cumulative_loss += self.loss_fn(predicted_output, batch_labels)
                 left_cumulative_loss += self.loss_fn(left_preds, left_labels)
@@ -129,21 +141,38 @@ class Trainer():
                     pass
                 else:
                     pass
-
+                print(f'THIS IS THE RIGHT LABEL: {right_labels}')
+                print(f'THIS IS THE RIGHT PREDICTED LABEL: {torch.argmax(right_preds, dim=0)}')
+                print('##################################')
+                print(f'THIS IS THE LEFT LABEL: {left_labels}')
+                print(f'THIS IS THE LEFT PREDICTED LABEL: {torch.argmax(left_preds, dim=0)}')
+                print('------------------------------------')
                 total += batch_labels.size(0)
+                
+                # num_correct_left += (torch.argmax(left_preds, dim=0)
+                #                      == torch.argmax(left_labels, dim=0)).sum().item()
+                
+                # num_correct_right += (torch.argmax(right_preds, dim=0)
+                #                       == torch.argmax(right_labels, dim=0)).sum().item()
+                
+                num_correct_left += (torch.argmax(left_preds, dim=0) == left_labels).sum().item()
 
-                num_correct_left += (torch.argmax(left_preds, dim=1)
-                                     == torch.argmax(left_labels, dim=1)).sum().item()
-
-                num_correct_right += (torch.argmax(right_preds, dim=1)
-                                      == torch.argmax(right_labels, dim=1)).sum().item()
+                
+                num_correct_right += (torch.argmax(right_preds, dim=0) == right_labels).sum().item()
+                
+                
+                if (torch.argmax(left_preds, dim=0) == left_labels) and (torch.argmax(right_preds, dim=0) == right_labels):
+                    num_correct += 1
+                
+                # num_correct += ((torch.argmax(right_preds, dim=0) == right_labels) and (torch.argmax(left_preds, dim=0))).sum().item()
 
             loss = cumulative_loss/num_batches
             left_loss = left_cumulative_loss / num_batches
             right_loss = right_cumulative_loss / num_batches
-            accuracy = num_correct/total
-            accuracy_left = num_correct_left/total
-            accuracy_right = num_correct_right/total
+            half = int(total / 2)
+            accuracy = num_correct/half
+            accuracy_left = num_correct_left/half
+            accuracy_right = num_correct_right/half
 
             print(
                 f'\t\tOverall Loss: {loss} = {cumulative_loss}/{num_batches}')
@@ -152,11 +181,11 @@ class Trainer():
             print(
                 f'\t\tRight Loss: {right_loss} = {right_cumulative_loss}/{num_batches}')
 
-            print(f'\t\tAccuracy: {accuracy} = {num_correct}/{total}')
+            print(f'\t\tOverall Accuracy: {accuracy} = {num_correct}/{total}')
             print(
-                f'\t\tLeft Accuracy: {accuracy_left} = {accuracy_left}/{total}')
+                f'\t\tLeft Accuracy: {accuracy_left} = {num_correct_left}/{half}')
             print(
-                f'\t\tRight Accuracy: {accuracy_right} = {accuracy_right}/{total}')
+                f'\t\tRight Accuracy: {accuracy_right} = {num_correct_right}/{half}')
 
             if sv_roc:
                 # TODO fix save roc
@@ -175,7 +204,8 @@ class Trainer():
         ) -> None:
             self.loss_fn = loss_fn or torch.nn.CrossEntropyLoss()
             self.gpu_id = gpu_id
-            self.model = model.to(self.gpu_id)
+            # self.model = model.to(self.gpu_id)
+            self.model = model
 
         def evaluate(self, dataloader: DataLoader, sv_roc=False):
             with torch.no_grad():
@@ -184,22 +214,28 @@ class Trainer():
                 num_correct = 0
                 total = 0
                 num_batches = len(dataloader)
-                all_preds = torch.tensor([]).to(self.gpu_id)
-                all_labels = torch.tensor([]).to(self.gpu_id)
+                # all_preds = torch.tensor([]).to(self.gpu_id)
+                # all_labels = torch.tensor([]).to(self.gpu_id)
+                all_preds = torch.tensor([])
+                all_labels = torch.tensor([])
 
                 for batch_tensor, batch_labels in dataloader:
-                    batch_tensor = batch_tensor.to(self.gpu_id)
+                    
+                    # batch_tensor = batch_tensor.to(self.gpu_id)
+                    batch_tensor = batch_tensor
                     # check batch labels type
-                    batch_tensor = batch_tensor.to(self.gpu_id)
+                    # batch_tensor = batch_tensor.to(self.gpu_id)
                 # we want batch_labels.shape = B, 5, 2
                 # we want predicted_output = B, 5, 2
-                batch_labels = batch_labels.to(self.gpu_id).long()
-                left_labels = batch_labels[:, :, 0]
-                right_labels = batch_labels[:, :, 1]
+                # batch_labels = batch_labels.to(self.gpu_id).long()
+                batch_labels = batch_labels.long()
+                batch_labels = torch.reshape(batch_labels, (2,))
+                left_labels = batch_labels[0]
+                right_labels = batch_labels[1]
 
                 predicted_output = self.model(batch_tensor)
-                left_preds = predicted_output[:, :, 0]
-                right_preds = predicted_output[:, :, 1]
+                left_preds = predicted_output[0]
+                right_preds = predicted_output[1]
 
                 cumulative_loss += self.loss_fn(predicted_output, batch_labels)
                 left_cumulative_loss += self.loss_fn(left_preds, left_labels)
@@ -214,19 +250,26 @@ class Trainer():
 
                 # assuming decision boundary to be 0.5
                 total += batch_labels.size(0)
+                
+#                 num_correct_left += (torch.argmax(left_preds, dim=0)
+#                                      == torch.argmax(left_labels, dim=0)).sum().item()
 
-                num_correct_left += (torch.argmax(left_preds, dim=1)
-                                     == torch.argmax(left_labels, dim=1)).sum().item()
+#                 num_correct_right += (torch.argmax(right_preds, dim=0)
+#                                       == torch.argmax(right_labels, dim=0)).sum().item()
 
-                num_correct_right += (torch.argmax(right_preds, dim=1)
-                                      == torch.argmax(right_labels, dim=1)).sum().item()
+
+            num_correct_left += (torch.argmax(left_preds, dim=0) == left_labels).sum().item()
+
+                
+            num_correct_right += (torch.argmax(right_preds, dim=0) == right_labels).sum().item()
 
             loss = cumulative_loss/num_batches
             left_loss = left_cumulative_loss / num_batches
             right_loss = right_cumulative_loss / num_batches
             accuracy = num_correct/total
-            accuracy_left = num_correct_left/total
-            accuracy_right = num_correct_right/total
+            half = total/2
+            accuracy_left = num_correct_left/half
+            accuracy_right = num_correct_right/half
 
             print(
                 f'\t\tOverall Loss: {loss} = {cumulative_loss}/{num_batches}')
@@ -237,9 +280,9 @@ class Trainer():
 
             print(f'\t\tAccuracy: {accuracy} = {num_correct}/{total}')
             print(
-                f'\t\tLeft Accuracy: {accuracy_left} = {accuracy_left}/{total}')
+                f'\t\tLeft Accuracy: {accuracy_left} = {num_correct_left}/{half}')
             print(
-                f'\t\tRight Accuracy: {accuracy_right} = {accuracy_right}/{total}')
+                f'\t\tRight Accuracy: {accuracy_right} = {num_correct_right}/{half}')
 
     # TODO: fix for (B,2,5) prediction
     @ staticmethod

@@ -35,7 +35,7 @@ class PositionalEncoding(nn.Module):
         summer_matrix = data + self.positional_matrix
         summer_matrix = self.dropout(summer_matrix)
 
-        return self.summer_matrix
+        return summer_matrix
 
 
 # Apply conv layer to a (500, 400) subset of each scan
@@ -45,24 +45,39 @@ class ConvLayer(nn.Module):
         super(ConvLayer, self).__init__()
         self.num_patch = num_patch
         n = num_patch
-        self.conv2d_1 = nn.Conv2d(
-            in_channels=n*1, out_channels=n * 8, kernel_size=13, stride=1, groups=n)
+#         self.conv2d_1 = nn.Conv2d(in_channels = 1, out_channels = 8, kernel_size = 13, stride = 1)
+        self.conv2d_1 = nn.Conv2d(in_channels = n*1, out_channels = n *8, kernel_size = 13, stride = 1, groups = n)
+        
         self.pooling2d_1 = nn.MaxPool2d(2)
-        self.conv2d_2 = nn.Conv2d(
-            in_channels=n*8, out_channels=n*16, kernel_size=11, stride=1, groups=n)
+        
+        self.conv2d_2 = nn.Conv2d(in_channels = n*8, out_channels = n*16, kernel_size = 11, stride = 1, groups = n)
+
         self.pooling2d_2 = nn.MaxPool2d(2)
-        self.conv2d_3 = nn.Conv2d(
-            in_channels=n*16, out_channels=n*32, kernel_size=9, stride=1, groups=n)
-        self.conv2d_4 = nn.Conv2d(
-            in_channels=n*32, out_channels=n*32, kernel_size=7, stride=1, groups=n)
+        
+#         self.conv2d_3 = nn.Conv2d(in_channels = 16, out_channels = 32, kernel_size = 9, stride = 1, groups = n)
+        self.conv2d_3 = nn.Conv2d(in_channels = n*16, out_channels = n*32, kernel_size = 9, stride = 1, groups = n)
+
+        
+#         self.conv2d_4 = nn.Conv2d(in_channels = 32, out_channels = 32, kernel_size = 7, stride = 1, groups = n)
+        self.conv2d_4 = nn.Conv2d(in_channels = n*32, out_channels = n*32, kernel_size = 7, stride = 1, groups = n)
+
         self.pooling2d_3 = nn.MaxPool2d(2)
-        self.conv2d_5 = nn.Conv2d(
-            in_channels=n*32, out_channels=n*64, kernel_size=5, stride=1, groups=n)
-        self.dnn = nn.Linear(105280, 256)
+        
+#         self.conv2d_5 = nn.Conv2d(in_channels = 32, out_channels = 64, kernel_size = 5, stride = 1, groups = n)
+        self.conv2d_5 = nn.Conv2d(in_channels = n*32, out_channels = n*64, kernel_size = 5, stride = 1, groups = n)
+
+
+        
+        self.dnn = nn.Linear(105280,256)
+        
         self.relu = nn.ReLU()
         self.flatten = nn.Flatten()
+        
 
     def forward(self, tensor):
+        # print('IN FORWARD OF CONV LAYER')
+        tensor = tensor[:,]
+        # print(f'THIS IS THE SHAPE OF THE TENSOR: {tensor.shape}')
         x = self.conv2d_1(tensor)
         x = self.relu(x)
         x = self.pooling2d_1(x)
@@ -116,9 +131,11 @@ class EmbeddingBlock(nn.Module):
 
     def forward(self, data):
         # recheck for proper class variables(change self. to strictly local variable)
-        info = data[:, :self.x_con, :self.y_con]
+        # print('IN FORWARD OF EMBEDDING BLOCK LAYER')
+        info = data
 
         batch_size = info.shape[0]
+        
 
         batched_patches = info.unfold(
             1, self.x_ran, self.x_ran).unfold(2, self.y_ran, self.y_ran)
@@ -167,6 +184,7 @@ class MLP(nn.Module):
         self.dropout2 = nn.Dropout(dropout)
 
     def forward(self, data):
+        # print('IN FORWARD OF MLP LAYER')
         x = self.fnn1(data)
         x = self.gelu(x)
         x = self.dropout1(x)
@@ -197,8 +215,9 @@ class LocalEncoderBlock(nn.Module):
             hidden_output=hidden_output_fnn1, dropout=dropout)
 
     def forward(self, data):
+        # print('IN FORWARD OF LOCALENCODERBLOCK LAYER')
         if data.shape == (4, 256, 50):
-            print('in here')
+            # print('in here')
             data = data.T
         x = self.ln1(data)
         att_out, att_out_weights = self.attention(
@@ -229,11 +248,12 @@ class VisualTransformer(nn.Module):
                 f'{i}', LocalEncoderBlock(data_shape=data_shape))
 
     def forward(self, data):
+        # print('IN FORWARD OF VISUALTRANSFORMER LAYER')
         x = self.embedding_block.forward(data)
-        print(x.shape)
+        # print(x.shape)
         i = 0
         for blk in self.blks:
-            print(f'This is {i} local attention run')
+            # print(f'This is {i} local attention run')
             i += 1
             x = blk(x)
         return x
@@ -250,6 +270,7 @@ class GlobalEncoderBlock(nn.Module):
         self.mlp = MLP(hidden_output=hidden_output_fnn1, dropout=dropout)
 
     def forward(self, data):
+        # print('IN FORWARD OF GLOBALENCODERBLOCK LAYER')
         x = self.gln1(data)
         att_out, att_out_weights = self.attention(query=x, key=x, value=x)
         x_tilda = att_out + data
@@ -282,17 +303,19 @@ class GlobalTransformer(nn.Module):
         #                                       hidden_output_class=512, dropout=.5)
 
     def forward(self, data):
-        x = self.individual_transformer.forward(data)
-        shape1, shape2, shape3 = x.shape
-        x = torch.reshape(x, (1, shape1 * shape2, shape3))
+        # print('IN FORWARD OF GLOBALTRANSFORMER LAYER')
+        #x = self.individual_transformer.forward(data)
+        
+        shape1, shape2, shape3 = data.shape
+        x = torch.reshape(data, (1, shape1 * shape2, shape3))
         i = 0
         for blk in self.blks:
-            print(f'This is {i} global attention run')
+            # print(f'This is {i} global attention run')
             x = blk(x)
             i += 1
 
         x = torch.squeeze(x)
-        print(x.shape)
+        # print(x.shape)
         x = x[[0, 1 * shape2, 2 * shape2, 3 * shape2], :]
         x = torch.reshape(x, (1, x.shape[0]*x.shape[1]))
         # x = class_head.forward(x)
@@ -309,6 +332,7 @@ class ClassificationHead(nn.Module):
         self.fnn2 = nn.Linear(hidden_output_class, 5)
 
     def forward(self, data):
+        # print('IN FORWARD OF CLASSIFICATIONHEAD LAYER')
         x = self.ln1(data)
         x = self.fnn1(x)
         x = self.dropout(x)
@@ -343,14 +367,24 @@ class PaperModel(nn.Module):
             input_layer=1024, hidden_output_class=512, dropout=0.5)
 
     def forward(self, data):
-        X = self.embedding_block(data)
+        #X = self.embedding_block(data)
+        
+        
+        
+        data = torch.reshape(data, (4,3500,2800))
+        
+        # print(f'THIS IS THE DATA SHAPE: {data.shape}')
 
-        X = self.visual_transformer(X)
+        X = self.visual_transformer(data)
 
         X = self.global_transformer(X)
 
         left_pred = self.classification_head_left(X)
 
         right_pred = self.classification_head_right(X)
-
-        return torch.vstack((left_pred, right_pred)).T
+        
+        final = torch.vstack((left_pred, right_pred))
+        
+        # print(f'Finished data classification, returning vectors of shape: {final.shape}')
+              
+        return final

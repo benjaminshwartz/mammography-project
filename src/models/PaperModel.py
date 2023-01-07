@@ -4,10 +4,13 @@ from torch.utils.data import Dataset, DataLoader
 import pickle
 from datetime import datetime, timedelta
 
-from models.data import get_train_test_dataloader
-from models.MyClasses import PaperModel 
-from models.runners import Trainer
 
+from mammography_project.src.models.data import get_train_test_dataloader
+from mammography_project.src.models.MyClasses import PaperModel 
+from mammography_project.src.models.runners import Trainer
+
+
+       
 def main(batch_size: int = 1, sequential : bool = False,split: tuple = (.8,.2), path :str = None):
 
     training_gen, test_gen = get_train_test_dataloader(split = split, sequential= sequential, path = path,batch=batch_size)
@@ -21,8 +24,8 @@ def main(batch_size: int = 1, sequential : bool = False,split: tuple = (.8,.2), 
 
     ce_loss = torch.nn.CrossEntropyLoss()
 
-    trainer = Trainer(model = model, optimizer=adam_optimizer, loss_fn=ce_loss, gpu_id='cuda', save_interval=10,
-                      metric_interval=10, train_data=training_gen, validation_data=test_gen)
+    trainer = Trainer(model = model, optimizer=adam_optimizer, loss_fn=ce_loss, gpu_id='cuda', save_interval=50,
+                      metric_interval=1, train_data=training_gen, validation_data=test_gen)
 
 
     s = datetime.now()
