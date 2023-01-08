@@ -5,9 +5,9 @@ import pickle
 from datetime import datetime, timedelta
 
 
-from mammography_project.src.models.data import get_train_test_dataloader
-from mammography_project.src.models.MyClasses import PaperModel 
-from mammography_project.src.models.runners import Trainer
+from data import get_train_test_dataloader
+from MyClasses import PaperModel 
+from runners import Trainer
 
 
        
