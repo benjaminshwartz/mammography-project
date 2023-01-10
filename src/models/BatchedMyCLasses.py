@@ -12,13 +12,17 @@ class PositionalEncoding(nn.Module):
         super(PositionalEncoding, self).__init__()
         self.batch_size ,self.embedded_dim, self.position = data.shape
         self.dropout = nn.Dropout(p=dropout)
-
+        device = 'cpu'
+        if torch.cuda.is_available():
+            device = 'cuda'
+            
+            
         self.embedded_dim += 1  # adding one to embedded dim to take into account token prepend
 
         self.learned_embedding_vec = nn.Parameter(
-            torch.zeros(self.batch_size, 1, self.position))
+            torch.zeros(self.batch_size, 1, self.position)).to(device)
 
-        self.positional_matrix = torch.zeros(self.embedded_dim, self.position)
+        self.positional_matrix = torch.zeros(self.embedded_dim, self.position).to(device)
 
         for pos in range(self.position):
             for i in range(int(self.embedded_dim/2)):
@@ -44,6 +48,10 @@ class ConvLayer(nn.Module):
     
     def __init__(self,batch_size, num_patch: int = 49 ):
         super(ConvLayer, self).__init__()
+        
+        if torch.cuda.is_available():
+            device = 'cuda'
+            
         self.num_patch = num_patch
         self.batch_size = batch_size
         n = num_patch
@@ -100,6 +108,7 @@ class ConvLayer(nn.Module):
         x = self.relu(x)
 
         x = self.flatten(x)
+        # print(x.shape)
         x = torch.reshape(x, (self.batch_size, self.num_patch, 105280))
         x = self.dnn(x)
 
@@ -199,12 +208,16 @@ class MLP(nn.Module):
 class LocalEncoderBlock(nn.Module):
     def __init__(self, data_shape, hidden_output_fnn1=1024, dropout=.5):
         super(LocalEncoderBlock, self).__init__()
+        self.device = 'cpu'
+        if torch.cuda.is_available():
+            self.device = 'cuda'
+        
         self.data_shape = data_shape
         # Layer norm over the H and W of each image
         self.batch_size = 10
 #         print([data_shape[2], data_shape[3]])
-        self.ln1 = nn.LayerNorm([data_shape[2], data_shape[3]])
-        self.ln2 = nn.LayerNorm([data_shape[2], data_shape[3]])
+        self.ln1 = nn.LayerNorm([data_shape[2], data_shape[3]], device = self.device)
+        self.ln2 = nn.LayerNorm([data_shape[2], data_shape[3]], device = self.device)
 
         self.attention = nn.MultiheadAttention(
             embed_dim=256, num_heads=16, batch_first=True)
@@ -220,15 +233,10 @@ class LocalEncoderBlock(nn.Module):
 
     
     def forward(self, data):
-        # print('IN FORWARD OF LOCALENCODERBLOCK LAYER')
-        if data.shape == (4, 256, 50):
-            # print('in here')
-            data = data.T
-#         x = self.ln1(data)
-#         att_out, att_out_weights = self.attention(
-#             query=x, key=x, value=x)
-#         x_tilda = att_out + data
-#         x_second = self.ln2(x_tilda)
+        
+
+        
+        data.to(self.device)
         x_tilda_matrix = torch.zeros(self.data_shape)
         attn_0, y = self.helper_thing(data[:,0])
         x_tilda_matrix[:,0] = y
@@ -250,10 +258,17 @@ class LocalEncoderBlock(nn.Module):
     
     def helper_thing(self,data):
     #Data should be of shape (batch_size, 256, 50)
+    
+        
+        data = data.to(self.device)
+        # print(self.device)
+        # print(f'Data Device:{data.device}')
+        # print(f'ln1 device: {self.ln1.device}')
         x = self.ln1(data)
 #         print(f'x.shape: {x.shape}')
         att_out, att_out_weights = self.attention(
                 query=x, key=x, value=x)
+        att_out = att_out.to(self.device)
         x_tilda = att_out + data
         x_second = self.ln2(x_tilda)
 #         print(x_tilda.shape)
@@ -287,17 +302,23 @@ class VisualTransformer(nn.Module):
 class GlobalEncoderBlock(nn.Module):
     def __init__(self, data_shape=(10, 200, 256), hidden_output_fnn1=1024, dropout=.5):
         super(GlobalEncoderBlock, self).__init__()
+        self.device = 'cpu'
+        if torch.cuda.is_available():
+            self.device = 'cuda'
+        
         self.data_shape = data_shape
-        self.gln1 = nn.LayerNorm(data_shape)
-        self.ln2 = nn.LayerNorm(data_shape)
+        self.gln1 = nn.LayerNorm(data_shape, device = self.device)
+        self.ln2 = nn.LayerNorm(data_shape, device = self.device)
         self.attention = nn.MultiheadAttention(
             embed_dim=256, num_heads=16, batch_first=True)
         self.mlp = MLP(hidden_output=hidden_output_fnn1, dropout=dropout)
 
     def forward(self, data):
         # print('IN FORWARD OF GLOBALENCODERBLOCK LAYER')
+        data = data.to(self.device)
         x = self.gln1(data)
         att_out, att_out_weights = self.attention(query=x, key=x, value=x)
+        att_out = att_out.to(self.device)
         x_tilda = att_out + data
         x_second = self.ln2(x_tilda)
         dnn_output = self.mlp.forward(x_second)
@@ -386,7 +407,7 @@ class PaperModel(nn.Module):
 
     def forward(self, data):
         #X = self.embedding_block(data)
-        
+        batch = data.shape[0]
         
         
         #data = torch.reshape(data, (4,3500,2800))
@@ -398,10 +419,10 @@ class PaperModel(nn.Module):
         X = self.global_transformer(X)
 
         left_pred = self.classification_head_left(X)
-        print(f'left shape: {left_pred.shape}')
+        # print(f'left shape: {left_pred.shape}')
 
         right_pred = self.classification_head_right(X)
-        print(f'right shape: {right_pred.shape}')
+        # print(f'right shape: {right_pred.shape}')
         
         final = torch.zeros(left_pred.shape[0],5,2)
         final[:,:,0] = left_pred

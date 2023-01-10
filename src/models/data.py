@@ -25,8 +25,15 @@ class MammographyDataset(Dataset):
     def __getitem__(self, idx):
         id = self.patient_ids[idx]
         
-        #Remeber to change path for real data
-        path = 'dv_data'
+        #One image sample training path
+        # path = 'smalldata'
+        
+        #Sample Training path
+        # path = 'dv_data'
+        
+        #Local path to all data
+        # print(f'ID: {id}')
+        path = 'all_data'
         
         LCC = pickle.load((open(f'{path}/{id}/LCC.pt','rb')))
         LMLO = pickle.load((open(f'{path}/{id}/LMLO.pt','rb')))
@@ -44,7 +51,7 @@ class MammographyDataset(Dataset):
         tensor[2] = RCC
         tensor[3] = RMLO
         
-        labels = torch.tensor((self.labels[id]['L'], self.labels[id]['R']))
+        labels = torch.tensor((self.labels[id]['L'] -1, self.labels[id]['R'] - 1))
 
         return tensor.float(), labels
 
@@ -80,16 +87,37 @@ def random_train_test_split(split: tuple, labels:dict):
     return list(training_patients), list(test_patients)
 
 
-def get_train_test_dataset(split: tuple, sequential: bool, path: str = None) -> Tuple[MammographyDataset, MammographyDataset]:
+def get_train_test_dataset(split: tuple, sequential: bool, path: str = None, batch_size: int = 1) -> Tuple[MammographyDataset, MammographyDataset]:
     
-    #REMEMBER TO CHANGE DICTIONARY FOR REAL DATA
-    dictionary = 'small_dic.pt'
+    #Smallest Sample Dic
+    # dictionary = 'small_small_dic.pt'
+    
+    #Sample Dictionary
+    # dictionary = 'small_dic.pt'
+    #
+    #Real Dictionary
+    dictionary = 'label_dict.pt'
 
     label_dic = pickle.load(open(dictionary, 'rb'))
     if sequential:
         train, test = sequential_train_test_split(split,label_dic)
     else:
         train, test = random_train_test_split(split,label_dic)
+        
+        
+    print(f'LEN TEST GEN BEFORE: {len(test)}')
+    print(f'LEN TRAIN GEN BEFORE: {len(train)}')
+    
+    if len(test) % batch_size != 0:
+        a = len(test) % 4
+        test = test[:-a]
+    
+    if len(train) % batch_size != 0:
+        b = len(train) % 4
+        train = train[:-b]
+        
+    print(f'LEN TEST GEN: {len(test)}')
+    print(f'LEN TRAIN GEN: {len(train)}')
     # print('Getting Training Set')
     train_set = MammographyDataset(train,label_dic,path)
     # print('Finished getting training set; Getting Testing Set')
@@ -99,15 +127,21 @@ def get_train_test_dataset(split: tuple, sequential: bool, path: str = None) -> 
     return train_set, test_set
 
 
-def get_train_test_dataloader(split: tuple, sequential: bool, path:str = None, batch:int = 1) -> Tuple[DataLoader, DataLoader]:
+def get_train_test_dataloader(split: tuple, sequential: bool, batch: int, path:str = None) -> Tuple[DataLoader, DataLoader]:
 
-    train_set, test_set = get_train_test_dataset(split,sequential,path)
+    train_set, test_set = get_train_test_dataset(split,sequential,path, batch)
     # print('got train and test set properly')
     # print('creating the training generator')
-    training_generator = DataLoader(train_set, batch_size = batch, shuffle = True)
+    
     # print('Finished creating the training generator, creating the testing generator')
-    test_generator = DataLoader(test_set, batch_size = 1, shuffle = True)
+    
+    
+   
     # print('finished the testing generator; returning')
+    
+    
+    training_generator = DataLoader(train_set, batch_size = batch, shuffle = True)
+    test_generator = DataLoader(test_set, batch_size = batch, shuffle = True)
 
 
     return training_generator, test_generator
