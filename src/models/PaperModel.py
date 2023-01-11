@@ -12,20 +12,25 @@ from mammography_project.src.models.runners import Trainer
 
 
        
-def main(batch_size: int = 1, sequential : bool = False,split: tuple = (.8,.2), path :str = None):
+def main(batch_size: int = 1,device: str = 'cpu', sequential : bool = False,split: tuple = (.8,.2), path :str = None):
 
     training_gen, test_gen = get_train_test_dataloader(split = split, sequential= sequential, batch =batch_size)
     print('Trying Batched')
     model = PaperModel(x_amount=7, y_amount=7, x_con=3500, y_con=2800,
                  data_shape=(batch_size, 4, 50, 256), hidden_output_fnn=1024, dropout=.5,
                  number_of_layers=10, num_layers_global=10)
+    
+    model = model.to(device)
 
-    adam_optimizer = torch.optim.Adam(
-        model.parameters(), lr=0.0001, weight_decay=0.0001)
+    # adam_optimizer = torch.optim.Adam(
+    #     model.parameters(), lr=0.0001, weight_decay=0.0001)
+    
+    adagrad_optimizer = torch.optim.Adagrad(
+        model.parameters(), lr=0.001, weight_decay=0.0001)
 
     ce_loss = torch.nn.CrossEntropyLoss()
 
-    trainer = Trainer(model = model, optimizer=adam_optimizer, loss_fn=ce_loss, gpu_id='cuda', save_interval=10,
+    trainer = Trainer(model = model, optimizer=adagrad_optimizer, loss_fn=ce_loss, gpu_id='cuda', save_interval=10,
                       metric_interval=1, train_data=training_gen, test_data=test_gen)
 
 

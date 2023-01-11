@@ -404,6 +404,8 @@ class PaperModel(nn.Module):
 
         self.classification_head_right = ClassificationHead(
             input_layer=1024, hidden_output_class=512, dropout=0.5)
+        
+        self.soft = nn.Softmax(dim=1)
 
     def forward(self, data):
         #X = self.embedding_block(data)
@@ -419,10 +421,14 @@ class PaperModel(nn.Module):
         X = self.global_transformer(X)
 
         left_pred = self.classification_head_left(X)
+        
         # print(f'left shape: {left_pred.shape}')
 
         right_pred = self.classification_head_right(X)
         # print(f'right shape: {right_pred.shape}')
+        
+        left_pred = self.soft(left_pred)
+        right_pred = self.soft(right_pred)
         
         final = torch.zeros(left_pred.shape[0],5,2)
         final[:,:,0] = left_pred

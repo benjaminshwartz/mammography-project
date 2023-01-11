@@ -45,7 +45,7 @@ class Trainer():
         self.metric_interval = metric_interval
         self.validation_data = validation_data
         self.test_data = test_data
-        # self.s3 = boto.client('s3')
+        self.s3 = boto.client('s3')
 
     def _run_batch(self, batch_tensor: torch.tensor, batch_labels: torch.tensor):
         self.optimizer.zero_grad()
@@ -167,13 +167,13 @@ class Trainer():
                 else:
                     pass
                 # print(f'THIS IS THE RIGHT LABEL: {right_labels}')
-                # print(f'THIS IS THE RIGHT PREDICTED LABEL: {torch.argmax(right_preds, dim=0)}')
+                print(f'THIS IS THE RIGHT PREDICTED LABEL: {right_preds}')
                 # print('##################################')
                 # print(f'THIS IS THE LEFT LABEL: {left_labels}')
-                # print(f'THIS IS THE LEFT PREDICTED LABEL: {torch.argmax(left_preds, dim=0)}')
-                # print('------------------------------------')
+                print(f'THIS IS THE LEFT PREDICTED LABEL: {left_preds}')
+                # print('++++++++++++++++++++++++++++++++++++++++++')
                 total += len(left_labels)
-                # print(f'TOTAL NUMBER: {total}')
+                print(f'TOTAL NUMBER: {total}')
                 
                 # num_correct_left += (torch.argmax(left_preds, dim=0)
                 #                      == torch.argmax(left_labels, dim=0)).sum().item()
@@ -182,22 +182,22 @@ class Trainer():
                 #                       == torch.argmax(right_labels, dim=0)).sum().item()
                 left_positions = torch.argmax(left_preds, dim=1)
                 right_positions = torch.argmax(right_preds, dim=1)
-#                 print(f'LEFT PREDS: {left_positions}')
-#                 print(f'RIGHT PREDS: {right_positions}')
-#                 print('-------------------------------------')
-#                 print(f'LEFT LABELS: {left_labels}')
-#                 print(f'RIGHT LABELS: {right_labels}')
-#                 print('--------------------------------------')
+                print(f'LEFT PREDS: {left_positions}')
+                print(f'RIGHT PREDS: {right_positions}')
+                print('-------------------------------------')
+                print(f'LEFT LABELS: {left_labels}')
+                print(f'RIGHT LABELS: {right_labels}')
+                print('--------------------------------------')
                 
                 num_correct_left += (left_positions == left_labels).sum().item()
                 
-                # print(f'NUMBER CORRECT STATED LEFT: {num_correct_left}')
+                print(f'NUMBER CORRECT STATED LEFT: {num_correct_left}')
 
                 
                 num_correct_right += (right_positions == right_labels).sum().item()
                 
-                # print(f'NUMBER CORRECT STATED RIGHT: {num_correct_right}')
-                # print('--------------------------------------')
+                print(f'NUMBER CORRECT STATED RIGHT: {num_correct_right}')
+                print('##################################')
                 
                 for i in range(len(left_positions)):
                     if (left_positions[i] == left_labels[i]) and (right_positions[i] == right_labels[i]):
@@ -205,8 +205,8 @@ class Trainer():
                 
                 # num_correct += ((torch.argmax(right_preds, dim=0) == right_labels) and (torch.argmax(left_preds, dim=0))).sum().item()
                 
-                # print(f'TOTAL NUM CORRECT: {num_correct}')
-                # print('--------------------------------------')
+                print(f'TOTAL NUM CORRECT: {num_correct}')
+                print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
 
             loss = cumulative_loss/num_batches
             left_loss = left_cumulative_loss / num_batches
