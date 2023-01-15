@@ -17,8 +17,18 @@ class MammographyDataset(Dataset):
         # print('initilizing the Mamographydataset class')
         self.patient_ids = patient_id
         self.labels = labels
-        self.path = path or 'DataSet/processed'
+        #### REMEMBER TO CHANGE SELF.PATH WHEN CHANGING BETWEEN SMALL AND LARGE DATA SET
+        
+        self.path = 'dv_data'
+        #self.path = 'all_data'
         # print('finished initilizing the Mamographydataset class')
+        LCC_stats, LMLO_stats, RCC_stats, RMLO_stats = self.mean_and_variance()
+        
+        self.LCC_mean, self.LCC_std = LCC_stats[0], LCC_stats[1]
+        self.LMLO_mean, self.LMLO_std = LMLO_stats[0], LMLO_stats[1]
+        self.RCC_mean, self.RCC_std = RCC_stats[0], RCC_stats[1]
+        self.RMLO_mean, self.RMLO_std = RMLO_stats[0], RMLO_stats[1]
+
     def __len__(self):
         return len(self.patient_ids)
 
@@ -39,6 +49,11 @@ class MammographyDataset(Dataset):
         LMLO = pickle.load((open(f'{path}/{id}/LMLO.pt','rb')))
         RCC = pickle.load((open(f'{path}/{id}/RCC_flipped.pt','rb')))
         RMLO = pickle.load((open(f'{path}/{id}/RMLO_flipped.pt','rb')))
+
+        LCC = (LCC - self.LCC_mean)/self.LCC_std
+        LMLO = (LMLO - self.LMLO_mean)/self.LMLO_std
+        RCC = (RCC - self.RCC_mean)/ self.RCC_std
+        RMLO = (RMLO - self.RMLO_mean) / self.RMLO_std
         
 
         assert(LCC.shape == LMLO.shape)
@@ -54,6 +69,49 @@ class MammographyDataset(Dataset):
         labels = torch.tensor((self.labels[id]['L'] -1, self.labels[id]['R'] - 1))
 
         return tensor.float(), labels
+
+    def mean_and_variance(self):
+        sum_LCC, sum_LMLO, sum_RCC, sum_RMLO, N = 0.0, 0.0, 0.0, 0.0, 0.0
+        squares_LCC, squares_LMLO, squares_RMLO, squares_RCC = 0.0, 0.0, 0.0, 0.0
+
+        for patient in self.patient_id:
+            LCC = pickle.load((open(f'{self.path}/{id}/LCC.pt','rb')))
+            LMLO = pickle.load((open(f'{self.path}/{id}/LMLO.pt','rb')))
+            RCC = pickle.load((open(f'{self.path}/{id}/RCC_flipped.pt','rb')))
+            RMLO = pickle.load((open(f'{self.path}/{id}/RMLO_flipped.pt','rb')))
+
+            assert(LCC.numel() == LMLO.numel())
+            assert(RCC.numel() == RMLO.numel())
+            assert(LCC.numel() == RMLO.numel())
+            
+            N += LCC.numel()
+            sum_LCC += LCC.sum()
+            sum_LMLO += LMLO.sum()
+            sum_RCC += RCC.sum()
+            sum_RMLO += RMLO.sum()
+
+            squares_LCC += (LCC ** 2).sum()
+            squares_LMLO += (LMLO ** 2).sum()
+            squares_RCC += (RCC ** 2).sum()
+            squares_RMLO += (RMLO ** 2).sum()
+
+        mean_LCC = sum_LCC / N
+        mean_LMLO = sum_LMLO / N
+        mean_RCC = sum_RCC / N
+        mean_RMLO = sum_RMLO / N
+
+        var_LCC = (squares_LCC - (mean_LCC ** 2)/N) / (N - 1)
+        var_LMLO = (squares_LMLO - (mean_LMLO ** 2)/N) / (N - 1)
+        var_RCC = (squares_RCC - (mean_RCC ** 2)/N) / (N - 1)
+        var_RMLO = (squares_RMLO - (mean_RMLO ** 2)/N) / (N - 1)
+
+        std_LCC = torch.sqrt(var_LCC)
+        std_RCC = torch.sqrt(var_RCC)
+        std_LMLO = torch.sqrt(var_LMLO)
+        std_RMLO = torch.sqrt(var_RMLO)
+
+        return (mean_LCC,std_LCC),(mean_LMLO,std_LMLO),(mean_RCC,std_RCC),(mean_RMLO,std_RMLO)
+
 
 
 def sequential_train_test_split(split: tuple, labels:dict):
