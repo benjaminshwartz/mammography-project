@@ -69,8 +69,12 @@ class MammographyDataset(Dataset):
         return tensor.float(), labels
 
     def mean_and_variance(self):
-        sum_LCC, sum_LMLO, sum_RCC, sum_RMLO, N = 0.0, 0.0, 0.0, 0.0, 0.0
-        squares_LCC, squares_LMLO, squares_RMLO, squares_RCC = 0.0, 0.0, 0.0, 0.0
+
+        N = 0
+        CC = 0
+        MLO = 0
+        squares_CC = 0
+        squares_MLO = 0
 
         for patient in self.patient_ids:
             LCC = pickle.load((open(f'{self.path}/{patient}/LCC.pt','rb')))
@@ -86,8 +90,8 @@ class MammographyDataset(Dataset):
             CC += (LCC.sum() + RCC.sum())
             MLO += (LMLO.sum() + RMLO.sum())
 
-            squares_CC += (LCC.sum()** 2 + RCC.sum()** 2).sum()
-            squares_MLO += (LMLO.sum()** 2 + RMLO.sum()** 2).sum()
+            squares_CC += (LCC** 2).sum() + (RCC** 2).sum()
+            squares_MLO += (LMLO** 2).sum() + (RMLO** 2).sum()
 
         mean_CC = CC / N
         mean_MLO = MLO / N
