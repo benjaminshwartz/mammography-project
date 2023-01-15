@@ -22,12 +22,10 @@ class MammographyDataset(Dataset):
         self.path = 'dv_data'
         #self.path = 'all_data'
         # print('finished initilizing the Mamographydataset class')
-        LCC_stats, LMLO_stats, RCC_stats, RMLO_stats = self.mean_and_variance()
+        CC_stats, MLO_stats = self.mean_and_variance()
         
-        self.LCC_mean, self.LCC_std = LCC_stats[0], LCC_stats[1]
-        self.LMLO_mean, self.LMLO_std = LMLO_stats[0], LMLO_stats[1]
-        self.RCC_mean, self.RCC_std = RCC_stats[0], RCC_stats[1]
-        self.RMLO_mean, self.RMLO_std = RMLO_stats[0], RMLO_stats[1]
+        self.CC_mean, self.CC_std = CC_stats[0], CC_stats[1]
+        self.MLO_mean, self.MLO_std = MLO_stats[0], MLO_stats[1]
 
     def __len__(self):
         return len(self.patient_ids)
@@ -50,10 +48,10 @@ class MammographyDataset(Dataset):
         RCC = pickle.load((open(f'{path}/{id}/RCC_flipped.pt','rb')))
         RMLO = pickle.load((open(f'{path}/{id}/RMLO_flipped.pt','rb')))
 
-        LCC = (LCC - self.LCC_mean)/self.LCC_std
-        LMLO = (LMLO - self.LMLO_mean)/self.LMLO_std
-        RCC = (RCC - self.RCC_mean)/ self.RCC_std
-        RMLO = (RMLO - self.RMLO_mean) / self.RMLO_std
+        LCC = (LCC - self.CC_mean)/self.CC_std
+        LMLO = (LMLO - self.MLO_mean)/self.MLO_std
+        RCC = (RCC - self.CC_mean)/ self.CC_std
+        RMLO = (RMLO - self.MLO_mean) / self.MLO_std
         
 
         assert(LCC.shape == LMLO.shape)
@@ -74,43 +72,33 @@ class MammographyDataset(Dataset):
         sum_LCC, sum_LMLO, sum_RCC, sum_RMLO, N = 0.0, 0.0, 0.0, 0.0, 0.0
         squares_LCC, squares_LMLO, squares_RMLO, squares_RCC = 0.0, 0.0, 0.0, 0.0
 
-        for patient in self.patient_id:
-            LCC = pickle.load((open(f'{self.path}/{id}/LCC.pt','rb')))
-            LMLO = pickle.load((open(f'{self.path}/{id}/LMLO.pt','rb')))
-            RCC = pickle.load((open(f'{self.path}/{id}/RCC_flipped.pt','rb')))
-            RMLO = pickle.load((open(f'{self.path}/{id}/RMLO_flipped.pt','rb')))
+        for patient in self.patient_ids:
+            LCC = pickle.load((open(f'{self.path}/{patient}/LCC.pt','rb')))
+            LMLO = pickle.load((open(f'{self.path}/{patient}/LMLO.pt','rb')))
+            RCC = pickle.load((open(f'{self.path}/{patient}/RCC_flipped.pt','rb')))
+            RMLO = pickle.load((open(f'{self.path}/{patient}/RMLO_flipped.pt','rb')))
 
             assert(LCC.numel() == LMLO.numel())
             assert(RCC.numel() == RMLO.numel())
             assert(LCC.numel() == RMLO.numel())
             
             N += LCC.numel()
-            sum_LCC += LCC.sum()
-            sum_LMLO += LMLO.sum()
-            sum_RCC += RCC.sum()
-            sum_RMLO += RMLO.sum()
+            CC += (LCC.sum() + RCC.sum())
+            MLO += (LMLO.sum() + RMLO.sum())
 
-            squares_LCC += (LCC ** 2).sum()
-            squares_LMLO += (LMLO ** 2).sum()
-            squares_RCC += (RCC ** 2).sum()
-            squares_RMLO += (RMLO ** 2).sum()
+            squares_CC += ((LCC.sum() + RCC.sum()) ** 2).sum()
+            squares_MLO += ((LMLO.sum() + RMLO.sum()) ** 2).sum()
 
-        mean_LCC = sum_LCC / N
-        mean_LMLO = sum_LMLO / N
-        mean_RCC = sum_RCC / N
-        mean_RMLO = sum_RMLO / N
+        mean_CC = CC / N
+        mean_MLO = MLO / N
 
-        var_LCC = (squares_LCC - (mean_LCC ** 2)/N) / (N - 1)
-        var_LMLO = (squares_LMLO - (mean_LMLO ** 2)/N) / (N - 1)
-        var_RCC = (squares_RCC - (mean_RCC ** 2)/N) / (N - 1)
-        var_RMLO = (squares_RMLO - (mean_RMLO ** 2)/N) / (N - 1)
+        var_CC = (squares_CC - (mean_CC ** 2)/N) / (N - 1)
+        var_MLO = (squares_MLO - (mean_MLO ** 2)/N) / (N - 1)
 
-        std_LCC = torch.sqrt(var_LCC)
-        std_RCC = torch.sqrt(var_RCC)
-        std_LMLO = torch.sqrt(var_LMLO)
-        std_RMLO = torch.sqrt(var_RMLO)
+        std_CC = torch.sqrt(var_CC)
+        std_MLO = torch.sqrt(var_MLO)
 
-        return (mean_LCC,std_LCC),(mean_LMLO,std_LMLO),(mean_RCC,std_RCC),(mean_RMLO,std_RMLO)
+        return (mean_CC,std_CC),(mean_MLO,std_MLO)
 
 
 

@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 
 from mammography_project.src.models.data import get_train_test_dataloader
 # from mammography_project.src.models.MyClasses import PaperModel 
-from mammography_project.src.models.BatchedMyCLasses import PaperModel 
+from mammography_project.src.models.BatchedMyClasses import PaperModel 
 from mammography_project.src.models.runners import Trainer
 
 
