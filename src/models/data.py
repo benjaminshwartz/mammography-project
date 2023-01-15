@@ -86,8 +86,8 @@ class MammographyDataset(Dataset):
             CC += (LCC.sum() + RCC.sum())
             MLO += (LMLO.sum() + RMLO.sum())
 
-            squares_CC += ((LCC.sum() + RCC.sum()) ** 2).sum()
-            squares_MLO += ((LMLO.sum() + RMLO.sum()) ** 2).sum()
+            squares_CC += (LCC.sum()** 2 + RCC.sum()** 2).sum()
+            squares_MLO += (LMLO.sum()** 2 + RMLO.sum()** 2).sum()
 
         mean_CC = CC / N
         mean_MLO = MLO / N
