@@ -35,7 +35,7 @@ class Trainer():
     ) -> None:
         ############ GPU RUNNING ########
         self.model = model.to(gpu_id)
-        
+
         # self.model = model
         self.train_data = train_data
         self.optimizer = optimizer
@@ -45,14 +45,20 @@ class Trainer():
         self.metric_interval = metric_interval
         self.validation_data = validation_data
         self.test_data = test_data
+        self.curr_preds_lst = []
+        self.curr_labels_lst = []
         self.s3 = boto.client('s3')
 
     def _run_batch(self, batch_tensor: torch.tensor, batch_labels: torch.tensor):
         self.optimizer.zero_grad()
-        
+
         predicted_output = self.model(batch_tensor).to(self.gpu_id)
+        self.curr_preds_lst.append(predicted_output)
         # print(f'SHAPE OF PREDICTED OUTPUT: {predicted_output.shape}')
-        batch_labels = torch.reshape(batch_labels, (predicted_output.shape[0],2))
+        batch_labels = torch.reshape(
+            batch_labels, (predicted_output.shape[0], 2))
+        self.curr_labels_lst.append(batch_labels)
+
         # print(f'SHAPE OF LABELS: {batch_labels.shape}')
         loss = self.loss_fn(predicted_output, batch_labels.long())
         loss.backward()
@@ -60,37 +66,40 @@ class Trainer():
 
     def _run_epoch(self, epoch: int):
         self.model.train()
+        self.curr_preds_lst = []
+        self.curr_labels_lst = []
         print(f'\t[GPU {self.gpu_id}] Epoch {epoch}')
         # i = 1
         # all = len(self.train_data)
-        
+
         i = 0
         for batch_tensor, batch_labels in self.train_data:
             # print(f'\t{i}/{len(self.train_data)}')
             # i += 1
-            
+
             ########## GPU RUNNING ##############
             batch_tensor = batch_tensor.to(self.gpu_id)
             batch_labels = batch_labels.to(self.gpu_id)
-            
+
             self._run_batch(batch_tensor, batch_labels.float())
             i += 1
             if i % 20 == 0:
                 print(f'Have run {i} batches')
-            
 
-    #TODO delete checkpoint file after upload to s3 bucket
+    # TODO delete checkpoint file after upload to s3 bucket
+
     def _save_checkpoint(self, epoch: int):
         checkpoint = self.model.state_dict()
         #torch.save(checkpoint, CHECKPOINT_PATH)
-        pickle.dump(checkpoint, open(f'checkpoint_{epoch}.pt','wb'))
-        self.s3.upload_file(f'checkpoint_{epoch}.pt', 'mammographydata', f'DataSet/checkpointmodels/checkpoint_{epoch}.pt')
+        pickle.dump(checkpoint, open(f'checkpoint_{epoch}.pt', 'wb'))
+        self.s3.upload_file(f'checkpoint_{epoch}.pt', 'mammographydata',
+                            f'DataSet/checkpointmodels/checkpoint_{epoch}.pt')
         print(f'\tModel Saved at Epoch {epoch}')
 
     def train(self, num_epochs: int, sv_roc: bool = False):
         self.model.share_memory()
         for epoch in range(1, num_epochs + 1):
-            #Trying to multiprocess
+            # Trying to multiprocess
             # processes = []
             # ctx = mp.get_context('spawn')
             # for i in range(os.cpu_count()):
@@ -100,10 +109,10 @@ class Trainer():
             #     p.start()
             #     processes.append(p)
             # print('out of loop')
-            # for p in processes: 
+            # for p in processes:
             #     p.join()
-            #No multiprocess
-            
+            # No multiprocess
+
             self._run_epoch(epoch)
 
             if self.save_interval > 0 and epoch % self.save_interval == 0:
@@ -132,101 +141,220 @@ class Trainer():
             left_cumulative_loss = 0
             right_cumulative_loss = 0
             num_correct = 0
+            num_one_off_correct = 0
             num_correct_left = 0
+            num_correct_one_off_left = 0
             num_correct_right = 0
+            num_correct_one_off_right = 0
             total = 0
-            num_batches = len(dataloader)
+            # num_batches = len(dataloader)
+            num_batches = len(predicted_output)
             # all_preds = []  # torch.tensor([]).to(self.gpu_id)
 
-            for batch_tensor, batch_labels in dataloader:
-                
-                #######GPU RUNNING#####
-                batch_tensor = batch_tensor.to(self.gpu_id)
-                # we want batch_labels.shape = B, 5, 2
-                # we want predicted_output = B, 5, 2
-                batch_labels = batch_labels.to(self.gpu_id).long()
-                
+            predicted_output = torch.vstack(self.curr_preds_lst)
+            labels = torch.vstack(self.curr_labels_lst).long()
 
-                predicted_output = self.model(batch_tensor).to(self.gpu_id)
-                left_preds = predicted_output[:,:,0].to(self.gpu_id)
-                right_preds = predicted_output[:,:,1].to(self.gpu_id)
-                
-                batch_labels = batch_labels.long()
-                batch_labels = torch.reshape(batch_labels, (predicted_output.shape[0],2)).to(self.gpu_id)
-                left_labels = batch_labels[:,0].to(self.gpu_id)
-                right_labels = batch_labels[:,1].to(self.gpu_id)
+            left_preds = predicted_output[:, :, 0].to(self.gpu_id)
+            right_preds = predicted_output[:, :, 1].to(self.gpu_id)
 
-                cumulative_loss += self.loss_fn(predicted_output, batch_labels)
-                left_cumulative_loss += self.loss_fn(left_preds, left_labels)
-                right_cumulative_loss += self.loss_fn(
-                    right_preds, right_labels)
+            left_labels = labels[:, 0].to(self.gpu_id)
+            right_labels = labels[:, 1].to(self.gpu_id)
 
-                if sv_roc:
-                    # TODO fix roc curve
-                    pass
-                else:
-                    pass
-                # print(f'THIS IS THE RIGHT LABEL: {right_labels}')
-                print(f'THIS IS THE RIGHT PREDICTED LABEL: {right_preds}')
-                # print('##################################')
-                # print(f'THIS IS THE LEFT LABEL: {left_labels}')
-                print(f'THIS IS THE LEFT PREDICTED LABEL: {left_preds}')
-                # print('++++++++++++++++++++++++++++++++++++++++++')
-                total += len(left_labels)
-                print(f'TOTAL NUMBER: {total}')
-                
-                # num_correct_left += (torch.argmax(left_preds, dim=0)
-                #                      == torch.argmax(left_labels, dim=0)).sum().item()
-                
-                # num_correct_right += (torch.argmax(right_preds, dim=0)
-                #                       == torch.argmax(right_labels, dim=0)).sum().item()
-                left_positions = torch.argmax(left_preds, dim=1)
-                right_positions = torch.argmax(right_preds, dim=1)
-                print(f'LEFT PREDS: {left_positions}')
-                print(f'RIGHT PREDS: {right_positions}')
-                print('-------------------------------------')
-                print(f'LEFT LABELS: {left_labels}')
-                print(f'RIGHT LABELS: {right_labels}')
-                print('--------------------------------------')
-                
-                num_correct_left += (left_positions == left_labels).sum().item()
-                
-                print(f'NUMBER CORRECT STATED LEFT: {num_correct_left}')
+            cumulative_loss += self.loss_fn(predicted_output, labels)
+            left_cumulative_loss += self.loss_fn(left_preds, left_labels)
+            right_cumulative_loss += self.loss_fn(
+                right_preds, right_labels)
 
-                
-                num_correct_right += (right_positions == right_labels).sum().item()
-                
-                print(f'NUMBER CORRECT STATED RIGHT: {num_correct_right}')
-                print('##################################')
-                
-                for i in range(len(left_positions)):
-                    if (left_positions[i] == left_labels[i]) and (right_positions[i] == right_labels[i]):
-                        num_correct += 1
-                
-                # num_correct += ((torch.argmax(right_preds, dim=0) == right_labels) and (torch.argmax(left_preds, dim=0))).sum().item()
-                
-                print(f'TOTAL NUM CORRECT: {num_correct}')
-                print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+            if sv_roc:
+                # TODO fix roc curve
+                pass
+            else:
+                pass
+            # print(f'THIS IS THE RIGHT LABEL: {right_labels}')
+            print(f'THIS IS THE RIGHT PREDICTED LABEL: {right_preds}')
+            # print('##################################')
+            # print(f'THIS IS THE LEFT LABEL: {left_labels}')
+            print(f'THIS IS THE LEFT PREDICTED LABEL: {left_preds}')
+            # print('++++++++++++++++++++++++++++++++++++++++++')
+            total += len(left_labels)
+            print(f'TOTAL NUMBER: {total}')
 
-            loss = cumulative_loss/num_batches
-            left_loss = left_cumulative_loss / num_batches
-            right_loss = right_cumulative_loss / num_batches
+            # num_correct_left += (torch.argmax(left_preds, dim=0)
+            #                      == torch.argmax(left_labels, dim=0)).sum().item()
+
+            # num_correct_right += (torch.argmax(right_preds, dim=0)
+            #                       == torch.argmax(right_labels, dim=0)).sum().item()
+            left_positions = torch.argmax(left_preds, dim=1)
+            right_positions = torch.argmax(right_preds, dim=1)
+            print(f'LEFT PREDS: {left_positions}')
+            print(f'RIGHT PREDS: {right_positions}')
+            print('-------------------------------------')
+            print(f'LEFT LABELS: {left_labels}')
+            print(f'RIGHT LABELS: {right_labels}')
+            print('--------------------------------------')
+
+            num_correct_left = (left_positions ==
+                                left_labels).sum().item()
+            num_correct_one_off_left = torch.isclose(
+                left_positions, left_labels, rtol=0, atol=1, equal_nan=False).sum().item()
+
+            print(f'NUMBER CORRECT STATED LEFT: {num_correct_left}')
+
+            num_correct_right = (right_positions ==
+                                 right_labels).sum().item()
+            num_correct_one_off_right = torch.isclose(
+                right_positions, right_labels, rtol=0, atol=1, equal_nan=False).sum().item()
+
+            print(f'NUMBER CORRECT STATED RIGHT: {num_correct_right}')
+            print('##################################')
+
+            for i in range(len(left_positions)):
+                if (left_positions[i] == left_labels[i]) and (right_positions[i] == right_labels[i]):
+                    num_correct += 1
+
+            a = torch.isclose(left_positions, left_labels,
+                              rtol=0, atol=1, equal_nan=False)
+            b = torch.isclose(right_positions, right_labels,
+                              rtol=0, atol=1, equal_nan=False)
+
+            num_one_off_correct = torch.logical_and(a, b).sum().item()
+
+            # num_correct += ((torch.argmax(right_preds, dim=0) == right_labels) and (torch.argmax(left_preds, dim=0))).sum().item()
+
+            print(f'TOTAL NUM CORRECT: {num_correct}')
+            print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+            ########################################
+            # for batch_tensor, batch_labels in dataloader:
+
+            #     ####### GPU RUNNING#####
+            #     batch_tensor = batch_tensor.to(self.gpu_id)
+            #     # we want batch_labels.shape = B, 5, 2
+            #     # we want predicted_output = B, 5, 2
+            #     batch_labels = batch_labels.to(self.gpu_id).long()
+
+            #     predicted_output = self.model(batch_tensor).to(self.gpu_id)
+            #     left_preds = predicted_output[:, :, 0].to(self.gpu_id)
+            #     right_preds = predicted_output[:, :, 1].to(self.gpu_id)
+
+            #     batch_labels = batch_labels.long()
+            #     batch_labels = torch.reshape(
+            #         batch_labels, (predicted_output.shape[0], 2)).to(self.gpu_id)
+            #     left_labels = batch_labels[:, 0].to(self.gpu_id)
+            #     right_labels = batch_labels[:, 1].to(self.gpu_id)
+
+            #     cumulative_loss += self.loss_fn(predicted_output, batch_labels)
+            #     left_cumulative_loss += self.loss_fn(left_preds, left_labels)
+            #     right_cumulative_loss += self.loss_fn(
+            #         right_preds, right_labels)
+
+            #     if sv_roc:
+            #         # TODO fix roc curve
+            #         pass
+            #     else:
+            #         pass
+            #     # print(f'THIS IS THE RIGHT LABEL: {right_labels}')
+            #     print(f'THIS IS THE RIGHT PREDICTED LABEL: {right_preds}')
+            #     # print('##################################')
+            #     # print(f'THIS IS THE LEFT LABEL: {left_labels}')
+            #     print(f'THIS IS THE LEFT PREDICTED LABEL: {left_preds}')
+            #     # print('++++++++++++++++++++++++++++++++++++++++++')
+            #     total += len(left_labels)
+            #     print(f'TOTAL NUMBER: {total}')
+
+            #     # num_correct_left += (torch.argmax(left_preds, dim=0)
+            #     #                      == torch.argmax(left_labels, dim=0)).sum().item()
+
+            #     # num_correct_right += (torch.argmax(right_preds, dim=0)
+            #     #                       == torch.argmax(right_labels, dim=0)).sum().item()
+            #     left_positions = torch.argmax(left_preds, dim=1)
+            #     right_positions = torch.argmax(right_preds, dim=1)
+            #     print(f'LEFT PREDS: {left_positions}')
+            #     print(f'RIGHT PREDS: {right_positions}')
+            #     print('-------------------------------------')
+            #     print(f'LEFT LABELS: {left_labels}')
+            #     print(f'RIGHT LABELS: {right_labels}')
+            #     print('--------------------------------------')
+
+            #     num_correct_left += (left_positions ==
+            #                          left_labels).sum().item()
+            #     num_correct_one_off_left += torch.isclose(
+            #         left_positions, left_labels, rtol=0, atol=1, equal_nan=False).sum().item()
+
+            #     print(f'NUMBER CORRECT STATED LEFT: {num_correct_left}')
+
+            #     num_correct_right += (right_positions ==
+            #                           right_labels).sum().item()
+            #     num_correct_one_off_right += torch.isclose(
+            #         right_positions, right_labels, rtol=0, atol=1, equal_nan=False).sum().item()
+
+            #     print(f'NUMBER CORRECT STATED RIGHT: {num_correct_right}')
+            #     print('##################################')
+
+            #     for i in range(len(left_positions)):
+            #         if (left_positions[i] == left_labels[i]) and (right_positions[i] == right_labels[i]):
+            #             num_correct += 1
+
+            #     # num_correct += ((torch.argmax(right_preds, dim=0) == right_labels) and (torch.argmax(left_preds, dim=0))).sum().item()
+
+            #     print(f'TOTAL NUM CORRECT: {num_correct}')
+            #     print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+            # loss = cumulative_loss/num_batches
+            # left_loss = left_cumulative_loss / num_batches
+            # right_loss = right_cumulative_loss / num_batches
+            # accuracy = num_correct/total
+            # accuracy_left = num_correct_left/total
+            # one_off_left = num_correct_one_off_left/total
+            # accuracy_right = num_correct_right/total
+            # one_off_right = num_correct_one_off_right/total
+
+            # print(
+            #     f'\t\tOverall Loss: {loss} = {cumulative_loss}/{num_batches}')
+            # print(
+            #     f'\t\tLeft Loss: {left_loss} = {left_cumulative_loss}/{num_batches}')
+            # print(
+            #     f'\t\tRight Loss: {right_loss} = {right_cumulative_loss}/{num_batches}')
+
+            # print(f'\t\tOverall Accuracy: {accuracy} = {num_correct}/{total}')
+            # print(
+            #     f'\t\tLeft Accuracy: {accuracy_left} = {num_correct_left}/{total}')
+            # print(
+            #     f'\t\tLeft One-Off Accuracy: {one_off_left} = {num_correct_one_off_left}/{total}')
+            # print(
+            #     f'\t\tRight Accuracy: {accuracy_right} = {num_correct_right}/{total}')
+            # print(
+            #     f'\t\tLeft One-Off Accuracy: {one_off_right} = {num_correct_one_off_right}/{total}')
+
+            ########################################
+
+            loss = cumulative_loss
+            left_loss = left_cumulative_loss
+            right_loss = right_cumulative_loss
             accuracy = num_correct/total
             accuracy_left = num_correct_left/total
+            one_off_left = num_correct_one_off_left/total
             accuracy_right = num_correct_right/total
+            one_off_right = num_correct_one_off_right/total
 
             print(
-                f'\t\tOverall Loss: {loss} = {cumulative_loss}/{num_batches}')
+                f'\t\tOverall Loss: {loss}')
             print(
-                f'\t\tLeft Loss: {left_loss} = {left_cumulative_loss}/{num_batches}')
+                f'\t\tLeft Loss: {left_loss}')
             print(
-                f'\t\tRight Loss: {right_loss} = {right_cumulative_loss}/{num_batches}')
+                f'\t\tRight Loss: {right_loss}')
 
             print(f'\t\tOverall Accuracy: {accuracy} = {num_correct}/{total}')
             print(
+                f'\t\tOverall One-Off Accuracy: {one_off_left} = {num_correct_one_off_left}/{total}')
+            print(
                 f'\t\tLeft Accuracy: {accuracy_left} = {num_correct_left}/{total}')
             print(
+                f'\t\tLeft One-Off Accuracy: {one_off_left} = {num_correct_one_off_left}/{total}')
+            print(
                 f'\t\tRight Accuracy: {accuracy_right} = {num_correct_right}/{total}')
+            print(
+                f'\t\tLeft One-Off Accuracy: {one_off_right} = {num_correct_one_off_right}/{total}')
 
             if sv_roc:
                 # TODO fix save roc
@@ -260,7 +388,7 @@ class Trainer():
                 all_labels = torch.tensor([])
 
                 for batch_tensor, batch_labels in dataloader:
-                    
+
                     # batch_tensor = batch_tensor.to(self.gpu_id)
                     batch_tensor = batch_tensor
                     # check batch labels type
@@ -281,7 +409,7 @@ class Trainer():
                 left_cumulative_loss += self.loss_fn(left_preds, left_labels)
                 right_cumulative_loss += self.loss_fn(
                     right_preds, right_labels)
-                
+
                 if sv_roc:
                     softmax = nn.Softmax(dim=1)
                     all_preds = torch.cat(
@@ -290,18 +418,18 @@ class Trainer():
 
                 # assuming decision boundary to be 0.5
                 total += batch_labels.size(0)
-                
+
 #                 num_correct_left += (torch.argmax(left_preds, dim=0)
 #                                      == torch.argmax(left_labels, dim=0)).sum().item()
 
 #                 num_correct_right += (torch.argmax(right_preds, dim=0)
 #                                       == torch.argmax(right_labels, dim=0)).sum().item()
 
+            num_correct_left += (torch.argmax(left_preds, dim=0)
+                                 == left_labels).sum().item()
 
-            num_correct_left += (torch.argmax(left_preds, dim=0) == left_labels).sum().item()
-
-                
-            num_correct_right += (torch.argmax(right_preds, dim=0) == right_labels).sum().item()
+            num_correct_right += (torch.argmax(right_preds,
+                                  dim=0) == right_labels).sum().item()
 
             loss = cumulative_loss/num_batches
             left_loss = left_cumulative_loss / num_batches
