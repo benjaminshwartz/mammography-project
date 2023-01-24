@@ -69,7 +69,7 @@ class MammographyDataset(Dataset):
         return tensor.float(), labels
 
     def mean_and_variance(self):
-
+        print('Starting mean_and_variance')
         N = 0
         CC = 0
         MLO = 0
@@ -101,7 +101,7 @@ class MammographyDataset(Dataset):
 
         std_CC = torch.sqrt(var_CC)
         std_MLO = torch.sqrt(var_MLO)
-
+        print('Finishing mean_and_variance')
         return (mean_CC,std_CC),(mean_MLO,std_MLO)
 
 

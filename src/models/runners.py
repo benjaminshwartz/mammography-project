@@ -121,19 +121,20 @@ class Trainer():
                 self._save_checkpoint(epoch)
             if self.metric_interval > 0 and epoch % self.metric_interval == 0:
                 print("\tTrain Metrics (Training Data):")
-                self.evaluate(self.train_data, sv_roc=sv_roc)
+                self.evaluate(None, sv_roc=sv_roc)
                 if self.test_data != None:
                     print("\tTest Metrics:")
                     self.evaluate(self.test_data)
                     self.model.train()
             elif epoch == num_epochs:  # Evaluate final model
                 print("\tTrain Metrics:")
-                self.evaluate(self.train_data, sv_roc=sv_roc)
-                # if self.validation_data != None:
-                #     print("\tTest Metrics:")
-                #     self.evaluate(self.validation_data)
+                self.evaluate(None, sv_roc=sv_roc)
+                if self.test_data != None:
+                    print("\tTest Metrics:")
+                    self.evaluate(self.test_data)
+                    self.model.train()
 
-    def evaluate(self, dataloader: DataLoader, sv_roc=False):
+    def evaluate(self, dataloader: DataLoader = None, sv_roc=False):
 
         with torch.no_grad():
             self.model.eval()
@@ -148,11 +149,33 @@ class Trainer():
             num_correct_one_off_right = 0
             total = 0
             # num_batches = len(dataloader)
-            num_batches = len(predicted_output)
+            # num_batches = len(predicted_output)
             # all_preds = []  # torch.tensor([]).to(self.gpu_id)
 
-            predicted_output = torch.vstack(self.curr_preds_lst)
-            labels = torch.vstack(self.curr_labels_lst).long()
+            if dataloader is None:
+                predicted_output = torch.vstack(self.curr_preds_lst)
+                labels = torch.vstack(self.curr_labels_lst).long()
+            else:
+                pred_lst = []
+                label_lst = []
+                for batch_tensor, batch_labels in dataloader:
+
+                    batch_tensor = batch_tensor.to(self.gpu_id)
+                    # we want batch_labels.shape = B, 5, 2
+                    # we want predicted_output = B, 5, 2
+                    batch_labels = batch_labels.to(self.gpu_id).long()
+
+                    predicted_output = self.model(batch_tensor).to(self.gpu_id)
+                    pred_lst.append(predicted_output)
+
+                    batch_labels = batch_labels.long()
+                    batch_labels = torch.reshape(
+                        batch_labels, (predicted_output.shape[0], 2)).to(self.gpu_id)
+                    label_lst.append(batch_labels)
+
+                predicted_output = torch.vstack(pred_lst)
+                labels = torch.vstack(label_lst).long()
+
 
             left_preds = predicted_output[:, :, 0].to(self.gpu_id)
             right_preds = predicted_output[:, :, 1].to(self.gpu_id)
@@ -170,14 +193,15 @@ class Trainer():
                 pass
             else:
                 pass
+                
             # print(f'THIS IS THE RIGHT LABEL: {right_labels}')
-            print(f'THIS IS THE RIGHT PREDICTED LABEL: {right_preds}')
+            # print(f'THIS IS THE RIGHT PREDICTED LABEL: {right_preds}')
             # print('##################################')
             # print(f'THIS IS THE LEFT LABEL: {left_labels}')
-            print(f'THIS IS THE LEFT PREDICTED LABEL: {left_preds}')
+            # print(f'THIS IS THE LEFT PREDICTED LABEL: {left_preds}')
             # print('++++++++++++++++++++++++++++++++++++++++++')
             total += len(left_labels)
-            print(f'TOTAL NUMBER: {total}')
+            # print(f'TOTAL NUMBER: {total}')
 
             # num_correct_left += (torch.argmax(left_preds, dim=0)
             #                      == torch.argmax(left_labels, dim=0)).sum().item()
@@ -186,12 +210,12 @@ class Trainer():
             #                       == torch.argmax(right_labels, dim=0)).sum().item()
             left_positions = torch.argmax(left_preds, dim=1)
             right_positions = torch.argmax(right_preds, dim=1)
-            print(f'LEFT PREDS: {left_positions}')
-            print(f'RIGHT PREDS: {right_positions}')
-            print('-------------------------------------')
-            print(f'LEFT LABELS: {left_labels}')
-            print(f'RIGHT LABELS: {right_labels}')
-            print('--------------------------------------')
+            # print(f'LEFT PREDS: {left_positions}')
+            # print(f'RIGHT PREDS: {right_positions}')
+            # print('-------------------------------------')
+            # print(f'LEFT LABELS: {left_labels}')
+            # print(f'RIGHT LABELS: {right_labels}')
+            # print('--------------------------------------')
 
             correct_left_lst = (left_positions == left_labels)
             correct_right_lst = (right_positions == right_labels)
@@ -205,13 +229,13 @@ class Trainer():
             num_correct_left = correct_left_lst.sum().item()
             num_correct_one_off_left = one_off_left_lst.sum().item()
 
-            print(f'NUMBER CORRECT STATED LEFT: {num_correct_left}')
+            # print(f'NUMBER CORRECT STATED LEFT: {num_correct_left}')
 
             num_correct_right = correct_right_lst.sum().item()
             num_correct_one_off_right = one_off_right_lst.sum().item()
 
-            print(f'NUMBER CORRECT STATED RIGHT: {num_correct_right}')
-            print('##################################')
+            # print(f'NUMBER CORRECT STATED RIGHT: {num_correct_right}')
+            # print('##################################')
 
             # for i in range(len(left_positions)):
             #     if (left_positions[i] == left_labels[i]) and (right_positions[i] == right_labels[i]):
@@ -223,8 +247,8 @@ class Trainer():
 
             # num_correct += ((torch.argmax(right_preds, dim=0) == right_labels) and (torch.argmax(left_preds, dim=0))).sum().item()
 
-            print(f'TOTAL NUM CORRECT: {num_correct}')
-            print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+            # print(f'TOTAL NUM CORRECT: {num_correct}')
+            # print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
 
             ########################################
             # for batch_tensor, batch_labels in dataloader:
@@ -346,18 +370,22 @@ class Trainer():
                 f'\t\tLeft Loss: {left_loss}')
             print(
                 f'\t\tRight Loss: {right_loss}')
+            print('------------------------------------------------')
 
             print(f'\t\tOverall Accuracy: {accuracy} = {num_correct}/{total}')
             print(
                 f'\t\tOverall One-Off Accuracy: {one_off_accuracy} = {num_one_off_correct}/{total}')
+            print('------------------------------------------------')
             print(
                 f'\t\tLeft Accuracy: {accuracy_left} = {num_correct_left}/{total}')
             print(
                 f'\t\tLeft One-Off Accuracy: {one_off_left} = {num_correct_one_off_left}/{total}')
+            print('------------------------------------------------')
             print(
                 f'\t\tRight Accuracy: {accuracy_right} = {num_correct_right}/{total}')
             print(
-                f'\t\tLeft One-Off Accuracy: {one_off_right} = {num_correct_one_off_right}/{total}')
+                f'\t\tRight One-Off Accuracy: {one_off_right} = {num_correct_one_off_right}/{total}')
+            print('------------------------------------------------')
 
             if sv_roc:
                 # TODO fix save roc
