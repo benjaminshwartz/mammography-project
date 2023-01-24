@@ -194,6 +194,7 @@ class Trainer():
             else:
                 pass
                 
+                
             # print(f'THIS IS THE RIGHT LABEL: {right_labels}')
             # print(f'THIS IS THE RIGHT PREDICTED LABEL: {right_preds}')
             # print('##################################')
@@ -384,8 +385,7 @@ class Trainer():
             print(
                 f'\t\tRight Accuracy: {accuracy_right} = {num_correct_right}/{total}')
             print(
-                f'\t\tRight One-Off Accuracy: {one_off_right} = {num_correct_one_off_right}/{total}')
-            print('------------------------------------------------')
+                f'\t\Right One-Off Accuracy: {one_off_right} = {num_correct_one_off_right}/{total}')
 
             if sv_roc:
                 # TODO fix save roc
