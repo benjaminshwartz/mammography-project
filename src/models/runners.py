@@ -121,19 +121,20 @@ class Trainer():
                 self._save_checkpoint(epoch)
             if self.metric_interval > 0 and epoch % self.metric_interval == 0:
                 print("\tTrain Metrics (Training Data):")
-                self.evaluate(self.train_data, sv_roc=sv_roc)
+                self.evaluate(None, sv_roc=sv_roc)
                 if self.test_data != None:
                     print("\tTest Metrics:")
                     self.evaluate(self.test_data)
                     self.model.train()
             elif epoch == num_epochs:  # Evaluate final model
                 print("\tTrain Metrics:")
-                self.evaluate(self.train_data, sv_roc=sv_roc)
-                # if self.validation_data != None:
-                #     print("\tTest Metrics:")
-                #     self.evaluate(self.validation_data)
+                self.evaluate(None, sv_roc=sv_roc)
+                if self.test_data != None:
+                    print("\tTest Metrics:")
+                    self.evaluate(self.test_data)
+                    self.model.train()
 
-    def evaluate(self, dataloader: DataLoader, sv_roc=False):
+    def evaluate(self, dataloader: DataLoader = None, sv_roc=False):
 
         with torch.no_grad():
             self.model.eval()
@@ -151,8 +152,30 @@ class Trainer():
             num_batches = len(predicted_output)
             # all_preds = []  # torch.tensor([]).to(self.gpu_id)
 
-            predicted_output = torch.vstack(self.curr_preds_lst)
-            labels = torch.vstack(self.curr_labels_lst).long()
+            if dataloader is not None:
+                predicted_output = torch.vstack(self.curr_preds_lst)
+                labels = torch.vstack(self.curr_labels_lst).long()
+            else:
+                pred_lst = []
+                label_lst = []
+                for batch_tensor, batch_labels in dataloader:
+
+                    batch_tensor = batch_tensor.to(self.gpu_id)
+                    # we want batch_labels.shape = B, 5, 2
+                    # we want predicted_output = B, 5, 2
+                    batch_labels = batch_labels.to(self.gpu_id).long()
+
+                    predicted_output = self.model(batch_tensor).to(self.gpu_id)
+                    pred_lst.append(predicted_output)
+
+                    batch_labels = batch_labels.long()
+                    batch_labels = torch.reshape(
+                        batch_labels, (predicted_output.shape[0], 2)).to(self.gpu_id)
+                    label_lst.append(batch_labels)
+
+                predicted_output = torch.vstack(pred_lst)
+                labels = torch.vstack(label_lst).long()
+
 
             left_preds = predicted_output[:, :, 0].to(self.gpu_id)
             right_preds = predicted_output[:, :, 1].to(self.gpu_id)
@@ -170,6 +193,7 @@ class Trainer():
                 pass
             else:
                 pass
+                
             # print(f'THIS IS THE RIGHT LABEL: {right_labels}')
             print(f'THIS IS THE RIGHT PREDICTED LABEL: {right_preds}')
             # print('##################################')
@@ -357,7 +381,7 @@ class Trainer():
             print(
                 f'\t\tRight Accuracy: {accuracy_right} = {num_correct_right}/{total}')
             print(
-                f'\t\tLeft One-Off Accuracy: {one_off_right} = {num_correct_one_off_right}/{total}')
+                f'\t\tRight One-Off Accuracy: {one_off_right} = {num_correct_one_off_right}/{total}')
 
             if sv_roc:
                 # TODO fix save roc
