@@ -44,5 +44,5 @@ def main(batch_size: int = 1,device: str = 'cpu', sequential : bool = False,spli
 
 
 if __name__ == "__main__":
-    main()
+    main(batch_size = 2, device = 'cuda')
 
