@@ -38,16 +38,17 @@ class MammographyDataset(Dataset):
         
         #Sample Training path
         # path = 'dv'
-        self.path = 'processed'
+        # self.path = 'processed'
         
         #Local path to all data
         # print(f'ID: {id}')
         # path = 'all_data'
+        # path = 'processed'
         
-        LCC = pickle.load((open(f'{path}/{id}/LCC.pt','rb')))
-        LMLO = pickle.load((open(f'{path}/{id}/LMLO.pt','rb')))
-        RCC = pickle.load((open(f'{path}/{id}/RCC_flipped.pt','rb')))
-        RMLO = pickle.load((open(f'{path}/{id}/RMLO_flipped.pt','rb')))
+        LCC = pickle.load((open(f'{self.path}/{id}/LCC.pt','rb')))
+        LMLO = pickle.load((open(f'{self.path}/{id}/LMLO.pt','rb')))
+        RCC = pickle.load((open(f'{self.path}/{id}/RCC_flipped.pt','rb')))
+        RMLO = pickle.load((open(f'{self.path}/{id}/RMLO_flipped.pt','rb')))
 
         LCC = (LCC - self.CC_mean)/self.CC_std
         LMLO = (LMLO - self.MLO_mean)/self.MLO_std
