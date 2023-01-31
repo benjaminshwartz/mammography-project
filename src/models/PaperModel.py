@@ -9,7 +9,7 @@ from data import get_train_test_dataloader
 # from mammography_project.src.models.MyClasses import PaperModel 
 # from mammography_project.src.models.BatchedMyClasses import PaperModel 
 # from mammography_project.src.models.runners import Trainer
-from BatchedMyClasses import PaperModel 
+from BatchedMyCLasses import PaperModel 
 from runners import Trainer
 
 
