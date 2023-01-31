@@ -19,7 +19,7 @@ class MammographyDataset(Dataset):
         self.labels = labels
         #### REMEMBER TO CHANGE SELF.PATH WHEN CHANGING BETWEEN SMALL AND LARGE DATA SET
         
-        self.path = 'dv_data'
+        self.path = 'dv'
         #self.path = 'all_data'
         # print('finished initilizing the Mamographydataset class')
         CC_stats, MLO_stats = self.mean_and_variance()
@@ -37,7 +37,7 @@ class MammographyDataset(Dataset):
         # path = 'smalldata'
         
         #Sample Training path
-        path = 'dv_data'
+        path = 'dv'
         
         #Local path to all data
         # print(f'ID: {id}')
