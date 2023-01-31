@@ -16,6 +16,7 @@ def import_data():
     download_area = 'dv_data' 
     paginator = s3.get_paginator('list_objects_v2')
     pages = paginator.paginate(Bucket= bucket, Prefix= key_prefix)
+    sagemaker_session.download_data(,bucket,)
     file_num = 0
     page_num = 0
     for page in pages:
