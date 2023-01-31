@@ -99,6 +99,7 @@ class Trainer():
     def train(self, num_epochs: int, sv_roc: bool = False):
         self.model.share_memory()
         for epoch in range(1, num_epochs + 1):
+            
             # Trying to multiprocess
             # processes = []
             # ctx = mp.get_context('spawn')
