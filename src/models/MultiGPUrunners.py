@@ -104,19 +104,6 @@ class Trainer():
         self.model.share_memory()
         for epoch in range(1, num_epochs + 1):
 
-            # Trying to multiprocess
-            # processes = []
-            # ctx = mp.get_context('spawn')
-            # for i in range(os.cpu_count()):
-            #     print(f'trying to make process {i}')
-            #     p = ctx.Process(target=self._run_epoch, args=(epoch,))
-            #     print(f'have made process {i}')
-            #     p.start()
-            #     processes.append(p)
-            # print('out of loop')
-            # for p in processes:
-            #     p.join()
-            # No multiprocess
 
             self._run_epoch(epoch)
 
