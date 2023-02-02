@@ -16,13 +16,9 @@ from torchmetrics.classification import BinaryROC
 from matplotlib import pyplot as plt
 import boto3 as boto
 
-#modules important for multiprocessing
+# modules important for multiprocessing
 
 from torch.nn.parallel import DistributedDataParallel as DDP
-
-
-
-
 
 
 class Trainer():
@@ -107,7 +103,7 @@ class Trainer():
     def train(self, num_epochs: int, sv_roc: bool = False):
         self.model.share_memory()
         for epoch in range(1, num_epochs + 1):
-            
+
             # Trying to multiprocess
             # processes = []
             # ctx = mp.get_context('spawn')
@@ -185,7 +181,6 @@ class Trainer():
                 predicted_output = torch.vstack(pred_lst)
                 labels = torch.vstack(label_lst).long()
 
-
             left_preds = predicted_output[:, :, 0].to(self.gpu_id)
             right_preds = predicted_output[:, :, 1].to(self.gpu_id)
 
@@ -202,8 +197,7 @@ class Trainer():
                 pass
             else:
                 pass
-                
-                
+
             # print(f'THIS IS THE RIGHT LABEL: {right_labels}')
             # print(f'THIS IS THE RIGHT PREDICTED LABEL: {right_preds}')
             # print('##################################')
@@ -230,11 +224,10 @@ class Trainer():
             correct_left_lst = (left_positions == left_labels)
             correct_right_lst = (right_positions == right_labels)
 
-
             one_off_left_lst = torch.isclose(left_positions, left_labels,
-                              rtol=0, atol=1, equal_nan=False)
+                                             rtol=0, atol=1, equal_nan=False)
             one_off_right_lst = torch.isclose(right_positions, right_labels,
-                              rtol=0, atol=1, equal_nan=False)
+                                              rtol=0, atol=1, equal_nan=False)
 
             num_correct_left = correct_left_lst.sum().item()
             num_correct_one_off_left = one_off_left_lst.sum().item()
@@ -244,6 +237,11 @@ class Trainer():
             num_correct_right = correct_right_lst.sum().item()
             num_correct_one_off_right = one_off_right_lst.sum().item()
 
+            num_binary_correct_left = (
+                left_positions >= 1) == (left_labels >= 1)
+            num_binary_correct_right = (
+                right_positions >= 1) == (right_labels >= 1)
+
             # print(f'NUMBER CORRECT STATED RIGHT: {num_correct_right}')
             # print('##################################')
 
@@ -251,9 +249,14 @@ class Trainer():
             #     if (left_positions[i] == left_labels[i]) and (right_positions[i] == right_labels[i]):
             #         num_correct += 1
 
-            num_correct = torch.logical_and(correct_left_lst , correct_right_lst).sum().item()
+            num_correct = torch.logical_and(
+                correct_left_lst, correct_right_lst).sum().item()
 
-            num_one_off_correct = torch.logical_and(one_off_left_lst, one_off_right_lst).sum().item()
+            num_one_off_correct = torch.logical_and(
+                one_off_left_lst, one_off_right_lst).sum().item()
+
+            num_binary_correct = torch.logical_and(
+                num_binary_correct_left, num_binary_correct_right).sum().item()
 
             # num_correct += ((torch.argmax(right_preds, dim=0) == right_labels) and (torch.argmax(left_preds, dim=0))).sum().item()
 
@@ -368,10 +371,13 @@ class Trainer():
             left_loss = left_cumulative_loss
             right_loss = right_cumulative_loss
             accuracy = num_correct/total
+            binary_acc = num_binary_correct/total
             one_off_accuracy = num_one_off_correct/total
             accuracy_left = num_correct_left/total
+            binary_acc_left = num_binary_correct_left/total
             one_off_left = num_correct_one_off_left/total
             accuracy_right = num_correct_right/total
+            binary_acc_right = num_binary_correct_right/total
             one_off_right = num_correct_one_off_right/total
 
             print(
@@ -384,17 +390,23 @@ class Trainer():
 
             print(f'\t\tOverall Accuracy: {accuracy} = {num_correct}/{total}')
             print(
+                f'\t\tOverall Binary Accuracy: {binary_acc} = {num_binary_correct}/{total}')
+            print(
                 f'\t\tOverall One-Off Accuracy: {one_off_accuracy} = {num_one_off_correct}/{total}')
             print('------------------------------------------------')
             print(
                 f'\t\tLeft Accuracy: {accuracy_left} = {num_correct_left}/{total}')
+            print(
+                f'\t\tLeft Binary Accuracy: {binary_acc_left} = {num_binary_correct_left}/{total}')
             print(
                 f'\t\tLeft One-Off Accuracy: {one_off_left} = {num_correct_one_off_left}/{total}')
             print('------------------------------------------------')
             print(
                 f'\t\tRight Accuracy: {accuracy_right} = {num_correct_right}/{total}')
             print(
-                f'\t\Right One-Off Accuracy: {one_off_right} = {num_correct_one_off_right}/{total}')
+                f'\t\tRight Binary Accuracy: {binary_acc_right} = {num_binary_correct_right}/{total}')
+            print(
+                f'\t\tRight One-Off Accuracy: {one_off_right} = {num_correct_one_off_right}/{total}')
 
             if sv_roc:
                 # TODO fix save roc
