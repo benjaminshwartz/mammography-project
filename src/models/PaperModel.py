@@ -40,9 +40,15 @@ def main(rank: int, world_size: int, batch_size: int = 1,
     training_gen, test_gen = get_train_test_dataloader(
         split=split, sequential=sequential, batch=batch_size)
     print('Trying Batched')
+    #### Classification ####
+    # model = PaperModel(x_amount=7, y_amount=7, x_con=3500, y_con=2800,
+    #                    data_shape=(batch_size, 4, 50, 256), hidden_output_fnn=1024, dropout=.5,
+    #                    number_of_layers=10, num_layers_global=10, setting='C')
+
+    #### Regression ####
     model = PaperModel(x_amount=7, y_amount=7, x_con=3500, y_con=2800,
                        data_shape=(batch_size, 4, 50, 256), hidden_output_fnn=1024, dropout=.5,
-                       number_of_layers=10, num_layers_global=10)
+                       number_of_layers=10, num_layers_global=10, setting='R')
 
     model = model.to(device)
 
@@ -53,7 +59,7 @@ def main(rank: int, world_size: int, batch_size: int = 1,
     #     model.parameters(), lr=0.001, weight_decay=0.0001)
 
     ce_loss = torch.nn.CrossEntropyLoss()
-    mse_loss = torch.nn.MSELoss()
+    # mse_loss = torch.nn.MSELoss()
 
     trainer = Trainer(model=model, optimizer=adam_optimizer, loss_fn=ce_loss, gpu_id=rank, save_interval=10,
                       metric_interval=1, train_data=training_gen, test_data=test_gen)

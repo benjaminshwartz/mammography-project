@@ -99,7 +99,7 @@ class Trainer():
     def train(self, num_epochs: int, sv_roc: bool = False):
         self.model.share_memory()
         for epoch in range(1, num_epochs + 1):
-            
+
             # Trying to multiprocess
             # processes = []
             # ctx = mp.get_context('spawn')
@@ -170,227 +170,187 @@ class Trainer():
                     pred_lst.append(predicted_output)
 
                     batch_labels = batch_labels.long()
+                    # if str(self.loss_fn) == str(torch.nn.CrossEntropyLoss()):
                     batch_labels = torch.reshape(
                         batch_labels, (predicted_output.shape[0], 2)).to(self.gpu_id)
+                    # elif str(self.loss_fn) == str(torch.nn.MSELoss()):
+                    #     pass
+                    # else:
+                    #     assert False
                     label_lst.append(batch_labels)
 
                 predicted_output = torch.vstack(pred_lst)
                 labels = torch.vstack(label_lst).long()
 
+            left_labels = labels[:, 0].to(self.gpu_id)
+            right_labels = labels[:, 1].to(self.gpu_id)
+
+            total += len(left_labels)
 
             left_preds = predicted_output[:, :, 0].to(self.gpu_id)
             right_preds = predicted_output[:, :, 1].to(self.gpu_id)
 
-            left_labels = labels[:, 0].to(self.gpu_id)
-            right_labels = labels[:, 1].to(self.gpu_id)
+            if str(self.loss_fn) == str(torch.nn.CrossEntropyLoss()):
 
-            cumulative_loss += self.loss_fn(predicted_output, labels)
-            left_cumulative_loss += self.loss_fn(left_preds, left_labels)
-            right_cumulative_loss += self.loss_fn(
-                right_preds, right_labels)
+                left_positions = torch.argmax(left_preds, dim=1)
+                right_positions = torch.argmax(right_preds, dim=1)
+
+                loss = self.loss_fn(predicted_output, labels)
+                left_loss = self.loss_fn(left_preds, left_labels)
+                right_loss = self.loss_fn(right_preds, right_labels)
+
+                correct_left_lst = (left_positions == left_labels)
+                correct_right_lst = (right_positions == right_labels)
+
+                one_off_left_lst = torch.isclose(left_positions, left_labels,
+                                                 rtol=0, atol=1, equal_nan=False)
+                one_off_right_lst = torch.isclose(right_positions, right_labels,
+                                                  rtol=0, atol=1, equal_nan=False)
+
+                num_correct_left = correct_left_lst.sum().item()
+                num_correct_one_off_left = one_off_left_lst.sum().item()
+
+                num_correct_right = correct_right_lst.sum().item()
+                num_correct_one_off_right = one_off_right_lst.sum().item()
+
+                binary_correct_left_lst = (
+                    left_positions >= 1) == (left_labels >= 1)
+                binary_correct_right_lst = (
+                    right_positions >= 1) == (right_labels >= 1)
+
+                num_binary_correct_left = binary_correct_left_lst.sum().item()
+                num_binary_correct_right = binary_correct_right_lst.sum().item()
+
+                num_correct = torch.logical_and(
+                    correct_left_lst, correct_right_lst).sum().item()
+
+                num_one_off_correct = torch.logical_and(
+                    one_off_left_lst, one_off_right_lst).sum().item()
+
+                num_binary_correct = torch.logical_and(
+                    binary_correct_left_lst, binary_correct_right_lst).sum().item()
+
+                accuracy = num_correct/total
+                binary_acc = num_binary_correct/total
+                one_off_accuracy = num_one_off_correct/total
+                accuracy_left = num_correct_left/total
+                binary_acc_left = num_binary_correct_left/total
+                one_off_left = num_correct_one_off_left/total
+                accuracy_right = num_correct_right/total
+                binary_acc_right = num_binary_correct_right/total
+                one_off_right = num_correct_one_off_right/total
+
+                print(
+                    f'\t\tOverall Loss: {loss}')
+                print(
+                    f'\t\tLeft Loss: {left_loss}')
+                print(
+                    f'\t\tRight Loss: {right_loss}')
+                print('------------------------------------------------')
+
+                print(
+                    f'\t\tOverall Accuracy: {accuracy} = {num_correct}/{total}')
+                print(
+                    f'\t\tOverall Binary Accuracy: {binary_acc} = {num_binary_correct}/{total}')
+                print(
+                    f'\t\tOverall One-Off Accuracy: {one_off_accuracy} = {num_one_off_correct}/{total}')
+                print('------------------------------------------------')
+                print(
+                    f'\t\tLeft Accuracy: {accuracy_left} = {num_correct_left}/{total}')
+                print(
+                    f'\t\tLeft Binary Accuracy: {binary_acc_left} = {num_binary_correct_left}/{total}')
+                print(
+                    f'\t\tLeft One-Off Accuracy: {one_off_left} = {num_correct_one_off_left}/{total}')
+                print('------------------------------------------------')
+                print(
+                    f'\t\tRight Accuracy: {accuracy_right} = {num_correct_right}/{total}')
+                print(
+                    f'\t\tRight Binary Accuracy: {binary_acc_right} = {num_binary_correct_right}/{total}')
+                print(
+                    f'\t\tRight One-Off Accuracy: {one_off_right} = {num_correct_one_off_right}/{total}')
+            elif str(self.loss_fn) == str(torch.nn.MSELoss()):
+
+                left_positions = torch.squeeze(left_preds)
+                right_positions = torch.squeeze(right_preds)
+
+                loss = self.loss_fn(predicted_output, labels)
+                left_loss = self.loss_fn(left_preds, left_labels)
+                right_loss = self.loss_fn(right_preds, right_labels)
+
+                mae_left = (left_positions - left_labels).abs().mean().item()
+                mae_right = (right_positions -
+                             right_labels).abs().mean().item()
+                mae_total = (mae_left + mae_right)/2
+
+                left_positions = torch.round(left_positions)
+                right_positions = torch.round(right_positions)
+
+                correct_left_lst = (left_positions == left_labels)
+                correct_right_lst = (right_positions == right_labels)
+
+                num_correct_left = correct_left_lst.sum().item()
+                num_correct_right = correct_right_lst.sum().item()
+                num_correct = torch.logical_and(
+                    correct_left_lst, correct_right_lst).sum().item()
+
+                accuracy = num_correct/total
+                accuracy_left = num_correct_left/total
+                accuracy_right = num_correct_right/total
+
+                binary_correct_left_lst = (
+                    left_positions >= 1) == (left_labels >= 1)
+                binary_correct_right_lst = (
+                    right_positions >= 1) == (right_labels >= 1)
+
+                num_binary_correct_left = binary_correct_left_lst.sum().item()
+                num_binary_correct_right = binary_correct_right_lst.sum().item()
+                num_binary_correct = torch.logical_and(
+                    binary_correct_left_lst, binary_correct_right_lst).sum().item()
+
+                binary_acc = num_binary_correct/total
+                binary_acc_left = num_binary_correct_left/total
+                binary_acc_right = num_binary_correct_right/total
+
+                print(
+                    f'\t\tOverall Mean Squared Error: {loss}')
+                print(
+                    f'\t\tLeft Mean Squared Error: {left_loss}')
+                print(
+                    f'\t\tRight Mean Squared Error: {right_loss}')
+                print('------------------------------------------------')
+
+                print(f'\t\tMean Absolute Error:  {mae_total}')
+
+                print(f'\t\tMean Absolute Error Left: {mae_left}')
+
+                print(f'\t\tMean Absolute Error Right: {mae_right}')
+
+                print('------------------------------------------------')
+
+                print(
+                    f'\t\Overall Accuracy: {accuracy} = {num_correct}/{total}')
+
+                print(
+                    f'\t\tOverall Accuracy Left: {accuracy_left} = {num_correct_left}/{total}')
+
+                print(
+                    f'\t\t Accuracy Right: {accuracy_right} = {num_correct_right}/{total}')
+
+                print('------------------------------------------------')
+
+                print(
+                    f'\t\tBinary Accuracy: {binary_acc} = {binary_acc}/{total}')
+
+                print(
+                    f'\t\tBinary Accuracy Left: {binary_acc_left} = {binary_acc_left}/{total}')
+
+                print(
+                    f'\t\tBinary Accuracy Right: {binary_acc_right} = {binary_acc_right}/{total}')
 
             if sv_roc:
                 # TODO fix roc curve
                 pass
             else:
-                pass
-                
-                
-            # print(f'THIS IS THE RIGHT LABEL: {right_labels}')
-            # print(f'THIS IS THE RIGHT PREDICTED LABEL: {right_preds}')
-            # print('##################################')
-            # print(f'THIS IS THE LEFT LABEL: {left_labels}')
-            # print(f'THIS IS THE LEFT PREDICTED LABEL: {left_preds}')
-            # print('++++++++++++++++++++++++++++++++++++++++++')
-            total += len(left_labels)
-            # print(f'TOTAL NUMBER: {total}')
-
-            # num_correct_left += (torch.argmax(left_preds, dim=0)
-            #                      == torch.argmax(left_labels, dim=0)).sum().item()
-
-            # num_correct_right += (torch.argmax(right_preds, dim=0)
-            #                       == torch.argmax(right_labels, dim=0)).sum().item()
-            left_positions = torch.argmax(left_preds, dim=1)
-            right_positions = torch.argmax(right_preds, dim=1)
-            # print(f'LEFT PREDS: {left_positions}')
-            # print(f'RIGHT PREDS: {right_positions}')
-            # print('-------------------------------------')
-            # print(f'LEFT LABELS: {left_labels}')
-            # print(f'RIGHT LABELS: {right_labels}')
-            # print('--------------------------------------')
-
-            correct_left_lst = (left_positions == left_labels)
-            correct_right_lst = (right_positions == right_labels)
-
-
-            one_off_left_lst = torch.isclose(left_positions, left_labels,
-                              rtol=0, atol=1, equal_nan=False)
-            one_off_right_lst = torch.isclose(right_positions, right_labels,
-                              rtol=0, atol=1, equal_nan=False)
-
-            num_correct_left = correct_left_lst.sum().item()
-            num_correct_one_off_left = one_off_left_lst.sum().item()
-
-            # print(f'NUMBER CORRECT STATED LEFT: {num_correct_left}')
-
-            num_correct_right = correct_right_lst.sum().item()
-            num_correct_one_off_right = one_off_right_lst.sum().item()
-
-            # print(f'NUMBER CORRECT STATED RIGHT: {num_correct_right}')
-            # print('##################################')
-
-            # for i in range(len(left_positions)):
-            #     if (left_positions[i] == left_labels[i]) and (right_positions[i] == right_labels[i]):
-            #         num_correct += 1
-
-            num_correct = torch.logical_and(correct_left_lst , correct_right_lst).sum().item()
-
-            num_one_off_correct = torch.logical_and(one_off_left_lst, one_off_right_lst).sum().item()
-
-            # num_correct += ((torch.argmax(right_preds, dim=0) == right_labels) and (torch.argmax(left_preds, dim=0))).sum().item()
-
-            # print(f'TOTAL NUM CORRECT: {num_correct}')
-            # print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-
-            ########################################
-            # for batch_tensor, batch_labels in dataloader:
-
-            #     ####### GPU RUNNING#####
-            #     batch_tensor = batch_tensor.to(self.gpu_id)
-            #     # we want batch_labels.shape = B, 5, 2
-            #     # we want predicted_output = B, 5, 2
-            #     batch_labels = batch_labels.to(self.gpu_id).long()
-
-            #     predicted_output = self.model(batch_tensor).to(self.gpu_id)
-            #     left_preds = predicted_output[:, :, 0].to(self.gpu_id)
-            #     right_preds = predicted_output[:, :, 1].to(self.gpu_id)
-
-            #     batch_labels = batch_labels.long()
-            #     batch_labels = torch.reshape(
-            #         batch_labels, (predicted_output.shape[0], 2)).to(self.gpu_id)
-            #     left_labels = batch_labels[:, 0].to(self.gpu_id)
-            #     right_labels = batch_labels[:, 1].to(self.gpu_id)
-
-            #     cumulative_loss += self.loss_fn(predicted_output, batch_labels)
-            #     left_cumulative_loss += self.loss_fn(left_preds, left_labels)
-            #     right_cumulative_loss += self.loss_fn(
-            #         right_preds, right_labels)
-
-            #     if sv_roc:
-            #         # TODO fix roc curve
-            #         pass
-            #     else:
-            #         pass
-            #     # print(f'THIS IS THE RIGHT LABEL: {right_labels}')
-            #     print(f'THIS IS THE RIGHT PREDICTED LABEL: {right_preds}')
-            #     # print('##################################')
-            #     # print(f'THIS IS THE LEFT LABEL: {left_labels}')
-            #     print(f'THIS IS THE LEFT PREDICTED LABEL: {left_preds}')
-            #     # print('++++++++++++++++++++++++++++++++++++++++++')
-            #     total += len(left_labels)
-            #     print(f'TOTAL NUMBER: {total}')
-
-            #     # num_correct_left += (torch.argmax(left_preds, dim=0)
-            #     #                      == torch.argmax(left_labels, dim=0)).sum().item()
-
-            #     # num_correct_right += (torch.argmax(right_preds, dim=0)
-            #     #                       == torch.argmax(right_labels, dim=0)).sum().item()
-            #     left_positions = torch.argmax(left_preds, dim=1)
-            #     right_positions = torch.argmax(right_preds, dim=1)
-            #     print(f'LEFT PREDS: {left_positions}')
-            #     print(f'RIGHT PREDS: {right_positions}')
-            #     print('-------------------------------------')
-            #     print(f'LEFT LABELS: {left_labels}')
-            #     print(f'RIGHT LABELS: {right_labels}')
-            #     print('--------------------------------------')
-
-            #     num_correct_left += (left_positions ==
-            #                          left_labels).sum().item()
-            #     num_correct_one_off_left += torch.isclose(
-            #         left_positions, left_labels, rtol=0, atol=1, equal_nan=False).sum().item()
-
-            #     print(f'NUMBER CORRECT STATED LEFT: {num_correct_left}')
-
-            #     num_correct_right += (right_positions ==
-            #                           right_labels).sum().item()
-            #     num_correct_one_off_right += torch.isclose(
-            #         right_positions, right_labels, rtol=0, atol=1, equal_nan=False).sum().item()
-
-            #     print(f'NUMBER CORRECT STATED RIGHT: {num_correct_right}')
-            #     print('##################################')
-
-            #     for i in range(len(left_positions)):
-            #         if (left_positions[i] == left_labels[i]) and (right_positions[i] == right_labels[i]):
-            #             num_correct += 1
-
-            #     # num_correct += ((torch.argmax(right_preds, dim=0) == right_labels) and (torch.argmax(left_preds, dim=0))).sum().item()
-
-            #     print(f'TOTAL NUM CORRECT: {num_correct}')
-            #     print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-
-            # loss = cumulative_loss/num_batches
-            # left_loss = left_cumulative_loss / num_batches
-            # right_loss = right_cumulative_loss / num_batches
-            # accuracy = num_correct/total
-            # accuracy_left = num_correct_left/total
-            # one_off_left = num_correct_one_off_left/total
-            # accuracy_right = num_correct_right/total
-            # one_off_right = num_correct_one_off_right/total
-
-            # print(
-            #     f'\t\tOverall Loss: {loss} = {cumulative_loss}/{num_batches}')
-            # print(
-            #     f'\t\tLeft Loss: {left_loss} = {left_cumulative_loss}/{num_batches}')
-            # print(
-            #     f'\t\tRight Loss: {right_loss} = {right_cumulative_loss}/{num_batches}')
-
-            # print(f'\t\tOverall Accuracy: {accuracy} = {num_correct}/{total}')
-            # print(
-            #     f'\t\tLeft Accuracy: {accuracy_left} = {num_correct_left}/{total}')
-            # print(
-            #     f'\t\tLeft One-Off Accuracy: {one_off_left} = {num_correct_one_off_left}/{total}')
-            # print(
-            #     f'\t\tRight Accuracy: {accuracy_right} = {num_correct_right}/{total}')
-            # print(
-            #     f'\t\tLeft One-Off Accuracy: {one_off_right} = {num_correct_one_off_right}/{total}')
-
-            ########################################
-
-            loss = cumulative_loss
-            left_loss = left_cumulative_loss
-            right_loss = right_cumulative_loss
-            accuracy = num_correct/total
-            one_off_accuracy = num_one_off_correct/total
-            accuracy_left = num_correct_left/total
-            one_off_left = num_correct_one_off_left/total
-            accuracy_right = num_correct_right/total
-            one_off_right = num_correct_one_off_right/total
-
-            print(
-                f'\t\tOverall Loss: {loss}')
-            print(
-                f'\t\tLeft Loss: {left_loss}')
-            print(
-                f'\t\tRight Loss: {right_loss}')
-            print('------------------------------------------------')
-
-            print(f'\t\tOverall Accuracy: {accuracy} = {num_correct}/{total}')
-            print(
-                f'\t\tOverall One-Off Accuracy: {one_off_accuracy} = {num_one_off_correct}/{total}')
-            print('------------------------------------------------')
-            print(
-                f'\t\tLeft Accuracy: {accuracy_left} = {num_correct_left}/{total}')
-            print(
-                f'\t\tLeft One-Off Accuracy: {one_off_left} = {num_correct_one_off_left}/{total}')
-            print('------------------------------------------------')
-            print(
-                f'\t\tRight Accuracy: {accuracy_right} = {num_correct_right}/{total}')
-            print(
-                f'\t\Right One-Off Accuracy: {one_off_right} = {num_correct_one_off_right}/{total}')
-
-            if sv_roc:
-                # TODO fix save roc
-                # Trainer.save_roc(all_preds, all_labels)
                 pass
 
         self.model.train()
