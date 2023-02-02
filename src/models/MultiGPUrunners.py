@@ -104,20 +104,6 @@ class Trainer():
         self.model.share_memory()
         for epoch in range(1, num_epochs + 1):
 
-            # Trying to multiprocess
-            # processes = []
-            # ctx = mp.get_context('spawn')
-            # for i in range(os.cpu_count()):
-            #     print(f'trying to make process {i}')
-            #     p = ctx.Process(target=self._run_epoch, args=(epoch,))
-            #     print(f'have made process {i}')
-            #     p.start()
-            #     processes.append(p)
-            # print('out of loop')
-            # for p in processes:
-            #     p.join()
-            # No multiprocess
-
             self._run_epoch(epoch)
 
             if self.save_interval > 0 and epoch % self.save_interval == 0 and self.gpu_id == 0:
@@ -283,28 +269,20 @@ class Trainer():
                 mae_right = (right_positions -
                              right_labels).abs().mean().item()
                 mae_total = (mae_left + mae_right)/2
-                mse_total = torch.square(
-                    left_positions-right_labels).mean().item()
 
                 print(
-                    f'\t\tOverall Loss: {loss}')
+                    f'\t\tOverall Mean Squared Error: {loss}')
                 print(
-                    f'\t\tLeft Loss: {left_loss}')
+                    f'\t\tLeft Mean Squared Error: {left_loss}')
                 print(
-                    f'\t\tRight Loss: {right_loss}')
+                    f'\t\tRight Mean Squared Error: {right_loss}')
                 print('------------------------------------------------')
 
                 print(f'\t\tMean Absolute Error:  {mae_total}')
 
-                print(f'\t\tMean Squared Error: {mse_total}')
+                print(f'\t\tMean Absolute Error Left: {mae_left}')
 
-                print('------------------------------------------------')
-
-                print(f'\t\tMAE Left: {mae_left}')
-
-                print('------------------------------------------------')
-
-                print(f'\t\tMAE Right: {mae_right}')
+                print(f'\t\tMean Absolute Error Right: {mae_right}')
 
             else:
                 assert False
