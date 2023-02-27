@@ -119,6 +119,7 @@ if __name__ == "__main__":
     print(f'world size {world_size}')
     mp.spawn(main, args=(world_size, batch_size,
              device, sequential, split, path))
+    print('done spawning')
 
     ###### SINGLE GPU RUN ########
     # main(batch_size = 2, device = 'cuda')
