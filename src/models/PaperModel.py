@@ -109,6 +109,7 @@ def single_main(batch_size: int = 1, device: str = 'cpu', sequential: bool = Fal
 if __name__ == "__main__":
 
     ##### MULTIGPU RUN ###########
+    print('trying to run')
     batch_size = 1
     device = 'cpu'
     sequential = False
