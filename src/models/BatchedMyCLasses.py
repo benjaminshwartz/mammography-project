@@ -272,7 +272,7 @@ class LocalEncoderBlock(nn.Module):
         attn_3, y = self.helper_thing(data[:, 3])
         x_tilda_matrix[:, 3] = y
 
-        dnn_output = torch.zeros(self.data_shape)
+        dnn_output = torch.zeros(self.data_shape).to(device)
         dnn_output[:, 0] = self.mlp_0.forward(attn_0)
         dnn_output[:, 1] = self.mlp_1.forward(attn_1)
         dnn_output[:, 2] = self.mlp_2.forward(attn_2)
