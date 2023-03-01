@@ -119,7 +119,7 @@ if __name__ == "__main__":
     world_size = torch.cuda.device_count()
     print(f'world size {world_size}')
     mp.spawn(main, args=(world_size, batch_size,
-             device, sequential, split, path), nprocs = world_size)
+             device, sequential, split, path,), nprocs = world_size)
     print('done spawning')
 
     ###### SINGLE GPU RUN ########
