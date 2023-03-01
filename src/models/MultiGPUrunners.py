@@ -88,6 +88,8 @@ class Trainer():
             batch_tensor = batch_tensor.to(self.gpu_id)
             batch_labels = batch_labels.to(self.gpu_id)
 
+            print(f'BATCH TENSOR DTYPE: {batch_tensor.dtype}')
+
             self._run_batch(batch_tensor, batch_labels.float())
             i += 1
             if i % 20 == 0:
