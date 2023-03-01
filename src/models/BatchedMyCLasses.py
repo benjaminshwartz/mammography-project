@@ -387,7 +387,7 @@ class ClassificationHead(nn.Module):
 
 class RegressionHead(nn.Module):
     def __init__(self, input_layer=1024, hidden_output_class=512, dropout=0.5):
-        super(ClassificationHead, self).__init__()
+        super(RegressionHead, self).__init__()
         self.ln1 = nn.LayerNorm(input_layer)
         self.fnn1 = nn.Linear(input_layer, hidden_output_class)
         self.dropout = nn.Dropout(dropout)
