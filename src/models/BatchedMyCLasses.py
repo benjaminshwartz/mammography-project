@@ -194,6 +194,8 @@ class EmbeddingBlock(nn.Module):
         batched_positional_encoding[:, 2] = summer_RCC
         batched_positional_encoding[:, 3] = summer_RMLO
 
+        print(f'THIS IS BATCHED POSITIONAL ENCODING LOCATION: {batched_positional_encoding.get_device()}')
+
         return batched_positional_encoding
 
 
