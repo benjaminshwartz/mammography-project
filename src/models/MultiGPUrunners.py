@@ -44,7 +44,7 @@ class Trainer():
 
         # self.model = model
         self.train_data = train_data
-        self.optimizer = optimizer.to(gpu_id)
+        self.optimizer = optimizer
         self.loss_fn = loss_fn
         self.gpu_id = gpu_id
         self.save_interval = save_interval
