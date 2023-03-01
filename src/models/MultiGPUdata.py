@@ -146,10 +146,10 @@ def get_train_test_dataset(split: tuple, sequential: bool, path: str = None, bat
     # dictionary = 'small_small_dic.pt'
     
     #Sample Dictionary
-    # dictionary = 'small_dic.pt'
+    dictionary = 'small_dic.pt'
     #
     #Real Dictionary
-    dictionary = 'label_dict.pt'
+    # dictionary = 'label_dict.pt'
 
     label_dic = pickle.load(open(dictionary, 'rb'))
     if sequential:
