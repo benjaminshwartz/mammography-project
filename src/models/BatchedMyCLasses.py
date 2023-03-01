@@ -221,9 +221,9 @@ class MLP(nn.Module):
 class LocalEncoderBlock(nn.Module):
     def __init__(self, data_shape, hidden_output_fnn1=1024, dropout=.5):
         super(LocalEncoderBlock, self).__init__()
-        self.device = 'cpu'
-        if torch.cuda.is_available():
-            self.device = 'cuda'
+        # self.device = 'cpu'
+        # if torch.cuda.is_available():
+        #     self.device = 'cuda'
 
         self.data_shape = data_shape
         # Layer norm over the H and W of each image
@@ -258,7 +258,7 @@ class LocalEncoderBlock(nn.Module):
         # data.to(self.device)
         device = data.get_device()
         x_tilda_matrix = torch.zeros(self.data_shape).to(device)
-        
+
         attn_0, y = self.helper_thing(data[:, 0])
         x_tilda_matrix[:, 0] = y
         attn_1, y = self.helper_thing(data[:, 1])
@@ -440,13 +440,15 @@ class RegressionHead(nn.Module):
 
 
 class PaperModel(nn.Module):
-    def __init__(self, x_amount=7, y_amount=7, x_con=3500, y_con=2800,
+    def __init__(self, rank, x_amount=7, y_amount=7, x_con=3500, y_con=2800,
                  data_shape=(10, 4, 50, 256), hidden_output_fnn=1024, dropout=.5,
                  number_of_layers=10, num_layers_global=10, setting='C'):
 
         assert setting in {'C', 'R'}
 
         super(PaperModel, self).__init__()
+
+        self.rank = rank
 
         self.embedding_block = EmbeddingBlock(batch=data_shape[0],
                                               x_amount=x_amount, y_amount=y_amount, x_con=x_con, y_con=y_con)
@@ -481,6 +483,8 @@ class PaperModel(nn.Module):
         #data = torch.reshape(data, (4,3500,2800))
         # here
         # print(f'THIS IS THE DATA SHAPE: {data.shape}')
+
+        data.to_device(self.rank)
 
         X = self.visual_transformer(data)
 
