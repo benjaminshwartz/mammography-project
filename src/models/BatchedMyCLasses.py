@@ -13,23 +13,25 @@ class PositionalEncoding(nn.Module):
         super(PositionalEncoding, self).__init__()
         self.batch_size, self.embedded_dim, self.position = data.shape
         self.dropout = nn.Dropout(p=dropout)
-        device = 'cpu'
-        if torch.cuda.is_available():
-            device = 'cuda'
+        # device = 'cpu'
+        # if torch.cuda.is_available():
+        #     device = 'cuda'
+
+        device = data.get_device()
 
         self.embedded_dim += 1  # adding one to embedded dim to take into account token prepend
 
-        # self.learned_embedding_vec = nn.Parameter(
-        #     torch.zeros(self.batch_size, 1, self.position)).to(device)
-        
         self.learned_embedding_vec = nn.Parameter(
-            torch.zeros(self.batch_size, 1, self.position))
-
-        # self.positional_matrix = torch.zeros(
-        #     self.embedded_dim, self.position).to(device)
+            torch.zeros(self.batch_size, 1, self.position)).to(device)
         
+        # self.learned_embedding_vec = nn.Parameter(
+        #     torch.zeros(self.batch_size, 1, self.position))
+
         self.positional_matrix = torch.zeros(
-            self.embedded_dim, self.position)
+            self.embedded_dim, self.position).to(device)
+        
+        # self.positional_matrix = torch.zeros(
+        #     self.embedded_dim, self.position)
 
         for pos in range(self.position):
             for i in range(int(self.embedded_dim/2)):
