@@ -454,6 +454,8 @@ class PaperModel(nn.Module):
 
         super(PaperModel, self).__init__()
 
+        print(f"THIS IS THE SUPPOSED RANK: {rank}")
+
         self.rank = rank
 
         self.embedding_block = EmbeddingBlock(batch=data_shape[0],
