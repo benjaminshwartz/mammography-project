@@ -321,6 +321,9 @@ class VisualTransformer(nn.Module):
             # print(f'This is {i} local attention run')
             i += 1
             x = blk(x)
+
+            x.to(data.get_device())
+            
         return x
 
 
