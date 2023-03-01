@@ -315,6 +315,7 @@ class VisualTransformer(nn.Module):
     def forward(self, data):
         # print('IN FORWARD OF VISUALTRANSFORMER LAYER')
         x = self.embedding_block.forward(data)
+        print(f'THIS IS THE LOCATION OF X: {x.get_device()}')
         # print(x.shape)
         i = 0
         for blk in self.blks:
@@ -322,8 +323,8 @@ class VisualTransformer(nn.Module):
             i += 1
             x = blk(x)
 
-            x.to(data.get_device())
-            
+
+
         return x
 
 
