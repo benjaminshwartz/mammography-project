@@ -256,7 +256,9 @@ class LocalEncoderBlock(nn.Module):
     def forward(self, data):
 
         # data.to(self.device)
-        x_tilda_matrix = torch.zeros(self.data_shape)
+        device = data.get_device()
+        x_tilda_matrix = torch.zeros(self.data_shape).to(device)
+        
         attn_0, y = self.helper_thing(data[:, 0])
         x_tilda_matrix[:, 0] = y
         attn_1, y = self.helper_thing(data[:, 1])
