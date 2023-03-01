@@ -28,17 +28,24 @@ def get_open_port():
 
 def ddp_setup(rank, world_size):
     # VERY UNSURE ABOUT THIS ASSIGNMENTS
+    print('in ddp_setup')
     os.environ['MASTER_ADDR'] = 'localhost'
     os.environ["MASTER_PORT"] = str(get_open_port())
+    print('starting init_process_group')
     init_process_group(backend="nccl", rank=rank, world_size=world_size)
+    print('finished init_process_group')
 
 
 def main(rank: int, world_size: int, batch_size: int = 1,
          device: str = 'cpu', sequential: bool = False, split: tuple = (.8, .2), path: str = None):
 
+    print('in main')
     ddp_setup(rank, world_size)
+    print('finished ddp_setup')
+    print('starting get_train_test_dataloader')
     training_gen, test_gen = get_train_test_dataloader(
         split=split, sequential=sequential, batch=batch_size)
+    print('finished get_train_test_dataloader')
     print('Trying Batched')
     #### Classification ####
     # model = PaperModel(x_amount=7, y_amount=7, x_con=3500, y_con=2800,
