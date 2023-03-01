@@ -301,10 +301,11 @@ class LocalEncoderBlock(nn.Module):
 
 class VisualTransformer(nn.Module):
     # embedding parameters, local encoder parameters
-    def __init__(self, x_amount=7, y_amount=7, x_con=3500, y_con=2800,
+    def __init__(self, rank, x_amount=7, y_amount=7, x_con=3500, y_con=2800,
                  data_shape=(10, 4, 50, 256), hidden_output_fnn=1024, dropout=.5,
                  number_of_layers=10):
         super(VisualTransformer, self).__init__()
+        self.rank = rank
         self.embedding_block = EmbeddingBlock(batch=data_shape[0],
                                               x_amount=x_amount, y_amount=y_amount, x_con=x_con, y_con=y_con)
         self.blks = nn.Sequential()
@@ -315,6 +316,7 @@ class VisualTransformer(nn.Module):
     def forward(self, data):
         # print('IN FORWARD OF VISUALTRANSFORMER LAYER')
         x = self.embedding_block.forward(data)
+        x.to(self.rank)
         print(f'THIS IS THE LOCATION OF X: {x.get_device()}')
         # print(x.shape)
         i = 0
@@ -457,7 +459,7 @@ class PaperModel(nn.Module):
         self.embedding_block = EmbeddingBlock(batch=data_shape[0],
                                               x_amount=x_amount, y_amount=y_amount, x_con=x_con, y_con=y_con)
 
-        self.visual_transformer = VisualTransformer(x_amount, y_amount, x_con, y_con,
+        self.visual_transformer = VisualTransformer(rank, x_amount, y_amount, x_con, y_con,
                                                     data_shape, hidden_output_fnn, dropout,
                                                     number_of_layers)
 
@@ -488,7 +490,7 @@ class PaperModel(nn.Module):
         # here
         # print(f'THIS IS THE DATA SHAPE: {data.shape}')
 
-        data.to(self.rank)
+
 
         X = self.visual_transformer(data)
 
