@@ -66,10 +66,10 @@ def main(rank: int, world_size: int, master_port: str, batch_size: int = 1,
     # adagrad_optimizer = torch.optim.Adagrad(
     #     model.parameters(), lr=0.001, weight_decay=0.0001)
 
-    ce_loss = torch.nn.CrossEntropyLoss()
-    # mse_loss = torch.nn.MSELoss()
+    # ce_loss = torch.nn.CrossEntropyLoss()
+    mse_loss = torch.nn.MSELoss()
 
-    trainer = Trainer(model=model, optimizer=adam_optimizer, loss_fn=ce_loss, gpu_id=rank, save_interval=10,
+    trainer = Trainer(model=model, optimizer=adam_optimizer, loss_fn= mse_loss, gpu_id=rank, save_interval=10,
                       metric_interval=1, train_data=training_gen, test_data=test_gen)
 
     s = datetime.now()

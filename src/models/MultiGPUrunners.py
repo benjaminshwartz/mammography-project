@@ -37,8 +37,8 @@ class Trainer():
         ############ GPU RUNNING ########
         # self.model = model.to(gpu_id)
         print(f'GPU ID: {gpu_id}')
-        # self.model = DDP(model, device_ids=[gpu_id])
-        self.model = DDP(model)
+        self.model = DDP(model.to(gpu_id), device_ids=[gpu_id])
+        # self.model = DDP(model)
 
         ############ CHANGING DATALOADER ############
 
