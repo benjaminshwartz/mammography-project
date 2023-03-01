@@ -149,7 +149,7 @@ def get_train_test_dataset(split: tuple, sequential: bool, path: str = None, bat
     #Sample Dictionary
     dictionary = './small_dic.pt'
     #
-    print(f'working directory {os.getcwd}')
+    print(f'working directory {os.getcwd()}')
     #Real Dictionary
     # dictionary = 'label_dict.pt'
 
