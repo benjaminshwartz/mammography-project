@@ -167,7 +167,9 @@ class EmbeddingBlock(nn.Module):
 
         # Reshape now makes data (batch_size,4,49,500,400)
 
-        batched_positional_encoding = torch.zeros(batch_size, 4, 50, 256)
+        print(f'THIS IS DATA LOCATION IN FORWARD OF EMBEDDING BLOCK: {data.get_device()}')
+
+        batched_positional_encoding = torch.zeros(batch_size, 4, 50, 256).to(data.get_device())
 
         LCC = batched_patches[:, 0]
         LMLO = batched_patches[:, 1]
