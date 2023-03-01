@@ -5,7 +5,7 @@ import pickle
 from datetime import datetime, timedelta
 
 
-from data import get_train_test_dataloader
+from MultiGPUdata import get_train_test_dataloader
 # from mammography_project.src.models.MyClasses import PaperModel
 # from mammography_project.src.models.BatchedMyClasses import PaperModel
 # from mammography_project.src.models.runners import Trainer
@@ -50,7 +50,8 @@ def main(rank: int, world_size: int, batch_size: int = 1,
                        data_shape=(batch_size, 4, 50, 256), hidden_output_fnn=1024, dropout=.5,
                        number_of_layers=10, num_layers_global=10, setting='R')
 
-    model = model.to(device)
+    # model = model.to(device)
+    # model = DDP(model, device_ids = device)
 
     adam_optimizer = torch.optim.Adam(
         model.parameters(), lr=0.0001, weight_decay=0.0001)

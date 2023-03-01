@@ -35,7 +35,7 @@ class Trainer():
         test_data: DataLoader = None
     ) -> None:
         ############ GPU RUNNING ########
-        self.model = model.to(gpu_id)
+        # self.model = model.to(gpu_id)
         self.model = DDP(self.model, device_ids=[gpu_id])
 
         ############ CHANGING DATALOADER ############
@@ -69,6 +69,7 @@ class Trainer():
         self.optimizer.step()
 
     def _run_epoch(self, epoch: int):
+        self.train_data.sampler.set_epoch(epoch)
         self.model.train()
         self.curr_preds_lst = []
         self.curr_labels_lst = []
