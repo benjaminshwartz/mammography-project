@@ -36,8 +36,8 @@ class PositionalEncoding(nn.Module):
             (self.batch_size, 1, 1))
 
     def forward(self, data):
-        print(f'self.learned_embedding_vec LOCATION: {self.learned_embedding_vec}')
-        print(f'data LOCATION: {data}')
+        print(f'self.learned_embedding_vec LOCATION: {self.learned_embedding_vec.get_device()}')
+        print(f'data LOCATION: {data.get_device()}')
         print('-----------------------------------------------')
         
         data = torch.hstack((self.learned_embedding_vec, data))
