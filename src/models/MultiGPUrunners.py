@@ -66,7 +66,7 @@ class Trainer():
         self.curr_labels_lst.append(batch_labels)
 
         # print(f'SHAPE OF LABELS: {batch_labels.shape}')
-        loss = self.loss_fn(predicted_output, batch_labels.long())
+        loss = self.loss_fn(predicted_output, batch_labels.float())
         loss.backward()
         self.optimizer.step()
 
