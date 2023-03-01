@@ -484,7 +484,7 @@ class PaperModel(nn.Module):
         # here
         # print(f'THIS IS THE DATA SHAPE: {data.shape}')
 
-        data.to_device(self.rank)
+        data.to(self.rank)
 
         X = self.visual_transformer(data)
 
