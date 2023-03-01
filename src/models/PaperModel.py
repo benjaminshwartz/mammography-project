@@ -26,21 +26,21 @@ def get_open_port():
         return s.getsockname()[1]
 
 
-def ddp_setup(rank, world_size):
+def ddp_setup(rank, world_size, master_port):
     # VERY UNSURE ABOUT THIS ASSIGNMENTS
     print('in ddp_setup')
     os.environ['MASTER_ADDR'] = 'localhost'
-    os.environ["MASTER_PORT"] = str(get_open_port())
+    os.environ["MASTER_PORT"] = master_port
     print('starting init_process_group')
     init_process_group(backend="nccl", rank=rank, world_size=world_size)
     print('finished init_process_group')
 
 
-def main(rank: int, world_size: int, batch_size: int = 1,
+def main(rank: int, world_size: int, master_port: str, batch_size: int = 1,
          device: str = 'cpu', sequential: bool = False, split: tuple = (.8, .2), path: str = None):
 
     print('in main')
-    ddp_setup(rank, world_size)
+    ddp_setup(rank, world_size, master_port)
     print('finished ddp_setup')
     print('starting get_train_test_dataloader')
     training_gen, test_gen = get_train_test_dataloader(
@@ -124,8 +124,9 @@ if __name__ == "__main__":
     split = (.8, .2)
     path = None
     world_size = torch.cuda.device_count()
+    master_port =  str(get_open_port())
     print(f'world size {world_size}')
-    mp.spawn(main, args=(world_size, batch_size,
+    mp.spawn(main, args=(world_size, master_port, batch_size,
              device, sequential, split, path,), nprocs = world_size)
     print('done spawning')
 
