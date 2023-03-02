@@ -163,13 +163,13 @@ def get_train_test_dataset(split: tuple, sequential: bool, path: str = None, bat
     print(f'LEN TEST GEN BEFORE: {len(test)}')
     print(f'LEN TRAIN GEN BEFORE: {len(train)}')
     
-    if len(test) % batch_size != 0:
-        a = len(test) % batch_size
-        test = test[:-a]
+    # if len(test) % batch_size != 0:
+    #     a = len(test) % batch_size
+    #     test = test[:-a]
     
-    if len(train) % batch_size != 0:
-        b = len(train) % batch_size
-        train = train[:-b]
+    # if len(train) % batch_size != 0:
+    #     b = len(train) % batch_size
+    #     train = train[:-b]
         
     print(f'LEN TEST GEN: {len(test)}')
     print(f'LEN TRAIN GEN: {len(train)}')

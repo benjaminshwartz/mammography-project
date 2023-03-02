@@ -117,14 +117,14 @@ class Trainer():
                 self._save_checkpoint(epoch)
             if self.metric_interval > 0 and epoch % self.metric_interval == 0 and self.gpu_id == 0:
                 print("\tTrain Metrics (Training Data):")
-                self.evaluate(None, sv_roc=sv_roc)
+                self.evaluate(self.train_data, sv_roc=sv_roc)
                 if self.test_data != None:
                     print("\tTest Metrics:")
                     self.evaluate(self.test_data)
                     self.model.train()
             elif epoch == num_epochs and self.gpu_id == 0:  # Evaluate final model
                 print("\tTrain Metrics:")
-                self.evaluate(None, sv_roc=sv_roc)
+                self.evaluate(self.train_data, sv_roc=sv_roc)
                 if self.test_data != None:
                     print("\tTest Metrics:")
                     self.evaluate(self.test_data)
