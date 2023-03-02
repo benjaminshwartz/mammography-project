@@ -75,7 +75,8 @@ class Trainer():
         self.model.train()
         self.curr_preds_lst = []
         self.curr_labels_lst = []
-        print(f'\t[GPU {self.gpu_id}] Epoch {epoch}')
+        if self.gpu_id == 0:
+            print(f'\t[GPU {self.gpu_id}] Epoch {epoch}')
         # i = 1
         # all = len(self.train_data)
 

@@ -28,12 +28,17 @@ def get_open_port():
 
 def ddp_setup(rank, world_size, master_port):
     # VERY UNSURE ABOUT THIS ASSIGNMENTS
-    print('in ddp_setup')
+    if rank == 0:
+        print('in ddp_setup')
     os.environ['MASTER_ADDR'] = 'localhost'
     os.environ["MASTER_PORT"] = master_port
-    print('starting init_process_group')
+    if rank == 0:
+        print('starting init_process_group')
+    
     init_process_group(backend="nccl", rank=rank, world_size=world_size)
-    print('finished init_process_group')
+
+    if rank == 0:
+        print('finished init_process_group')
 
 
 def main(rank: int, world_size: int, master_port: str, batch_size: int = 1,
@@ -73,11 +78,13 @@ def main(rank: int, world_size: int, master_port: str, batch_size: int = 1,
                       metric_interval=1, train_data=training_gen, test_data=test_gen)
 
     s = datetime.now()
-    print('Starting Training')
+    if rank == 0:
+        print('Starting Training')
     num_epochs = 1000
     trainer.train(num_epochs)
     destroy_process_group()
-    print('Finished Training')
+    if rank == 0:
+        print('Finished Training')
     f = datetime.now()
     print(f'Time to run {num_epochs} epochs: {f-s} (HH:MM:SS)')
 
