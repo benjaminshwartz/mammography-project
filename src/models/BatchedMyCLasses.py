@@ -177,20 +177,20 @@ class EmbeddingBlock(nn.Module):
         RCC = batched_patches[:, 2]
         RMLO = batched_patches[:, 3]
 
-        LCC = self.cc_conv.forward(LCC)
-        RCC = self.cc_conv.forward(RCC)
-        LMLO = self.mlo_conv.forward(LMLO)
-        RMLO = self.mlo_conv.forward(RMLO)
+        LCC = self.cc_conv.forward(LCC, batch_size )
+        RCC = self.cc_conv.forward(RCC, batch_size )
+        LMLO = self.mlo_conv.forward(LMLO, batch_size )
+        RMLO = self.mlo_conv.forward(RMLO, batch_size )
 
         pos_encoding_LCC = PositionalEncoding(LCC)
         pos_encoding_RCC = PositionalEncoding(RCC)
         pos_encoding_LMLO = PositionalEncoding(LMLO)
         pos_encoding_RMLO = PositionalEncoding(RMLO)
 
-        summer_LCC = pos_encoding_LCC.forward(LCC,batch_size)
-        summer_RCC = pos_encoding_RCC.forward(RCC,batch_size)
-        summer_LMLO = pos_encoding_LMLO.forward(LMLO,batch_size)
-        summer_RMLO = pos_encoding_RMLO.forward(RMLO,batch_size)
+        summer_LCC = pos_encoding_LCC.forward(LCC)
+        summer_RCC = pos_encoding_RCC.forward(RCC)
+        summer_LMLO = pos_encoding_LMLO.forward(LMLO)
+        summer_RMLO = pos_encoding_RMLO.forward(RMLO)
 
         batched_positional_encoding[:, 0] = summer_LCC
         batched_positional_encoding[:, 1] = summer_LMLO
