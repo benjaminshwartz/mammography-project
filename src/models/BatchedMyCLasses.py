@@ -44,9 +44,9 @@ class PositionalEncoding(nn.Module):
             (self.batch_size, 1, 1))
 
     def forward(self, data):
-        print(f'self.learned_embedding_vec LOCATION: {self.learned_embedding_vec.get_device()}')
-        print(f'data LOCATION: {data.get_device()}')
-        print('-----------------------------------------------')
+        # print(f'self.learned_embedding_vec LOCATION: {self.learned_embedding_vec.get_device()}')
+        # print(f'data LOCATION: {data.get_device()}')
+        # print('-----------------------------------------------')
         
         data = torch.hstack((self.learned_embedding_vec, data))
         summer_matrix = data + self.positional_matrix
@@ -168,7 +168,7 @@ class EmbeddingBlock(nn.Module):
 
         # Reshape now makes data (batch_size,4,49,500,400)
 
-        print(f'THIS IS DATA LOCATION IN FORWARD OF EMBEDDING BLOCK: {data.get_device()}')
+        # print(f'THIS IS DATA LOCATION IN FORWARD OF EMBEDDING BLOCK: {data.get_device()}')
 
         batched_positional_encoding = torch.zeros(batch_size, 4, 50, 256).to(data.get_device())
 
@@ -197,7 +197,7 @@ class EmbeddingBlock(nn.Module):
         batched_positional_encoding[:, 2] = summer_RCC
         batched_positional_encoding[:, 3] = summer_RMLO
 
-        print(f'THIS IS BATCHED POSITIONAL ENCODING LOCATION: {batched_positional_encoding.get_device()}')
+        # print(f'THIS IS BATCHED POSITIONAL ENCODING LOCATION: {batched_positional_encoding.get_device()}')
 
         return batched_positional_encoding, batch_size
 
@@ -323,7 +323,7 @@ class VisualTransformer(nn.Module):
         # print('IN FORWARD OF VISUALTRANSFORMER LAYER')
         x, batch = self.embedding_block.forward(data)
         x.to(self.rank)
-        print(f'THIS IS THE LOCATION OF X: {x.get_device()}')
+        # print(f'THIS IS THE LOCATION OF X: {x.get_device()}')
         # print(x.shape)
         i = 0
         for blk in self.blks:
@@ -460,7 +460,7 @@ class PaperModel(nn.Module):
 
         super(PaperModel, self).__init__()
 
-        print(f"THIS IS THE SUPPOSED RANK: {rank}")
+        # print(f"THIS IS THE SUPPOSED RANK: {rank}")
 
         self.rank = rank
 

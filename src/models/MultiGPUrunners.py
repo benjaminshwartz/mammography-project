@@ -36,7 +36,7 @@ class Trainer():
     ) -> None:
         ############ GPU RUNNING ########
         # self.model = model.to(gpu_id)
-        print(f'GPU ID: {gpu_id}')
+        # print(f'GPU ID: {gpu_id}')
         self.model = DDP(model.to(gpu_id), device_ids=[gpu_id], find_unused_parameters=True)
         # self.model = DDP(model)
 
@@ -88,7 +88,7 @@ class Trainer():
             batch_tensor = batch_tensor.to(self.gpu_id)
             batch_labels = batch_labels.to(self.gpu_id)
 
-            print(f'BATCH TENSOR DTYPE: {batch_tensor.dtype}')
+            # print(f'BATCH TENSOR DTYPE: {batch_tensor.dtype}')
 
             self._run_batch(batch_tensor, batch_labels.float())
             i += 1
@@ -115,14 +115,14 @@ class Trainer():
                 self._save_checkpoint(epoch)
             elif epoch == num_epochs:  # save last model
                 self._save_checkpoint(epoch)
-            if self.metric_interval > 0 and epoch % self.metric_interval == 0:
+            if self.metric_interval > 0 and epoch % self.metric_interval == 0 and self.gpu_id == 0:
                 print("\tTrain Metrics (Training Data):")
                 self.evaluate(None, sv_roc=sv_roc)
                 if self.test_data != None:
                     print("\tTest Metrics:")
                     self.evaluate(self.test_data)
                     self.model.train()
-            elif epoch == num_epochs:  # Evaluate final model
+            elif epoch == num_epochs and self.gpu_id == 0:  # Evaluate final model
                 print("\tTrain Metrics:")
                 self.evaluate(None, sv_roc=sv_roc)
                 if self.test_data != None:

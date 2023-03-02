@@ -39,14 +39,14 @@ def ddp_setup(rank, world_size, master_port):
 def main(rank: int, world_size: int, master_port: str, batch_size: int = 1,
          device: str = 'cpu', sequential: bool = False, split: tuple = (.8, .2), path: str = None):
 
-    print('in main')
+    # print('in main')
     ddp_setup(rank, world_size, master_port)
-    print('finished ddp_setup')
-    print('starting get_train_test_dataloader')
+    # print('finished ddp_setup')
+    # print('starting get_train_test_dataloader')
     training_gen, test_gen = get_train_test_dataloader(
         split=split, sequential=sequential, batch=batch_size)
-    print('finished get_train_test_dataloader')
-    print('Trying Batched')
+    # print('finished get_train_test_dataloader')
+    # print('Trying Batched')
     #### Classification ####
     # model = PaperModel(x_amount=7, y_amount=7, x_con=3500, y_con=2800,
     #                    data_shape=(batch_size, 4, 50, 256), hidden_output_fnn=1024, dropout=.5,
