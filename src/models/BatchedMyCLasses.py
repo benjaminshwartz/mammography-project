@@ -57,14 +57,14 @@ class PositionalEncoding(nn.Module):
 
 class ConvLayer(nn.Module):
 
-    def __init__(self, batch_size, num_patch: int = 49):
+    def __init__(self, num_patch: int = 49):
         super(ConvLayer, self).__init__()
 
         if torch.cuda.is_available():
             device = 'cuda'
 
         self.num_patch = num_patch
-        self.batch_size = batch_size
+        # self.batch_size = batch_size
         n = num_patch
 #         self.conv2d_1 = nn.Conv2d(in_channels = 1, out_channels = 8, kernel_size = 13, stride = 1)
         self.conv2d_1 = nn.Conv2d(
@@ -97,9 +97,10 @@ class ConvLayer(nn.Module):
         self.relu = nn.ReLU()
         self.flatten = nn.Flatten()
 
-    def forward(self, tensor):
+    def forward(self, tensor, batch):
 
         # print('IN FORWARD OF CONV LAYER')
+        # batch_size = tensor.shape()[0]
         tensor = tensor[:,]
         # print(f'THIS IS THE SHAPE OF THE TENSOR: {tensor.shape}')
         x = self.conv2d_1(tensor)
@@ -122,7 +123,7 @@ class ConvLayer(nn.Module):
 
         x = self.flatten(x)
         # print(x.shape)
-        x = torch.reshape(x, (self.batch_size, self.num_patch, 105280))
+        x = torch.reshape(x, (batch, self.num_patch, 105280))
         x = self.dnn(x)
 
         return x
@@ -131,7 +132,7 @@ class ConvLayer(nn.Module):
 class EmbeddingBlock(nn.Module):
     # Data in this sense is the image that has not been translated into an array
     # Want to set x_con to 3500
-    def __init__(self, batch, x_amount=7, y_amount=7, x_con=3500, y_con=2800):
+    def __init__(self, x_amount=7, y_amount=7, x_con=3500, y_con=2800):
         super(EmbeddingBlock, self).__init__()
 
         assert (x_con % x_amount == 0)
@@ -149,8 +150,8 @@ class EmbeddingBlock(nn.Module):
         self.patches_matrix = torch.zeros(
             self.amount_of_patches, self.x_ran, self.y_ran)
 
-        self.cc_conv = ConvLayer(batch_size=batch)
-        self.mlo_conv = ConvLayer(batch_size=batch)
+        self.cc_conv = ConvLayer()
+        self.mlo_conv = ConvLayer()
 
     def forward(self, data):
         # recheck for proper class variables(change self. to strictly local variable)
@@ -186,10 +187,10 @@ class EmbeddingBlock(nn.Module):
         pos_encoding_LMLO = PositionalEncoding(LMLO)
         pos_encoding_RMLO = PositionalEncoding(RMLO)
 
-        summer_LCC = pos_encoding_LCC.forward(LCC)
-        summer_RCC = pos_encoding_RCC.forward(RCC)
-        summer_LMLO = pos_encoding_LMLO.forward(LMLO)
-        summer_RMLO = pos_encoding_RMLO.forward(RMLO)
+        summer_LCC = pos_encoding_LCC.forward(LCC,batch_size)
+        summer_RCC = pos_encoding_RCC.forward(RCC,batch_size)
+        summer_LMLO = pos_encoding_LMLO.forward(LMLO,batch_size)
+        summer_RMLO = pos_encoding_RMLO.forward(RMLO,batch_size)
 
         batched_positional_encoding[:, 0] = summer_LCC
         batched_positional_encoding[:, 1] = summer_LMLO
@@ -198,7 +199,7 @@ class EmbeddingBlock(nn.Module):
 
         print(f'THIS IS BATCHED POSITIONAL ENCODING LOCATION: {batched_positional_encoding.get_device()}')
 
-        return batched_positional_encoding
+        return batched_positional_encoding, batch_size
 
 
 class MLP(nn.Module):
@@ -257,11 +258,12 @@ class LocalEncoderBlock(nn.Module):
         self.mlp_3 = MLP(
             hidden_output=hidden_output_fnn1, dropout=dropout)
 
-    def forward(self, data):
+    def forward(self, data, batch):
 
+        data_shape = (batch,self.data_shape[1],self.data_shape[2],self.data_shape[3])
         # data.to(self.device)
         device = data.get_device()
-        x_tilda_matrix = torch.zeros(self.data_shape).to(device)
+        x_tilda_matrix = torch.zeros(data_shape).to(device)
 
         attn_0, y = self.helper_thing(data[:, 0])
         x_tilda_matrix[:, 0] = y
@@ -272,7 +274,7 @@ class LocalEncoderBlock(nn.Module):
         attn_3, y = self.helper_thing(data[:, 3])
         x_tilda_matrix[:, 3] = y
 
-        dnn_output = torch.zeros(self.data_shape).to(device)
+        dnn_output = torch.zeros(data_shape).to(device)
         dnn_output[:, 0] = self.mlp_0.forward(attn_0)
         dnn_output[:, 1] = self.mlp_1.forward(attn_1)
         dnn_output[:, 2] = self.mlp_2.forward(attn_2)
@@ -310,7 +312,7 @@ class VisualTransformer(nn.Module):
                  number_of_layers=10):
         super(VisualTransformer, self).__init__()
         self.rank = rank
-        self.embedding_block = EmbeddingBlock(batch=data_shape[0],
+        self.embedding_block= EmbeddingBlock(
                                               x_amount=x_amount, y_amount=y_amount, x_con=x_con, y_con=y_con)
         self.blks = nn.Sequential()
         for i in range(number_of_layers):
@@ -319,7 +321,7 @@ class VisualTransformer(nn.Module):
 
     def forward(self, data):
         # print('IN FORWARD OF VISUALTRANSFORMER LAYER')
-        x = self.embedding_block.forward(data)
+        x, batch = self.embedding_block.forward(data)
         x.to(self.rank)
         print(f'THIS IS THE LOCATION OF X: {x.get_device()}')
         # print(x.shape)
@@ -327,7 +329,7 @@ class VisualTransformer(nn.Module):
         for blk in self.blks:
             # print(f'This is {i} local attention run')
             i += 1
-            x = blk(x)
+            x = blk(x, batch)
 
 
 
@@ -335,7 +337,7 @@ class VisualTransformer(nn.Module):
 
 
 class GlobalEncoderBlock(nn.Module):
-    def __init__(self, data_shape=(10, 200, 256), hidden_output_fnn1=1024, dropout=.5):
+    def __init__(self, data_shape=(200, 256), hidden_output_fnn1=1024, dropout=.5):
         super(GlobalEncoderBlock, self).__init__()
         self.device = 'cpu'
         if torch.cuda.is_available():
@@ -377,7 +379,7 @@ class GlobalTransformer(nn.Module):
                  number_of_layers=10, num_layers_global=10):
         super(GlobalTransformer, self).__init__()
         self.data_shape = data_shape
-        new_data_shape = (data_shape[0], data_shape[1]
+        new_data_shape = (data_shape[1]
                           * data_shape[2], data_shape[3])
         self.blks = nn.Sequential()
         for i in range(num_layers_global):
@@ -462,8 +464,8 @@ class PaperModel(nn.Module):
 
         self.rank = rank
 
-        self.embedding_block = EmbeddingBlock(batch=data_shape[0],
-                                              x_amount=x_amount, y_amount=y_amount, x_con=x_con, y_con=y_con)
+        # self.embedding_block = EmbeddingBlock(batch=data_shape[0],
+        #                                       x_amount=x_amount, y_amount=y_amount, x_con=x_con, y_con=y_con)
 
         self.visual_transformer = VisualTransformer(rank, x_amount, y_amount, x_con, y_con,
                                                     data_shape, hidden_output_fnn, dropout,
