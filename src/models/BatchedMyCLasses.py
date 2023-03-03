@@ -515,8 +515,10 @@ class PaperModel(nn.Module):
         # final[:, :, 0] = left_pred
         # final[:, :, 1] = right_pred
 
-        final = torch.stack((left_pred, right_pred), dim=2)
+        # CE LOSS
+        # final = torch.stack((left_pred, right_pred), dim=2)
 
+        #Regression Loss
         final = torch.cat((left_pred, right_pred), dim=1)
 
         # print(f'left_pred: {left_pred}')
