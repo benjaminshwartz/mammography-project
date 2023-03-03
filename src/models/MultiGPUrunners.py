@@ -72,7 +72,9 @@ class Trainer():
         # print(f'batch_labels:\n {batch_labels}')
         # print(f'batch_labels shape: {batch_labels.shape}')
         # assert False
-        loss = self.loss_fn(predicted_output, batch_labels.float())
+        # loss = self.loss_fn(predicted_output, batch_labels.float())
+        loss = self.loss_fn(predicted_output, batch_labels.long())
+
         loss.backward()
         self.optimizer.step()
 
