@@ -66,6 +66,11 @@ class Trainer():
         self.curr_labels_lst.append(batch_labels)
 
         # print(f'SHAPE OF LABELS: {batch_labels.shape}')
+        print(f'predicted_output:\n {predicted_output}')
+        print(f'predicted_output shape: {predicted_output.shape}')
+        print(f'batch_labels:\n {batch_labels}')
+        print(f'batch_labels shape: {batch_labels.shape}')
+        assert False
         loss = self.loss_fn(predicted_output, batch_labels.float())
         loss.backward()
         self.optimizer.step()
@@ -325,10 +330,8 @@ class Trainer():
 
                 print(
                     f'\t\Overall Accuracy: {accuracy} = {num_correct}/{total}')
-
                 print(
                     f'\t\tOverall Accuracy Left: {accuracy_left} = {num_correct_left}/{total}')
-
                 print(
                     f'\t\t Accuracy Right: {accuracy_right} = {num_correct_right}/{total}')
 
@@ -336,10 +339,8 @@ class Trainer():
 
                 print(
                     f'\t\tBinary Accuracy: {binary_acc} = {binary_acc}/{total}')
-
                 print(
                     f'\t\tBinary Accuracy Left: {binary_acc_left} = {binary_acc_left}/{total}')
-
                 print(
                     f'\t\tBinary Accuracy Right: {binary_acc_right} = {binary_acc_right}/{total}')
 
