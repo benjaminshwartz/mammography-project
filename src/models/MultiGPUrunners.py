@@ -66,11 +66,12 @@ class Trainer():
         self.curr_labels_lst.append(batch_labels)
 
         # print(f'SHAPE OF LABELS: {batch_labels.shape}')
-        print(f'predicted_output:\n {predicted_output}')
-        print(f'predicted_output shape: {predicted_output.shape}')
-        print(f'batch_labels:\n {batch_labels}')
-        print(f'batch_labels shape: {batch_labels.shape}')
-        assert False
+        
+        # print(f'predicted_output:\n {predicted_output}')
+        # print(f'predicted_output shape: {predicted_output.shape}')
+        # print(f'batch_labels:\n {batch_labels}')
+        # print(f'batch_labels shape: {batch_labels.shape}')
+        # assert False
         loss = self.loss_fn(predicted_output, batch_labels.float())
         loss.backward()
         self.optimizer.step()
