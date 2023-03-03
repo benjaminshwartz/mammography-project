@@ -176,8 +176,11 @@ class Trainer():
 
                     batch_labels = batch_labels.long()
                     # if str(self.loss_fn) == str(torch.nn.CrossEntropyLoss()):
+                    print(batch_labels.shape)
                     batch_labels = torch.reshape(
                         batch_labels, (predicted_output.shape[0], 2)).to(self.gpu_id)
+                    print(batch_labels.shape)
+                    assert False
                     # elif str(self.loss_fn) == str(torch.nn.MSELoss()):
                     #     pass
                     # else:
@@ -196,6 +199,8 @@ class Trainer():
             # right_preds = predicted_output[:, :, 1].to(self.gpu_id)
 
             if str(self.loss_fn) == str(torch.nn.CrossEntropyLoss()):
+
+                print(f'dataloader len {len(dataloader)}')
 
                 left_preds = predicted_output[:, :, 0].to(self.gpu_id)
                 right_preds = predicted_output[:, :, 1].to(self.gpu_id)
