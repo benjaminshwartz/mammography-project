@@ -200,7 +200,11 @@ class Trainer():
 
             if str(self.loss_fn) == str(torch.nn.CrossEntropyLoss()):
 
-                print(f'dataloader len {len(dataloader)}')
+
+
+                print(f'label_lst len {len(label_lst.shape)}')
+
+                print(f'label_lst shape {len(label_lst)}')
 
                 left_preds = predicted_output[:, :, 0].to(self.gpu_id)
                 right_preds = predicted_output[:, :, 1].to(self.gpu_id)
