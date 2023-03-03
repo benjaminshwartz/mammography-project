@@ -279,6 +279,16 @@ class Trainer():
                 left_preds = predicted_output[:, 0].to(self.gpu_id)
                 right_preds = predicted_output[:, 1].to(self.gpu_id)
 
+                print(f'label list: {label_lst}')
+
+                print(f'labels: {labels}')
+
+                print(f'left_preds: {left_preds}')
+                print(f'left_preds shape : {left_preds.shape}')
+
+                print(f'left_labels: {left_labels}')
+                print(f'left_labels shape : {left_labels.shape}')
+
                 left_positions = torch.squeeze(left_preds)
                 right_positions = torch.squeeze(right_preds)
 
