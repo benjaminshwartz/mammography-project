@@ -82,7 +82,8 @@ class Trainer():
         self.curr_preds_lst = []
         self.curr_labels_lst = []
         if self.gpu_id == 0:
-            print(f'\t[GPU {self.gpu_id}] Epoch {epoch}')
+            print('==============================================')
+            print(f'[GPU {self.gpu_id}] Epoch {epoch}')
         # i = 1
         # all = len(self.train_data)
 
@@ -325,7 +326,7 @@ class Trainer():
                     f'\t\tLeft Mean Squared Error: {left_loss}')
                 print(
                     f'\t\tRight Mean Squared Error: {right_loss}')
-                print('------------------------------------------------')
+                print('\t\t------------------------------------------------')
 
                 print(f'\t\tMean Absolute Error:  {mae_total}')
 
@@ -333,16 +334,16 @@ class Trainer():
 
                 print(f'\t\tMean Absolute Error Right: {mae_right}')
 
-                print('------------------------------------------------')
+                print('\t\t------------------------------------------------')
 
                 print(
-                    f'\t\Overall Accuracy: {accuracy} = {num_correct}/{total}')
+                    f'\t\tOverall Accuracy: {accuracy} = {num_correct}/{total}')
                 print(
                     f'\t\tOverall Accuracy Left: {accuracy_left} = {num_correct_left}/{total}')
                 print(
-                    f'\t\t Accuracy Right: {accuracy_right} = {num_correct_right}/{total}')
+                    f'\t\tAccuracy Right: {accuracy_right} = {num_correct_right}/{total}')
 
-                print('------------------------------------------------')
+                print('\t\t------------------------------------------------')
 
                 print(
                     f'\t\tBinary Accuracy: {binary_acc} = {binary_acc}/{total}')
