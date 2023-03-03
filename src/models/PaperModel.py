@@ -53,7 +53,7 @@ def main(rank: int, world_size: int, master_port: str, batch_size: int = 1,
     # print('finished get_train_test_dataloader')
     # print('Trying Batched')
     #### Classification ####
-    model = PaperModel(x_amount=7, y_amount=7, x_con=3500, y_con=2800,
+    model = PaperModel(rank, x_amount=7, y_amount=7, x_con=3500, y_con=2800,
                        data_shape=(batch_size, 4, 50, 256), hidden_output_fnn=1024, dropout=.5,
                        number_of_layers=10, num_layers_global=10, setting='C')
 
