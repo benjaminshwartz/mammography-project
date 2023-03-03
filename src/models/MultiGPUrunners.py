@@ -199,7 +199,7 @@ class Trainer():
 
 
 
-                print(f'label_lst len {len(label_lst.shape)}')
+                print(f'label_lst len {len(label_lst)}')
 
                 print(f'label_lst shape {len(label_lst)}')
 
