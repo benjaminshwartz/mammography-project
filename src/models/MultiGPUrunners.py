@@ -66,7 +66,7 @@ class Trainer():
         self.curr_labels_lst.append(batch_labels)
 
         # print(f'SHAPE OF LABELS: {batch_labels.shape}')
-        
+
         # print(f'predicted_output:\n {predicted_output}')
         # print(f'predicted_output shape: {predicted_output.shape}')
         # print(f'batch_labels:\n {batch_labels}')
@@ -189,10 +189,13 @@ class Trainer():
 
             total += len(left_labels)
 
-            left_preds = predicted_output[:, :, 0].to(self.gpu_id)
-            right_preds = predicted_output[:, :, 1].to(self.gpu_id)
+            # left_preds = predicted_output[:, :, 0].to(self.gpu_id)
+            # right_preds = predicted_output[:, :, 1].to(self.gpu_id)
 
             if str(self.loss_fn) == str(torch.nn.CrossEntropyLoss()):
+
+                left_preds = predicted_output[:, :, 0].to(self.gpu_id)
+                right_preds = predicted_output[:, :, 1].to(self.gpu_id)
 
                 left_positions = torch.argmax(left_preds, dim=1)
                 right_positions = torch.argmax(right_preds, dim=1)
@@ -271,6 +274,9 @@ class Trainer():
                 print(
                     f'\t\tRight One-Off Accuracy: {one_off_right} = {num_correct_one_off_right}/{total}')
             elif str(self.loss_fn) == str(torch.nn.MSELoss()):
+
+                left_preds = predicted_output[:, 0].to(self.gpu_id)
+                right_preds = predicted_output[:, 1].to(self.gpu_id)
 
                 left_positions = torch.squeeze(left_preds)
                 right_positions = torch.squeeze(right_preds)
