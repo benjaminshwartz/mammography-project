@@ -516,11 +516,14 @@ class PaperModel(nn.Module):
         # final[:, :, 1] = right_pred
 
         final = torch.stack((left_pred, right_pred), dim=2)
-        print(f'left_pred: {left_pred}')
-        print(f'left_pred.shape: {left_pred.shape}')
 
-        print(f'right_pred: {right_pred}')
-        print(f'right_pred.shape: {right_pred.shape}')
+        final = torch.cat((left_pred, right_pred), dim=1)
+
+        # print(f'left_pred: {left_pred}')
+        # print(f'left_pred.shape: {left_pred.shape}')
+
+        # print(f'right_pred: {right_pred}')
+        # print(f'right_pred.shape: {right_pred.shape}')
 
         
 
