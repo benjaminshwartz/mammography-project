@@ -1,0 +1,3087 @@
+trying to run
+world size 4
+[W reducer.cpp:1289] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1289] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1289] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1289] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+in ddp_setup
+starting init_process_group
+finished init_process_group
+working directory /home/ubuntu
+LEN TEST GEN BEFORE: 3
+LEN TRAIN GEN BEFORE: 10
+LEN TEST GEN: 3
+LEN TRAIN GEN: 10
+Starting mean_and_variance
+Finishing mean_and_variance
+Starting mean_and_variance
+Finishing mean_and_variance
+Starting Training
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 1 AND FOR training
+		training/1/0 Overall Mean Squared Error: 0.9029325842857361
+		training/1/0 Left Mean Squared Error: 1.2128379344940186
+		training/1/0 Right Mean Squared Error: 0.5930272936820984
+		------------------------------------------------
+		training/1/0 Mean Absolute Error:  0.8453091084957123
+		training/1/0 Mean Absolute Error Left: 0.9216925501823425
+		training/1/0 Mean Absolute Error Right: 0.768925666809082
+		------------------------------------------------
+		training/1/0 Overall Accuracy: 0.0 = 0/3
+		training/1/0 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/1/0 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/1/0 Binary Accuracy: 0.0 = 0.0/3
+		training/1/0 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/1/0 Binary Accuracy Right: 0.0 = 0.0/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 1 AND FOR testing
+		testing/1/0 Overall Mean Squared Error: 1.1941537857055664
+		testing/1/0 Left Mean Squared Error: 0.42474275827407837
+		testing/1/0 Right Mean Squared Error: 1.9635647535324097
+		------------------------------------------------
+		testing/1/0 Mean Absolute Error:  1.026497721672058
+		testing/1/0 Mean Absolute Error Left: 0.6517229080200195
+		testing/1/0 Mean Absolute Error Right: 1.4012725353240967
+		------------------------------------------------
+		testing/1/0 Overall Accuracy: 0.0 = 0/1
+		testing/1/0 Overall Accuracy Left: 0.0 = 0/1
+		testing/1/0 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/1/0 Binary Accuracy: 1.0 = 1.0/1
+		testing/1/0 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/1/0 Binary Accuracy Right: 1.0 = 1.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 2 AND FOR training
+		training/2/0 Overall Mean Squared Error: 0.9832087755203247
+		training/2/0 Left Mean Squared Error: 0.8243975043296814
+		training/2/0 Right Mean Squared Error: 1.1420199871063232
+		------------------------------------------------
+		training/2/0 Mean Absolute Error:  0.8359214961528778
+		training/2/0 Mean Absolute Error Left: 0.9004260897636414
+		training/2/0 Mean Absolute Error Right: 0.7714169025421143
+		------------------------------------------------
+		training/2/0 Overall Accuracy: 0.0 = 0/3
+		training/2/0 Overall Accuracy Left: 0.0 = 0/3
+		training/2/0 Accuracy Right: 0.6666666666666666 = 2/3
+		------------------------------------------------
+		training/2/0 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/2/0 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/2/0 Binary Accuracy Right: 1.0 = 1.0/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 2 AND FOR testing
+		testing/2/0 Overall Mean Squared Error: 3.2148728370666504
+		testing/2/0 Left Mean Squared Error: 6.422808647155762
+		testing/2/0 Right Mean Squared Error: 0.006936982739716768
+		------------------------------------------------
+		testing/2/0 Mean Absolute Error:  1.3088073134422302
+		testing/2/0 Mean Absolute Error Left: 2.5343260765075684
+		testing/2/0 Mean Absolute Error Right: 0.08328855037689209
+		------------------------------------------------
+		testing/2/0 Overall Accuracy: 0.0 = 0/1
+		testing/2/0 Overall Accuracy Left: 0.0 = 0/1
+		testing/2/0 Accuracy Right: 1.0 = 1/1
+		------------------------------------------------
+		testing/2/0 Binary Accuracy: 0.0 = 0.0/1
+		testing/2/0 Binary Accuracy Left: 0.0 = 0.0/1
+		testing/2/0 Binary Accuracy Right: 1.0 = 1.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 3 AND FOR training
+		training/3/0 Overall Mean Squared Error: 0.8895694613456726
+		training/3/0 Left Mean Squared Error: 0.49995654821395874
+		training/3/0 Right Mean Squared Error: 1.2791824340820312
+		------------------------------------------------
+		training/3/0 Mean Absolute Error:  0.8768938779830933
+		training/3/0 Mean Absolute Error Left: 0.6911705732345581
+		training/3/0 Mean Absolute Error Right: 1.0626171827316284
+		------------------------------------------------
+		training/3/0 Overall Accuracy: 0.0 = 0/3
+		training/3/0 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/3/0 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/3/0 Binary Accuracy: 0.6666666666666666 = 0.6666666666666666/3
+		training/3/0 Binary Accuracy Left: 1.0 = 1.0/3
+		training/3/0 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 3 AND FOR testing
+		testing/3/0 Overall Mean Squared Error: 0.11497282236814499
+		testing/3/0 Left Mean Squared Error: 0.04294351860880852
+		testing/3/0 Right Mean Squared Error: 0.18700212240219116
+		------------------------------------------------
+		testing/3/0 Mean Absolute Error:  0.31983280181884766
+		testing/3/0 Mean Absolute Error Left: 0.2072281837463379
+		testing/3/0 Mean Absolute Error Right: 0.4324374198913574
+		------------------------------------------------
+		testing/3/0 Overall Accuracy: 1.0 = 1/1
+		testing/3/0 Overall Accuracy Left: 1.0 = 1/1
+		testing/3/0 Accuracy Right: 1.0 = 1/1
+		------------------------------------------------
+		testing/3/0 Binary Accuracy: 1.0 = 1.0/1
+		testing/3/0 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/3/0 Binary Accuracy Right: 1.0 = 1.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 4 AND FOR training
+		training/4/0 Overall Mean Squared Error: 1.0870122909545898
+		training/4/0 Left Mean Squared Error: 0.9105340838432312
+		training/4/0 Right Mean Squared Error: 1.2634904384613037
+		------------------------------------------------
+		training/4/0 Mean Absolute Error:  0.9132746458053589
+		training/4/0 Mean Absolute Error Left: 0.8256815671920776
+		training/4/0 Mean Absolute Error Right: 1.0008677244186401
+		------------------------------------------------
+		training/4/0 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/4/0 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/4/0 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/4/0 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/4/0 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/4/0 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 4 AND FOR testing
+		testing/4/0 Overall Mean Squared Error: 1.7833871841430664
+		testing/4/0 Left Mean Squared Error: 1.0580576658248901
+		testing/4/0 Right Mean Squared Error: 2.508716583251953
+		------------------------------------------------
+working directory /home/ubuntu
+LEN TEST GEN BEFORE: 3
+LEN TRAIN GEN BEFORE: 10
+LEN TEST GEN: 3
+LEN TRAIN GEN: 10
+Starting mean_and_variance
+Finishing mean_and_variance
+Starting mean_and_variance
+Finishing mean_and_variance
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 1 AND FOR training
+		training/1/3 Overall Mean Squared Error: 0.6081401705741882
+		training/1/3 Left Mean Squared Error: 1.1603970527648926
+		training/1/3 Right Mean Squared Error: 0.05588319152593613
+		------------------------------------------------
+		training/1/3 Mean Absolute Error:  0.6425894722342491
+		training/1/3 Mean Absolute Error Left: 1.0537856817245483
+		training/1/3 Mean Absolute Error Right: 0.2313932627439499
+		------------------------------------------------
+		training/1/3 Overall Accuracy: 0.0 = 0/3
+		training/1/3 Overall Accuracy Left: 0.0 = 0/3
+		training/1/3 Accuracy Right: 1.0 = 3/3
+		------------------------------------------------
+		training/1/3 Binary Accuracy: 1.0 = 1.0/3
+		training/1/3 Binary Accuracy Left: 1.0 = 1.0/3
+		training/1/3 Binary Accuracy Right: 1.0 = 1.0/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 1 AND FOR testing
+		testing/1/3 Overall Mean Squared Error: 0.21345916390419006
+		testing/1/3 Left Mean Squared Error: 0.018018946051597595
+		testing/1/3 Right Mean Squared Error: 0.40889936685562134
+		------------------------------------------------
+		testing/1/3 Mean Absolute Error:  0.3868435323238373
+		testing/1/3 Mean Absolute Error Left: 0.13423466682434082
+		testing/1/3 Mean Absolute Error Right: 0.6394523978233337
+		------------------------------------------------
+		testing/1/3 Overall Accuracy: 0.0 = 0/1
+		testing/1/3 Overall Accuracy Left: 1.0 = 1/1
+		testing/1/3 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/1/3 Binary Accuracy: 0.0 = 0.0/1
+		testing/1/3 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/1/3 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 2 AND FOR training
+		training/2/3 Overall Mean Squared Error: 1.628424882888794
+		training/2/3 Left Mean Squared Error: 1.9062483310699463
+		training/2/3 Right Mean Squared Error: 1.3506011962890625
+		------------------------------------------------
+		training/2/3 Mean Absolute Error:  1.1740040481090546
+		training/2/3 Mean Absolute Error Left: 1.3572652339935303
+		training/2/3 Mean Absolute Error Right: 0.9907428622245789
+		------------------------------------------------
+		training/2/3 Overall Accuracy: 0.0 = 0/3
+		training/2/3 Overall Accuracy Left: 0.0 = 0/3
+		training/2/3 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/2/3 Binary Accuracy: 0.0 = 0.0/3
+		training/2/3 Binary Accuracy Left: 0.0 = 0.0/3
+		training/2/3 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 2 AND FOR testing
+		testing/2/3 Overall Mean Squared Error: 8.505427360534668
+		testing/2/3 Left Mean Squared Error: 13.26352596282959
+		testing/2/3 Right Mean Squared Error: 3.747328281402588
+		------------------------------------------------
+		testing/2/3 Mean Absolute Error:  2.788857102394104
+		testing/2/3 Mean Absolute Error Left: 3.6419124603271484
+		testing/2/3 Mean Absolute Error Right: 1.9358017444610596
+		------------------------------------------------
+		testing/2/3 Overall Accuracy: 0.0 = 0/1
+		testing/2/3 Overall Accuracy Left: 0.0 = 0/1
+		testing/2/3 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/2/3 Binary Accuracy: 0.0 = 0.0/1
+		testing/2/3 Binary Accuracy Left: 0.0 = 0.0/1
+		testing/2/3 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 3 AND FOR training
+		training/3/3 Overall Mean Squared Error: 3.333530902862549
+		training/3/3 Left Mean Squared Error: 5.730287551879883
+		training/3/3 Right Mean Squared Error: 0.9367740154266357
+		------------------------------------------------
+		training/3/3 Mean Absolute Error:  1.3489274382591248
+		training/3/3 Mean Absolute Error Left: 1.9527643918991089
+		training/3/3 Mean Absolute Error Right: 0.7450904846191406
+		------------------------------------------------
+		training/3/3 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/3/3 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/3/3 Accuracy Right: 0.6666666666666666 = 2/3
+		------------------------------------------------
+		training/3/3 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/3/3 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/3/3 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 3 AND FOR testing
+		testing/3/3 Overall Mean Squared Error: 3.4325461387634277
+		testing/3/3 Left Mean Squared Error: 1.2648371458053589
+		testing/3/3 Right Mean Squared Error: 5.600255012512207
+		------------------------------------------------
+		testing/3/3 Mean Absolute Error:  1.745567798614502
+		testing/3/3 Mean Absolute Error Left: 1.1246497631072998
+		testing/3/3 Mean Absolute Error Right: 2.366485834121704
+		------------------------------------------------
+		testing/3/3 Overall Accuracy: 0.0 = 0/1
+		testing/3/3 Overall Accuracy Left: 0.0 = 0/1
+		testing/3/3 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/3/3 Binary Accuracy: 0.0 = 0.0/1
+		testing/3/3 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/3/3 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 4 AND FOR training
+		training/4/3 Overall Mean Squared Error: 0.7064502239227295
+		training/4/3 Left Mean Squared Error: 0.6454839110374451
+		training/4/3 Right Mean Squared Error: 0.7674164772033691
+		------------------------------------------------
+		training/4/3 Mean Absolute Error:  0.7357408702373505
+		training/4/3 Mean Absolute Error Left: 0.6098909378051758
+		training/4/3 Mean Absolute Error Right: 0.8615908026695251
+		------------------------------------------------
+		training/4/3 Overall Accuracy: 0.0 = 0/3
+		training/4/3 Overall Accuracy Left: 0.6666666666666666 = 2/3
+		training/4/3 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/4/3 Binary Accuracy: 0.6666666666666666 = 0.6666666666666666/3
+		training/4/3 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/4/3 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 4 AND FOR testing
+		testing/4/3 Overall Mean Squared Error: 0.12610973417758942
+		testing/4/3 Left Mean Squared Error: 0.005746516864746809
+		testing/4/3 Right Mean Squared Error: 0.24647293984889984
+		------------------------------------------------
+		testing/4/3 Mean Absolute Error:  0.2861330956220627
+		testing/4/3 Mean Absolute Error Left: 0.07580578327178955
+working directory /home/ubuntu
+LEN TEST GEN BEFORE: 3
+LEN TRAIN GEN BEFORE: 10
+LEN TEST GEN: 3
+LEN TRAIN GEN: 10
+Starting mean_and_variance
+Finishing mean_and_variance
+Starting mean_and_variance
+Finishing mean_and_variance
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 1 AND FOR training
+		training/1/2 Overall Mean Squared Error: 1.6612684726715088
+		training/1/2 Left Mean Squared Error: 2.2939164638519287
+		training/1/2 Right Mean Squared Error: 1.0286204814910889
+		------------------------------------------------
+		training/1/2 Mean Absolute Error:  1.248916745185852
+		training/1/2 Mean Absolute Error Left: 1.5096025466918945
+		training/1/2 Mean Absolute Error Right: 0.9882309436798096
+		------------------------------------------------
+		training/1/2 Overall Accuracy: 0.0 = 0/3
+		training/1/2 Overall Accuracy Left: 0.0 = 0/3
+		training/1/2 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/1/2 Binary Accuracy: 0.0 = 0.0/3
+		training/1/2 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/1/2 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 1 AND FOR testing
+		testing/1/2 Overall Mean Squared Error: 1.27068293094635
+		testing/1/2 Left Mean Squared Error: 1.9968593120574951
+		testing/1/2 Right Mean Squared Error: 0.5445065498352051
+		------------------------------------------------
+		testing/1/2 Mean Absolute Error:  1.0755048096179962
+		testing/1/2 Mean Absolute Error Left: 1.4131027460098267
+		testing/1/2 Mean Absolute Error Right: 0.7379068732261658
+		------------------------------------------------
+		testing/1/2 Overall Accuracy: 0.0 = 0/1
+		testing/1/2 Overall Accuracy Left: 0.0 = 0/1
+		testing/1/2 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/1/2 Binary Accuracy: 0.0 = 0.0/1
+		testing/1/2 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/1/2 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 2 AND FOR training
+		training/2/2 Overall Mean Squared Error: 0.9316980242729187
+		training/2/2 Left Mean Squared Error: 0.7446621656417847
+		training/2/2 Right Mean Squared Error: 1.1187338829040527
+		------------------------------------------------
+		training/2/2 Mean Absolute Error:  0.9051337242126465
+		training/2/2 Mean Absolute Error Left: 0.8132534027099609
+		training/2/2 Mean Absolute Error Right: 0.997014045715332
+		------------------------------------------------
+		training/2/2 Overall Accuracy: 0.0 = 0/3
+		training/2/2 Overall Accuracy Left: 0.0 = 0/3
+		training/2/2 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/2/2 Binary Accuracy: 0.0 = 0.0/3
+		training/2/2 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/2/2 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 2 AND FOR testing
+		testing/2/2 Overall Mean Squared Error: 12.30538272857666
+		testing/2/2 Left Mean Squared Error: 20.944232940673828
+		testing/2/2 Right Mean Squared Error: 3.666531801223755
+		------------------------------------------------
+		testing/2/2 Mean Absolute Error:  3.2456530332565308
+		testing/2/2 Mean Absolute Error Left: 4.576487064361572
+		testing/2/2 Mean Absolute Error Right: 1.9148190021514893
+		------------------------------------------------
+		testing/2/2 Overall Accuracy: 0.0 = 0/1
+		testing/2/2 Overall Accuracy Left: 0.0 = 0/1
+		testing/2/2 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/2/2 Binary Accuracy: 0.0 = 0.0/1
+		testing/2/2 Binary Accuracy Left: 0.0 = 0.0/1
+		testing/2/2 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 3 AND FOR training
+		training/3/2 Overall Mean Squared Error: 4.242907524108887
+		training/3/2 Left Mean Squared Error: 6.892171859741211
+		training/3/2 Right Mean Squared Error: 1.593642234802246
+		------------------------------------------------
+		training/3/2 Mean Absolute Error:  1.6459904313087463
+		training/3/2 Mean Absolute Error Left: 2.1367416381835938
+		training/3/2 Mean Absolute Error Right: 1.155239224433899
+		------------------------------------------------
+		training/3/2 Overall Accuracy: 0.0 = 0/3
+		training/3/2 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/3/2 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/3/2 Binary Accuracy: 0.0 = 0.0/3
+		training/3/2 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/3/2 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 3 AND FOR testing
+		testing/3/2 Overall Mean Squared Error: 5.4140119552612305
+		testing/3/2 Left Mean Squared Error: 4.943418979644775
+		testing/3/2 Right Mean Squared Error: 5.884604454040527
+		------------------------------------------------
+		testing/3/2 Mean Absolute Error:  2.3246002197265625
+		testing/3/2 Mean Absolute Error Left: 2.2233800888061523
+		testing/3/2 Mean Absolute Error Right: 2.4258203506469727
+		------------------------------------------------
+		testing/3/2 Overall Accuracy: 0.0 = 0/1
+		testing/3/2 Overall Accuracy Left: 0.0 = 0/1
+		testing/3/2 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/3/2 Binary Accuracy: 0.0 = 0.0/1
+		testing/3/2 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/3/2 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 4 AND FOR training
+		training/4/2 Overall Mean Squared Error: 0.7421352863311768
+		training/4/2 Left Mean Squared Error: 0.4956524074077606
+		training/4/2 Right Mean Squared Error: 0.9886182546615601
+		------------------------------------------------
+		training/4/2 Mean Absolute Error:  0.7964337468147278
+		training/4/2 Mean Absolute Error Left: 0.6718407869338989
+		training/4/2 Mean Absolute Error Right: 0.9210267066955566
+		------------------------------------------------
+		training/4/2 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/4/2 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/4/2 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/4/2 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/4/2 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/4/2 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 4 AND FOR testing
+		testing/4/2 Overall Mean Squared Error: 0.6365516185760498
+		testing/4/2 Left Mean Squared Error: 1.119275450706482
+		testing/4/2 Right Mean Squared Error: 0.15382780134677887
+		------------------------------------------------
+		testing/4/2 Mean Absolute Error:  0.7250835001468658
+		testing/4/2 Mean Absolute Error Left: 1.0579581260681152
+working directory /home/ubuntu
+LEN TEST GEN BEFORE: 3
+LEN TRAIN GEN BEFORE: 10
+LEN TEST GEN: 3
+LEN TRAIN GEN: 10
+Starting mean_and_variance
+Finishing mean_and_variance
+Starting mean_and_variance
+Finishing mean_and_variance
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 1 AND FOR training
+		training/1/1 Overall Mean Squared Error: 0.8398105502128601
+		training/1/1 Left Mean Squared Error: 1.2319682836532593
+		training/1/1 Right Mean Squared Error: 0.44765275716781616
+		------------------------------------------------
+		training/1/1 Mean Absolute Error:  0.7027522623538971
+		training/1/1 Mean Absolute Error Left: 0.9542049169540405
+		training/1/1 Mean Absolute Error Right: 0.45129960775375366
+		------------------------------------------------
+		training/1/1 Overall Accuracy: 0.0 = 0/3
+		training/1/1 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/1/1 Accuracy Right: 0.6666666666666666 = 2/3
+		------------------------------------------------
+		training/1/1 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/1/1 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/1/1 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 1 AND FOR testing
+		testing/1/1 Overall Mean Squared Error: 1.1383320093154907
+		testing/1/1 Left Mean Squared Error: 1.8983672857284546
+		testing/1/1 Right Mean Squared Error: 0.37829679250717163
+		------------------------------------------------
+		testing/1/1 Mean Absolute Error:  0.9964354336261749
+		testing/1/1 Mean Absolute Error Left: 1.3778125047683716
+		testing/1/1 Mean Absolute Error Right: 0.6150583624839783
+		------------------------------------------------
+		testing/1/1 Overall Accuracy: 0.0 = 0/1
+		testing/1/1 Overall Accuracy Left: 0.0 = 0/1
+		testing/1/1 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/1/1 Binary Accuracy: 0.0 = 0.0/1
+		testing/1/1 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/1/1 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 2 AND FOR training
+		training/2/1 Overall Mean Squared Error: 0.8232574462890625
+		training/2/1 Left Mean Squared Error: 0.8843296766281128
+		training/2/1 Right Mean Squared Error: 0.762185275554657
+		------------------------------------------------
+		training/2/1 Mean Absolute Error:  0.7396902441978455
+		training/2/1 Mean Absolute Error Left: 0.8908379077911377
+		training/2/1 Mean Absolute Error Right: 0.5885425806045532
+		------------------------------------------------
+		training/2/1 Overall Accuracy: 0.0 = 0/3
+		training/2/1 Overall Accuracy Left: 0.0 = 0/3
+		training/2/1 Accuracy Right: 0.6666666666666666 = 2/3
+		------------------------------------------------
+		training/2/1 Binary Accuracy: 0.0 = 0.0/3
+		training/2/1 Binary Accuracy Left: 0.0 = 0.0/3
+		training/2/1 Binary Accuracy Right: 1.0 = 1.0/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 2 AND FOR testing
+		testing/2/1 Overall Mean Squared Error: 13.062997817993164
+		testing/2/1 Left Mean Squared Error: 22.061782836914062
+		testing/2/1 Right Mean Squared Error: 4.064213752746582
+		------------------------------------------------
+		testing/2/1 Mean Absolute Error:  3.356493353843689
+		testing/2/1 Mean Absolute Error Left: 4.696997165679932
+		testing/2/1 Mean Absolute Error Right: 2.0159895420074463
+		------------------------------------------------
+		testing/2/1 Overall Accuracy: 0.0 = 0/1
+		testing/2/1 Overall Accuracy Left: 0.0 = 0/1
+		testing/2/1 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/2/1 Binary Accuracy: 0.0 = 0.0/1
+		testing/2/1 Binary Accuracy Left: 0.0 = 0.0/1
+		testing/2/1 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 3 AND FOR training
+		training/3/1 Overall Mean Squared Error: 1.3354170322418213
+		training/3/1 Left Mean Squared Error: 1.1056015491485596
+		training/3/1 Right Mean Squared Error: 1.565232515335083
+		------------------------------------------------
+		training/3/1 Mean Absolute Error:  1.0867495834827423
+		training/3/1 Mean Absolute Error Left: 0.981545627117157
+		training/3/1 Mean Absolute Error Right: 1.1919535398483276
+		------------------------------------------------
+		training/3/1 Overall Accuracy: 0.0 = 0/3
+		training/3/1 Overall Accuracy Left: 0.0 = 0/3
+		training/3/1 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/3/1 Binary Accuracy: 0.6666666666666666 = 0.6666666666666666/3
+		training/3/1 Binary Accuracy Left: 1.0 = 1.0/3
+		training/3/1 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 3 AND FOR testing
+		testing/3/1 Overall Mean Squared Error: 5.030815124511719
+		testing/3/1 Left Mean Squared Error: 4.659661293029785
+		testing/3/1 Right Mean Squared Error: 5.401968479156494
+		------------------------------------------------
+		testing/3/1 Mean Absolute Error:  2.241419196128845
+		testing/3/1 Mean Absolute Error Left: 2.1586248874664307
+		testing/3/1 Mean Absolute Error Right: 2.3242135047912598
+		------------------------------------------------
+		testing/3/1 Overall Accuracy: 0.0 = 0/1
+		testing/3/1 Overall Accuracy Left: 0.0 = 0/1
+		testing/3/1 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/3/1 Binary Accuracy: 0.0 = 0.0/1
+		testing/3/1 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/3/1 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 4 AND FOR training
+		training/4/1 Overall Mean Squared Error: 1.1665617227554321
+		training/4/1 Left Mean Squared Error: 0.8966495394706726
+		training/4/1 Right Mean Squared Error: 1.4364738464355469
+		------------------------------------------------
+		training/4/1 Mean Absolute Error:  0.8516962826251984
+		training/4/1 Mean Absolute Error Left: 0.7532051801681519
+		training/4/1 Mean Absolute Error Right: 0.9501873850822449
+		------------------------------------------------
+		training/4/1 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/4/1 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/4/1 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/4/1 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/4/1 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/4/1 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 4 AND FOR testing
+		testing/4/1 Overall Mean Squared Error: 0.6799694299697876
+		testing/4/1 Left Mean Squared Error: 1.171102523803711
+		testing/4/1 Right Mean Squared Error: 0.18883627653121948
+		------------------------------------------------
+		testing/4/1 Mean Absolute Error:  0.7583639323711395
+		testing/4/1 Mean Absolute Error Left: 1.0821748971939087
+		testing/4/0 Mean Absolute Error:  1.3062560558319092
+		testing/4/0 Mean Absolute Error Left: 1.0286192893981934
+		testing/4/0 Mean Absolute Error Right: 1.583892822265625
+		------------------------------------------------
+		testing/4/0 Overall Accuracy: 0.0 = 0/1
+		testing/4/0 Overall Accuracy Left: 0.0 = 0/1
+		testing/4/0 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/4/0 Binary Accuracy: 0.0 = 0.0/1
+		testing/4/0 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/4/0 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 5 AND FOR training
+		training/5/0 Overall Mean Squared Error: 0.7393810749053955
+		training/5/0 Left Mean Squared Error: 1.2518751621246338
+		training/5/0 Right Mean Squared Error: 0.22688716650009155
+		------------------------------------------------
+		training/5/0 Mean Absolute Error:  0.7677013278007507
+		training/5/0 Mean Absolute Error Left: 1.0731101036071777
+		training/5/0 Mean Absolute Error Right: 0.46229255199432373
+		------------------------------------------------
+		training/5/0 Overall Accuracy: 0.0 = 0/3
+		training/5/0 Overall Accuracy Left: 0.0 = 0/3
+		training/5/0 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/5/0 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/5/0 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/5/0 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 5 AND FOR testing
+		testing/5/0 Overall Mean Squared Error: 1.7537009716033936
+		testing/5/0 Left Mean Squared Error: 0.09461821615695953
+		testing/5/0 Right Mean Squared Error: 3.412783622741699
+		------------------------------------------------
+		testing/5/0 Mean Absolute Error:  1.0774863958358765
+		testing/5/0 Mean Absolute Error Left: 0.307600736618042
+		testing/5/0 Mean Absolute Error Right: 1.847372055053711
+		------------------------------------------------
+		testing/5/0 Overall Accuracy: 0.0 = 0/1
+		testing/5/0 Overall Accuracy Left: 1.0 = 1/1
+		testing/5/0 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/5/0 Binary Accuracy: 0.0 = 0.0/1
+		testing/5/0 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/5/0 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 6 AND FOR training
+		training/6/0 Overall Mean Squared Error: 0.4575660824775696
+		training/6/0 Left Mean Squared Error: 0.8800351619720459
+		training/6/0 Right Mean Squared Error: 0.03509695082902908
+		------------------------------------------------
+		training/6/0 Mean Absolute Error:  0.4702235758304596
+		training/6/0 Mean Absolute Error Left: 0.7779541015625
+		training/6/0 Mean Absolute Error Right: 0.1624930500984192
+		------------------------------------------------
+		training/6/0 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/6/0 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/6/0 Accuracy Right: 1.0 = 3/3
+		------------------------------------------------
+		training/6/0 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/6/0 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/6/0 Binary Accuracy Right: 1.0 = 1.0/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 6 AND FOR testing
+		testing/6/0 Overall Mean Squared Error: 0.6101531982421875
+		testing/6/0 Left Mean Squared Error: 0.1988106667995453
+		testing/6/0 Right Mean Squared Error: 1.0214956998825073
+		------------------------------------------------
+		testing/6/0 Mean Absolute Error:  0.7282862961292267
+		testing/6/0 Mean Absolute Error Left: 0.4458819031715393
+		testing/6/0 Mean Absolute Error Right: 1.010690689086914
+		------------------------------------------------
+		testing/6/0 Overall Accuracy: 0.0 = 0/1
+		testing/6/0 Overall Accuracy Left: 1.0 = 1/1
+		testing/6/0 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/6/0 Binary Accuracy: 1.0 = 1.0/1
+		testing/6/0 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/6/0 Binary Accuracy Right: 1.0 = 1.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 7 AND FOR training
+		training/7/0 Overall Mean Squared Error: 0.5722476840019226
+		training/7/0 Left Mean Squared Error: 0.4896208643913269
+		training/7/0 Right Mean Squared Error: 0.6548745632171631
+		------------------------------------------------
+		training/7/0 Mean Absolute Error:  0.6396791636943817
+		training/7/0 Mean Absolute Error Left: 0.5806694030761719
+		training/7/0 Mean Absolute Error Right: 0.6986889243125916
+		------------------------------------------------
+		training/7/0 Overall Accuracy: 0.0 = 0/3
+		training/7/0 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/7/0 Accuracy Right: 0.6666666666666666 = 2/3
+		------------------------------------------------
+		training/7/0 Binary Accuracy: 0.0 = 0.0/3
+		training/7/0 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/7/0 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 7 AND FOR testing
+		testing/7/0 Overall Mean Squared Error: 0.42739006876945496
+		testing/7/0 Left Mean Squared Error: 0.8257921934127808
+		testing/7/0 Right Mean Squared Error: 0.028987964615225792
+		------------------------------------------------
+		testing/7/0 Mean Absolute Error:  0.5394948124885559
+		testing/7/0 Mean Absolute Error Left: 0.9087311029434204
+		testing/7/0 Mean Absolute Error Right: 0.1702585220336914
+		------------------------------------------------
+		testing/7/0 Overall Accuracy: 0.0 = 0/1
+		testing/7/0 Overall Accuracy Left: 0.0 = 0/1
+		testing/7/0 Accuracy Right: 1.0 = 1/1
+		------------------------------------------------
+		testing/7/0 Binary Accuracy: 0.0 = 0.0/1
+		testing/7/0 Binary Accuracy Left: 0.0 = 0.0/1
+		testing/7/0 Binary Accuracy Right: 1.0 = 1.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 8 AND FOR training
+		training/8/0 Overall Mean Squared Error: 1.2010796070098877
+		training/8/0 Left Mean Squared Error: 0.3542186915874481
+		training/8/0 Right Mean Squared Error: 2.047940492630005
+		------------------------------------------------
+		training/8/0 Mean Absolute Error:  0.8723981380462646
+		training/8/0 Mean Absolute Error Left: 0.509219765663147
+		training/8/0 Mean Absolute Error Right: 1.2355765104293823
+		------------------------------------------------
+		training/8/0 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/8/0 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/8/0 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/8/0 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/8/0 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/8/0 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		testing/4/2 Mean Absolute Error Right: 0.39220887422561646
+		------------------------------------------------
+		testing/4/2 Overall Accuracy: 0.0 = 0/1
+		testing/4/2 Overall Accuracy Left: 0.0 = 0/1
+		testing/4/2 Accuracy Right: 1.0 = 1/1
+		------------------------------------------------
+		testing/4/2 Binary Accuracy: 1.0 = 1.0/1
+		testing/4/2 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/4/2 Binary Accuracy Right: 1.0 = 1.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 5 AND FOR training
+		training/5/2 Overall Mean Squared Error: 1.3177250623703003
+		training/5/2 Left Mean Squared Error: 0.8302260637283325
+		training/5/2 Right Mean Squared Error: 1.8052239418029785
+		------------------------------------------------
+		training/5/2 Mean Absolute Error:  0.9678824543952942
+		training/5/2 Mean Absolute Error Left: 0.8091477155685425
+		training/5/2 Mean Absolute Error Right: 1.126617193222046
+		------------------------------------------------
+		training/5/2 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/5/2 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/5/2 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/5/2 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/5/2 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/5/2 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 5 AND FOR testing
+		testing/5/2 Overall Mean Squared Error: 1.2153419256210327
+		testing/5/2 Left Mean Squared Error: 2.4022138118743896
+		testing/5/2 Right Mean Squared Error: 0.028469964861869812
+		------------------------------------------------
+		testing/5/2 Mean Absolute Error:  0.8593190684914589
+		testing/5/2 Mean Absolute Error Left: 1.5499076843261719
+		testing/5/2 Mean Absolute Error Right: 0.1687304526567459
+		------------------------------------------------
+		testing/5/2 Overall Accuracy: 0.0 = 0/1
+		testing/5/2 Overall Accuracy Left: 0.0 = 0/1
+		testing/5/2 Accuracy Right: 1.0 = 1/1
+		------------------------------------------------
+		testing/5/2 Binary Accuracy: 1.0 = 1.0/1
+		testing/5/2 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/5/2 Binary Accuracy Right: 1.0 = 1.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 6 AND FOR training
+		training/6/2 Overall Mean Squared Error: 0.9939810037612915
+		training/6/2 Left Mean Squared Error: 0.35058173537254333
+		training/6/2 Right Mean Squared Error: 1.6373803615570068
+		------------------------------------------------
+		training/6/2 Mean Absolute Error:  0.8502557724714279
+		training/6/2 Mean Absolute Error Left: 0.46163758635520935
+		training/6/2 Mean Absolute Error Right: 1.2388739585876465
+		------------------------------------------------
+		training/6/2 Overall Accuracy: 0.0 = 0/3
+		training/6/2 Overall Accuracy Left: 0.6666666666666666 = 2/3
+		training/6/2 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/6/2 Binary Accuracy: 0.0 = 0.0/3
+		training/6/2 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/6/2 Binary Accuracy Right: 0.0 = 0.0/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 6 AND FOR testing
+		testing/6/2 Overall Mean Squared Error: 3.3833353519439697
+		testing/6/2 Left Mean Squared Error: 5.776769161224365
+		testing/6/2 Right Mean Squared Error: 0.9899014234542847
+		------------------------------------------------
+		testing/6/2 Mean Absolute Error:  1.6992144584655762
+		testing/6/2 Mean Absolute Error Left: 2.4034910202026367
+		testing/6/2 Mean Absolute Error Right: 0.9949378967285156
+		------------------------------------------------
+		testing/6/2 Overall Accuracy: 0.0 = 0/1
+		testing/6/2 Overall Accuracy Left: 0.0 = 0/1
+		testing/6/2 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/6/2 Binary Accuracy: 0.0 = 0.0/1
+		testing/6/2 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/6/2 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 7 AND FOR training
+		training/7/2 Overall Mean Squared Error: 0.5434061288833618
+		training/7/2 Left Mean Squared Error: 0.7176801562309265
+		training/7/2 Right Mean Squared Error: 0.3691321015357971
+		------------------------------------------------
+		training/7/2 Mean Absolute Error:  0.5789680778980255
+		training/7/2 Mean Absolute Error Left: 0.647577702999115
+		training/7/2 Mean Absolute Error Right: 0.510358452796936
+		------------------------------------------------
+		training/7/2 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/7/2 Overall Accuracy Left: 0.6666666666666666 = 2/3
+		training/7/2 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/7/2 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/7/2 Binary Accuracy Left: 1.0 = 1.0/3
+		training/7/2 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 7 AND FOR testing
+		testing/7/2 Overall Mean Squared Error: 5.921194076538086
+		testing/7/2 Left Mean Squared Error: 8.461668968200684
+		testing/7/2 Right Mean Squared Error: 3.3807191848754883
+		------------------------------------------------
+		testing/7/2 Mean Absolute Error:  2.3737840056419373
+		testing/7/2 Mean Absolute Error Left: 2.9088947772979736
+		testing/7/2 Mean Absolute Error Right: 1.8386732339859009
+		------------------------------------------------
+		testing/7/2 Overall Accuracy: 0.0 = 0/1
+		testing/7/2 Overall Accuracy Left: 0.0 = 0/1
+		testing/7/2 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/7/2 Binary Accuracy: 0.0 = 0.0/1
+		testing/7/2 Binary Accuracy Left: 0.0 = 0.0/1
+		testing/7/2 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 8 AND FOR training
+		training/8/2 Overall Mean Squared Error: 1.5168991088867188
+		training/8/2 Left Mean Squared Error: 0.5313089489936829
+		training/8/2 Right Mean Squared Error: 2.5024895668029785
+		------------------------------------------------
+		training/8/2 Mean Absolute Error:  1.0550435483455658
+		training/8/2 Mean Absolute Error Left: 0.6332318186759949
+		training/8/2 Mean Absolute Error Right: 1.4768552780151367
+		------------------------------------------------
+		training/8/2 Overall Accuracy: 0.0 = 0/3
+		training/8/2 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/8/2 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/8/2 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/8/2 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/8/2 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 8 AND FOR testing
+		testing/4/3 Mean Absolute Error Right: 0.4964604079723358
+		------------------------------------------------
+		testing/4/3 Overall Accuracy: 1.0 = 1/1
+		testing/4/3 Overall Accuracy Left: 1.0 = 1/1
+		testing/4/3 Accuracy Right: 1.0 = 1/1
+		------------------------------------------------
+		testing/4/3 Binary Accuracy: 1.0 = 1.0/1
+		testing/4/3 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/4/3 Binary Accuracy Right: 1.0 = 1.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 5 AND FOR training
+		training/5/3 Overall Mean Squared Error: 0.7380200624465942
+		training/5/3 Left Mean Squared Error: 0.8865627646446228
+		training/5/3 Right Mean Squared Error: 0.5894773006439209
+		------------------------------------------------
+		training/5/3 Mean Absolute Error:  0.754192054271698
+		training/5/3 Mean Absolute Error Left: 0.8997883796691895
+		training/5/3 Mean Absolute Error Right: 0.6085957288742065
+		------------------------------------------------
+		training/5/3 Overall Accuracy: 0.0 = 0/3
+		training/5/3 Overall Accuracy Left: 0.0 = 0/3
+		training/5/3 Accuracy Right: 0.6666666666666666 = 2/3
+		------------------------------------------------
+		training/5/3 Binary Accuracy: 0.0 = 0.0/3
+		training/5/3 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/5/3 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 5 AND FOR testing
+		testing/5/3 Overall Mean Squared Error: 0.17946885526180267
+		testing/5/3 Left Mean Squared Error: 0.33043041825294495
+		testing/5/3 Right Mean Squared Error: 0.028507305309176445
+		------------------------------------------------
+		testing/5/3 Mean Absolute Error:  0.3718359172344208
+		testing/5/3 Mean Absolute Error Left: 0.5748307704925537
+		testing/5/3 Mean Absolute Error Right: 0.16884106397628784
+		------------------------------------------------
+		testing/5/3 Overall Accuracy: 0.0 = 0/1
+		testing/5/3 Overall Accuracy Left: 0.0 = 0/1
+		testing/5/3 Accuracy Right: 1.0 = 1/1
+		------------------------------------------------
+		testing/5/3 Binary Accuracy: 1.0 = 1.0/1
+		testing/5/3 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/5/3 Binary Accuracy Right: 1.0 = 1.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 6 AND FOR training
+		training/6/3 Overall Mean Squared Error: 0.9410373568534851
+		training/6/3 Left Mean Squared Error: 0.6041189432144165
+		training/6/3 Right Mean Squared Error: 1.2779560089111328
+		------------------------------------------------
+		training/6/3 Mean Absolute Error:  0.7373725473880768
+		training/6/3 Mean Absolute Error Left: 0.7728570699691772
+		training/6/3 Mean Absolute Error Right: 0.7018880248069763
+		------------------------------------------------
+		training/6/3 Overall Accuracy: 0.0 = 0/3
+		training/6/3 Overall Accuracy Left: 0.0 = 0/3
+		training/6/3 Accuracy Right: 0.6666666666666666 = 2/3
+		------------------------------------------------
+		training/6/3 Binary Accuracy: 0.0 = 0.0/3
+		training/6/3 Binary Accuracy Left: 0.0 = 0.0/3
+		training/6/3 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 6 AND FOR testing
+		testing/6/3 Overall Mean Squared Error: 1.4929218292236328
+		testing/6/3 Left Mean Squared Error: 1.869515299797058
+		testing/6/3 Right Mean Squared Error: 1.116328477859497
+		------------------------------------------------
+		testing/6/3 Mean Absolute Error:  1.2119333148002625
+		testing/6/3 Mean Absolute Error Left: 1.3673021793365479
+		testing/6/3 Mean Absolute Error Right: 1.056564450263977
+		------------------------------------------------
+		testing/6/3 Overall Accuracy: 0.0 = 0/1
+		testing/6/3 Overall Accuracy Left: 0.0 = 0/1
+		testing/6/3 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/6/3 Binary Accuracy: 0.0 = 0.0/1
+		testing/6/3 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/6/3 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 7 AND FOR training
+		training/7/3 Overall Mean Squared Error: 0.6672548651695251
+		training/7/3 Left Mean Squared Error: 0.9120451807975769
+		training/7/3 Right Mean Squared Error: 0.4224644899368286
+		------------------------------------------------
+		training/7/3 Mean Absolute Error:  0.7314687669277191
+		training/7/3 Mean Absolute Error Left: 0.904086709022522
+		training/7/3 Mean Absolute Error Right: 0.5588508248329163
+		------------------------------------------------
+		training/7/3 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/7/3 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/7/3 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/7/3 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/7/3 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/7/3 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 7 AND FOR testing
+		testing/7/3 Overall Mean Squared Error: 3.4858036041259766
+		testing/7/3 Left Mean Squared Error: 3.7218515872955322
+		testing/7/3 Right Mean Squared Error: 3.249755382537842
+		------------------------------------------------
+		testing/7/3 Mean Absolute Error:  1.8659589290618896
+		testing/7/3 Mean Absolute Error Left: 1.9292100667953491
+		testing/7/3 Mean Absolute Error Right: 1.8027077913284302
+		------------------------------------------------
+		testing/7/3 Overall Accuracy: 0.0 = 0/1
+		testing/7/3 Overall Accuracy Left: 0.0 = 0/1
+		testing/7/3 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/7/3 Binary Accuracy: 0.0 = 0.0/1
+		testing/7/3 Binary Accuracy Left: 0.0 = 0.0/1
+		testing/7/3 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 8 AND FOR training
+		training/8/3 Overall Mean Squared Error: 1.6701310873031616
+		training/8/3 Left Mean Squared Error: 1.4323935508728027
+		training/8/3 Right Mean Squared Error: 1.90786874294281
+		------------------------------------------------
+		training/8/3 Mean Absolute Error:  1.1795937418937683
+		training/8/3 Mean Absolute Error Left: 0.9919300079345703
+		training/8/3 Mean Absolute Error Right: 1.3672574758529663
+		------------------------------------------------
+		training/8/3 Overall Accuracy: 0.0 = 0/3
+		training/8/3 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/8/3 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/8/3 Binary Accuracy: 0.0 = 0.0/3
+		training/8/3 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/8/3 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 8 AND FOR testing
+		testing/8/3 Overall Mean Squared Error: 3.677572250366211
+		testing/4/1 Mean Absolute Error Right: 0.43455296754837036
+		------------------------------------------------
+		testing/4/1 Overall Accuracy: 0.0 = 0/1
+		testing/4/1 Overall Accuracy Left: 0.0 = 0/1
+		testing/4/1 Accuracy Right: 1.0 = 1/1
+		------------------------------------------------
+		testing/4/1 Binary Accuracy: 1.0 = 1.0/1
+		testing/4/1 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/4/1 Binary Accuracy Right: 1.0 = 1.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 5 AND FOR training
+		training/5/1 Overall Mean Squared Error: 1.2327865362167358
+		training/5/1 Left Mean Squared Error: 0.5891410112380981
+		training/5/1 Right Mean Squared Error: 1.876431941986084
+		------------------------------------------------
+		training/5/1 Mean Absolute Error:  0.9629595577716827
+		training/5/1 Mean Absolute Error Left: 0.6779891848564148
+		training/5/1 Mean Absolute Error Right: 1.2479299306869507
+		------------------------------------------------
+		training/5/1 Overall Accuracy: 0.0 = 0/3
+		training/5/1 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/5/1 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/5/1 Binary Accuracy: 0.0 = 0.0/3
+		training/5/1 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/5/1 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 5 AND FOR testing
+		testing/5/1 Overall Mean Squared Error: 1.4786624908447266
+		testing/5/1 Left Mean Squared Error: 2.890594720840454
+		testing/5/1 Right Mean Squared Error: 0.06673022359609604
+		------------------------------------------------
+		testing/5/1 Mean Absolute Error:  0.979248434305191
+		testing/5/1 Mean Absolute Error Left: 1.7001749277114868
+		testing/5/1 Mean Absolute Error Right: 0.25832194089889526
+		------------------------------------------------
+		testing/5/1 Overall Accuracy: 0.0 = 0/1
+		testing/5/1 Overall Accuracy Left: 0.0 = 0/1
+		testing/5/1 Accuracy Right: 1.0 = 1/1
+		------------------------------------------------
+		testing/5/1 Binary Accuracy: 1.0 = 1.0/1
+		testing/5/1 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/5/1 Binary Accuracy Right: 1.0 = 1.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 6 AND FOR training
+		training/6/1 Overall Mean Squared Error: 1.3464702367782593
+		training/6/1 Left Mean Squared Error: 0.6338585615158081
+		training/6/1 Right Mean Squared Error: 2.059081792831421
+		------------------------------------------------
+		training/6/1 Mean Absolute Error:  0.8817871809005737
+		training/6/1 Mean Absolute Error Left: 0.7279419898986816
+		training/6/1 Mean Absolute Error Right: 1.0356323719024658
+		------------------------------------------------
+		training/6/1 Overall Accuracy: 0.0 = 0/3
+		training/6/1 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/6/1 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/6/1 Binary Accuracy: 0.0 = 0.0/3
+		training/6/1 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/6/1 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 6 AND FOR testing
+		testing/6/1 Overall Mean Squared Error: 3.2865355014801025
+		testing/6/1 Left Mean Squared Error: 5.629894256591797
+		testing/6/1 Right Mean Squared Error: 0.9431767463684082
+		------------------------------------------------
+		testing/6/1 Mean Absolute Error:  1.671956330537796
+		testing/6/1 Mean Absolute Error Left: 2.372739791870117
+		testing/6/1 Mean Absolute Error Right: 0.9711728692054749
+		------------------------------------------------
+		testing/6/1 Overall Accuracy: 0.0 = 0/1
+		testing/6/1 Overall Accuracy Left: 0.0 = 0/1
+		testing/6/1 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/6/1 Binary Accuracy: 0.0 = 0.0/1
+		testing/6/1 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/6/1 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 7 AND FOR training
+		training/7/1 Overall Mean Squared Error: 0.8725582957267761
+		training/7/1 Left Mean Squared Error: 0.610710084438324
+		training/7/1 Right Mean Squared Error: 1.134406566619873
+		------------------------------------------------
+		training/7/1 Mean Absolute Error:  0.8088200688362122
+		training/7/1 Mean Absolute Error Left: 0.7015225291252136
+		training/7/1 Mean Absolute Error Right: 0.9161176085472107
+		------------------------------------------------
+		training/7/1 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/7/1 Overall Accuracy Left: 0.6666666666666666 = 2/3
+		training/7/1 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/7/1 Binary Accuracy: 0.6666666666666666 = 0.6666666666666666/3
+		training/7/1 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/7/1 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 7 AND FOR testing
+		testing/7/1 Overall Mean Squared Error: 5.9120378494262695
+		testing/7/1 Left Mean Squared Error: 8.51578140258789
+		testing/7/1 Right Mean Squared Error: 3.3082940578460693
+		------------------------------------------------
+		testing/7/1 Mean Absolute Error:  2.3685263991355896
+		testing/7/1 Mean Absolute Error Left: 2.9181811809539795
+		testing/7/1 Mean Absolute Error Right: 1.8188716173171997
+		------------------------------------------------
+		testing/7/1 Overall Accuracy: 0.0 = 0/1
+		testing/7/1 Overall Accuracy Left: 0.0 = 0/1
+		testing/7/1 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/7/1 Binary Accuracy: 0.0 = 0.0/1
+		testing/7/1 Binary Accuracy Left: 0.0 = 0.0/1
+		testing/7/1 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 8 AND FOR training
+		training/8/1 Overall Mean Squared Error: 0.5827929973602295
+		training/8/1 Left Mean Squared Error: 0.24919849634170532
+		training/8/1 Right Mean Squared Error: 0.9163874387741089
+		------------------------------------------------
+		training/8/1 Mean Absolute Error:  0.6825543493032455
+		training/8/1 Mean Absolute Error Left: 0.45551297068595886
+		training/8/1 Mean Absolute Error Right: 0.9095957279205322
+		------------------------------------------------
+		training/8/1 Overall Accuracy: 0.0 = 0/3
+		training/8/1 Overall Accuracy Left: 0.6666666666666666 = 2/3
+		training/8/1 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/8/1 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/8/1 Binary Accuracy Left: 1.0 = 1.0/3
+		training/8/1 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 8 AND FOR testing
+		testing/8/3 Left Mean Squared Error: 4.001733779907227
+		testing/8/3 Right Mean Squared Error: 3.353410482406616
+		------------------------------------------------
+		testing/8/3 Mean Absolute Error:  1.9158326983451843
+		testing/8/3 Mean Absolute Error Left: 2.0004334449768066
+		testing/8/3 Mean Absolute Error Right: 1.831231951713562
+		------------------------------------------------
+		testing/8/3 Overall Accuracy: 0.0 = 0/1
+		testing/8/3 Overall Accuracy Left: 0.0 = 0/1
+		testing/8/3 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/8/3 Binary Accuracy: 0.0 = 0.0/1
+		testing/8/3 Binary Accuracy Left: 0.0 = 0.0/1
+		testing/8/3 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 9 AND FOR training
+		training/9/3 Overall Mean Squared Error: 0.6424808502197266
+		training/9/3 Left Mean Squared Error: 0.9084749221801758
+		training/9/3 Right Mean Squared Error: 0.37648677825927734
+		------------------------------------------------
+		training/9/3 Mean Absolute Error:  0.7152582108974457
+		training/9/3 Mean Absolute Error Left: 0.8266198039054871
+		training/9/3 Mean Absolute Error Right: 0.6038966178894043
+		------------------------------------------------
+		training/9/3 Overall Accuracy: 0.0 = 0/3
+		training/9/3 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/9/3 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/9/3 Binary Accuracy: 0.0 = 0.0/3
+		training/9/3 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/9/3 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 9 AND FOR testing
+		testing/9/3 Overall Mean Squared Error: 2.4415247440338135
+		testing/9/3 Left Mean Squared Error: 2.8973231315612793
+		testing/9/3 Right Mean Squared Error: 1.985726237297058
+		------------------------------------------------
+		testing/9/3 Mean Absolute Error:  1.5556552410125732
+		testing/9/3 Mean Absolute Error Left: 1.7021524906158447
+		testing/9/3 Mean Absolute Error Right: 1.4091579914093018
+		------------------------------------------------
+		testing/9/3 Overall Accuracy: 0.0 = 0/1
+		testing/9/3 Overall Accuracy Left: 0.0 = 0/1
+		testing/9/3 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/9/3 Binary Accuracy: 0.0 = 0.0/1
+		testing/9/3 Binary Accuracy Left: 0.0 = 0.0/1
+		testing/9/3 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 10 AND FOR training
+		training/10/3 Overall Mean Squared Error: 0.8871111869812012
+		training/10/3 Left Mean Squared Error: 0.2706533372402191
+		training/10/3 Right Mean Squared Error: 1.5035690069198608
+		------------------------------------------------
+		training/10/3 Mean Absolute Error:  0.7990067601203918
+		training/10/3 Mean Absolute Error Left: 0.5138638019561768
+		training/10/3 Mean Absolute Error Right: 1.084149718284607
+		------------------------------------------------
+		training/10/3 Overall Accuracy: 0.0 = 0/3
+		training/10/3 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/10/3 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/10/3 Binary Accuracy: 0.0 = 0.0/3
+		training/10/3 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/10/3 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 10 AND FOR testing
+		testing/10/3 Overall Mean Squared Error: 1.0146527290344238
+		testing/10/3 Left Mean Squared Error: 1.2989338636398315
+		testing/10/3 Right Mean Squared Error: 0.7303715348243713
+		------------------------------------------------
+		testing/10/3 Mean Absolute Error:  0.997162789106369
+		testing/10/3 Mean Absolute Error Left: 1.1397078037261963
+		testing/10/3 Mean Absolute Error Right: 0.8546177744865417
+		------------------------------------------------
+		testing/10/3 Overall Accuracy: 0.0 = 0/1
+		testing/10/3 Overall Accuracy Left: 0.0 = 0/1
+		testing/10/3 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/10/3 Binary Accuracy: 0.0 = 0.0/1
+		testing/10/3 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/10/3 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 11 AND FOR training
+		training/11/3 Overall Mean Squared Error: 1.1494932174682617
+		training/11/3 Left Mean Squared Error: 0.061352476477622986
+		training/11/3 Right Mean Squared Error: 2.23763370513916
+		------------------------------------------------
+		training/11/3 Mean Absolute Error:  0.7867479547858238
+		training/11/3 Mean Absolute Error Left: 0.230044886469841
+		training/11/3 Mean Absolute Error Right: 1.3434510231018066
+		------------------------------------------------
+		training/11/3 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/11/3 Overall Accuracy Left: 1.0 = 3/3
+		training/11/3 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/11/3 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/11/3 Binary Accuracy Left: 1.0 = 1.0/3
+		training/11/3 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 11 AND FOR testing
+		testing/11/3 Overall Mean Squared Error: 0.6880394220352173
+		testing/11/3 Left Mean Squared Error: 0.6691582798957825
+		testing/11/3 Right Mean Squared Error: 0.7069205641746521
+		------------------------------------------------
+		testing/11/3 Mean Absolute Error:  0.8294033110141754
+		testing/11/3 Mean Absolute Error Left: 0.8180209398269653
+		testing/11/3 Mean Absolute Error Right: 0.8407856822013855
+		------------------------------------------------
+		testing/11/3 Overall Accuracy: 0.0 = 0/1
+		testing/11/3 Overall Accuracy Left: 0.0 = 0/1
+		testing/11/3 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/11/3 Binary Accuracy: 0.0 = 0.0/1
+		testing/11/3 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/11/3 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 12 AND FOR training
+		training/12/3 Overall Mean Squared Error: 0.333979070186615
+		training/12/3 Left Mean Squared Error: 0.43966859579086304
+		training/12/3 Right Mean Squared Error: 0.22828951478004456
+		------------------------------------------------
+		training/12/3 Mean Absolute Error:  0.5349666774272919
+		training/12/3 Mean Absolute Error Left: 0.642940878868103
+		training/12/3 Mean Absolute Error Right: 0.4269924759864807
+		------------------------------------------------
+		training/12/3 Overall Accuracy: 0.0 = 0/3
+		training/12/3 Overall Accuracy Left: 0.0 = 0/3
+		training/12/3 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/12/3 Binary Accuracy: 0.0 = 0.0/3
+		training/12/3 Binary Accuracy Left: 0.0 = 0.0/3
+		testing/8/2 Overall Mean Squared Error: 6.150898456573486
+		testing/8/2 Left Mean Squared Error: 8.79276180267334
+		testing/8/2 Right Mean Squared Error: 3.509035110473633
+		------------------------------------------------
+		testing/8/2 Mean Absolute Error:  2.41925048828125
+		testing/8/2 Mean Absolute Error Left: 2.965259075164795
+		testing/8/2 Mean Absolute Error Right: 1.873241901397705
+		------------------------------------------------
+		testing/8/2 Overall Accuracy: 0.0 = 0/1
+		testing/8/2 Overall Accuracy Left: 0.0 = 0/1
+		testing/8/2 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/8/2 Binary Accuracy: 0.0 = 0.0/1
+		testing/8/2 Binary Accuracy Left: 0.0 = 0.0/1
+		testing/8/2 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 9 AND FOR training
+		training/9/2 Overall Mean Squared Error: 0.9475923776626587
+		training/9/2 Left Mean Squared Error: 0.44885823130607605
+		training/9/2 Right Mean Squared Error: 1.446326494216919
+		------------------------------------------------
+		training/9/2 Mean Absolute Error:  0.7257673144340515
+		training/9/2 Mean Absolute Error Left: 0.4771980047225952
+		training/9/2 Mean Absolute Error Right: 0.9743366241455078
+		------------------------------------------------
+		training/9/2 Overall Accuracy: 0.0 = 0/3
+		training/9/2 Overall Accuracy Left: 0.6666666666666666 = 2/3
+		training/9/2 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/9/2 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/9/2 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/9/2 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 9 AND FOR testing
+		testing/9/2 Overall Mean Squared Error: 4.372161865234375
+		testing/9/2 Left Mean Squared Error: 6.907840251922607
+		testing/9/2 Right Mean Squared Error: 1.836483120918274
+		------------------------------------------------
+		testing/9/2 Mean Absolute Error:  1.9917230606079102
+		testing/9/2 Mean Absolute Error Left: 2.628277063369751
+		testing/9/2 Mean Absolute Error Right: 1.3551690578460693
+		------------------------------------------------
+		testing/9/2 Overall Accuracy: 0.0 = 0/1
+		testing/9/2 Overall Accuracy Left: 0.0 = 0/1
+		testing/9/2 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/9/2 Binary Accuracy: 0.0 = 0.0/1
+		testing/9/2 Binary Accuracy Left: 0.0 = 0.0/1
+		testing/9/2 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 10 AND FOR training
+		training/10/2 Overall Mean Squared Error: 0.4781374931335449
+		training/10/2 Left Mean Squared Error: 0.31039345264434814
+		training/10/2 Right Mean Squared Error: 0.6458815336227417
+		------------------------------------------------
+		training/10/2 Mean Absolute Error:  0.5687174648046494
+		training/10/2 Mean Absolute Error Left: 0.44856688380241394
+		training/10/2 Mean Absolute Error Right: 0.6888680458068848
+		------------------------------------------------
+		training/10/2 Overall Accuracy: 0.0 = 0/3
+		training/10/2 Overall Accuracy Left: 0.6666666666666666 = 2/3
+		training/10/2 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/10/2 Binary Accuracy: 0.0 = 0.0/3
+		training/10/2 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/10/2 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 10 AND FOR testing
+		testing/10/2 Overall Mean Squared Error: 2.7664103507995605
+		testing/10/2 Left Mean Squared Error: 4.802758693695068
+		testing/10/2 Right Mean Squared Error: 0.7300622463226318
+		------------------------------------------------
+		testing/10/2 Mean Absolute Error:  1.522978276014328
+		testing/10/2 Mean Absolute Error Left: 2.1915197372436523
+		testing/10/2 Mean Absolute Error Right: 0.8544368147850037
+		------------------------------------------------
+		testing/10/2 Overall Accuracy: 0.0 = 0/1
+		testing/10/2 Overall Accuracy Left: 0.0 = 0/1
+		testing/10/2 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/10/2 Binary Accuracy: 0.0 = 0.0/1
+		testing/10/2 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/10/2 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 11 AND FOR training
+		training/11/2 Overall Mean Squared Error: 0.36802852153778076
+		training/11/2 Left Mean Squared Error: 0.25080743432044983
+		training/11/2 Right Mean Squared Error: 0.4852496087551117
+		------------------------------------------------
+		training/11/2 Mean Absolute Error:  0.41711606085300446
+		training/11/2 Mean Absolute Error Left: 0.3630690276622772
+		training/11/2 Mean Absolute Error Right: 0.4711630940437317
+		------------------------------------------------
+		training/11/2 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/11/2 Overall Accuracy Left: 0.6666666666666666 = 2/3
+		training/11/2 Accuracy Right: 0.6666666666666666 = 2/3
+		------------------------------------------------
+		training/11/2 Binary Accuracy: 0.6666666666666666 = 0.6666666666666666/3
+		training/11/2 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/11/2 Binary Accuracy Right: 1.0 = 1.0/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 11 AND FOR testing
+		testing/11/2 Overall Mean Squared Error: 1.9303874969482422
+		testing/11/2 Left Mean Squared Error: 3.2322099208831787
+		testing/11/2 Right Mean Squared Error: 0.6285651922225952
+		------------------------------------------------
+		testing/11/2 Mean Absolute Error:  1.29532790184021
+		testing/11/2 Mean Absolute Error Left: 1.7978347539901733
+		testing/11/2 Mean Absolute Error Right: 0.7928210496902466
+		------------------------------------------------
+		testing/11/2 Overall Accuracy: 0.0 = 0/1
+		testing/11/2 Overall Accuracy Left: 0.0 = 0/1
+		testing/11/2 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/11/2 Binary Accuracy: 0.0 = 0.0/1
+		testing/11/2 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/11/2 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 12 AND FOR training
+		training/12/2 Overall Mean Squared Error: 0.4194689393043518
+		training/12/2 Left Mean Squared Error: 0.5513598918914795
+		training/12/2 Right Mean Squared Error: 0.28757795691490173
+		------------------------------------------------
+		training/12/2 Mean Absolute Error:  0.5039551705121994
+		training/12/2 Mean Absolute Error Left: 0.562628984451294
+		training/12/2 Mean Absolute Error Right: 0.44528135657310486
+		------------------------------------------------
+		training/12/2 Overall Accuracy: 0.0 = 0/3
+		training/12/2 Overall Accuracy Left: 0.6666666666666666 = 2/3
+		training/12/2 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 8 AND FOR testing
+		testing/8/0 Overall Mean Squared Error: 0.46959999203681946
+		testing/8/0 Left Mean Squared Error: 0.8956756591796875
+		testing/8/0 Right Mean Squared Error: 0.043524324893951416
+		------------------------------------------------
+		testing/8/0 Mean Absolute Error:  0.5775131285190582
+		testing/8/0 Mean Absolute Error Left: 0.9464014172554016
+		testing/8/0 Mean Absolute Error Right: 0.20862483978271484
+		------------------------------------------------
+		testing/8/0 Overall Accuracy: 0.0 = 0/1
+		testing/8/0 Overall Accuracy Left: 0.0 = 0/1
+		testing/8/0 Accuracy Right: 1.0 = 1/1
+		------------------------------------------------
+		testing/8/0 Binary Accuracy: 0.0 = 0.0/1
+		testing/8/0 Binary Accuracy Left: 0.0 = 0.0/1
+		testing/8/0 Binary Accuracy Right: 1.0 = 1.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 9 AND FOR training
+		training/9/0 Overall Mean Squared Error: 1.3659133911132812
+		training/9/0 Left Mean Squared Error: 0.12892557680606842
+		training/9/0 Right Mean Squared Error: 2.6029014587402344
+		------------------------------------------------
+		training/9/0 Mean Absolute Error:  0.9519349038600922
+		training/9/0 Mean Absolute Error Left: 0.3528735041618347
+		training/9/0 Mean Absolute Error Right: 1.5509963035583496
+		------------------------------------------------
+		training/9/0 Overall Accuracy: 0.0 = 0/3
+		training/9/0 Overall Accuracy Left: 1.0 = 3/3
+		training/9/0 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/9/0 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/9/0 Binary Accuracy Left: 1.0 = 1.0/3
+		training/9/0 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 9 AND FOR testing
+		testing/9/0 Overall Mean Squared Error: 0.3666825294494629
+		testing/9/0 Left Mean Squared Error: 0.37201276421546936
+		testing/9/0 Right Mean Squared Error: 0.36135226488113403
+		------------------------------------------------
+		testing/9/0 Mean Absolute Error:  0.6055271625518799
+		testing/9/0 Mean Absolute Error Left: 0.6099284887313843
+		testing/9/0 Mean Absolute Error Right: 0.6011258363723755
+		------------------------------------------------
+		testing/9/0 Overall Accuracy: 0.0 = 0/1
+		testing/9/0 Overall Accuracy Left: 0.0 = 0/1
+		testing/9/0 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/9/0 Binary Accuracy: 0.0 = 0.0/1
+		testing/9/0 Binary Accuracy Left: 0.0 = 0.0/1
+		testing/9/0 Binary Accuracy Right: 1.0 = 1.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Model Saved at Epoch 10
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 10 AND FOR training
+		training/10/0 Overall Mean Squared Error: 1.984291434288025
+		training/10/0 Left Mean Squared Error: 3.0252089500427246
+		training/10/0 Right Mean Squared Error: 0.9433738589286804
+		------------------------------------------------
+		training/10/0 Mean Absolute Error:  1.201290339231491
+		training/10/0 Mean Absolute Error Left: 1.5814735889434814
+		training/10/0 Mean Absolute Error Right: 0.8211070895195007
+		------------------------------------------------
+		training/10/0 Overall Accuracy: 0.0 = 0/3
+		training/10/0 Overall Accuracy Left: 0.0 = 0/3
+		training/10/0 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/10/0 Binary Accuracy: 0.0 = 0.0/3
+		training/10/0 Binary Accuracy Left: 0.0 = 0.0/3
+		training/10/0 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 10 AND FOR testing
+		testing/10/0 Overall Mean Squared Error: 0.7174408435821533
+		testing/10/0 Left Mean Squared Error: 0.0200155358761549
+		testing/10/0 Right Mean Squared Error: 1.4148662090301514
+		------------------------------------------------
+		testing/10/0 Mean Absolute Error:  0.6654788851737976
+		testing/10/0 Mean Absolute Error Left: 0.14147627353668213
+		testing/10/0 Mean Absolute Error Right: 1.189481496810913
+		------------------------------------------------
+		testing/10/0 Overall Accuracy: 0.0 = 0/1
+		testing/10/0 Overall Accuracy Left: 1.0 = 1/1
+		testing/10/0 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/10/0 Binary Accuracy: 1.0 = 1.0/1
+		testing/10/0 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/10/0 Binary Accuracy Right: 1.0 = 1.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 11 AND FOR training
+		training/11/0 Overall Mean Squared Error: 1.2629928588867188
+		training/11/0 Left Mean Squared Error: 1.9404890537261963
+		training/11/0 Right Mean Squared Error: 0.5854966044425964
+		------------------------------------------------
+		training/11/0 Mean Absolute Error:  0.7942392528057098
+		training/11/0 Mean Absolute Error Left: 0.9542480707168579
+		training/11/0 Mean Absolute Error Right: 0.6342304348945618
+		------------------------------------------------
+		training/11/0 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/11/0 Overall Accuracy Left: 0.6666666666666666 = 2/3
+		training/11/0 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/11/0 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/11/0 Binary Accuracy Left: 1.0 = 1.0/3
+		training/11/0 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 11 AND FOR testing
+		testing/11/0 Overall Mean Squared Error: 0.7216876745223999
+		testing/11/0 Left Mean Squared Error: 0.0315529927611351
+		testing/11/0 Right Mean Squared Error: 1.4118223190307617
+		------------------------------------------------
+		testing/11/0 Mean Absolute Error:  0.6829164624214172
+		testing/11/0 Mean Absolute Error Left: 0.17763161659240723
+		testing/11/0 Mean Absolute Error Right: 1.1882013082504272
+		------------------------------------------------
+		testing/11/0 Overall Accuracy: 0.0 = 0/1
+		testing/11/0 Overall Accuracy Left: 1.0 = 1/1
+		testing/11/0 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/11/0 Binary Accuracy: 1.0 = 1.0/1
+		testing/11/0 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/11/0 Binary Accuracy Right: 1.0 = 1.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 12 AND FOR training
+		training/12/0 Overall Mean Squared Error: 0.4648350179195404
+		training/12/0 Left Mean Squared Error: 0.723956286907196
+		training/12/0 Right Mean Squared Error: 0.20571371912956238
+		------------------------------------------------
+		training/12/0 Mean Absolute Error:  0.5658862441778183
+		training/12/0 Mean Absolute Error Left: 0.7647479772567749
+		training/12/0 Mean Absolute Error Right: 0.3670245110988617
+		------------------------------------------------
+		training/12/0 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/12/0 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		testing/8/1 Overall Mean Squared Error: 6.067749977111816
+		testing/8/1 Left Mean Squared Error: 8.988540649414062
+		testing/8/1 Right Mean Squared Error: 3.146959066390991
+		------------------------------------------------
+		testing/8/1 Mean Absolute Error:  2.386028289794922
+		testing/8/1 Mean Absolute Error Left: 2.998089551925659
+		testing/8/1 Mean Absolute Error Right: 1.7739670276641846
+		------------------------------------------------
+		testing/8/1 Overall Accuracy: 0.0 = 0/1
+		testing/8/1 Overall Accuracy Left: 0.0 = 0/1
+		testing/8/1 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/8/1 Binary Accuracy: 0.0 = 0.0/1
+		testing/8/1 Binary Accuracy Left: 0.0 = 0.0/1
+		testing/8/1 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 9 AND FOR training
+		training/9/1 Overall Mean Squared Error: 0.6140403747558594
+		training/9/1 Left Mean Squared Error: 0.8015910983085632
+		training/9/1 Right Mean Squared Error: 0.4264896810054779
+		------------------------------------------------
+		training/9/1 Mean Absolute Error:  0.7169151902198792
+		training/9/1 Mean Absolute Error Left: 0.8369863033294678
+		training/9/1 Mean Absolute Error Right: 0.5968440771102905
+		------------------------------------------------
+		training/9/1 Overall Accuracy: 0.0 = 0/3
+		training/9/1 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/9/1 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/9/1 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/9/1 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/9/1 Binary Accuracy Right: 1.0 = 1.0/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 9 AND FOR testing
+		testing/9/1 Overall Mean Squared Error: 4.401214599609375
+		testing/9/1 Left Mean Squared Error: 7.003481864929199
+		testing/9/1 Right Mean Squared Error: 1.7989472150802612
+		------------------------------------------------
+		testing/9/1 Mean Absolute Error:  1.99382883310318
+		testing/9/1 Mean Absolute Error Left: 2.646409273147583
+		testing/9/1 Mean Absolute Error Right: 1.3412483930587769
+		------------------------------------------------
+		testing/9/1 Overall Accuracy: 0.0 = 0/1
+		testing/9/1 Overall Accuracy Left: 0.0 = 0/1
+		testing/9/1 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/9/1 Binary Accuracy: 0.0 = 0.0/1
+		testing/9/1 Binary Accuracy Left: 0.0 = 0.0/1
+		testing/9/1 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 10 AND FOR training
+		training/10/1 Overall Mean Squared Error: 1.8536709547042847
+		training/10/1 Left Mean Squared Error: 1.5852149724960327
+		training/10/1 Right Mean Squared Error: 2.1221272945404053
+		------------------------------------------------
+		training/10/1 Mean Absolute Error:  1.2152139544487
+		training/10/1 Mean Absolute Error Left: 1.0649465322494507
+		training/10/1 Mean Absolute Error Right: 1.3654813766479492
+		------------------------------------------------
+		training/10/1 Overall Accuracy: 0.0 = 0/3
+		training/10/1 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/10/1 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/10/1 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/10/1 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/10/1 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 10 AND FOR testing
+		testing/10/1 Overall Mean Squared Error: 2.7744619846343994
+		testing/10/1 Left Mean Squared Error: 4.8222455978393555
+		testing/10/1 Right Mean Squared Error: 0.7266784310340881
+		------------------------------------------------
+		testing/10/1 Mean Absolute Error:  1.5242078006267548
+		testing/10/1 Mean Absolute Error Left: 2.1959612369537354
+		testing/10/1 Mean Absolute Error Right: 0.8524543642997742
+		------------------------------------------------
+		testing/10/1 Overall Accuracy: 0.0 = 0/1
+		testing/10/1 Overall Accuracy Left: 0.0 = 0/1
+		testing/10/1 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/10/1 Binary Accuracy: 0.0 = 0.0/1
+		testing/10/1 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/10/1 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 11 AND FOR training
+		training/11/1 Overall Mean Squared Error: 0.8303588628768921
+		training/11/1 Left Mean Squared Error: 0.4834749102592468
+		training/11/1 Right Mean Squared Error: 1.1772427558898926
+		------------------------------------------------
+		training/11/1 Mean Absolute Error:  0.6601127088069916
+		training/11/1 Mean Absolute Error Left: 0.49456876516342163
+		training/11/1 Mean Absolute Error Right: 0.8256566524505615
+		------------------------------------------------
+		training/11/1 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/11/1 Overall Accuracy Left: 0.6666666666666666 = 2/3
+		training/11/1 Accuracy Right: 0.6666666666666666 = 2/3
+		------------------------------------------------
+		training/11/1 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/11/1 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/11/1 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 11 AND FOR testing
+		testing/11/1 Overall Mean Squared Error: 1.9825100898742676
+		testing/11/1 Left Mean Squared Error: 3.2944912910461426
+		testing/11/1 Right Mean Squared Error: 0.6705288887023926
+		------------------------------------------------
+		testing/11/1 Mean Absolute Error:  1.3169658184051514
+		testing/11/1 Mean Absolute Error Left: 1.8150733709335327
+		testing/11/1 Mean Absolute Error Right: 0.81885826587677
+		------------------------------------------------
+		testing/11/1 Overall Accuracy: 0.0 = 0/1
+		testing/11/1 Overall Accuracy Left: 0.0 = 0/1
+		testing/11/1 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/11/1 Binary Accuracy: 0.0 = 0.0/1
+		testing/11/1 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/11/1 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 12 AND FOR training
+		training/12/1 Overall Mean Squared Error: 1.085185170173645
+		training/12/1 Left Mean Squared Error: 1.7070424556732178
+		training/12/1 Right Mean Squared Error: 0.46332797408103943
+		------------------------------------------------
+		training/12/1 Mean Absolute Error:  0.8403705358505249
+		training/12/1 Mean Absolute Error Left: 1.07807457447052
+		training/12/1 Mean Absolute Error Right: 0.6026664972305298
+		------------------------------------------------
+		training/12/1 Overall Accuracy: 0.0 = 0/3
+		training/12/1 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/12/1 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/12/3 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 12 AND FOR testing
+		testing/12/3 Overall Mean Squared Error: 0.4477587342262268
+		testing/12/3 Left Mean Squared Error: 0.38167181611061096
+		testing/12/3 Right Mean Squared Error: 0.513845682144165
+		------------------------------------------------
+		testing/12/3 Mean Absolute Error:  0.6673131287097931
+		testing/12/3 Mean Absolute Error Left: 0.6177959442138672
+		testing/12/3 Mean Absolute Error Right: 0.716830313205719
+		------------------------------------------------
+		testing/12/3 Overall Accuracy: 0.0 = 0/1
+		testing/12/3 Overall Accuracy Left: 0.0 = 0/1
+		testing/12/3 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/12/3 Binary Accuracy: 0.0 = 0.0/1
+		testing/12/3 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/12/3 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 13 AND FOR training
+		training/13/3 Overall Mean Squared Error: 0.9557625651359558
+		training/13/3 Left Mean Squared Error: 1.6741185188293457
+		training/13/3 Right Mean Squared Error: 0.23740673065185547
+		------------------------------------------------
+		training/13/3 Mean Absolute Error:  0.748139962553978
+		training/13/3 Mean Absolute Error Left: 1.0283629894256592
+		training/13/3 Mean Absolute Error Right: 0.46791693568229675
+		------------------------------------------------
+		training/13/3 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/13/3 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/13/3 Accuracy Right: 0.6666666666666666 = 2/3
+		------------------------------------------------
+		training/13/3 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/13/3 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/13/3 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 13 AND FOR testing
+		testing/13/3 Overall Mean Squared Error: 0.6256648898124695
+		testing/13/3 Left Mean Squared Error: 0.37895262241363525
+		testing/13/3 Right Mean Squared Error: 0.8723771572113037
+		------------------------------------------------
+		testing/13/3 Mean Absolute Error:  0.7748013138771057
+		testing/13/3 Mean Absolute Error Left: 0.615591287612915
+		testing/13/3 Mean Absolute Error Right: 0.9340113401412964
+		------------------------------------------------
+		testing/13/3 Overall Accuracy: 0.0 = 0/1
+		testing/13/3 Overall Accuracy Left: 0.0 = 0/1
+		testing/13/3 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/13/3 Binary Accuracy: 0.0 = 0.0/1
+		testing/13/3 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/13/3 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 14 AND FOR training
+		training/14/3 Overall Mean Squared Error: 1.2008321285247803
+		training/14/3 Left Mean Squared Error: 1.7462244033813477
+		training/14/3 Right Mean Squared Error: 0.655439555644989
+		------------------------------------------------
+		training/14/3 Mean Absolute Error:  0.7871769666671753
+		training/14/3 Mean Absolute Error Left: 0.9355237483978271
+		training/14/3 Mean Absolute Error Right: 0.6388301849365234
+		------------------------------------------------
+		training/14/3 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/14/3 Overall Accuracy Left: 0.6666666666666666 = 2/3
+		training/14/3 Accuracy Right: 0.6666666666666666 = 2/3
+		------------------------------------------------
+		training/14/3 Binary Accuracy: 0.6666666666666666 = 0.6666666666666666/3
+		training/14/3 Binary Accuracy Left: 1.0 = 1.0/3
+		training/14/3 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 14 AND FOR testing
+		testing/14/3 Overall Mean Squared Error: 0.7523422837257385
+		testing/14/3 Left Mean Squared Error: 0.5422881245613098
+		testing/14/3 Right Mean Squared Error: 0.9623964428901672
+		------------------------------------------------
+		testing/14/3 Mean Absolute Error:  0.8587101101875305
+		testing/14/3 Mean Absolute Error Left: 0.736402153968811
+		testing/14/3 Mean Absolute Error Right: 0.98101806640625
+		------------------------------------------------
+		testing/14/3 Overall Accuracy: 0.0 = 0/1
+		testing/14/3 Overall Accuracy Left: 0.0 = 0/1
+		testing/14/3 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/14/3 Binary Accuracy: 0.0 = 0.0/1
+		testing/14/3 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/14/3 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 15 AND FOR training
+		training/15/3 Overall Mean Squared Error: 0.745133101940155
+		training/15/3 Left Mean Squared Error: 0.4089629054069519
+		training/15/3 Right Mean Squared Error: 1.0813034772872925
+		------------------------------------------------
+		training/15/3 Mean Absolute Error:  0.7486134767532349
+		training/15/3 Mean Absolute Error Left: 0.4805952310562134
+		training/15/3 Mean Absolute Error Right: 1.0166317224502563
+		------------------------------------------------
+		training/15/3 Overall Accuracy: 0.0 = 0/3
+		training/15/3 Overall Accuracy Left: 0.6666666666666666 = 2/3
+		training/15/3 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/15/3 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/15/3 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/15/3 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 15 AND FOR testing
+		testing/15/3 Overall Mean Squared Error: 1.2152917385101318
+		testing/15/3 Left Mean Squared Error: 1.0129443407058716
+		testing/15/3 Right Mean Squared Error: 1.417639136314392
+		------------------------------------------------
+		testing/15/3 Mean Absolute Error:  1.098548948764801
+		testing/15/3 Mean Absolute Error Left: 1.0064513683319092
+		testing/15/3 Mean Absolute Error Right: 1.1906465291976929
+		------------------------------------------------
+		testing/15/3 Overall Accuracy: 0.0 = 0/1
+		testing/15/3 Overall Accuracy Left: 0.0 = 0/1
+		testing/15/3 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/15/3 Binary Accuracy: 0.0 = 0.0/1
+		testing/15/3 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/15/3 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 16 AND FOR training
+		training/16/3 Overall Mean Squared Error: 1.8089826107025146
+		training/16/3 Left Mean Squared Error: 2.327608346939087
+		training/16/3 Right Mean Squared Error: 1.2903568744659424
+		------------------------------------------------
+		training/16/3 Mean Absolute Error:  1.0370129346847534
+		training/12/0 Accuracy Right: 0.6666666666666666 = 2/3
+		------------------------------------------------
+		training/12/0 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/12/0 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/12/0 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 12 AND FOR testing
+		testing/12/0 Overall Mean Squared Error: 0.8674391508102417
+		testing/12/0 Left Mean Squared Error: 0.1602001190185547
+		testing/12/0 Right Mean Squared Error: 1.5746781826019287
+		------------------------------------------------
+		testing/12/0 Mean Absolute Error:  0.8275559544563293
+		testing/12/0 Mean Absolute Error Left: 0.40025007724761963
+		testing/12/0 Mean Absolute Error Right: 1.254861831665039
+		------------------------------------------------
+		testing/12/0 Overall Accuracy: 0.0 = 0/1
+		testing/12/0 Overall Accuracy Left: 1.0 = 1/1
+		testing/12/0 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/12/0 Binary Accuracy: 1.0 = 1.0/1
+		testing/12/0 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/12/0 Binary Accuracy Right: 1.0 = 1.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 13 AND FOR training
+		training/13/0 Overall Mean Squared Error: 0.7282081842422485
+		training/13/0 Left Mean Squared Error: 0.9620140790939331
+		training/13/0 Right Mean Squared Error: 0.49440228939056396
+		------------------------------------------------
+		training/13/0 Mean Absolute Error:  0.8187161386013031
+		training/13/0 Mean Absolute Error Left: 0.9682598114013672
+		training/13/0 Mean Absolute Error Right: 0.669172465801239
+		------------------------------------------------
+		training/13/0 Overall Accuracy: 0.0 = 0/3
+		training/13/0 Overall Accuracy Left: 0.0 = 0/3
+		training/13/0 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/13/0 Binary Accuracy: 0.0 = 0.0/3
+		training/13/0 Binary Accuracy Left: 0.0 = 0.0/3
+		training/13/0 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 13 AND FOR testing
+		testing/13/0 Overall Mean Squared Error: 0.6663421392440796
+		testing/13/0 Left Mean Squared Error: 0.12093748897314072
+		testing/13/0 Right Mean Squared Error: 1.2117468118667603
+		------------------------------------------------
+		testing/13/0 Mean Absolute Error:  0.7242771983146667
+		testing/13/0 Mean Absolute Error Left: 0.3477606773376465
+		testing/13/0 Mean Absolute Error Right: 1.100793719291687
+		------------------------------------------------
+		testing/13/0 Overall Accuracy: 0.0 = 0/1
+		testing/13/0 Overall Accuracy Left: 1.0 = 1/1
+		testing/13/0 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/13/0 Binary Accuracy: 1.0 = 1.0/1
+		testing/13/0 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/13/0 Binary Accuracy Right: 1.0 = 1.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 14 AND FOR training
+		training/14/0 Overall Mean Squared Error: 0.8144129514694214
+		training/14/0 Left Mean Squared Error: 1.2578918933868408
+		training/14/0 Right Mean Squared Error: 0.3709340989589691
+		------------------------------------------------
+		training/14/0 Mean Absolute Error:  0.7460578083992004
+		training/14/0 Mean Absolute Error Left: 0.9406589269638062
+		training/14/0 Mean Absolute Error Right: 0.5514566898345947
+		------------------------------------------------
+		training/14/0 Overall Accuracy: 0.0 = 0/3
+		training/14/0 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/14/0 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/14/0 Binary Accuracy: 0.0 = 0.0/3
+		training/14/0 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/14/0 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 14 AND FOR testing
+		testing/14/0 Overall Mean Squared Error: 0.6184284687042236
+		testing/14/0 Left Mean Squared Error: 0.07194258272647858
+		testing/14/0 Right Mean Squared Error: 1.1649143695831299
+		------------------------------------------------
+		testing/14/0 Mean Absolute Error:  0.673766553401947
+		testing/14/0 Mean Absolute Error Left: 0.2682211399078369
+		testing/14/0 Mean Absolute Error Right: 1.0793119668960571
+		------------------------------------------------
+		testing/14/0 Overall Accuracy: 0.0 = 0/1
+		testing/14/0 Overall Accuracy Left: 1.0 = 1/1
+		testing/14/0 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/14/0 Binary Accuracy: 1.0 = 1.0/1
+		testing/14/0 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/14/0 Binary Accuracy Right: 1.0 = 1.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 15 AND FOR training
+		training/15/0 Overall Mean Squared Error: 0.9545741081237793
+		training/15/0 Left Mean Squared Error: 1.8266792297363281
+		training/15/0 Right Mean Squared Error: 0.08246883004903793
+		------------------------------------------------
+		training/15/0 Mean Absolute Error:  0.6814428567886353
+		training/15/0 Mean Absolute Error Left: 1.118889570236206
+		training/15/0 Mean Absolute Error Right: 0.24399614334106445
+		------------------------------------------------
+		training/15/0 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/15/0 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/15/0 Accuracy Right: 1.0 = 3/3
+		------------------------------------------------
+		training/15/0 Binary Accuracy: 0.6666666666666666 = 0.6666666666666666/3
+		training/15/0 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/15/0 Binary Accuracy Right: 1.0 = 1.0/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 15 AND FOR testing
+		testing/15/0 Overall Mean Squared Error: 0.314032644033432
+		testing/15/0 Left Mean Squared Error: 0.001314498600549996
+		testing/15/0 Right Mean Squared Error: 0.6267507672309875
+		------------------------------------------------
+		testing/15/0 Mean Absolute Error:  0.41396597027778625
+		testing/15/0 Mean Absolute Error Left: 0.03625601530075073
+		testing/15/0 Mean Absolute Error Right: 0.7916759252548218
+		------------------------------------------------
+		testing/15/0 Overall Accuracy: 0.0 = 0/1
+		testing/15/0 Overall Accuracy Left: 1.0 = 1/1
+		testing/15/0 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/15/0 Binary Accuracy: 1.0 = 1.0/1
+		testing/15/0 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/15/0 Binary Accuracy Right: 1.0 = 1.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 16 AND FOR training
+		training/16/0 Overall Mean Squared Error: 0.45016902685165405
+		training/16/0 Left Mean Squared Error: 0.4224439561367035
+		training/12/2 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/12/2 Binary Accuracy Left: 1.0 = 1.0/3
+		training/12/2 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 12 AND FOR testing
+		testing/12/2 Overall Mean Squared Error: 1.5868653059005737
+		testing/12/2 Left Mean Squared Error: 2.6999199390411377
+		testing/12/2 Right Mean Squared Error: 0.47381073236465454
+		------------------------------------------------
+		testing/12/2 Mean Absolute Error:  1.165741205215454
+		testing/12/2 Mean Absolute Error Left: 1.6431432962417603
+		testing/12/2 Mean Absolute Error Right: 0.688339114189148
+		------------------------------------------------
+		testing/12/2 Overall Accuracy: 0.0 = 0/1
+		testing/12/2 Overall Accuracy Left: 0.0 = 0/1
+		testing/12/2 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/12/2 Binary Accuracy: 0.0 = 0.0/1
+		testing/12/2 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/12/2 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 13 AND FOR training
+		training/13/2 Overall Mean Squared Error: 2.7650840282440186
+		training/13/2 Left Mean Squared Error: 0.39628762006759644
+		training/13/2 Right Mean Squared Error: 5.133880615234375
+		------------------------------------------------
+		training/13/2 Mean Absolute Error:  1.2079092264175415
+		training/13/2 Mean Absolute Error Left: 0.5591588020324707
+		training/13/2 Mean Absolute Error Right: 1.8566596508026123
+		------------------------------------------------
+		training/13/2 Overall Accuracy: 0.0 = 0/3
+		training/13/2 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/13/2 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/13/2 Binary Accuracy: 0.0 = 0.0/3
+		training/13/2 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/13/2 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 13 AND FOR testing
+		testing/13/2 Overall Mean Squared Error: 1.7042813301086426
+		testing/13/2 Left Mean Squared Error: 2.5889153480529785
+		testing/13/2 Right Mean Squared Error: 0.8196473717689514
+		------------------------------------------------
+		testing/13/2 Mean Absolute Error:  1.2571772336959839
+		testing/13/2 Mean Absolute Error Left: 1.6090106964111328
+		testing/13/2 Mean Absolute Error Right: 0.905343770980835
+		------------------------------------------------
+		testing/13/2 Overall Accuracy: 0.0 = 0/1
+		testing/13/2 Overall Accuracy Left: 0.0 = 0/1
+		testing/13/2 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/13/2 Binary Accuracy: 0.0 = 0.0/1
+		testing/13/2 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/13/2 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 14 AND FOR training
+		training/14/2 Overall Mean Squared Error: 0.9255833625793457
+		training/14/2 Left Mean Squared Error: 1.2113182544708252
+		training/14/2 Right Mean Squared Error: 0.6398484706878662
+		------------------------------------------------
+		training/14/2 Mean Absolute Error:  0.8373359143733978
+		training/14/2 Mean Absolute Error Left: 0.9083229899406433
+		training/14/2 Mean Absolute Error Right: 0.7663488388061523
+		------------------------------------------------
+		training/14/2 Overall Accuracy: 0.0 = 0/3
+		training/14/2 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/14/2 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/14/2 Binary Accuracy: 0.0 = 0.0/3
+		training/14/2 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/14/2 Binary Accuracy Right: 0.0 = 0.0/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 14 AND FOR testing
+		testing/14/2 Overall Mean Squared Error: 1.7888505458831787
+		testing/14/2 Left Mean Squared Error: 2.76896595954895
+		testing/14/2 Right Mean Squared Error: 0.8087350130081177
+		------------------------------------------------
+		testing/14/2 Mean Absolute Error:  1.2816589772701263
+		testing/14/2 Mean Absolute Error Left: 1.6640210151672363
+		testing/14/2 Mean Absolute Error Right: 0.8992969393730164
+		------------------------------------------------
+		testing/14/2 Overall Accuracy: 0.0 = 0/1
+		testing/14/2 Overall Accuracy Left: 0.0 = 0/1
+		testing/14/2 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/14/2 Binary Accuracy: 0.0 = 0.0/1
+		testing/14/2 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/14/2 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 15 AND FOR training
+		training/15/2 Overall Mean Squared Error: 0.8971726298332214
+		training/15/2 Left Mean Squared Error: 1.02938711643219
+		training/15/2 Right Mean Squared Error: 0.7649580836296082
+		------------------------------------------------
+		training/15/2 Mean Absolute Error:  0.8742441833019257
+		training/15/2 Mean Absolute Error Left: 0.9502508640289307
+		training/15/2 Mean Absolute Error Right: 0.7982375025749207
+		------------------------------------------------
+		training/15/2 Overall Accuracy: 0.0 = 0/3
+		training/15/2 Overall Accuracy Left: 0.0 = 0/3
+		training/15/2 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/15/2 Binary Accuracy: 0.0 = 0.0/3
+		training/15/2 Binary Accuracy Left: 0.0 = 0.0/3
+		training/15/2 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 15 AND FOR testing
+		testing/15/2 Overall Mean Squared Error: 2.871072292327881
+		testing/15/2 Left Mean Squared Error: 4.259955883026123
+		testing/15/2 Right Mean Squared Error: 1.4821889400482178
+		------------------------------------------------
+		testing/15/2 Mean Absolute Error:  1.6407089233398438
+		testing/15/2 Mean Absolute Error Left: 2.0639660358428955
+		testing/15/2 Mean Absolute Error Right: 1.217451810836792
+		------------------------------------------------
+		testing/15/2 Overall Accuracy: 0.0 = 0/1
+		testing/15/2 Overall Accuracy Left: 0.0 = 0/1
+		testing/15/2 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/15/2 Binary Accuracy: 0.0 = 0.0/1
+		testing/15/2 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/15/2 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 16 AND FOR training
+		training/16/2 Overall Mean Squared Error: 1.5054221153259277
+		training/16/2 Left Mean Squared Error: 1.970067024230957
+		training/16/2 Right Mean Squared Error: 1.0407772064208984
+		------------------------------------------------
+		training/16/2 Mean Absolute Error:  0.941534161567688
+		training/16/2 Mean Absolute Error Left: 1.0271275043487549
+		training/12/1 Binary Accuracy: 0.0 = 0.0/3
+		training/12/1 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/12/1 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 12 AND FOR testing
+		testing/12/1 Overall Mean Squared Error: 1.6245083808898926
+		testing/12/1 Left Mean Squared Error: 2.6672439575195312
+		testing/12/1 Right Mean Squared Error: 0.5817728638648987
+		------------------------------------------------
+		testing/12/1 Mean Absolute Error:  1.1979551315307617
+		testing/12/1 Mean Absolute Error Left: 1.6331698894500732
+		testing/12/1 Mean Absolute Error Right: 0.7627403736114502
+		------------------------------------------------
+		testing/12/1 Overall Accuracy: 0.0 = 0/1
+		testing/12/1 Overall Accuracy Left: 0.0 = 0/1
+		testing/12/1 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/12/1 Binary Accuracy: 0.0 = 0.0/1
+		testing/12/1 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/12/1 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 13 AND FOR training
+		training/13/1 Overall Mean Squared Error: 1.7427737712860107
+		training/13/1 Left Mean Squared Error: 1.3986786603927612
+		training/13/1 Right Mean Squared Error: 2.08686900138855
+		------------------------------------------------
+		training/13/1 Mean Absolute Error:  1.2316707372665405
+		training/13/1 Mean Absolute Error Left: 1.1179091930389404
+		training/13/1 Mean Absolute Error Right: 1.3454322814941406
+		------------------------------------------------
+		training/13/1 Overall Accuracy: 0.0 = 0/3
+		training/13/1 Overall Accuracy Left: 0.0 = 0/3
+		training/13/1 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/13/1 Binary Accuracy: 0.0 = 0.0/3
+		training/13/1 Binary Accuracy Left: 0.0 = 0.0/3
+		training/13/1 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 13 AND FOR testing
+		testing/13/1 Overall Mean Squared Error: 1.6966108083724976
+		testing/13/1 Left Mean Squared Error: 2.5710062980651855
+		testing/13/1 Right Mean Squared Error: 0.8222153782844543
+		------------------------------------------------
+		testing/13/1 Mean Absolute Error:  1.2550983428955078
+		testing/13/1 Mean Absolute Error Left: 1.603435754776001
+		testing/13/1 Mean Absolute Error Right: 0.9067609310150146
+		------------------------------------------------
+		testing/13/1 Overall Accuracy: 0.0 = 0/1
+		testing/13/1 Overall Accuracy Left: 0.0 = 0/1
+		testing/13/1 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/13/1 Binary Accuracy: 0.0 = 0.0/1
+		testing/13/1 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/13/1 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 14 AND FOR training
+		training/14/1 Overall Mean Squared Error: 1.1353371143341064
+		training/14/1 Left Mean Squared Error: 0.28344351053237915
+		training/14/1 Right Mean Squared Error: 1.987230658531189
+		------------------------------------------------
+		training/14/1 Mean Absolute Error:  0.8612505495548248
+		training/14/1 Mean Absolute Error Left: 0.449307382106781
+		training/14/1 Mean Absolute Error Right: 1.2731937170028687
+		------------------------------------------------
+		training/14/1 Overall Accuracy: 0.0 = 0/3
+		training/14/1 Overall Accuracy Left: 0.6666666666666666 = 2/3
+		training/14/1 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/14/1 Binary Accuracy: 0.6666666666666666 = 0.6666666666666666/3
+		training/14/1 Binary Accuracy Left: 1.0 = 1.0/3
+		training/14/1 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 14 AND FOR testing
+		testing/14/1 Overall Mean Squared Error: 1.8958699703216553
+		testing/14/1 Left Mean Squared Error: 2.831838607788086
+		testing/14/1 Right Mean Squared Error: 0.9599012732505798
+		------------------------------------------------
+		testing/14/1 Mean Absolute Error:  1.3312761187553406
+		testing/14/1 Mean Absolute Error Left: 1.6828067302703857
+		testing/14/1 Mean Absolute Error Right: 0.9797455072402954
+		------------------------------------------------
+		testing/14/1 Overall Accuracy: 0.0 = 0/1
+		testing/14/1 Overall Accuracy Left: 0.0 = 0/1
+		testing/14/1 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/14/1 Binary Accuracy: 0.0 = 0.0/1
+		testing/14/1 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/14/1 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 15 AND FOR training
+		training/15/1 Overall Mean Squared Error: 0.8453636169433594
+		training/15/1 Left Mean Squared Error: 0.6952842473983765
+		training/15/1 Right Mean Squared Error: 0.9954430460929871
+		------------------------------------------------
+		training/15/1 Mean Absolute Error:  0.8330113887786865
+		training/15/1 Mean Absolute Error Left: 0.7372182607650757
+		training/15/1 Mean Absolute Error Right: 0.9288045167922974
+		------------------------------------------------
+		training/15/1 Overall Accuracy: 0.0 = 0/3
+		training/15/1 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/15/1 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/15/1 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/15/1 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/15/1 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 15 AND FOR testing
+		testing/15/1 Overall Mean Squared Error: 2.651154041290283
+		testing/15/1 Left Mean Squared Error: 3.878798484802246
+		testing/15/1 Right Mean Squared Error: 1.4235094785690308
+		------------------------------------------------
+		testing/15/1 Mean Absolute Error:  1.5812878608703613
+		testing/15/1 Mean Absolute Error Left: 1.9694665670394897
+		testing/15/1 Mean Absolute Error Right: 1.193109154701233
+		------------------------------------------------
+		testing/15/1 Overall Accuracy: 0.0 = 0/1
+		testing/15/1 Overall Accuracy Left: 0.0 = 0/1
+		testing/15/1 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/15/1 Binary Accuracy: 0.0 = 0.0/1
+		testing/15/1 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/15/1 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 16 AND FOR training
+		training/16/1 Overall Mean Squared Error: 0.6454122066497803
+		training/16/1 Left Mean Squared Error: 0.5802129507064819
+		training/16/1 Right Mean Squared Error: 0.7106114625930786
+		------------------------------------------------
+		training/16/1 Mean Absolute Error:  0.6251475214958191
+		training/16/0 Right Mean Squared Error: 0.4778941571712494
+		------------------------------------------------
+		training/16/0 Mean Absolute Error:  0.5884401202201843
+		training/16/0 Mean Absolute Error Left: 0.5352079272270203
+		training/16/0 Mean Absolute Error Right: 0.6416723132133484
+		------------------------------------------------
+		training/16/0 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/16/0 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/16/0 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/16/0 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/16/0 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/16/0 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 16 AND FOR testing
+		testing/16/0 Overall Mean Squared Error: 0.24191230535507202
+		testing/16/0 Left Mean Squared Error: 0.016255900263786316
+		testing/16/0 Right Mean Squared Error: 0.4675687253475189
+		------------------------------------------------
+		testing/16/0 Mean Absolute Error:  0.4056442975997925
+		testing/16/0 Mean Absolute Error Left: 0.12749862670898438
+		testing/16/0 Mean Absolute Error Right: 0.6837899684906006
+		------------------------------------------------
+		testing/16/0 Overall Accuracy: 0.0 = 0/1
+		testing/16/0 Overall Accuracy Left: 1.0 = 1/1
+		testing/16/0 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/16/0 Binary Accuracy: 1.0 = 1.0/1
+		testing/16/0 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/16/0 Binary Accuracy Right: 1.0 = 1.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 17 AND FOR training
+		training/17/0 Overall Mean Squared Error: 1.750349998474121
+		training/17/0 Left Mean Squared Error: 2.3456621170043945
+		training/17/0 Right Mean Squared Error: 1.1550381183624268
+		------------------------------------------------
+		training/17/0 Mean Absolute Error:  1.0001139044761658
+		training/17/0 Mean Absolute Error Left: 1.1013374328613281
+		training/17/0 Mean Absolute Error Right: 0.8988903760910034
+		------------------------------------------------
+		training/17/0 Overall Accuracy: 0.0 = 0/3
+		training/17/0 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/17/0 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/17/0 Binary Accuracy: 0.0 = 0.0/3
+		training/17/0 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/17/0 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 17 AND FOR testing
+		testing/17/0 Overall Mean Squared Error: 0.11050400137901306
+		testing/17/0 Left Mean Squared Error: 0.0014346372336149216
+		testing/17/0 Right Mean Squared Error: 0.21957336366176605
+		------------------------------------------------
+		testing/17/0 Mean Absolute Error:  0.25323158502578735
+		testing/17/0 Mean Absolute Error Left: 0.03787660598754883
+		testing/17/0 Mean Absolute Error Right: 0.4685865640640259
+		------------------------------------------------
+		testing/17/0 Overall Accuracy: 1.0 = 1/1
+		testing/17/0 Overall Accuracy Left: 1.0 = 1/1
+		testing/17/0 Accuracy Right: 1.0 = 1/1
+		------------------------------------------------
+		testing/17/0 Binary Accuracy: 1.0 = 1.0/1
+		testing/17/0 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/17/0 Binary Accuracy Right: 1.0 = 1.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 18 AND FOR training
+		training/18/0 Overall Mean Squared Error: 1.5339820384979248
+		training/18/0 Left Mean Squared Error: 0.8378763198852539
+		training/18/0 Right Mean Squared Error: 2.2300877571105957
+		------------------------------------------------
+		training/18/0 Mean Absolute Error:  1.1599290370941162
+		training/18/0 Mean Absolute Error Left: 0.851227879524231
+		training/18/0 Mean Absolute Error Right: 1.4686301946640015
+		------------------------------------------------
+		training/18/0 Overall Accuracy: 0.0 = 0/3
+		training/18/0 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/18/0 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/18/0 Binary Accuracy: 0.0 = 0.0/3
+		training/18/0 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/18/0 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 18 AND FOR testing
+		testing/18/0 Overall Mean Squared Error: 0.030138598755002022
+		testing/18/0 Left Mean Squared Error: 0.0015659243799746037
+		testing/18/0 Right Mean Squared Error: 0.05871127173304558
+		------------------------------------------------
+		testing/18/0 Mean Absolute Error:  0.1409379243850708
+		testing/18/0 Mean Absolute Error Left: 0.03957176208496094
+		testing/18/0 Mean Absolute Error Right: 0.24230408668518066
+		------------------------------------------------
+		testing/18/0 Overall Accuracy: 1.0 = 1/1
+		testing/18/0 Overall Accuracy Left: 1.0 = 1/1
+		testing/18/0 Accuracy Right: 1.0 = 1/1
+		------------------------------------------------
+		testing/18/0 Binary Accuracy: 1.0 = 1.0/1
+		testing/18/0 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/18/0 Binary Accuracy Right: 1.0 = 1.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 19 AND FOR training
+		training/19/0 Overall Mean Squared Error: 0.6854431629180908
+		training/19/0 Left Mean Squared Error: 0.6920394897460938
+		training/19/0 Right Mean Squared Error: 0.6788468360900879
+		------------------------------------------------
+		training/19/0 Mean Absolute Error:  0.7676839232444763
+		training/19/0 Mean Absolute Error Left: 0.733752429485321
+		training/19/0 Mean Absolute Error Right: 0.8016154170036316
+		------------------------------------------------
+		training/19/0 Overall Accuracy: 0.0 = 0/3
+		training/19/0 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/19/0 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/19/0 Binary Accuracy: 0.0 = 0.0/3
+		training/19/0 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/19/0 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+METRICS FOR EPOCH NUMBER 19 AND FOR testing
+		testing/19/0 Overall Mean Squared Error: 0.21946623921394348
+		testing/19/0 Left Mean Squared Error: 0.19825534522533417
+		testing/19/0 Right Mean Squared Error: 0.2406771183013916
+		------------------------------------------------
+		testing/19/0 Mean Absolute Error:  0.467923641204834
+		testing/19/0 Mean Absolute Error Left: 0.4452587366104126
+		testing/19/0 Mean Absolute Error Right: 0.49058854579925537
+		------------------------------------------------
+		testing/19/0 Overall Accuracy: 1.0 = 1/1
+		testing/19/0 Overall Accuracy Left: 1.0 = 1/1
+		testing/19/0 Accuracy Right: 1.0 = 1/1
+		------------------------------------------------
+		testing/19/0 Binary Accuracy: 1.0 = 1.0/1
+		training/16/3 Mean Absolute Error Left: 1.0415629148483276
+		training/16/3 Mean Absolute Error Right: 1.0324629545211792
+		------------------------------------------------
+		training/16/3 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/16/3 Overall Accuracy Left: 0.6666666666666666 = 2/3
+		training/16/3 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/16/3 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/16/3 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/16/3 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 16 AND FOR testing
+		testing/16/3 Overall Mean Squared Error: 1.3876588344573975
+		testing/16/3 Left Mean Squared Error: 1.1827036142349243
+		testing/16/3 Right Mean Squared Error: 1.5926141738891602
+		------------------------------------------------
+		testing/16/3 Mean Absolute Error:  1.1747549772262573
+		testing/16/3 Mean Absolute Error Left: 1.0875217914581299
+		testing/16/3 Mean Absolute Error Right: 1.2619881629943848
+		------------------------------------------------
+		testing/16/3 Overall Accuracy: 0.0 = 0/1
+		testing/16/3 Overall Accuracy Left: 0.0 = 0/1
+		testing/16/3 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/16/3 Binary Accuracy: 0.0 = 0.0/1
+		testing/16/3 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/16/3 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 17 AND FOR training
+		training/17/3 Overall Mean Squared Error: 0.16737133264541626
+		training/17/3 Left Mean Squared Error: 0.0648631751537323
+		training/17/3 Right Mean Squared Error: 0.26987946033477783
+		------------------------------------------------
+		training/17/3 Mean Absolute Error:  0.3691128119826317
+		training/17/3 Mean Absolute Error Left: 0.21983025968074799
+		training/17/3 Mean Absolute Error Right: 0.5183953642845154
+		------------------------------------------------
+		training/17/3 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/17/3 Overall Accuracy Left: 1.0 = 3/3
+		training/17/3 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/17/3 Binary Accuracy: 0.6666666666666666 = 0.6666666666666666/3
+		training/17/3 Binary Accuracy Left: 1.0 = 1.0/3
+		training/17/3 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 17 AND FOR testing
+		testing/17/3 Overall Mean Squared Error: 1.5663259029388428
+		testing/17/3 Left Mean Squared Error: 0.9941974878311157
+		testing/17/3 Right Mean Squared Error: 2.1384541988372803
+		------------------------------------------------
+		testing/17/3 Mean Absolute Error:  1.2297199964523315
+		testing/17/3 Mean Absolute Error Left: 0.9970945119857788
+		testing/17/3 Mean Absolute Error Right: 1.4623454809188843
+		------------------------------------------------
+		testing/17/3 Overall Accuracy: 0.0 = 0/1
+		testing/17/3 Overall Accuracy Left: 0.0 = 0/1
+		testing/17/3 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/17/3 Binary Accuracy: 0.0 = 0.0/1
+		testing/17/3 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/17/3 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 18 AND FOR training
+		training/18/3 Overall Mean Squared Error: 2.0691587924957275
+		training/18/3 Left Mean Squared Error: 2.901869773864746
+		training/18/3 Right Mean Squared Error: 1.236448049545288
+		------------------------------------------------
+		training/18/3 Mean Absolute Error:  1.3320094347000122
+		training/18/3 Mean Absolute Error Left: 1.5792182683944702
+		training/18/3 Mean Absolute Error Right: 1.0848006010055542
+		------------------------------------------------
+		training/18/3 Overall Accuracy: 0.0 = 0/3
+		training/18/3 Overall Accuracy Left: 0.0 = 0/3
+		training/18/3 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/18/3 Binary Accuracy: 0.0 = 0.0/3
+		training/18/3 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/18/3 Binary Accuracy Right: 0.0 = 0.0/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 18 AND FOR testing
+		testing/18/3 Overall Mean Squared Error: 1.8349413871765137
+		testing/18/3 Left Mean Squared Error: 1.137007713317871
+		testing/18/3 Right Mean Squared Error: 2.5328750610351562
+		------------------------------------------------
+		testing/18/3 Mean Absolute Error:  1.3289032578468323
+		testing/18/3 Mean Absolute Error Left: 1.0663056373596191
+		testing/18/3 Mean Absolute Error Right: 1.5915008783340454
+		------------------------------------------------
+		testing/18/3 Overall Accuracy: 0.0 = 0/1
+		testing/18/3 Overall Accuracy Left: 0.0 = 0/1
+		testing/18/3 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/18/3 Binary Accuracy: 0.0 = 0.0/1
+		testing/18/3 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/18/3 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 19 AND FOR training
+		training/19/3 Overall Mean Squared Error: 0.3327905833721161
+		training/19/3 Left Mean Squared Error: 0.22177450358867645
+		training/19/3 Right Mean Squared Error: 0.44380661845207214
+		------------------------------------------------
+		training/19/3 Mean Absolute Error:  0.5282600522041321
+		training/19/3 Mean Absolute Error Left: 0.45784372091293335
+		training/19/3 Mean Absolute Error Right: 0.5986763834953308
+		------------------------------------------------
+		training/19/3 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/19/3 Overall Accuracy Left: 0.6666666666666666 = 2/3
+		training/19/3 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/19/3 Binary Accuracy: 0.6666666666666666 = 0.6666666666666666/3
+		training/19/3 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/19/3 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+METRICS FOR EPOCH NUMBER 19 AND FOR testing
+		testing/19/3 Overall Mean Squared Error: 1.8630664348602295
+		testing/19/3 Left Mean Squared Error: 1.9248924255371094
+		testing/19/3 Right Mean Squared Error: 1.8012404441833496
+		------------------------------------------------
+		testing/19/3 Mean Absolute Error:  1.3647539615631104
+		testing/19/3 Mean Absolute Error Left: 1.3874049186706543
+		testing/19/3 Mean Absolute Error Right: 1.3421030044555664
+		------------------------------------------------
+		testing/19/3 Overall Accuracy: 0.0 = 0/1
+		testing/19/3 Overall Accuracy Left: 0.0 = 0/1
+		testing/19/3 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/19/3 Binary Accuracy: 0.0 = 0.0/1
+		testing/19/3 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/19/3 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		training/16/2 Mean Absolute Error Right: 0.8559408187866211
+		------------------------------------------------
+		training/16/2 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/16/2 Overall Accuracy Left: 0.6666666666666666 = 2/3
+		training/16/2 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/16/2 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/16/2 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/16/2 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 16 AND FOR testing
+		testing/16/2 Overall Mean Squared Error: 3.0705161094665527
+		testing/16/2 Left Mean Squared Error: 4.529763221740723
+		testing/16/2 Right Mean Squared Error: 1.6112688779830933
+		------------------------------------------------
+		testing/16/2 Mean Absolute Error:  1.698840856552124
+		testing/16/2 Mean Absolute Error Left: 2.128324031829834
+		testing/16/2 Mean Absolute Error Right: 1.269357681274414
+		------------------------------------------------
+		testing/16/2 Overall Accuracy: 0.0 = 0/1
+		testing/16/2 Overall Accuracy Left: 0.0 = 0/1
+		testing/16/2 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/16/2 Binary Accuracy: 0.0 = 0.0/1
+		testing/16/2 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/16/2 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 17 AND FOR training
+		training/17/2 Overall Mean Squared Error: 1.1761164665222168
+		training/17/2 Left Mean Squared Error: 0.31834232807159424
+		training/17/2 Right Mean Squared Error: 2.033890724182129
+		------------------------------------------------
+		training/17/2 Mean Absolute Error:  0.7985706925392151
+		training/17/2 Mean Absolute Error Left: 0.5026590824127197
+		training/17/2 Mean Absolute Error Right: 1.0944823026657104
+		------------------------------------------------
+		training/17/2 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/17/2 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/17/2 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/17/2 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/17/2 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/17/2 Binary Accuracy Right: 1.0 = 1.0/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 17 AND FOR testing
+		testing/17/2 Overall Mean Squared Error: 3.0385725498199463
+		testing/17/2 Left Mean Squared Error: 3.837869644165039
+		testing/17/2 Right Mean Squared Error: 2.2392754554748535
+		------------------------------------------------
+		testing/17/2 Mean Absolute Error:  1.7277345061302185
+		testing/17/2 Mean Absolute Error Left: 1.9590481519699097
+		testing/17/2 Mean Absolute Error Right: 1.4964208602905273
+		------------------------------------------------
+		testing/17/2 Overall Accuracy: 0.0 = 0/1
+		testing/17/2 Overall Accuracy Left: 0.0 = 0/1
+		testing/17/2 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/17/2 Binary Accuracy: 0.0 = 0.0/1
+		testing/17/2 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/17/2 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 18 AND FOR training
+		training/18/2 Overall Mean Squared Error: 0.778350830078125
+		training/18/2 Left Mean Squared Error: 0.7171761393547058
+		training/18/2 Right Mean Squared Error: 0.839525580406189
+		------------------------------------------------
+		training/18/2 Mean Absolute Error:  0.8109888732433319
+		training/18/2 Mean Absolute Error Left: 0.7096877098083496
+		training/18/2 Mean Absolute Error Right: 0.9122900366783142
+		------------------------------------------------
+		training/18/2 Overall Accuracy: 0.0 = 0/3
+		training/18/2 Overall Accuracy Left: 0.6666666666666666 = 2/3
+		training/18/2 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/18/2 Binary Accuracy: 0.0 = 0.0/3
+		training/18/2 Binary Accuracy Left: 0.6666666666666666 = 0.6666666666666666/3
+		training/18/2 Binary Accuracy Right: 0.0 = 0.0/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 18 AND FOR testing
+		testing/18/2 Overall Mean Squared Error: 3.1939949989318848
+		testing/18/2 Left Mean Squared Error: 4.059965133666992
+		testing/18/2 Right Mean Squared Error: 2.3280248641967773
+		------------------------------------------------
+		testing/18/2 Mean Absolute Error:  1.770361065864563
+		testing/18/2 Mean Absolute Error Left: 2.0149354934692383
+		testing/18/2 Mean Absolute Error Right: 1.5257866382598877
+		------------------------------------------------
+		testing/18/2 Overall Accuracy: 0.0 = 0/1
+		testing/18/2 Overall Accuracy Left: 0.0 = 0/1
+		testing/18/2 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/18/2 Binary Accuracy: 0.0 = 0.0/1
+		testing/18/2 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/18/2 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 19 AND FOR training
+		training/19/2 Overall Mean Squared Error: 0.4591708183288574
+		training/19/2 Left Mean Squared Error: 0.48215818405151367
+		training/19/2 Right Mean Squared Error: 0.43618345260620117
+		------------------------------------------------
+		training/19/2 Mean Absolute Error:  0.5761325359344482
+		training/19/2 Mean Absolute Error Left: 0.5677060484886169
+		training/19/2 Mean Absolute Error Right: 0.5845590233802795
+		------------------------------------------------
+		training/19/2 Overall Accuracy: 0.0 = 0/3
+		training/19/2 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/19/2 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/19/2 Binary Accuracy: 0.0 = 0.0/3
+		training/19/2 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/19/2 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+METRICS FOR EPOCH NUMBER 19 AND FOR testing
+		testing/19/2 Overall Mean Squared Error: 3.5482397079467773
+		testing/19/2 Left Mean Squared Error: 5.577481746673584
+		testing/19/2 Right Mean Squared Error: 1.5189979076385498
+		------------------------------------------------
+		testing/19/2 Mean Absolute Error:  1.7970728278160095
+		testing/19/2 Mean Absolute Error Left: 2.3616693019866943
+		testing/19/2 Mean Absolute Error Right: 1.2324763536453247
+		------------------------------------------------
+		testing/19/2 Overall Accuracy: 0.0 = 0/1
+		testing/19/2 Overall Accuracy Left: 0.0 = 0/1
+		testing/19/2 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/19/2 Binary Accuracy: 0.0 = 0.0/1
+		testing/19/2 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/19/2 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+		training/16/1 Mean Absolute Error Left: 0.5749372243881226
+		training/16/1 Mean Absolute Error Right: 0.6753578186035156
+		------------------------------------------------
+		training/16/1 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/16/1 Overall Accuracy Left: 0.6666666666666666 = 2/3
+		training/16/1 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/16/1 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/16/1 Binary Accuracy Left: 1.0 = 1.0/3
+		training/16/1 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 16 AND FOR testing
+		testing/16/1 Overall Mean Squared Error: 3.048247814178467
+		testing/16/1 Left Mean Squared Error: 4.470329284667969
+		testing/16/1 Right Mean Squared Error: 1.6261663436889648
+		------------------------------------------------
+		testing/16/1 Mean Absolute Error:  1.6947637796401978
+		testing/16/1 Mean Absolute Error Left: 2.1143152713775635
+		testing/16/1 Mean Absolute Error Right: 1.275212287902832
+		------------------------------------------------
+		testing/16/1 Overall Accuracy: 0.0 = 0/1
+		testing/16/1 Overall Accuracy Left: 0.0 = 0/1
+		testing/16/1 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/16/1 Binary Accuracy: 0.0 = 0.0/1
+		testing/16/1 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/16/1 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 17 AND FOR training
+		training/17/1 Overall Mean Squared Error: 1.0067815780639648
+		training/17/1 Left Mean Squared Error: 0.3764438331127167
+		training/17/1 Right Mean Squared Error: 1.6371192932128906
+		------------------------------------------------
+		training/17/1 Mean Absolute Error:  0.8825554251670837
+		training/17/1 Mean Absolute Error Left: 0.5963764190673828
+		training/17/1 Mean Absolute Error Right: 1.1687344312667847
+		------------------------------------------------
+		training/17/1 Overall Accuracy: 0.3333333333333333 = 1/3
+		training/17/1 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/17/1 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/17/1 Binary Accuracy: 0.3333333333333333 = 0.3333333333333333/3
+		training/17/1 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/17/1 Binary Accuracy Right: 0.6666666666666666 = 0.6666666666666666/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 17 AND FOR testing
+		testing/17/1 Overall Mean Squared Error: 3.2175989151000977
+		testing/17/1 Left Mean Squared Error: 4.142426013946533
+		testing/17/1 Right Mean Squared Error: 2.292771577835083
+		------------------------------------------------
+		testing/17/1 Mean Absolute Error:  1.7747425436973572
+		testing/17/1 Mean Absolute Error Left: 2.035295009613037
+		testing/17/1 Mean Absolute Error Right: 1.5141900777816772
+		------------------------------------------------
+		testing/17/1 Overall Accuracy: 0.0 = 0/1
+		testing/17/1 Overall Accuracy Left: 0.0 = 0/1
+		testing/17/1 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/17/1 Binary Accuracy: 0.0 = 0.0/1
+		testing/17/1 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/17/1 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 18 AND FOR training
+		training/18/1 Overall Mean Squared Error: 0.8981121778488159
+		training/18/1 Left Mean Squared Error: 0.8233634829521179
+		training/18/1 Right Mean Squared Error: 0.9728608131408691
+		------------------------------------------------
+		training/18/1 Mean Absolute Error:  0.855868011713028
+		training/18/1 Mean Absolute Error Left: 0.8608457446098328
+		training/18/1 Mean Absolute Error Right: 0.8508902788162231
+		------------------------------------------------
+		training/18/1 Overall Accuracy: 0.0 = 0/3
+		training/18/1 Overall Accuracy Left: 0.0 = 0/3
+		training/18/1 Accuracy Right: 0.3333333333333333 = 1/3
+		------------------------------------------------
+		training/18/1 Binary Accuracy: 0.0 = 0.0/3
+		training/18/1 Binary Accuracy Left: 0.0 = 0.0/3
+		training/18/1 Binary Accuracy Right: 1.0 = 1.0/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 18 AND FOR testing
+		testing/18/1 Overall Mean Squared Error: 3.3379411697387695
+		testing/18/1 Left Mean Squared Error: 4.181624412536621
+		testing/18/1 Right Mean Squared Error: 2.494257926940918
+		------------------------------------------------
+		testing/18/1 Mean Absolute Error:  1.812112033367157
+		testing/18/1 Mean Absolute Error Left: 2.0449020862579346
+		testing/18/1 Mean Absolute Error Right: 1.5793219804763794
+		------------------------------------------------
+		testing/18/1 Overall Accuracy: 0.0 = 0/1
+		testing/18/1 Overall Accuracy Left: 0.0 = 0/1
+		testing/18/1 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/18/1 Binary Accuracy: 0.0 = 0.0/1
+		testing/18/1 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/18/1 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 19 AND FOR training
+		training/19/1 Overall Mean Squared Error: 0.8506999015808105
+		training/19/1 Left Mean Squared Error: 1.0220319032669067
+		training/19/1 Right Mean Squared Error: 0.6793681383132935
+		------------------------------------------------
+		training/19/1 Mean Absolute Error:  0.8536337018013
+		training/19/1 Mean Absolute Error Left: 0.9218654036521912
+		training/19/1 Mean Absolute Error Right: 0.7854019999504089
+		------------------------------------------------
+		training/19/1 Overall Accuracy: 0.0 = 0/3
+		training/19/1 Overall Accuracy Left: 0.3333333333333333 = 1/3
+		training/19/1 Accuracy Right: 0.0 = 0/3
+		------------------------------------------------
+		training/19/1 Binary Accuracy: 0.0 = 0.0/3
+		training/19/1 Binary Accuracy Left: 0.3333333333333333 = 0.3333333333333333/3
+		training/19/1 Binary Accuracy Right: 0.3333333333333333 = 0.3333333333333333/3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+METRICS FOR EPOCH NUMBER 19 AND FOR testing
+		testing/19/1 Overall Mean Squared Error: 3.613968849182129
+		testing/19/1 Left Mean Squared Error: 5.612489700317383
+		testing/19/1 Right Mean Squared Error: 1.615447998046875
+		------------------------------------------------
+		testing/19/1 Mean Absolute Error:  1.8200360536575317
+		testing/19/1 Mean Absolute Error Left: 2.3690693378448486
+		testing/19/1 Mean Absolute Error Right: 1.2710027694702148
+		------------------------------------------------
+		testing/19/1 Overall Accuracy: 0.0 = 0/1
+		testing/19/1 Overall Accuracy Left: 0.0 = 0/1
+		testing/19/1 Accuracy Right: 0.0 = 0/1
+		------------------------------------------------
+		testing/19/1 Binary Accuracy: 0.0 = 0.0/1
+		testing/19/1 Binary Accuracy Left: 1.0 = 1.0/1
+		testing/19/1 Binary Accuracy Right: 0.0 = 0.0/1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Train Metrics (Training Data) for GPU ID 1 :
