@@ -303,7 +303,7 @@ class Trainer():
 
             elif str(self.loss_fn) == str(torch.nn.MSELoss()):
 
-                # print(f'PREDICTED OUTPUT SHAPE: {predicted_output.shape}')
+                print(f'PREDICTED OUTPUT SHAPE: {predicted_output.shape}')
 
                 left_preds = predicted_output[:, 0].to(self.gpu_id)
                 right_preds = predicted_output[:, 1].to(self.gpu_id)
