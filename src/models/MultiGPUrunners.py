@@ -197,6 +197,7 @@ class Trainer():
                     label_lst.append(batch_labels)
 
                 predicted_output = torch.vstack(pred_lst)
+                predicted_output =torch.reshape(predicted_output, (predicted_output.shape[0],2))
                 labels = torch.vstack(label_lst).long()
 
             left_labels = labels[:, 0].to(self.gpu_id)
