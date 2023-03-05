@@ -158,6 +158,8 @@ class Trainer():
             # num_batches = len(predicted_output)
             # all_preds = []  # torch.tensor([]).to(self.gpu_id)
 
+            print(f'METRICS FOR GPU ID: {self.gpu_id}')
+
             if dataloader is None:
                 predicted_output = torch.vstack(self.curr_preds_lst)
                 labels = torch.vstack(self.curr_labels_lst).long()
@@ -286,7 +288,7 @@ class Trainer():
 
                 print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
 
-                
+
             elif str(self.loss_fn) == str(torch.nn.MSELoss()):
 
                 left_preds = predicted_output[:, 0].to(self.gpu_id)
