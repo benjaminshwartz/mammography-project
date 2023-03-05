@@ -294,8 +294,8 @@ class Trainer():
 
                 print(f'PREDICTED OUTPUT SHAPE: {predicted_output.shape}')
 
-                left_preds = predicted_output[:, 0].to(self.gpu_id)
-                right_preds = predicted_output[:, 1].to(self.gpu_id)
+                left_preds = predicted_output[:,:, 0].to(self.gpu_id)
+                right_preds = predicted_output[:,:, 1].to(self.gpu_id)
 
                 # print(f'label list: {label_lst}')
 
