@@ -125,18 +125,18 @@ class Trainer():
                 self._save_checkpoint(epoch)
             elif epoch == num_epochs:  # save last model
                 self._save_checkpoint(epoch)
-            if self.metric_interval > 0 and epoch % self.metric_interval == 0 and self.gpu_id == 0:
-                print("\tTrain Metrics (Training Data):")
-                self.evaluate(self.train_data, sv_roc=sv_roc)
+            if self.metric_interval > 0 and epoch % self.metric_interval == 0:
+                print(f"\tTrain Metrics (Training Data) for GPU ID {self.gpu_id} :")
+                self.evaluate(None, sv_roc=sv_roc)
                 if self.test_data != None:
-                    print("\tTest Metrics:")
+                    print(f"\tTest Metrics for GPU ID {self.gpu_id}:")
                     self.evaluate(self.test_data)
                     self.model.train()
-            elif epoch == num_epochs and self.gpu_id == 0:  # Evaluate final model
-                print("\tTrain Metrics:")
-                self.evaluate(self.train_data, sv_roc=sv_roc)
+            elif epoch == num_epochs:  # Evaluate final model
+                print(f"\tTrain Metrics for GPU ID {self.gpu_id} :")
+                self.evaluate(None, sv_roc=sv_roc)
                 if self.test_data != None:
-                    print("\tTest Metrics:")
+                    print(f"\tTest Metrics for GPU ID {self.gpu_id}:")
                     self.evaluate(self.test_data)
                     self.model.train()
 
@@ -199,9 +199,9 @@ class Trainer():
 
 
 
-                print(f'label_lst len {len(label_lst)}')
+                # print(f'label_lst len {len(label_lst)}')
 
-                print(f'label_lst shape {len(label_lst)}')
+                # print(f'label_lst shape {len(label_lst)}')
 
                 left_preds = predicted_output[:, :, 0].to(self.gpu_id)
                 right_preds = predicted_output[:, :, 1].to(self.gpu_id)
@@ -282,6 +282,11 @@ class Trainer():
                     f'\t\tRight Binary Accuracy: {binary_acc_right} = {num_binary_correct_right}/{total}')
                 print(
                     f'\t\tRight One-Off Accuracy: {one_off_right} = {num_correct_one_off_right}/{total}')
+                
+
+                print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+                
             elif str(self.loss_fn) == str(torch.nn.MSELoss()):
 
                 left_preds = predicted_output[:, 0].to(self.gpu_id)
@@ -369,6 +374,9 @@ class Trainer():
                     f'\t\tBinary Accuracy Left: {binary_acc_left} = {binary_acc_left}/{total}')
                 print(
                     f'\t\tBinary Accuracy Right: {binary_acc_right} = {binary_acc_right}/{total}')
+                
+
+                print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
 
             if sv_roc:
                 # TODO fix roc curve

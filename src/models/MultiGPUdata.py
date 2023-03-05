@@ -159,7 +159,7 @@ def get_train_test_dataset(split: tuple, sequential: bool, path: str = None, bat
     else:
         train, test = random_train_test_split(split,label_dic)
         
-        
+       
     print(f'LEN TEST GEN BEFORE: {len(test)}')
     print(f'LEN TRAIN GEN BEFORE: {len(train)}')
     
