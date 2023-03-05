@@ -53,14 +53,14 @@ def main(rank: int, world_size: int, master_port: str, batch_size: int = 1,
     # print('finished get_train_test_dataloader')
     # print('Trying Batched')
     #### Classification ####
-    model = PaperModel(rank, x_amount=7, y_amount=7, x_con=3500, y_con=2800,
-                       data_shape=(batch_size, 4, 50, 256), hidden_output_fnn=1024, dropout=.5,
-                       number_of_layers=10, num_layers_global=10, setting='C')
-
-    #### Regression ####
     # model = PaperModel(rank, x_amount=7, y_amount=7, x_con=3500, y_con=2800,
     #                    data_shape=(batch_size, 4, 50, 256), hidden_output_fnn=1024, dropout=.5,
-    #                    number_of_layers=10, num_layers_global=10, setting='R')
+    #                    number_of_layers=10, num_layers_global=10, setting='C')
+
+    #### Regression ####
+    model = PaperModel(rank, x_amount=7, y_amount=7, x_con=3500, y_con=2800,
+                       data_shape=(batch_size, 4, 50, 256), hidden_output_fnn=1024, dropout=.5,
+                       number_of_layers=10, num_layers_global=10, setting='R')
 
     # model = model.to(device)
     # model = DDP(model, device_ids = device)
@@ -74,7 +74,7 @@ def main(rank: int, world_size: int, master_port: str, batch_size: int = 1,
     ce_loss = torch.nn.CrossEntropyLoss()
     mse_loss = torch.nn.MSELoss()
 
-    trainer = Trainer(model=model, optimizer=adam_optimizer, loss_fn= ce_loss, gpu_id=rank, save_interval=10,
+    trainer = Trainer(model=model, optimizer=adam_optimizer, loss_fn= mse_loss, gpu_id=rank, save_interval=10,
                       metric_interval=1, train_data=training_gen, test_data=test_gen)
 
     # trainer = Trainer(model=model, optimizer=adam_optimizer, loss_fn= mse_loss, gpu_id=rank, save_interval=10,
