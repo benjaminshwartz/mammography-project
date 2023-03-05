@@ -350,6 +350,9 @@ class Trainer():
                 binary_acc_left = num_binary_correct_left/total
                 binary_acc_right = num_binary_correct_right/total
 
+                print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
+                print(f'METRICS FOR GPU ID: {self.gpu_id}')
+
                 print(
                     f'\t\tOverall Mean Squared Error: {loss}')
                 print(
