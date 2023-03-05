@@ -59,18 +59,19 @@ class Trainer():
         self.optimizer.zero_grad()
 
         predicted_output = self.model(batch_tensor).to(self.gpu_id)
+        predicted_output = torch.reshape(predicted_output, (predicted_output.shape[0], 2))
         self.curr_preds_lst.append(predicted_output)
         # print(f'SHAPE OF PREDICTED OUTPUT: {predicted_output.shape}')
         batch_labels = torch.reshape(
             batch_labels, (predicted_output.shape[0], 2))
         self.curr_labels_lst.append(batch_labels)
        
-        print(f'BATCH LABEL SHAPE: {batch_labels.shape}')
-        print(f'PREDICTED OUTPUT SHAPE: {predicted_output.shape}')
+        # print(f'BATCH LABEL SHAPE: {batch_labels.shape}')
+        # print(f'PREDICTED OUTPUT SHAPE: {predicted_output.shape}')
         
-        batch_labels = batch_labels[:,None,:]
+        # batch_labels = batch_labels[:,None,:]
 
-        print(f'BATCH LABEL SHAPE AFTER RESHAPE: {batch_labels.shape}')
+        # print(f'BATCH LABEL SHAPE AFTER RESHAPE: {batch_labels.shape}')
 
 
         # print(f'SHAPE OF LABELS: {batch_labels.shape}')
@@ -304,9 +305,8 @@ class Trainer():
 
                 # print(f'PREDICTED OUTPUT SHAPE: {predicted_output.shape}')
 
-                left_preds = predicted_output[:,:, 0].to(self.gpu_id)
-                right_preds = predicted_output[:,:, 1].to(self.gpu_id)
-
+                left_preds = predicted_output[:, 0].to(self.gpu_id)
+                right_preds = predicted_output[:, 1].to(self.gpu_id)
                 # print(f'label list: {label_lst}')
 
                 # print(f'labels: {labels}')
