@@ -128,14 +128,14 @@ class Trainer():
                 self._save_checkpoint(epoch)
             if self.metric_interval > 0 and epoch % self.metric_interval == 0:
                 print(f"\tTrain Metrics (Training Data) for GPU ID {self.gpu_id} :")
-                self.evaluate(None, sv_roc=sv_roc)
+                self.evaluate(self.train_data, sv_roc=sv_roc)
                 if self.test_data != None:
                     print(f"\tTest Metrics for GPU ID {self.gpu_id}:")
                     self.evaluate(self.test_data)
                     self.model.train()
             elif epoch == num_epochs:  # Evaluate final model
                 print(f"\tTrain Metrics for GPU ID {self.gpu_id} :")
-                self.evaluate(None, sv_roc=sv_roc)
+                self.evaluate(self.train_data, sv_roc=sv_roc)
                 if self.test_data != None:
                     print(f"\tTest Metrics for GPU ID {self.gpu_id}:")
                     self.evaluate(self.test_data)
@@ -292,18 +292,20 @@ class Trainer():
 
             elif str(self.loss_fn) == str(torch.nn.MSELoss()):
 
+                print(f'PREDICTED OUTPUT SHAPE: {predicted_output.shape}')
+
                 left_preds = predicted_output[:, 0].to(self.gpu_id)
                 right_preds = predicted_output[:, 1].to(self.gpu_id)
 
-                print(f'label list: {label_lst}')
+                # print(f'label list: {label_lst}')
 
-                print(f'labels: {labels}')
+                # print(f'labels: {labels}')
 
-                print(f'left_preds: {left_preds}')
-                print(f'left_preds shape : {left_preds.shape}')
+                # print(f'left_preds: {left_preds}')
+                # print(f'left_preds shape : {left_preds.shape}')
 
-                print(f'left_labels: {left_labels}')
-                print(f'left_labels shape : {left_labels.shape}')
+                # print(f'left_labels: {left_labels}')
+                # print(f'left_labels shape : {left_labels.shape}')
 
                 left_positions = torch.squeeze(left_preds)
                 right_positions = torch.squeeze(right_preds)
