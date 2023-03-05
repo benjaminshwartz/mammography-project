@@ -159,7 +159,7 @@ class Trainer():
             # num_batches = len(predicted_output)
             # all_preds = []  # torch.tensor([]).to(self.gpu_id)
 
-            print(f'METRICS FOR GPU ID: {self.gpu_id}')
+            
 
             if dataloader is None:
                 predicted_output = torch.vstack(self.curr_preds_lst)
@@ -257,6 +257,8 @@ class Trainer():
                 binary_acc_right = num_binary_correct_right/total
                 one_off_right = num_correct_one_off_right/total
 
+                print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
+                print(f'METRICS FOR GPU ID: {self.gpu_id}')
                 print(
                     f'\t\tOverall Loss: {loss}')
                 print(
