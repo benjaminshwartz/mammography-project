@@ -74,7 +74,7 @@ def main(rank: int, world_size: int, master_port: str, batch_size: int = 1,
     ce_loss = torch.nn.CrossEntropyLoss()
     mse_loss = torch.nn.MSELoss()
 
-    trainer = Trainer(model=model, optimizer=adam_optimizer, loss_fn= mse_loss, gpu_id=rank, save_interval=10,
+    trainer = Trainer(model=model, optimizer=adam_optimizer, loss_fn= mse_loss, gpu_id=rank, save_interval=100,
                       metric_interval=1, train_data=training_gen, test_data=test_gen)
 
     # trainer = Trainer(model=model, optimizer=adam_optimizer, loss_fn= mse_loss, gpu_id=rank, save_interval=10,
