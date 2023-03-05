@@ -70,6 +70,8 @@ class Trainer():
         
         batch_labels = batch_labels[:,None,:]
 
+        print(f'BATCH LABEL SHAPE AFTER RESHAPE: {batch_labels.shape}')
+
 
         # print(f'SHAPE OF LABELS: {batch_labels.shape}')
 
