@@ -64,7 +64,12 @@ class Trainer():
         batch_labels = torch.reshape(
             batch_labels, (predicted_output.shape[0], 2))
         self.curr_labels_lst.append(batch_labels)
+       
+        print(f'BATCH LABEL SHAPE: {batch_labels.shape}')
+        print(f'PREDICTED OUTPUT SHAPE: {predicted_output.shape}')
+        
         batch_labels = batch_labels[:,None,:]
+
 
         # print(f'SHAPE OF LABELS: {batch_labels.shape}')
 
