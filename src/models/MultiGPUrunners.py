@@ -137,20 +137,20 @@ class Trainer():
                 self._save_checkpoint(epoch)
             if self.metric_interval > 0 and epoch % self.metric_interval == 0:
                 print(f"\tTrain Metrics (Training Data) for GPU ID {self.gpu_id} :")
-                self.evaluate(None, sv_roc=sv_roc)
+                self.evaluate(epoch, 'training', None,sv_roc=sv_roc)
                 if self.test_data != None:
                     print(f"\tTest Metrics for GPU ID {self.gpu_id}:")
-                    self.evaluate(self.test_data)
+                    self.evaluate(epoch, 'testing', self.test_data)
                     self.model.train()
             elif epoch == num_epochs:  # Evaluate final model
                 print(f"\tTrain Metrics for GPU ID {self.gpu_id} :")
-                self.evaluate(None, sv_roc=sv_roc)
+                self.evaluate(epoch, 'training', None, sv_roc=sv_roc)
                 if self.test_data != None:
                     print(f"\tTest Metrics for GPU ID {self.gpu_id}:")
-                    self.evaluate(self.test_data)
+                    self.evaluate(epoch, 'testing', None, self.test_data)
                     self.model.train()
 
-    def evaluate(self, dataloader: DataLoader = None, sv_roc=False):
+    def evaluate(self, epoch_num: int, train_str: str ,dataloader: DataLoader = None, sv_roc=False):
 
         with torch.no_grad():
             self.model.eval()
@@ -304,7 +304,7 @@ class Trainer():
 
             elif str(self.loss_fn) == str(torch.nn.MSELoss()):
 
-                print(f'PREDICTED OUTPUT SHAPE: {predicted_output.shape}')
+                # print(f'PREDICTED OUTPUT SHAPE: {predicted_output.shape}')
 
                 left_preds = predicted_output[:, 0].to(self.gpu_id)
                 right_preds = predicted_output[:, 1].to(self.gpu_id)
@@ -361,6 +361,7 @@ class Trainer():
 
                 print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
                 print(f'METRICS FOR GPU ID: {self.gpu_id}')
+                print(f'METRICS FOR EPOCH NUMBER {epoch_num} AND FOR {train_str}')
 
                 print(
                     f'\t\tOverall Mean Squared Error: {loss}')
