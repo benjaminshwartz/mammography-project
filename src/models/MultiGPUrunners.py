@@ -64,6 +64,7 @@ class Trainer():
         batch_labels = torch.reshape(
             batch_labels, (predicted_output.shape[0], 2))
         self.curr_labels_lst.append(batch_labels)
+        batch_labels = batch_labels[:,None,:]
 
         # print(f'SHAPE OF LABELS: {batch_labels.shape}')
 
@@ -83,9 +84,9 @@ class Trainer():
         self.model.train()
         self.curr_preds_lst = []
         self.curr_labels_lst = []
-        if self.gpu_id == 0:
-            print('==============================================')
-            print(f'[GPU {self.gpu_id}] Epoch {epoch}')
+        # if self.gpu_id == 0:
+        #     print('==============================================')
+        #     print(f'[GPU {self.gpu_id}] Epoch {epoch}')
         # i = 1
         # all = len(self.train_data)
 
@@ -128,14 +129,14 @@ class Trainer():
                 self._save_checkpoint(epoch)
             if self.metric_interval > 0 and epoch % self.metric_interval == 0:
                 print(f"\tTrain Metrics (Training Data) for GPU ID {self.gpu_id} :")
-                self.evaluate(self.train_data, sv_roc=sv_roc)
+                self.evaluate(None, sv_roc=sv_roc)
                 if self.test_data != None:
                     print(f"\tTest Metrics for GPU ID {self.gpu_id}:")
                     self.evaluate(self.test_data)
                     self.model.train()
             elif epoch == num_epochs:  # Evaluate final model
                 print(f"\tTrain Metrics for GPU ID {self.gpu_id} :")
-                self.evaluate(self.train_data, sv_roc=sv_roc)
+                self.evaluate(None, sv_roc=sv_roc)
                 if self.test_data != None:
                     print(f"\tTest Metrics for GPU ID {self.gpu_id}:")
                     self.evaluate(self.test_data)
@@ -294,7 +295,7 @@ class Trainer():
 
             elif str(self.loss_fn) == str(torch.nn.MSELoss()):
 
-                print(f'PREDICTED OUTPUT SHAPE: {predicted_output.shape}')
+                # print(f'PREDICTED OUTPUT SHAPE: {predicted_output.shape}')
 
                 left_preds = predicted_output[:,:, 0].to(self.gpu_id)
                 right_preds = predicted_output[:,:, 1].to(self.gpu_id)
