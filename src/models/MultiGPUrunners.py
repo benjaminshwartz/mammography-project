@@ -364,36 +364,36 @@ class Trainer():
                 # print(f'METRICS FOR EPOCH NUMBER {epoch_num} AND FOR {train_str}')
 
                 print(
-                    f'{train_str}|{epoch_num}|{self.gpu_id}|Overall Mean Squared Error|{loss}')
+                    f'{train_str}|{epoch_num}|{self.gpu_id}|Overall Mean Squared Error|{loss}\n')
                 print(
-                    f'{train_str}|{epoch_num}|{self.gpu_id}|Left Mean Squared Error|{left_loss}')
+                    f'{train_str}|{epoch_num}|{self.gpu_id}|Left Mean Squared Error|{left_loss}\n')
                 print(
-                    f'{train_str}|{epoch_num}|{self.gpu_id}|Right Mean Squared Error|{right_loss}')
+                    f'{train_str}|{epoch_num}|{self.gpu_id}|Right Mean Squared Error|{right_loss}\n')
                 print('\t\t------------------------------------------------')
 
-                print(f'{train_str}|{epoch_num}|{self.gpu_id}|Mean Absolute Error|{mae_total}')
+                print(f'{train_str}|{epoch_num}|{self.gpu_id}|Mean Absolute Error|{mae_total}\n')
 
-                print(f'{train_str}|{epoch_num}|{self.gpu_id}|Mean Absolute Error Left|{mae_left}')
+                print(f'{train_str}|{epoch_num}|{self.gpu_id}|Mean Absolute Error Left|{mae_left}\n')
 
-                print(f'{train_str}|{epoch_num}|{self.gpu_id}|Mean Absolute Error Right|{mae_right}')
-
-                print('\t\t------------------------------------------------')
-
-                print(
-                    f'{train_str}|{epoch_num}|{self.gpu_id}|Overall Accuracy|{accuracy}|{num_correct}/{total}')
-                print(
-                    f'{train_str}|{epoch_num}|{self.gpu_id}|Overall Accuracy Left|{accuracy_left}|{num_correct_left}/{total}')
-                print(
-                    f'{train_str}|{epoch_num}|{self.gpu_id}|Accuracy Right|{accuracy_right}|{num_correct_right}/{total}')
+                print(f'{train_str}|{epoch_num}|{self.gpu_id}|Mean Absolute Error Right|{mae_right}\n')
 
                 print('\t\t------------------------------------------------')
 
                 print(
-                    f'{train_str}|{epoch_num}|{self.gpu_id}|Binary Accuracy|{binary_acc}|{binary_acc}/{total}')
+                    f'{train_str}|{epoch_num}|{self.gpu_id}|Overall Accuracy|{accuracy}|{num_correct}/{total}\n')
                 print(
-                    f'{train_str}|{epoch_num}|{self.gpu_id}|Binary Accuracy Left|{binary_acc_left}|{binary_acc_left}/{total}')
+                    f'{train_str}|{epoch_num}|{self.gpu_id}|Overall Accuracy Left|{accuracy_left}|{num_correct_left}/{total}\n')
                 print(
-                    f'{train_str}|{epoch_num}|{self.gpu_id}|Binary Accuracy Right|{binary_acc_right}|{binary_acc_right}/{total}')
+                    f'{train_str}|{epoch_num}|{self.gpu_id}|Accuracy Right|{accuracy_right}|{num_correct_right}/{total}\n')
+
+                print('\t\t------------------------------------------------')
+
+                print(
+                    f'{train_str}|{epoch_num}|{self.gpu_id}|Binary Accuracy|{binary_acc}|{binary_acc}/{total}\n')
+                print(
+                    f'{train_str}|{epoch_num}|{self.gpu_id}|Binary Accuracy Left|{binary_acc_left}|{binary_acc_left}/{total}\n')
+                print(
+                    f'{train_str}|{epoch_num}|{self.gpu_id}|Binary Accuracy Right|{binary_acc_right}|{binary_acc_right}/{total}\n')
                 
 
                 print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
