@@ -128,7 +128,7 @@ if __name__ == "__main__":
 
     ##### MULTIGPU RUN ###########
     print('trying to run')
-    batch_size = 4
+    batch_size = 2
     device = 'cpu'
     sequential = False
     split = (.8, .2)
