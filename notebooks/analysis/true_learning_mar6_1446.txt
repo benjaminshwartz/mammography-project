@@ -1,0 +1,5154 @@
+trying to run
+world size 4
+[W reducer.cpp:1289] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1289] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1289] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1289] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+in ddp_setup
+starting init_process_group
+finished init_process_group
+LEN TEST GEN BEFORE: 762
+LEN TRAIN GEN BEFORE: 3048
+LEN TEST GEN: 762
+LEN TRAIN GEN: 3048
+Starting mean_and_variance
+Finishing mean_and_variance
+Starting mean_and_variance
+Finishing mean_and_variance
+Starting Training
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+training|1|0|Overall Mean Squared Error|0.7026854157447815
+
+training|1|0|Left Mean Squared Error|0.7184295058250427
+
+training|1|0|Right Mean Squared Error|0.686941385269165
+
+		------------------------------------------------
+training|1|0|Mean Absolute Error|0.638270378112793
+
+training|1|0|Mean Absolute Error Left|0.6403225660324097
+
+training|1|0|Mean Absolute Error Right|0.6362181901931763
+
+		------------------------------------------------
+training|1|0|Overall Accuracy|0.2230971128608924|170/762
+
+training|1|0|Overall Accuracy Left|0.4671916010498688|356/762
+
+training|1|0|Accuracy Right|0.4816272965879265|367/762
+
+		------------------------------------------------
+training|1|0|Binary Accuracy|0.2650918635170604|0.2650918635170604/762
+
+training|1|0|Binary Accuracy Left|0.5196850393700787|0.5196850393700787/762
+
+training|1|0|Binary Accuracy Right|0.5196850393700787|0.5196850393700787/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+testing|1|0|Overall Mean Squared Error|0.6110650897026062
+
+testing|1|0|Left Mean Squared Error|0.5924087762832642
+
+testing|1|0|Right Mean Squared Error|0.6297214031219482
+
+		------------------------------------------------
+testing|1|0|Mean Absolute Error|0.6527513563632965
+
+testing|1|0|Mean Absolute Error Left|0.6160753965377808
+
+testing|1|0|Mean Absolute Error Right|0.6894273161888123
+
+		------------------------------------------------
+testing|1|0|Overall Accuracy|0.13089005235602094|25/191
+
+testing|1|0|Overall Accuracy Left|0.6963350785340314|133/191
+
+testing|1|0|Accuracy Right|0.2198952879581152|42/191
+
+		------------------------------------------------
+testing|1|0|Binary Accuracy|0.16230366492146597|0.16230366492146597/191
+
+testing|1|0|Binary Accuracy Left|0.6963350785340314|0.6963350785340314/191
+
+testing|1|0|Binary Accuracy Right|0.2931937172774869|0.2931937172774869/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+training|2|0|Overall Mean Squared Error|0.6152951121330261
+
+training|2|0|Left Mean Squared Error|0.5805913209915161
+
+training|2|0|Right Mean Squared Error|0.6499989628791809
+
+		------------------------------------------------
+training|2|0|Mean Absolute Error|0.6079666912555695
+
+training|2|0|Mean Absolute Error Left|0.5995468497276306
+
+training|2|0|Mean Absolute Error Right|0.6163865327835083
+
+		------------------------------------------------
+training|2|0|Overall Accuracy|0.24540682414698162|187/762
+
+training|2|0|Overall Accuracy Left|0.489501312335958|373/762
+
+training|2|0|Accuracy Right|0.5170603674540682|394/762
+
+		------------------------------------------------
+training|2|0|Binary Accuracy|0.2821522309711286|0.2821522309711286/762
+
+training|2|0|Binary Accuracy Left|0.515748031496063|0.515748031496063/762
+
+training|2|0|Binary Accuracy Right|0.5603674540682415|0.5603674540682415/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+testing|2|0|Overall Mean Squared Error|0.5893595218658447
+
+testing|2|0|Left Mean Squared Error|0.6017031073570251
+
+testing|2|0|Right Mean Squared Error|0.5770159959793091
+
+		------------------------------------------------
+testing|2|0|Mean Absolute Error|0.6013214290142059
+
+testing|2|0|Mean Absolute Error Left|0.5668360590934753
+
+testing|2|0|Mean Absolute Error Right|0.6358067989349365
+
+		------------------------------------------------
+testing|2|0|Overall Accuracy|0.13612565445026178|26/191
+
+testing|2|0|Overall Accuracy Left|0.6963350785340314|133/191
+
+testing|2|0|Accuracy Right|0.225130890052356|43/191
+
+		------------------------------------------------
+testing|2|0|Binary Accuracy|0.16753926701570682|0.16753926701570682/191
+
+testing|2|0|Binary Accuracy Left|0.6963350785340314|0.6963350785340314/191
+
+testing|2|0|Binary Accuracy Right|0.29842931937172773|0.29842931937172773/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+training|3|0|Overall Mean Squared Error|0.655861496925354
+
+training|3|0|Left Mean Squared Error|0.6591378450393677
+
+training|3|0|Right Mean Squared Error|0.6525852680206299
+
+		------------------------------------------------
+training|3|0|Mean Absolute Error|0.6279695332050323
+
+training|3|0|Mean Absolute Error Left|0.6291144490242004
+
+training|3|0|Mean Absolute Error Right|0.6268246173858643
+
+		------------------------------------------------
+training|3|0|Overall Accuracy|0.27034120734908135|206/762
+
+training|3|0|Overall Accuracy Left|0.4973753280839895|379/762
+
+training|3|0|Accuracy Right|0.5091863517060368|388/762
+
+		------------------------------------------------
+training|3|0|Binary Accuracy|0.3110236220472441|0.3110236220472441/762
+
+training|3|0|Binary Accuracy Left|0.5406824146981627|0.5406824146981627/762
+
+training|3|0|Binary Accuracy Right|0.5341207349081365|0.5341207349081365/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+testing|3|0|Overall Mean Squared Error|0.600104570388794
+
+testing|3|0|Left Mean Squared Error|0.5958685278892517
+
+testing|3|0|Right Mean Squared Error|0.604340672492981
+
+		------------------------------------------------
+testing|3|0|Mean Absolute Error|0.6505386829376221
+
+testing|3|0|Mean Absolute Error Left|0.6325802803039551
+
+testing|3|0|Mean Absolute Error Right|0.6684970855712891
+
+		------------------------------------------------
+testing|3|0|Overall Accuracy|0.09947643979057591|19/191
+
+testing|3|0|Overall Accuracy Left|0.387434554973822|74/191
+
+testing|3|0|Accuracy Right|0.2198952879581152|42/191
+
+		------------------------------------------------
+testing|3|0|Binary Accuracy|0.13612565445026178|0.13612565445026178/191
+
+testing|3|0|Binary Accuracy Left|0.450261780104712|0.450261780104712/191
+
+testing|3|0|Binary Accuracy Right|0.2931937172774869|0.2931937172774869/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+LEN TEST GEN BEFORE: 762
+LEN TRAIN GEN BEFORE: 3048
+LEN TEST GEN: 762
+LEN TRAIN GEN: 3048
+Starting mean_and_variance
+Finishing mean_and_variance
+Starting mean_and_variance
+Finishing mean_and_variance
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+training|1|3|Overall Mean Squared Error|0.7310302257537842
+
+training|1|3|Left Mean Squared Error|0.7079219222068787
+
+training|1|3|Right Mean Squared Error|0.754138708114624
+
+		------------------------------------------------
+training|1|3|Mean Absolute Error|0.6508949398994446
+
+training|1|3|Mean Absolute Error Left|0.6439113020896912
+
+training|1|3|Mean Absolute Error Right|0.657878577709198
+
+		------------------------------------------------
+training|1|3|Overall Accuracy|0.20866141732283464|159/762
+
+training|1|3|Overall Accuracy Left|0.46194225721784776|352/762
+
+training|1|3|Accuracy Right|0.452755905511811|345/762
+
+		------------------------------------------------
+training|1|3|Binary Accuracy|0.26115485564304464|0.26115485564304464/762
+
+training|1|3|Binary Accuracy Left|0.505249343832021|0.505249343832021/762
+
+training|1|3|Binary Accuracy Right|0.49868766404199477|0.49868766404199477/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+testing|1|3|Overall Mean Squared Error|0.6847518086433411
+
+testing|1|3|Left Mean Squared Error|0.5377295017242432
+
+testing|1|3|Right Mean Squared Error|0.831774115562439
+
+		------------------------------------------------
+testing|1|3|Mean Absolute Error|0.6744459271430969
+
+testing|1|3|Mean Absolute Error Left|0.5953215956687927
+
+testing|1|3|Mean Absolute Error Right|0.7535702586174011
+
+		------------------------------------------------
+testing|1|3|Overall Accuracy|0.1256544502617801|24/191
+
+testing|1|3|Overall Accuracy Left|0.680628272251309|130/191
+
+testing|1|3|Accuracy Right|0.20418848167539266|39/191
+
+		------------------------------------------------
+testing|1|3|Binary Accuracy|0.18324607329842932|0.18324607329842932/191
+
+testing|1|3|Binary Accuracy Left|0.680628272251309|0.680628272251309/191
+
+testing|1|3|Binary Accuracy Right|0.3089005235602094|0.3089005235602094/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+training|2|3|Overall Mean Squared Error|0.6562104821205139
+
+training|2|3|Left Mean Squared Error|0.7205030918121338
+
+training|2|3|Right Mean Squared Error|0.591917872428894
+
+		------------------------------------------------
+training|2|3|Mean Absolute Error|0.6275671720504761
+
+training|2|3|Mean Absolute Error Left|0.6464117765426636
+
+training|2|3|Mean Absolute Error Right|0.6087225675582886
+
+		------------------------------------------------
+training|2|3|Overall Accuracy|0.23097112860892388|176/762
+
+training|2|3|Overall Accuracy Left|0.48556430446194226|370/762
+
+training|2|3|Accuracy Right|0.5026246719160105|383/762
+
+		------------------------------------------------
+training|2|3|Binary Accuracy|0.2821522309711286|0.2821522309711286/762
+
+training|2|3|Binary Accuracy Left|0.5341207349081365|0.5341207349081365/762
+
+training|2|3|Binary Accuracy Right|0.5328083989501312|0.5328083989501312/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+testing|2|3|Overall Mean Squared Error|0.6736921668052673
+
+testing|2|3|Left Mean Squared Error|0.5485084652900696
+
+testing|2|3|Right Mean Squared Error|0.7988757491111755
+
+		------------------------------------------------
+testing|2|3|Mean Absolute Error|0.626693606376648
+
+testing|2|3|Mean Absolute Error Left|0.5514445900917053
+
+testing|2|3|Mean Absolute Error Right|0.7019426226615906
+
+		------------------------------------------------
+testing|2|3|Overall Accuracy|0.1256544502617801|24/191
+
+testing|2|3|Overall Accuracy Left|0.680628272251309|130/191
+
+testing|2|3|Accuracy Right|0.2094240837696335|40/191
+
+		------------------------------------------------
+testing|2|3|Binary Accuracy|0.18324607329842932|0.18324607329842932/191
+
+testing|2|3|Binary Accuracy Left|0.680628272251309|0.680628272251309/191
+
+testing|2|3|Binary Accuracy Right|0.31413612565445026|0.31413612565445026/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+training|3|3|Overall Mean Squared Error|0.6218502521514893
+
+training|3|3|Left Mean Squared Error|0.6673983931541443
+
+training|3|3|Right Mean Squared Error|0.5763021111488342
+
+		------------------------------------------------
+training|3|3|Mean Absolute Error|0.6171337962150574
+
+training|3|3|Mean Absolute Error Left|0.6403039693832397
+
+training|3|3|Mean Absolute Error Right|0.593963623046875
+
+		------------------------------------------------
+training|3|3|Overall Accuracy|0.27165354330708663|207/762
+
+training|3|3|Overall Accuracy Left|0.484251968503937|369/762
+
+training|3|3|Accuracy Right|0.5275590551181102|402/762
+
+		------------------------------------------------
+training|3|3|Binary Accuracy|0.31496062992125984|0.31496062992125984/762
+
+training|3|3|Binary Accuracy Left|0.5354330708661418|0.5354330708661418/762
+
+training|3|3|Binary Accuracy Right|0.5603674540682415|0.5603674540682415/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+testing|3|3|Overall Mean Squared Error|0.6777947545051575
+
+testing|3|3|Left Mean Squared Error|0.5437198877334595
+
+testing|3|3|Right Mean Squared Error|0.8118696808815002
+
+		------------------------------------------------
+testing|3|3|Mean Absolute Error|0.6717533767223358
+
+testing|3|3|Mean Absolute Error Left|0.6111607551574707
+
+testing|3|3|Mean Absolute Error Right|0.7323459982872009
+
+		------------------------------------------------
+testing|3|3|Overall Accuracy|0.08900523560209424|17/191
+
+testing|3|3|Overall Accuracy Left|0.36649214659685864|70/191
+
+testing|3|3|Accuracy Right|0.20418848167539266|39/191
+
+		------------------------------------------------
+testing|3|3|Binary Accuracy|0.14136125654450263|0.14136125654450263/191
+
+testing|3|3|Binary Accuracy Left|0.41361256544502617|0.41361256544502617/191
+
+testing|3|3|Binary Accuracy Right|0.3089005235602094|0.3089005235602094/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+LEN TEST GEN BEFORE: 762
+LEN TRAIN GEN BEFORE: 3048
+LEN TEST GEN: 762
+LEN TRAIN GEN: 3048
+Starting mean_and_variance
+Finishing mean_and_variance
+Starting mean_and_variance
+Finishing mean_and_variance
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+training|1|2|Overall Mean Squared Error|0.7805387377738953
+
+training|1|2|Left Mean Squared Error|0.8085679411888123
+
+training|1|2|Right Mean Squared Error|0.7525094747543335
+
+		------------------------------------------------
+training|1|2|Mean Absolute Error|0.6550592482089996
+
+training|1|2|Mean Absolute Error Left|0.6675903797149658
+
+training|1|2|Mean Absolute Error Right|0.6425281167030334
+
+		------------------------------------------------
+training|1|2|Overall Accuracy|0.23490813648293962|179/762
+
+training|1|2|Overall Accuracy Left|0.468503937007874|357/762
+
+training|1|2|Accuracy Right|0.4816272965879265|367/762
+
+		------------------------------------------------
+training|1|2|Binary Accuracy|0.28346456692913385|0.28346456692913385/762
+
+training|1|2|Binary Accuracy Left|0.5275590551181102|0.5275590551181102/762
+
+training|1|2|Binary Accuracy Right|0.5288713910761155|0.5288713910761155/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+testing|1|2|Overall Mean Squared Error|0.6448837518692017
+
+testing|1|2|Left Mean Squared Error|0.5983096361160278
+
+testing|1|2|Right Mean Squared Error|0.6914578676223755
+
+		------------------------------------------------
+testing|1|2|Mean Absolute Error|0.6701808571815491
+
+testing|1|2|Mean Absolute Error Left|0.6128167510032654
+
+testing|1|2|Mean Absolute Error Right|0.7275449633598328
+
+		------------------------------------------------
+testing|1|2|Overall Accuracy|0.07853403141361257|15/191
+
+testing|1|2|Overall Accuracy Left|0.7172774869109948|137/191
+
+testing|1|2|Accuracy Right|0.1518324607329843|29/191
+
+		------------------------------------------------
+testing|1|2|Binary Accuracy|0.1518324607329843|0.1518324607329843/191
+
+testing|1|2|Binary Accuracy Left|0.7172774869109948|0.7172774869109948/191
+
+testing|1|2|Binary Accuracy Right|0.24607329842931938|0.24607329842931938/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+training|2|2|Overall Mean Squared Error|0.7087566256523132
+
+training|2|2|Left Mean Squared Error|0.8034367561340332
+
+training|2|2|Right Mean Squared Error|0.6140766143798828
+
+		------------------------------------------------
+training|2|2|Mean Absolute Error|0.649406760931015
+
+training|2|2|Mean Absolute Error Left|0.684860110282898
+
+training|2|2|Mean Absolute Error Right|0.6139534115791321
+
+		------------------------------------------------
+training|2|2|Overall Accuracy|0.22440944881889763|171/762
+
+training|2|2|Overall Accuracy Left|0.4461942257217848|340/762
+
+training|2|2|Accuracy Right|0.5183727034120735|395/762
+
+		------------------------------------------------
+training|2|2|Binary Accuracy|0.2821522309711286|0.2821522309711286/762
+
+training|2|2|Binary Accuracy Left|0.5026246719160105|0.5026246719160105/762
+
+training|2|2|Binary Accuracy Right|0.5577427821522309|0.5577427821522309/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+testing|2|2|Overall Mean Squared Error|0.6191060543060303
+
+testing|2|2|Left Mean Squared Error|0.608085572719574
+
+testing|2|2|Right Mean Squared Error|0.6301264762878418
+
+		------------------------------------------------
+testing|2|2|Mean Absolute Error|0.60969278216362
+
+testing|2|2|Mean Absolute Error Left|0.5595641732215881
+
+testing|2|2|Mean Absolute Error Right|0.6598213911056519
+
+		------------------------------------------------
+testing|2|2|Overall Accuracy|0.08900523560209424|17/191
+
+testing|2|2|Overall Accuracy Left|0.7172774869109948|137/191
+
+testing|2|2|Accuracy Right|0.16230366492146597|31/191
+
+		------------------------------------------------
+testing|2|2|Binary Accuracy|0.16230366492146597|0.16230366492146597/191
+
+testing|2|2|Binary Accuracy Left|0.7172774869109948|0.7172774869109948/191
+
+testing|2|2|Binary Accuracy Right|0.25654450261780104|0.25654450261780104/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+training|3|2|Overall Mean Squared Error|0.6659132838249207
+
+training|3|2|Left Mean Squared Error|0.6893459558486938
+
+training|3|2|Right Mean Squared Error|0.6424805521965027
+
+		------------------------------------------------
+training|3|2|Mean Absolute Error|0.6278359293937683
+
+training|3|2|Mean Absolute Error Left|0.6391659379005432
+
+training|3|2|Mean Absolute Error Right|0.6165059208869934
+
+		------------------------------------------------
+training|3|2|Overall Accuracy|0.24934383202099739|190/762
+
+training|3|2|Overall Accuracy Left|0.46194225721784776|352/762
+
+training|3|2|Accuracy Right|0.520997375328084|397/762
+
+		------------------------------------------------
+training|3|2|Binary Accuracy|0.28608923884514437|0.28608923884514437/762
+
+training|3|2|Binary Accuracy Left|0.5|0.5/762
+
+training|3|2|Binary Accuracy Right|0.5538057742782152|0.5538057742782152/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+testing|3|2|Overall Mean Squared Error|0.6363435387611389
+
+testing|3|2|Left Mean Squared Error|0.6088912487030029
+
+testing|3|2|Right Mean Squared Error|0.6637958288192749
+
+		------------------------------------------------
+testing|3|2|Mean Absolute Error|0.6676770150661469
+
+testing|3|2|Mean Absolute Error Left|0.6336901783943176
+
+testing|3|2|Mean Absolute Error Right|0.7016638517379761
+
+		------------------------------------------------
+testing|3|2|Overall Accuracy|0.06806282722513089|13/191
+
+testing|3|2|Overall Accuracy Left|0.3036649214659686|58/191
+
+testing|3|2|Accuracy Right|0.1518324607329843|29/191
+
+		------------------------------------------------
+testing|3|2|Binary Accuracy|0.09947643979057591|0.09947643979057591/191
+
+testing|3|2|Binary Accuracy Left|0.3612565445026178|0.3612565445026178/191
+
+testing|3|2|Binary Accuracy Right|0.24607329842931938|0.24607329842931938/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batchesLEN TEST GEN BEFORE: 762
+LEN TRAIN GEN BEFORE: 3048
+LEN TEST GEN: 762
+LEN TRAIN GEN: 3048
+Starting mean_and_variance
+Finishing mean_and_variance
+Starting mean_and_variance
+Finishing mean_and_variance
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+training|1|1|Overall Mean Squared Error|0.7254835963249207
+
+training|1|1|Left Mean Squared Error|0.7885997891426086
+
+training|1|1|Right Mean Squared Error|0.6623673439025879
+
+		------------------------------------------------
+training|1|1|Mean Absolute Error|0.6357434988021851
+
+training|1|1|Mean Absolute Error Left|0.656897246837616
+
+training|1|1|Mean Absolute Error Right|0.6145897507667542
+
+		------------------------------------------------
+training|1|1|Overall Accuracy|0.2230971128608924|170/762
+
+training|1|1|Overall Accuracy Left|0.4566929133858268|348/762
+
+training|1|1|Accuracy Right|0.4973753280839895|379/762
+
+		------------------------------------------------
+training|1|1|Binary Accuracy|0.26246719160104987|0.26246719160104987/762
+
+training|1|1|Binary Accuracy Left|0.5|0.5/762
+
+training|1|1|Binary Accuracy Right|0.5275590551181102|0.5275590551181102/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+testing|1|1|Overall Mean Squared Error|0.6860092878341675
+
+testing|1|1|Left Mean Squared Error|0.8186500072479248
+
+testing|1|1|Right Mean Squared Error|0.5533685684204102
+
+		------------------------------------------------
+testing|1|1|Mean Absolute Error|0.6748144626617432
+
+testing|1|1|Mean Absolute Error Left|0.6840369701385498
+
+testing|1|1|Mean Absolute Error Right|0.6655919551849365
+
+		------------------------------------------------
+testing|1|1|Overall Accuracy|0.13089005235602094|25/191
+
+testing|1|1|Overall Accuracy Left|0.6963350785340314|133/191
+
+testing|1|1|Accuracy Right|0.2356020942408377|45/191
+
+		------------------------------------------------
+testing|1|1|Binary Accuracy|0.18848167539267016|0.18848167539267016/191
+
+testing|1|1|Binary Accuracy Left|0.6963350785340314|0.6963350785340314/191
+
+testing|1|1|Binary Accuracy Right|0.31413612565445026|0.31413612565445026/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+training|2|1|Overall Mean Squared Error|0.7118481993675232
+
+training|2|1|Left Mean Squared Error|0.73639315366745
+
+training|2|1|Right Mean Squared Error|0.6873033046722412
+
+		------------------------------------------------
+training|2|1|Mean Absolute Error|0.6438745260238647
+
+training|2|1|Mean Absolute Error Left|0.648866593837738
+
+training|2|1|Mean Absolute Error Right|0.6388824582099915
+
+		------------------------------------------------
+training|2|1|Overall Accuracy|0.22440944881889763|171/762
+
+training|2|1|Overall Accuracy Left|0.48031496062992124|366/762
+
+training|2|1|Accuracy Right|0.458005249343832|349/762
+
+		------------------------------------------------
+training|2|1|Binary Accuracy|0.2677165354330709|0.2677165354330709/762
+
+training|2|1|Binary Accuracy Left|0.520997375328084|0.520997375328084/762
+
+training|2|1|Binary Accuracy Right|0.4868766404199475|0.4868766404199475/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+testing|2|1|Overall Mean Squared Error|0.6734275817871094
+
+testing|2|1|Left Mean Squared Error|0.8426191210746765
+
+testing|2|1|Right Mean Squared Error|0.5042362213134766
+
+		------------------------------------------------
+testing|2|1|Mean Absolute Error|0.6256445944309235
+
+testing|2|1|Mean Absolute Error Left|0.6320684552192688
+
+testing|2|1|Mean Absolute Error Right|0.6192207336425781
+
+		------------------------------------------------
+testing|2|1|Overall Accuracy|0.13089005235602094|25/191
+
+testing|2|1|Overall Accuracy Left|0.6963350785340314|133/191
+
+testing|2|1|Accuracy Right|0.2356020942408377|45/191
+
+		------------------------------------------------
+testing|2|1|Binary Accuracy|0.18848167539267016|0.18848167539267016/191
+
+testing|2|1|Binary Accuracy Left|0.6963350785340314|0.6963350785340314/191
+
+testing|2|1|Binary Accuracy Right|0.31413612565445026|0.31413612565445026/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+training|3|1|Overall Mean Squared Error|0.7027750611305237
+
+training|3|1|Left Mean Squared Error|0.698123574256897
+
+training|3|1|Right Mean Squared Error|0.7074266076087952
+
+		------------------------------------------------
+training|3|1|Mean Absolute Error|0.6353210508823395
+
+training|3|1|Mean Absolute Error Left|0.642402172088623
+
+training|3|1|Mean Absolute Error Right|0.6282399296760559
+
+		------------------------------------------------
+training|3|1|Overall Accuracy|0.2572178477690289|196/762
+
+training|3|1|Overall Accuracy Left|0.4881889763779528|372/762
+
+training|3|1|Accuracy Right|0.5170603674540682|394/762
+
+		------------------------------------------------
+training|3|1|Binary Accuracy|0.2952755905511811|0.2952755905511811/762
+
+training|3|1|Binary Accuracy Left|0.5275590551181102|0.5275590551181102/762
+
+training|3|1|Binary Accuracy Right|0.5498687664041995|0.5498687664041995/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+testing|3|1|Overall Mean Squared Error|0.6731219291687012
+
+testing|3|1|Left Mean Squared Error|0.8146761655807495
+
+testing|3|1|Right Mean Squared Error|0.5315675735473633
+
+		------------------------------------------------
+testing|3|1|Mean Absolute Error|0.6737327575683594
+
+testing|3|1|Mean Absolute Error Left|0.6994801759719849
+
+testing|3|1|Mean Absolute Error Right|0.6479853391647339
+
+		------------------------------------------------
+testing|3|1|Overall Accuracy|0.07329842931937172|14/191
+
+testing|3|1|Overall Accuracy Left|0.3769633507853403|72/191
+
+testing|3|1|Accuracy Right|0.2356020942408377|45/191
+
+		------------------------------------------------
+testing|3|1|Binary Accuracy|0.1518324607329843|0.1518324607329843/191
+
+testing|3|1|Binary Accuracy Left|0.4712041884816754|0.4712041884816754/191
+
+testing|3|1|Binary Accuracy Right|0.31413612565445026|0.31413612565445026/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+training|4|3|Overall Mean Squared Error|0.6231719255447388
+
+training|4|3|Left Mean Squared Error|0.653998851776123
+
+training|4|3|Right Mean Squared Error|0.5923450589179993
+
+		------------------------------------------------
+training|4|3|Mean Absolute Error|0.6267907917499542
+
+training|4|3|Mean Absolute Error Left|0.6451400518417358
+
+training|4|3|Mean Absolute Error Right|0.6084415316581726
+
+		------------------------------------------------
+training|4|3|Overall Accuracy|0.2230971128608924|170/762
+
+training|4|3|Overall Accuracy Left|0.4343832020997375|331/762
+
+training|4|3|Accuracy Right|0.5223097112860893|398/762
+
+		------------------------------------------------
+training|4|3|Binary Accuracy|0.2545931758530184|0.2545931758530184/762
+
+training|4|3|Binary Accuracy Left|0.484251968503937|0.484251968503937/762
+
+training|4|3|Binary Accuracy Right|0.5393700787401575|0.5393700787401575/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+testing|4|3|Overall Mean Squared Error|0.7320419549942017
+
+testing|4|3|Left Mean Squared Error|0.6356491446495056
+
+testing|4|3|Right Mean Squared Error|0.8284348845481873
+
+		------------------------------------------------
+testing|4|3|Mean Absolute Error|0.7234476804733276
+
+testing|4|3|Mean Absolute Error Left|0.6971421837806702
+
+testing|4|3|Mean Absolute Error Right|0.7497531771659851
+
+		------------------------------------------------
+testing|4|3|Overall Accuracy|0.06282722513089005|12/191
+
+testing|4|3|Overall Accuracy Left|0.24607329842931938|47/191
+
+testing|4|3|Accuracy Right|0.20418848167539266|39/191
+
+		------------------------------------------------
+testing|4|3|Binary Accuracy|0.1256544502617801|0.1256544502617801/191
+
+testing|4|3|Binary Accuracy Left|0.3193717277486911|0.3193717277486911/191
+
+testing|4|3|Binary Accuracy Right|0.3089005235602094|0.3089005235602094/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+training|5|3|Overall Mean Squared Error|0.7028471231460571
+
+training|5|3|Left Mean Squared Error|0.7365448474884033
+
+training|5|3|Right Mean Squared Error|0.6691493391990662
+
+		------------------------------------------------
+training|5|3|Mean Absolute Error|0.6361101865768433
+
+training|5|3|Mean Absolute Error Left|0.656093955039978
+
+training|5|3|Mean Absolute Error Right|0.6161264181137085
+
+		------------------------------------------------
+training|5|3|Overall Accuracy|0.25984251968503935|198/762
+
+training|5|3|Overall Accuracy Left|0.4973753280839895|379/762
+
+training|5|3|Accuracy Right|0.5433070866141733|414/762
+
+		------------------------------------------------
+training|5|3|Binary Accuracy|0.29658792650918636|0.29658792650918636/762
+
+training|5|3|Binary Accuracy Left|0.526246719160105|0.526246719160105/762
+
+training|5|3|Binary Accuracy Right|0.5800524934383202|0.5800524934383202/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+testing|5|3|Overall Mean Squared Error|0.7386789321899414
+
+testing|5|3|Left Mean Squared Error|0.5474534034729004
+
+testing|5|3|Right Mean Squared Error|0.929904580116272
+
+		------------------------------------------------
+testing|5|3|Mean Absolute Error|0.7195433378219604
+
+testing|5|3|Mean Absolute Error Left|0.6183508634567261
+
+testing|5|3|Mean Absolute Error Right|0.8207358121871948
+
+		------------------------------------------------
+testing|5|3|Overall Accuracy|0.06282722513089005|12/191
+
+testing|5|3|Overall Accuracy Left|0.24607329842931938|47/191
+
+testing|5|3|Accuracy Right|0.20418848167539266|39/191
+
+		------------------------------------------------
+testing|5|3|Binary Accuracy|0.1256544502617801|0.1256544502617801/191
+
+testing|5|3|Binary Accuracy Left|0.3193717277486911|0.3193717277486911/191
+
+testing|5|3|Binary Accuracy Right|0.3089005235602094|0.3089005235602094/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+training|6|3|Overall Mean Squared Error|0.6649519801139832
+
+training|6|3|Left Mean Squared Error|0.682105541229248
+
+training|6|3|Right Mean Squared Error|0.6477982997894287
+
+		------------------------------------------------
+training|6|3|Mean Absolute Error|0.6344169080257416
+
+training|6|3|Mean Absolute Error Left|0.657360315322876
+
+training|6|3|Mean Absolute Error Right|0.6114735007286072
+
+		------------------------------------------------
+training|6|3|Overall Accuracy|0.26246719160104987|200/762
+
+training|6|3|Overall Accuracy Left|0.45931758530183725|350/762
+
+training|6|3|Accuracy Right|0.5459317585301837|416/762
+
+		------------------------------------------------
+training|6|3|Binary Accuracy|0.29396325459317585|0.29396325459317585/762
+
+training|6|3|Binary Accuracy Left|0.5039370078740157|0.5039370078740157/762
+
+training|6|3|Binary Accuracy Right|0.5708661417322834|0.5708661417322834/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+testing|6|3|Overall Mean Squared Error|0.6758084297180176
+
+testing|6|3|Left Mean Squared Error|0.5390376448631287
+
+testing|6|3|Right Mean Squared Error|0.8125792741775513
+
+		------------------------------------------------
+testing|6|3|Mean Absolute Error|0.6607189774513245
+
+testing|6|3|Mean Absolute Error Left|0.5914071202278137
+
+testing|6|3|Mean Absolute Error Right|0.7300308346748352
+
+		------------------------------------------------
+testing|6|3|Overall Accuracy|0.1256544502617801|24/191
+
+testing|6|3|Overall Accuracy Left|0.680628272251309|130/191
+
+testing|6|3|Accuracy Right|0.20418848167539266|39/191
+
+		------------------------------------------------
+testing|6|3|Binary Accuracy|0.18324607329842932|0.18324607329842932/191
+
+testing|6|3|Binary Accuracy Left|0.680628272251309|0.680628272251309/191
+
+testing|6|3|Binary Accuracy Right|0.3089005235602094|0.3089005235602094/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+training|7|3|Overall Mean Squared Error|0.6536576151847839
+
+training|7|3|Left Mean Squared Error|0.7064335346221924
+
+training|7|3|Right Mean Squared Error|0.6008816957473755
+
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+training|4|0|Overall Mean Squared Error|0.683885931968689
+
+training|4|0|Left Mean Squared Error|0.7224351763725281
+
+training|4|0|Right Mean Squared Error|0.6453369855880737
+
+		------------------------------------------------
+training|4|0|Mean Absolute Error|0.6406866312026978
+
+training|4|0|Mean Absolute Error Left|0.6616083383560181
+
+training|4|0|Mean Absolute Error Right|0.6197649240493774
+
+		------------------------------------------------
+training|4|0|Overall Accuracy|0.2440944881889764|186/762
+
+training|4|0|Overall Accuracy Left|0.46062992125984253|351/762
+
+training|4|0|Accuracy Right|0.5328083989501312|406/762
+
+		------------------------------------------------
+training|4|0|Binary Accuracy|0.2926509186351706|0.2926509186351706/762
+
+training|4|0|Binary Accuracy Left|0.5183727034120735|0.5183727034120735/762
+
+training|4|0|Binary Accuracy Right|0.5564304461942258|0.5564304461942258/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+testing|4|0|Overall Mean Squared Error|0.6542660593986511
+
+testing|4|0|Left Mean Squared Error|0.683599054813385
+
+testing|4|0|Right Mean Squared Error|0.624933123588562
+
+		------------------------------------------------
+testing|4|0|Mean Absolute Error|0.7051981091499329
+
+testing|4|0|Mean Absolute Error Left|0.7248678803443909
+
+testing|4|0|Mean Absolute Error Right|0.6855283379554749
+
+		------------------------------------------------
+testing|4|0|Overall Accuracy|0.06806282722513089|13/191
+
+testing|4|0|Overall Accuracy Left|0.21465968586387435|41/191
+
+testing|4|0|Accuracy Right|0.2198952879581152|42/191
+
+		------------------------------------------------
+testing|4|0|Binary Accuracy|0.13089005235602094|0.13089005235602094/191
+
+testing|4|0|Binary Accuracy Left|0.3036649214659686|0.3036649214659686/191
+
+testing|4|0|Binary Accuracy Right|0.2931937172774869|0.2931937172774869/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+training|5|0|Overall Mean Squared Error|0.6114720702171326
+
+training|5|0|Left Mean Squared Error|0.5606420040130615
+
+training|5|0|Right Mean Squared Error|0.6623021960258484
+
+		------------------------------------------------
+training|5|0|Mean Absolute Error|0.6089479625225067
+
+training|5|0|Mean Absolute Error Left|0.5969752669334412
+
+training|5|0|Mean Absolute Error Right|0.6209206581115723
+
+		------------------------------------------------
+training|5|0|Overall Accuracy|0.2952755905511811|225/762
+
+training|5|0|Overall Accuracy Left|0.5223097112860893|398/762
+
+training|5|0|Accuracy Right|0.5236220472440944|399/762
+
+		------------------------------------------------
+training|5|0|Binary Accuracy|0.31758530183727035|0.31758530183727035/762
+
+training|5|0|Binary Accuracy Left|0.5433070866141733|0.5433070866141733/762
+
+training|5|0|Binary Accuracy Right|0.5577427821522309|0.5577427821522309/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+testing|5|0|Overall Mean Squared Error|0.678712010383606
+
+testing|5|0|Left Mean Squared Error|0.5999662280082703
+
+testing|5|0|Right Mean Squared Error|0.7574577927589417
+
+		------------------------------------------------
+testing|5|0|Mean Absolute Error|0.7018068134784698
+
+testing|5|0|Mean Absolute Error Left|0.6405142545700073
+
+testing|5|0|Mean Absolute Error Right|0.7630993723869324
+
+		------------------------------------------------
+testing|5|0|Overall Accuracy|0.06806282722513089|13/191
+
+testing|5|0|Overall Accuracy Left|0.21465968586387435|41/191
+
+testing|5|0|Accuracy Right|0.2198952879581152|42/191
+
+		------------------------------------------------
+testing|5|0|Binary Accuracy|0.13089005235602094|0.13089005235602094/191
+
+testing|5|0|Binary Accuracy Left|0.3036649214659686|0.3036649214659686/191
+
+testing|5|0|Binary Accuracy Right|0.2931937172774869|0.2931937172774869/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+training|6|0|Overall Mean Squared Error|0.6105906367301941
+
+training|6|0|Left Mean Squared Error|0.6145078539848328
+
+training|6|0|Right Mean Squared Error|0.6066734790802002
+
+		------------------------------------------------
+training|6|0|Mean Absolute Error|0.6143445372581482
+
+training|6|0|Mean Absolute Error Left|0.6286931037902832
+
+training|6|0|Mean Absolute Error Right|0.5999959707260132
+
+		------------------------------------------------
+training|6|0|Overall Accuracy|0.26246719160104987|200/762
+
+training|6|0|Overall Accuracy Left|0.468503937007874|357/762
+
+training|6|0|Accuracy Right|0.5551181102362205|423/762
+
+		------------------------------------------------
+training|6|0|Binary Accuracy|0.30446194225721784|0.30446194225721784/762
+
+training|6|0|Binary Accuracy Left|0.515748031496063|0.515748031496063/762
+
+training|6|0|Binary Accuracy Right|0.5748031496062992|0.5748031496062992/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+testing|6|0|Overall Mean Squared Error|0.5957460999488831
+
+testing|6|0|Left Mean Squared Error|0.591267466545105
+
+testing|6|0|Right Mean Squared Error|0.6002247929573059
+
+		------------------------------------------------
+testing|6|0|Mean Absolute Error|0.6373058259487152
+
+testing|6|0|Mean Absolute Error Left|0.6096834540367126
+
+testing|6|0|Mean Absolute Error Right|0.6649281978607178
+
+		------------------------------------------------
+testing|6|0|Overall Accuracy|0.13089005235602094|25/191
+
+testing|6|0|Overall Accuracy Left|0.6963350785340314|133/191
+
+testing|6|0|Accuracy Right|0.2198952879581152|42/191
+
+		------------------------------------------------
+testing|6|0|Binary Accuracy|0.16230366492146597|0.16230366492146597/191
+
+testing|6|0|Binary Accuracy Left|0.6963350785340314|0.6963350785340314/191
+
+testing|6|0|Binary Accuracy Right|0.2931937172774869|0.2931937172774869/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+training|7|0|Overall Mean Squared Error|0.5902612805366516
+
+training|7|0|Left Mean Squared Error|0.5913463234901428
+
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+training|4|1|Overall Mean Squared Error|0.7159011363983154
+
+training|4|1|Left Mean Squared Error|0.7043762803077698
+
+training|4|1|Right Mean Squared Error|0.7274259328842163
+
+		------------------------------------------------
+training|4|1|Mean Absolute Error|0.6507307589054108
+
+training|4|1|Mean Absolute Error Left|0.656515896320343
+
+training|4|1|Mean Absolute Error Right|0.6449456214904785
+
+		------------------------------------------------
+training|4|1|Overall Accuracy|0.23622047244094488|180/762
+
+training|4|1|Overall Accuracy Left|0.46194225721784776|352/762
+
+training|4|1|Accuracy Right|0.5118110236220472|390/762
+
+		------------------------------------------------
+training|4|1|Binary Accuracy|0.2755905511811024|0.2755905511811024/762
+
+training|4|1|Binary Accuracy Left|0.5118110236220472|0.5118110236220472/762
+
+training|4|1|Binary Accuracy Right|0.547244094488189|0.547244094488189/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+testing|4|1|Overall Mean Squared Error|0.7102625966072083
+
+testing|4|1|Left Mean Squared Error|0.8717215061187744
+
+testing|4|1|Right Mean Squared Error|0.5488037467002869
+
+		------------------------------------------------
+testing|4|1|Mean Absolute Error|0.7275773584842682
+
+testing|4|1|Mean Absolute Error Left|0.7928945422172546
+
+testing|4|1|Mean Absolute Error Right|0.6622601747512817
+
+		------------------------------------------------
+testing|4|1|Overall Accuracy|0.05235602094240838|10/191
+
+testing|4|1|Overall Accuracy Left|0.17277486910994763|33/191
+
+testing|4|1|Accuracy Right|0.2356020942408377|45/191
+
+		------------------------------------------------
+testing|4|1|Binary Accuracy|0.1256544502617801|0.1256544502617801/191
+
+testing|4|1|Binary Accuracy Left|0.3036649214659686|0.3036649214659686/191
+
+testing|4|1|Binary Accuracy Right|0.31413612565445026|0.31413612565445026/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+training|5|1|Overall Mean Squared Error|0.6634835004806519
+
+training|5|1|Left Mean Squared Error|0.63148432970047
+
+training|5|1|Right Mean Squared Error|0.695482611656189
+
+		------------------------------------------------
+training|5|1|Mean Absolute Error|0.6257708370685577
+
+training|5|1|Mean Absolute Error Left|0.6209304332733154
+
+training|5|1|Mean Absolute Error Right|0.6306112408638
+
+		------------------------------------------------
+training|5|1|Overall Accuracy|0.2887139107611549|220/762
+
+training|5|1|Overall Accuracy Left|0.5039370078740157|384/762
+
+training|5|1|Accuracy Right|0.5498687664041995|419/762
+
+		------------------------------------------------
+training|5|1|Binary Accuracy|0.32677165354330706|0.32677165354330706/762
+
+training|5|1|Binary Accuracy Left|0.536745406824147|0.536745406824147/762
+
+training|5|1|Binary Accuracy Right|0.5787401574803149|0.5787401574803149/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+testing|5|1|Overall Mean Squared Error|0.7485461235046387
+
+testing|5|1|Left Mean Squared Error|0.8150970935821533
+
+testing|5|1|Right Mean Squared Error|0.6819950342178345
+
+		------------------------------------------------
+testing|5|1|Mean Absolute Error|0.7204620838165283
+
+testing|5|1|Mean Absolute Error Left|0.7081643342971802
+
+testing|5|1|Mean Absolute Error Right|0.7327598333358765
+
+		------------------------------------------------
+testing|5|1|Overall Accuracy|0.05235602094240838|10/191
+
+testing|5|1|Overall Accuracy Left|0.17277486910994763|33/191
+
+testing|5|1|Accuracy Right|0.2356020942408377|45/191
+
+		------------------------------------------------
+testing|5|1|Binary Accuracy|0.1256544502617801|0.1256544502617801/191
+
+testing|5|1|Binary Accuracy Left|0.3036649214659686|0.3036649214659686/191
+
+testing|5|1|Binary Accuracy Right|0.31413612565445026|0.31413612565445026/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+training|6|1|Overall Mean Squared Error|0.6128754615783691
+
+training|6|1|Left Mean Squared Error|0.6799768209457397
+
+training|6|1|Right Mean Squared Error|0.5457740426063538
+
+		------------------------------------------------
+training|6|1|Mean Absolute Error|0.6162827610969543
+
+training|6|1|Mean Absolute Error Left|0.6475152969360352
+
+training|6|1|Mean Absolute Error Right|0.5850502252578735
+
+		------------------------------------------------
+training|6|1|Overall Accuracy|0.27034120734908135|206/762
+
+training|6|1|Overall Accuracy Left|0.452755905511811|345/762
+
+training|6|1|Accuracy Right|0.5695538057742782|434/762
+
+		------------------------------------------------
+training|6|1|Binary Accuracy|0.30446194225721784|0.30446194225721784/762
+
+training|6|1|Binary Accuracy Left|0.49868766404199477|0.49868766404199477/762
+
+training|6|1|Binary Accuracy Right|0.5866141732283464|0.5866141732283464/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+testing|6|1|Overall Mean Squared Error|0.6729075908660889
+
+testing|6|1|Left Mean Squared Error|0.8188177943229675
+
+testing|6|1|Right Mean Squared Error|0.526997447013855
+
+		------------------------------------------------
+testing|6|1|Mean Absolute Error|0.6618947088718414
+
+testing|6|1|Mean Absolute Error Left|0.6786891222000122
+
+testing|6|1|Mean Absolute Error Right|0.6451002955436707
+
+		------------------------------------------------
+testing|6|1|Overall Accuracy|0.13089005235602094|25/191
+
+testing|6|1|Overall Accuracy Left|0.6963350785340314|133/191
+
+testing|6|1|Accuracy Right|0.2356020942408377|45/191
+
+		------------------------------------------------
+testing|6|1|Binary Accuracy|0.18848167539267016|0.18848167539267016/191
+
+testing|6|1|Binary Accuracy Left|0.6963350785340314|0.6963350785340314/191
+
+testing|6|1|Binary Accuracy Right|0.31413612565445026|0.31413612565445026/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+training|7|1|Overall Mean Squared Error|0.6638307571411133
+
+training|7|1|Left Mean Squared Error|0.6545349359512329
+
+training|7|1|Right Mean Squared Error|0.6731264591217041
+
+		------------------------------------------------
+
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+training|4|2|Overall Mean Squared Error|0.7023206353187561
+
+training|4|2|Left Mean Squared Error|0.6996175050735474
+
+training|4|2|Right Mean Squared Error|0.7050237059593201
+
+		------------------------------------------------
+training|4|2|Mean Absolute Error|0.6470906734466553
+
+training|4|2|Mean Absolute Error Left|0.6621981263160706
+
+training|4|2|Mean Absolute Error Right|0.63198322057724
+
+		------------------------------------------------
+training|4|2|Overall Accuracy|0.22703412073490814|173/762
+
+training|4|2|Overall Accuracy Left|0.43832020997375326|334/762
+
+training|4|2|Accuracy Right|0.5354330708661418|408/762
+
+		------------------------------------------------
+training|4|2|Binary Accuracy|0.27034120734908135|0.27034120734908135/762
+
+training|4|2|Binary Accuracy Left|0.4868766404199475|0.4868766404199475/762
+
+training|4|2|Binary Accuracy Right|0.562992125984252|0.562992125984252/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+testing|4|2|Overall Mean Squared Error|0.6948373317718506
+
+testing|4|2|Left Mean Squared Error|0.70367830991745
+
+testing|4|2|Right Mean Squared Error|0.6859963536262512
+
+		------------------------------------------------
+testing|4|2|Mean Absolute Error|0.7285782992839813
+
+testing|4|2|Mean Absolute Error Left|0.7339000701904297
+
+testing|4|2|Mean Absolute Error Right|0.723256528377533
+
+		------------------------------------------------
+testing|4|2|Overall Accuracy|0.05235602094240838|10/191
+
+testing|4|2|Overall Accuracy Left|0.18848167539267016|36/191
+
+testing|4|2|Accuracy Right|0.1518324607329843|29/191
+
+		------------------------------------------------
+testing|4|2|Binary Accuracy|0.09424083769633508|0.09424083769633508/191
+
+testing|4|2|Binary Accuracy Left|0.28272251308900526|0.28272251308900526/191
+
+testing|4|2|Binary Accuracy Right|0.24607329842931938|0.24607329842931938/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+training|5|2|Overall Mean Squared Error|0.5988847613334656
+
+training|5|2|Left Mean Squared Error|0.632451057434082
+
+training|5|2|Right Mean Squared Error|0.5653184056282043
+
+		------------------------------------------------
+training|5|2|Mean Absolute Error|0.6001178324222565
+
+training|5|2|Mean Absolute Error Left|0.6187739968299866
+
+training|5|2|Mean Absolute Error Right|0.5814616680145264
+
+		------------------------------------------------
+training|5|2|Overall Accuracy|0.2874015748031496|219/762
+
+training|5|2|Overall Accuracy Left|0.5039370078740157|384/762
+
+training|5|2|Accuracy Right|0.55249343832021|421/762
+
+		------------------------------------------------
+training|5|2|Binary Accuracy|0.3123359580052493|0.3123359580052493/762
+
+training|5|2|Binary Accuracy Left|0.5236220472440944|0.5236220472440944/762
+
+training|5|2|Binary Accuracy Right|0.5813648293963255|0.5813648293963255/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+testing|5|2|Overall Mean Squared Error|0.7196898460388184
+
+testing|5|2|Left Mean Squared Error|0.6093044877052307
+
+testing|5|2|Right Mean Squared Error|0.830075204372406
+
+		------------------------------------------------
+testing|5|2|Mean Absolute Error|0.7296503186225891
+
+testing|5|2|Mean Absolute Error Left|0.6407514214515686
+
+testing|5|2|Mean Absolute Error Right|0.8185492157936096
+
+		------------------------------------------------
+testing|5|2|Overall Accuracy|0.05235602094240838|10/191
+
+testing|5|2|Overall Accuracy Left|0.18848167539267016|36/191
+
+testing|5|2|Accuracy Right|0.1518324607329843|29/191
+
+		------------------------------------------------
+testing|5|2|Binary Accuracy|0.09424083769633508|0.09424083769633508/191
+
+testing|5|2|Binary Accuracy Left|0.28272251308900526|0.28272251308900526/191
+
+testing|5|2|Binary Accuracy Right|0.24607329842931938|0.24607329842931938/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+training|6|2|Overall Mean Squared Error|0.6467022895812988
+
+training|6|2|Left Mean Squared Error|0.6419752836227417
+
+training|6|2|Right Mean Squared Error|0.6514294147491455
+
+		------------------------------------------------
+training|6|2|Mean Absolute Error|0.6289021074771881
+
+training|6|2|Mean Absolute Error Left|0.6364488005638123
+
+training|6|2|Mean Absolute Error Right|0.621355414390564
+
+		------------------------------------------------
+training|6|2|Overall Accuracy|0.23753280839895013|181/762
+
+training|6|2|Overall Accuracy Left|0.4776902887139108|364/762
+
+training|6|2|Accuracy Right|0.505249343832021|385/762
+
+		------------------------------------------------
+training|6|2|Binary Accuracy|0.2874015748031496|0.2874015748031496/762
+
+training|6|2|Binary Accuracy Left|0.5223097112860893|0.5223097112860893/762
+
+training|6|2|Binary Accuracy Right|0.5380577427821522|0.5380577427821522/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+testing|6|2|Overall Mean Squared Error|0.6302132606506348
+
+testing|6|2|Left Mean Squared Error|0.6001269221305847
+
+testing|6|2|Right Mean Squared Error|0.66029953956604
+
+		------------------------------------------------
+testing|6|2|Mean Absolute Error|0.6533628106117249
+
+testing|6|2|Mean Absolute Error Left|0.6083933115005493
+
+testing|6|2|Mean Absolute Error Right|0.6983323097229004
+
+		------------------------------------------------
+testing|6|2|Overall Accuracy|0.07853403141361257|15/191
+
+testing|6|2|Overall Accuracy Left|0.7172774869109948|137/191
+
+testing|6|2|Accuracy Right|0.1518324607329843|29/191
+
+		------------------------------------------------
+testing|6|2|Binary Accuracy|0.1518324607329843|0.1518324607329843/191
+
+testing|6|2|Binary Accuracy Left|0.7172774869109948|0.7172774869109948/191
+
+testing|6|2|Binary Accuracy Right|0.24607329842931938|0.24607329842931938/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+training|7|2|Overall Mean Squared Error|0.5951816439628601
+
+training|7|2|Left Mean Squared Error|0.6157388091087341
+
+training|7|2|Right Mean Squared Error|0.5746244192123413
+
+		------------------------------------------------
+training|7|2|Mean Absolute Error|0.6117636263370514
+
+training|7|2|Mean Absolute Error Left|0.6261966824531555
+
+training|7|2|Mean Absolute Error Right|0.5973305702209473
+
+		------------------------------------------------
+training|7|2|Overall Accuracy|0.2821522309711286|215/762
+
+training|7|2|Overall Accuracy Left|0.48031496062992124|366/762
+
+training|7|2|Accuracy Right|0.5577427821522309|425/762
+
+		------------------------------------------------
+training|7|2|Binary Accuracy|0.3123359580052493|0.3123359580052493/762
+
+training|7|2|Binary Accuracy Left|0.5170603674540682|0.5170603674540682/762
+
+training|7|2|Binary Accuracy Right|0.583989501312336|0.583989501312336/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+testing|7|2|Overall Mean Squared Error|0.66010981798172
+
+testing|7|2|Left Mean Squared Error|0.6027197241783142
+
+testing|7|2|Right Mean Squared Error|0.7174999117851257
+
+		------------------------------------------------
+testing|7|2|Mean Absolute Error|0.6849699020385742
+
+testing|7|2|Mean Absolute Error Left|0.6210022568702698
+
+testing|7|2|Mean Absolute Error Right|0.7489375472068787
+
+		------------------------------------------------
+testing|7|2|Overall Accuracy|0.07853403141361257|15/191
+
+testing|7|2|Overall Accuracy Left|0.7172774869109948|137/191
+
+testing|7|2|Accuracy Right|0.1518324607329843|29/191
+
+		------------------------------------------------
+testing|7|2|Binary Accuracy|0.1518324607329843|0.1518324607329843/191
+
+testing|7|2|Binary Accuracy Left|0.7172774869109948|0.7172774869109948/191
+
+testing|7|2|Binary Accuracy Right|0.24607329842931938|0.24607329842931938/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+training|8|2|Overall Mean Squared Error|0.6286463141441345
+
+training|8|2|Left Mean Squared Error|0.6060689091682434
+
+training|8|2|Right Mean Squared Error|0.6512237787246704
+
+		------------------------------------------------
+training|8|2|Mean Absolute Error|0.6198330223560333
+
+training|8|2|Mean Absolute Error Left|0.6158627271652222
+
+training|8|2|Mean Absolute Error Right|0.6238033175468445
+
+		------------------------------------------------
+training|8|2|Overall Accuracy|0.30971128608923887|236/762
+
+training|8|2|Overall Accuracy Left|0.5183727034120735|395/762
+
+training|8|2|Accuracy Right|0.5223097112860893|398/762
+
+		------------------------------------------------
+training|8|2|Binary Accuracy|0.3333333333333333|0.3333333333333333/762
+
+training|8|2|Binary Accuracy Left|0.5564304461942258|0.5564304461942258/762
+
+training|8|2|Binary Accuracy Right|0.5459317585301837|0.5459317585301837/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+testing|8|2|Overall Mean Squared Error|0.6655828356742859
+
+testing|8|2|Left Mean Squared Error|0.6923783421516418
+
+testing|8|2|Right Mean Squared Error|0.6387873888015747
+
+		------------------------------------------------
+testing|8|2|Mean Absolute Error|0.699752002954483
+
+testing|8|2|Mean Absolute Error Left|0.7263458371162415
+
+testing|8|2|Mean Absolute Error Right|0.6731581687927246
+
+		------------------------------------------------
+testing|8|2|Overall Accuracy|0.05235602094240838|10/191
+
+testing|8|2|Overall Accuracy Left|0.18848167539267016|36/191
+
+testing|8|2|Accuracy Right|0.1518324607329843|29/191
+
+		------------------------------------------------
+testing|8|2|Binary Accuracy|0.09424083769633508|0.09424083769633508/191
+
+testing|8|2|Binary Accuracy Left|0.28272251308900526|0.28272251308900526/191
+
+testing|8|2|Binary Accuracy Right|0.24607329842931938|0.24607329842931938/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+training|9|2|Overall Mean Squared Error|0.6150798797607422
+
+training|9|2|Left Mean Squared Error|0.6490009427070618
+
+training|9|2|Right Mean Squared Error|0.5811587572097778
+
+		------------------------------------------------
+training|9|2|Mean Absolute Error|0.6186185777187347
+
+training|9|2|Mean Absolute Error Left|0.6429855823516846
+
+training|9|2|Mean Absolute Error Right|0.5942515730857849
+
+		------------------------------------------------
+training|9|2|Overall Accuracy|0.2979002624671916|227/762
+
+training|9|2|Overall Accuracy Left|0.4776902887139108|364/762
+
+training|9|2|Accuracy Right|0.5774278215223098|440/762
+
+		------------------------------------------------
+training|9|2|Binary Accuracy|0.3359580052493438|0.3359580052493438/762
+
+training|9|2|Binary Accuracy Left|0.5236220472440944|0.5236220472440944/762
+
+training|9|2|Binary Accuracy Right|0.594488188976378|0.594488188976378/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+testing|9|2|Overall Mean Squared Error|0.6309868097305298
+
+testing|9|2|Left Mean Squared Error|0.6572056412696838
+
+testing|9|2|Right Mean Squared Error|0.6047680377960205
+
+		------------------------------------------------
+testing|9|2|Mean Absolute Error|0.6465308368206024
+
+testing|9|2|Mean Absolute Error Left|0.6983606815338135
+
+testing|9|2|Mean Absolute Error Right|0.5947009921073914
+
+		------------------------------------------------
+testing|9|2|Overall Accuracy|0.11518324607329843|22/191
+
+testing|9|2|Overall Accuracy Left|0.18848167539267016|36/191
+
+testing|9|2|Accuracy Right|0.7539267015706806|144/191
+
+		------------------------------------------------
+testing|9|2|Binary Accuracy|0.18848167539267016|0.18848167539267016/191
+
+testing|9|2|Binary Accuracy Left|0.28272251308900526|0.28272251308900526/191
+
+testing|9|2|Binary Accuracy Right|0.7539267015706806|0.7539267015706806/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+training|10|2|Overall Mean Squared Error|0.6000742316246033
+
+training|10|2|Left Mean Squared Error|0.6339759826660156
+
+training|10|2|Right Mean Squared Error|0.5661724209785461
+
+		------------------------------------------------
+training|10|2|Mean Absolute Error|0.6136913895606995
+
+training|10|2|Mean Absolute Error Left|0.6269690990447998
+
+training|10|2|Mean Absolute Error Right|0.6004136800765991
+
+		------------------------------------------------
+training|10|2|Overall Accuracy|0.2677165354330709|204/762
+
+training|10|2|Overall Accuracy Left|0.4921259842519685|375/762
+
+training|10|2|Accuracy Right|0.5511811023622047|420/762
+
+		------------------------------------------------
+		------------------------------------------------
+training|7|3|Mean Absolute Error|0.6315871775150299
+
+training|7|3|Mean Absolute Error Left|0.6590777039527893
+
+training|7|3|Mean Absolute Error Right|0.6040966510772705
+
+		------------------------------------------------
+training|7|3|Overall Accuracy|0.25984251968503935|198/762
+
+training|7|3|Overall Accuracy Left|0.47112860892388453|359/762
+
+training|7|3|Accuracy Right|0.5669291338582677|432/762
+
+		------------------------------------------------
+training|7|3|Binary Accuracy|0.2900262467191601|0.2900262467191601/762
+
+training|7|3|Binary Accuracy Left|0.5183727034120735|0.5183727034120735/762
+
+training|7|3|Binary Accuracy Right|0.5800524934383202|0.5800524934383202/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+testing|7|3|Overall Mean Squared Error|0.6943272352218628
+
+testing|7|3|Left Mean Squared Error|0.5401430726051331
+
+testing|7|3|Right Mean Squared Error|0.8485113978385925
+
+		------------------------------------------------
+testing|7|3|Mean Absolute Error|0.68464195728302
+
+testing|7|3|Mean Absolute Error Left|0.6009048223495483
+
+testing|7|3|Mean Absolute Error Right|0.7683790922164917
+
+		------------------------------------------------
+testing|7|3|Overall Accuracy|0.1256544502617801|24/191
+
+testing|7|3|Overall Accuracy Left|0.680628272251309|130/191
+
+testing|7|3|Accuracy Right|0.20418848167539266|39/191
+
+		------------------------------------------------
+testing|7|3|Binary Accuracy|0.18324607329842932|0.18324607329842932/191
+
+testing|7|3|Binary Accuracy Left|0.680628272251309|0.680628272251309/191
+
+testing|7|3|Binary Accuracy Right|0.3089005235602094|0.3089005235602094/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+training|8|3|Overall Mean Squared Error|0.7466976046562195
+
+training|8|3|Left Mean Squared Error|0.788005530834198
+
+training|8|3|Right Mean Squared Error|0.705389678478241
+
+		------------------------------------------------
+training|8|3|Mean Absolute Error|0.6568172574043274
+
+training|8|3|Mean Absolute Error Left|0.6708722710609436
+
+training|8|3|Mean Absolute Error Right|0.6427622437477112
+
+		------------------------------------------------
+training|8|3|Overall Accuracy|0.24278215223097113|185/762
+
+training|8|3|Overall Accuracy Left|0.4658792650918635|355/762
+
+training|8|3|Accuracy Right|0.5144356955380578|392/762
+
+		------------------------------------------------
+training|8|3|Binary Accuracy|0.2769028871391076|0.2769028871391076/762
+
+training|8|3|Binary Accuracy Left|0.5065616797900262|0.5065616797900262/762
+
+training|8|3|Binary Accuracy Right|0.5433070866141733|0.5433070866141733/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+testing|8|3|Overall Mean Squared Error|0.7111594676971436
+
+testing|8|3|Left Mean Squared Error|0.622153103351593
+
+testing|8|3|Right Mean Squared Error|0.8001657724380493
+
+		------------------------------------------------
+testing|8|3|Mean Absolute Error|0.7001944780349731
+
+testing|8|3|Mean Absolute Error Left|0.6893993616104126
+
+testing|8|3|Mean Absolute Error Right|0.7109895944595337
+
+		------------------------------------------------
+testing|8|3|Overall Accuracy|0.06282722513089005|12/191
+
+testing|8|3|Overall Accuracy Left|0.24607329842931938|47/191
+
+testing|8|3|Accuracy Right|0.20418848167539266|39/191
+
+		------------------------------------------------
+testing|8|3|Binary Accuracy|0.1256544502617801|0.1256544502617801/191
+
+testing|8|3|Binary Accuracy Left|0.3193717277486911|0.3193717277486911/191
+
+testing|8|3|Binary Accuracy Right|0.3089005235602094|0.3089005235602094/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+training|9|3|Overall Mean Squared Error|0.6346568465232849
+
+training|9|3|Left Mean Squared Error|0.6157185435295105
+
+training|9|3|Right Mean Squared Error|0.6535951495170593
+
+		------------------------------------------------
+training|9|3|Mean Absolute Error|0.6177033185958862
+
+training|9|3|Mean Absolute Error Left|0.6261023879051208
+
+training|9|3|Mean Absolute Error Right|0.6093042492866516
+
+		------------------------------------------------
+training|9|3|Overall Accuracy|0.29396325459317585|224/762
+
+training|9|3|Overall Accuracy Left|0.484251968503937|369/762
+
+training|9|3|Accuracy Right|0.568241469816273|433/762
+
+		------------------------------------------------
+training|9|3|Binary Accuracy|0.32545931758530183|0.32545931758530183/762
+
+training|9|3|Binary Accuracy Left|0.5301837270341208|0.5301837270341208/762
+
+training|9|3|Binary Accuracy Right|0.5879265091863517|0.5879265091863517/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+testing|9|3|Overall Mean Squared Error|0.6944933533668518
+
+testing|9|3|Left Mean Squared Error|0.5886666178703308
+
+testing|9|3|Right Mean Squared Error|0.8003200888633728
+
+		------------------------------------------------
+testing|9|3|Mean Absolute Error|0.6589385867118835
+
+testing|9|3|Mean Absolute Error Left|0.6657280921936035
+
+testing|9|3|Mean Absolute Error Right|0.6521490812301636
+
+		------------------------------------------------
+testing|9|3|Overall Accuracy|0.13612565445026178|26/191
+
+testing|9|3|Overall Accuracy Left|0.24607329842931938|47/191
+
+testing|9|3|Accuracy Right|0.6910994764397905|132/191
+
+		------------------------------------------------
+testing|9|3|Binary Accuracy|0.193717277486911|0.193717277486911/191
+
+testing|9|3|Binary Accuracy Left|0.3193717277486911|0.3193717277486911/191
+
+testing|9|3|Binary Accuracy Right|0.6910994764397905|0.6910994764397905/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+training|10|3|Overall Mean Squared Error|0.6699687838554382
+
+training|10|3|Left Mean Squared Error|0.7294195890426636
+
+training|10|3|Right Mean Squared Error|0.6105179786682129
+
+		------------------------------------------------
+training|10|3|Mean Absolute Error|0.6287526786327362
+
+training|10|3|Mean Absolute Error Left|0.6604857444763184
+
+training|10|3|Mean Absolute Error Right|0.597019612789154
+
+		------------------------------------------------
+training|10|3|Overall Accuracy|0.2926509186351706|223/762
+
+training|10|3|Overall Accuracy Left|0.4816272965879265|367/762
+
+training|10|3|Accuracy Right|0.5905511811023622|450/762
+
+training|7|1|Mean Absolute Error|0.6315463483333588
+
+training|7|1|Mean Absolute Error Left|0.6349001526832581
+
+training|7|1|Mean Absolute Error Right|0.6281925439834595
+
+		------------------------------------------------
+training|7|1|Overall Accuracy|0.27296587926509186|208/762
+
+training|7|1|Overall Accuracy Left|0.4973753280839895|379/762
+
+training|7|1|Accuracy Right|0.5341207349081365|407/762
+
+		------------------------------------------------
+training|7|1|Binary Accuracy|0.3083989501312336|0.3083989501312336/762
+
+training|7|1|Binary Accuracy Left|0.5354330708661418|0.5354330708661418/762
+
+training|7|1|Binary Accuracy Right|0.568241469816273|0.568241469816273/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+testing|7|1|Overall Mean Squared Error|0.6977432370185852
+
+testing|7|1|Left Mean Squared Error|0.8158261179924011
+
+testing|7|1|Right Mean Squared Error|0.5796602964401245
+
+		------------------------------------------------
+testing|7|1|Mean Absolute Error|0.6861594915390015
+
+testing|7|1|Mean Absolute Error Left|0.6895729899406433
+
+testing|7|1|Mean Absolute Error Right|0.6827459931373596
+
+		------------------------------------------------
+testing|7|1|Overall Accuracy|0.13089005235602094|25/191
+
+testing|7|1|Overall Accuracy Left|0.6963350785340314|133/191
+
+testing|7|1|Accuracy Right|0.2356020942408377|45/191
+
+		------------------------------------------------
+testing|7|1|Binary Accuracy|0.18848167539267016|0.18848167539267016/191
+
+testing|7|1|Binary Accuracy Left|0.6963350785340314|0.6963350785340314/191
+
+testing|7|1|Binary Accuracy Right|0.31413612565445026|0.31413612565445026/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+training|8|1|Overall Mean Squared Error|0.6347031593322754
+
+training|8|1|Left Mean Squared Error|0.6258347630500793
+
+training|8|1|Right Mean Squared Error|0.6435714960098267
+
+		------------------------------------------------
+training|8|1|Mean Absolute Error|0.628892719745636
+
+training|8|1|Mean Absolute Error Left|0.6335001587867737
+
+training|8|1|Mean Absolute Error Right|0.6242852807044983
+
+		------------------------------------------------
+training|8|1|Overall Accuracy|0.25065616797900264|191/762
+
+training|8|1|Overall Accuracy Left|0.4776902887139108|364/762
+
+training|8|1|Accuracy Right|0.5170603674540682|394/762
+
+		------------------------------------------------
+training|8|1|Binary Accuracy|0.2874015748031496|0.2874015748031496/762
+
+training|8|1|Binary Accuracy Left|0.5223097112860893|0.5223097112860893/762
+
+training|8|1|Binary Accuracy Right|0.5446194225721784|0.5446194225721784/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+testing|8|1|Overall Mean Squared Error|0.6849433779716492
+
+testing|8|1|Left Mean Squared Error|0.8613740801811218
+
+testing|8|1|Right Mean Squared Error|0.508512556552887
+
+		------------------------------------------------
+testing|8|1|Mean Absolute Error|0.7055387794971466
+
+testing|8|1|Mean Absolute Error Left|0.7846155166625977
+
+testing|8|1|Mean Absolute Error Right|0.6264620423316956
+
+		------------------------------------------------
+testing|8|1|Overall Accuracy|0.05235602094240838|10/191
+
+testing|8|1|Overall Accuracy Left|0.17277486910994763|33/191
+
+testing|8|1|Accuracy Right|0.2356020942408377|45/191
+
+		------------------------------------------------
+testing|8|1|Binary Accuracy|0.1256544502617801|0.1256544502617801/191
+
+testing|8|1|Binary Accuracy Left|0.3036649214659686|0.3036649214659686/191
+
+testing|8|1|Binary Accuracy Right|0.31413612565445026|0.31413612565445026/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+training|9|1|Overall Mean Squared Error|0.6711444854736328
+
+training|9|1|Left Mean Squared Error|0.7142162322998047
+
+training|9|1|Right Mean Squared Error|0.6280726790428162
+
+		------------------------------------------------
+training|9|1|Mean Absolute Error|0.63164222240448
+
+training|9|1|Mean Absolute Error Left|0.6581065058708191
+
+training|9|1|Mean Absolute Error Right|0.6051779389381409
+
+		------------------------------------------------
+training|9|1|Overall Accuracy|0.2847769028871391|217/762
+
+training|9|1|Overall Accuracy Left|0.4763779527559055|363/762
+
+training|9|1|Accuracy Right|0.5748031496062992|438/762
+
+		------------------------------------------------
+training|9|1|Binary Accuracy|0.31496062992125984|0.31496062992125984/762
+
+training|9|1|Binary Accuracy Left|0.515748031496063|0.515748031496063/762
+
+training|9|1|Binary Accuracy Right|0.5931758530183727|0.5931758530183727/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+testing|9|1|Overall Mean Squared Error|0.6608098149299622
+
+testing|9|1|Left Mean Squared Error|0.8384413719177246
+
+testing|9|1|Right Mean Squared Error|0.4831783175468445
+
+		------------------------------------------------
+testing|9|1|Mean Absolute Error|0.6644332408905029
+
+testing|9|1|Mean Absolute Error Left|0.7601259350776672
+
+testing|9|1|Mean Absolute Error Right|0.5687405467033386
+
+		------------------------------------------------
+testing|9|1|Overall Accuracy|0.10471204188481675|20/191
+
+testing|9|1|Overall Accuracy Left|0.17277486910994763|33/191
+
+testing|9|1|Accuracy Right|0.6858638743455497|131/191
+
+		------------------------------------------------
+testing|9|1|Binary Accuracy|0.17801047120418848|0.17801047120418848/191
+
+testing|9|1|Binary Accuracy Left|0.3036649214659686|0.3036649214659686/191
+
+testing|9|1|Binary Accuracy Right|0.6858638743455497|0.6858638743455497/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+training|10|1|Overall Mean Squared Error|0.6003928780555725
+
+training|10|1|Left Mean Squared Error|0.6343135237693787
+
+training|10|1|Right Mean Squared Error|0.5664723515510559
+
+		------------------------------------------------
+training|10|1|Mean Absolute Error|0.6108584403991699
+
+training|10|1|Mean Absolute Error Left|0.6273223161697388
+
+training|10|1|Mean Absolute Error Right|0.5943945646286011
+
+		------------------------------------------------
+training|10|1|Overall Accuracy|0.2992125984251969|228/762
+
+training|10|1|Overall Accuracy Left|0.5|381/762
+
+training|10|1|Accuracy Right|0.573490813648294|437/762
+
+		------------------------------------------------
+training|7|0|Right Mean Squared Error|0.5891761779785156
+
+		------------------------------------------------
+training|7|0|Mean Absolute Error|0.6007264256477356
+
+training|7|0|Mean Absolute Error Left|0.6096911430358887
+
+training|7|0|Mean Absolute Error Right|0.5917617082595825
+
+		------------------------------------------------
+training|7|0|Overall Accuracy|0.30971128608923887|236/762
+
+training|7|0|Overall Accuracy Left|0.5354330708661418|408/762
+
+training|7|0|Accuracy Right|0.5721784776902887|436/762
+
+		------------------------------------------------
+training|7|0|Binary Accuracy|0.34776902887139105|0.34776902887139105/762
+
+training|7|0|Binary Accuracy Left|0.5813648293963255|0.5813648293963255/762
+
+training|7|0|Binary Accuracy Right|0.5879265091863517|0.5879265091863517/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+testing|7|0|Overall Mean Squared Error|0.6241216063499451
+
+testing|7|0|Left Mean Squared Error|0.5927218794822693
+
+testing|7|0|Right Mean Squared Error|0.6555212736129761
+
+		------------------------------------------------
+testing|7|0|Mean Absolute Error|0.6647104024887085
+
+testing|7|0|Mean Absolute Error Left|0.6216007471084595
+
+testing|7|0|Mean Absolute Error Right|0.7078200578689575
+
+		------------------------------------------------
+testing|7|0|Overall Accuracy|0.13089005235602094|25/191
+
+testing|7|0|Overall Accuracy Left|0.6963350785340314|133/191
+
+testing|7|0|Accuracy Right|0.2198952879581152|42/191
+
+		------------------------------------------------
+testing|7|0|Binary Accuracy|0.16230366492146597|0.16230366492146597/191
+
+testing|7|0|Binary Accuracy Left|0.6963350785340314|0.6963350785340314/191
+
+testing|7|0|Binary Accuracy Right|0.2931937172774869|0.2931937172774869/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+training|8|0|Overall Mean Squared Error|0.609855055809021
+
+training|8|0|Left Mean Squared Error|0.640620231628418
+
+training|8|0|Right Mean Squared Error|0.579089879989624
+
+		------------------------------------------------
+training|8|0|Mean Absolute Error|0.6094444096088409
+
+training|8|0|Mean Absolute Error Left|0.6270464658737183
+
+training|8|0|Mean Absolute Error Right|0.5918423533439636
+
+		------------------------------------------------
+training|8|0|Overall Accuracy|0.28608923884514437|218/762
+
+training|8|0|Overall Accuracy Left|0.489501312335958|373/762
+
+training|8|0|Accuracy Right|0.5459317585301837|416/762
+
+		------------------------------------------------
+training|8|0|Binary Accuracy|0.30971128608923887|0.30971128608923887/762
+
+training|8|0|Binary Accuracy Left|0.5275590551181102|0.5275590551181102/762
+
+training|8|0|Binary Accuracy Right|0.5669291338582677|0.5669291338582677/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+testing|8|0|Overall Mean Squared Error|0.6267300248146057
+
+testing|8|0|Left Mean Squared Error|0.671095609664917
+
+testing|8|0|Right Mean Squared Error|0.5823643803596497
+
+		------------------------------------------------
+testing|8|0|Mean Absolute Error|0.6806914806365967
+
+testing|8|0|Mean Absolute Error Left|0.7162143588066101
+
+testing|8|0|Mean Absolute Error Right|0.6451686024665833
+
+		------------------------------------------------
+testing|8|0|Overall Accuracy|0.06806282722513089|13/191
+
+testing|8|0|Overall Accuracy Left|0.21465968586387435|41/191
+
+testing|8|0|Accuracy Right|0.2198952879581152|42/191
+
+		------------------------------------------------
+testing|8|0|Binary Accuracy|0.13089005235602094|0.13089005235602094/191
+
+testing|8|0|Binary Accuracy Left|0.3036649214659686|0.3036649214659686/191
+
+testing|8|0|Binary Accuracy Right|0.2931937172774869|0.2931937172774869/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+training|9|0|Overall Mean Squared Error|0.6524712443351746
+
+training|9|0|Left Mean Squared Error|0.6610031127929688
+
+training|9|0|Right Mean Squared Error|0.6439393758773804
+
+		------------------------------------------------
+training|9|0|Mean Absolute Error|0.6257915794849396
+
+training|9|0|Mean Absolute Error Left|0.6451026797294617
+
+training|9|0|Mean Absolute Error Right|0.6064804792404175
+
+		------------------------------------------------
+training|9|0|Overall Accuracy|0.27296587926509186|208/762
+
+training|9|0|Overall Accuracy Left|0.47244094488188976|360/762
+
+training|9|0|Accuracy Right|0.5787401574803149|441/762
+
+		------------------------------------------------
+training|9|0|Binary Accuracy|0.30971128608923887|0.30971128608923887/762
+
+training|9|0|Binary Accuracy Left|0.5183727034120735|0.5183727034120735/762
+
+training|9|0|Binary Accuracy Right|0.5971128608923885|0.5971128608923885/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+testing|9|0|Overall Mean Squared Error|0.5972680449485779
+
+testing|9|0|Left Mean Squared Error|0.6385670900344849
+
+testing|9|0|Right Mean Squared Error|0.5559690594673157
+
+		------------------------------------------------
+testing|9|0|Mean Absolute Error|0.6362063884735107
+
+testing|9|0|Mean Absolute Error Left|0.6911696791648865
+
+testing|9|0|Mean Absolute Error Right|0.581243097782135
+
+		------------------------------------------------
+testing|9|0|Overall Accuracy|0.1099476439790576|21/191
+
+testing|9|0|Overall Accuracy Left|0.21465968586387435|41/191
+
+testing|9|0|Accuracy Right|0.7068062827225131|135/191
+
+		------------------------------------------------
+testing|9|0|Binary Accuracy|0.17277486910994763|0.17277486910994763/191
+
+testing|9|0|Binary Accuracy Left|0.3036649214659686|0.3036649214659686/191
+
+testing|9|0|Binary Accuracy Right|0.7068062827225131|0.7068062827225131/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Model Saved at Epoch 10
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+training|10|0|Overall Mean Squared Error|0.6643176674842834
+
+training|10|0|Left Mean Squared Error|0.7267122864723206
+
+training|10|0|Right Mean Squared Error|0.6019231677055359
+
+		------------------------------------------------
+training|10|0|Mean Absolute Error|0.6294476091861725
+
+training|10|0|Mean Absolute Error Left|0.658575713634491
+
+training|10|0|Mean Absolute Error Right|0.600319504737854
+
+		------------------------------------------------
+training|10|0|Overall Accuracy|0.2847769028871391|217/762
+
+training|10|0|Overall Accuracy Left|0.5065616797900262|386/762
+
+training|10|0|Accuracy Right|0.583989501312336|445/762
+
+		------------------------------------------------
+training|10|0|Binary Accuracy|0.31758530183727035|0.31758530183727035/762
+
+training|10|0|Binary Accuracy Left|0.5498687664041995|0.5498687664041995/762
+
+training|10|0|Binary Accuracy Right|0.610236220472441|0.610236220472441/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+testing|10|0|Overall Mean Squared Error|0.6212753057479858
+
+testing|10|0|Left Mean Squared Error|0.6257249712944031
+
+testing|10|0|Right Mean Squared Error|0.6168255805969238
+
+		------------------------------------------------
+testing|10|0|Mean Absolute Error|0.6788593232631683
+
+testing|10|0|Mean Absolute Error Left|0.6784561276435852
+
+testing|10|0|Mean Absolute Error Right|0.6792625188827515
+
+		------------------------------------------------
+testing|10|0|Overall Accuracy|0.06806282722513089|13/191
+
+testing|10|0|Overall Accuracy Left|0.21465968586387435|41/191
+
+testing|10|0|Accuracy Right|0.2198952879581152|42/191
+
+		------------------------------------------------
+testing|10|0|Binary Accuracy|0.13089005235602094|0.13089005235602094/191
+
+testing|10|0|Binary Accuracy Left|0.3036649214659686|0.3036649214659686/191
+
+testing|10|0|Binary Accuracy Right|0.2931937172774869|0.2931937172774869/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+training|11|0|Overall Mean Squared Error|0.6505960822105408
+
+training|11|0|Left Mean Squared Error|0.6859542727470398
+
+training|11|0|Right Mean Squared Error|0.6152377724647522
+
+		------------------------------------------------
+training|11|0|Mean Absolute Error|0.6309732496738434
+
+training|11|0|Mean Absolute Error Left|0.6483348608016968
+
+training|11|0|Mean Absolute Error Right|0.61361163854599
+
+		------------------------------------------------
+training|11|0|Overall Accuracy|0.26246719160104987|200/762
+
+training|11|0|Overall Accuracy Left|0.484251968503937|369/762
+
+training|11|0|Accuracy Right|0.5551181102362205|423/762
+
+		------------------------------------------------
+training|11|0|Binary Accuracy|0.3005249343832021|0.3005249343832021/762
+
+training|11|0|Binary Accuracy Left|0.5249343832020997|0.5249343832020997/762
+
+training|11|0|Binary Accuracy Right|0.5787401574803149|0.5787401574803149/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+testing|11|0|Overall Mean Squared Error|0.6095387935638428
+
+testing|11|0|Left Mean Squared Error|0.6263983249664307
+
+testing|11|0|Right Mean Squared Error|0.5926792621612549
+
+		------------------------------------------------
+testing|11|0|Mean Absolute Error|0.6675216257572174
+
+testing|11|0|Mean Absolute Error Left|0.6785352826118469
+
+testing|11|0|Mean Absolute Error Right|0.6565079689025879
+
+		------------------------------------------------
+testing|11|0|Overall Accuracy|0.06806282722513089|13/191
+
+testing|11|0|Overall Accuracy Left|0.21465968586387435|41/191
+
+testing|11|0|Accuracy Right|0.2198952879581152|42/191
+
+		------------------------------------------------
+testing|11|0|Binary Accuracy|0.13089005235602094|0.13089005235602094/191
+
+testing|11|0|Binary Accuracy Left|0.3036649214659686|0.3036649214659686/191
+
+testing|11|0|Binary Accuracy Right|0.2931937172774869|0.2931937172774869/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+training|12|0|Overall Mean Squared Error|0.5987159013748169
+
+training|12|0|Left Mean Squared Error|0.6096265316009521
+
+training|12|0|Right Mean Squared Error|0.5878050923347473
+
+		------------------------------------------------
+training|12|0|Mean Absolute Error|0.6102256774902344
+
+training|12|0|Mean Absolute Error Left|0.6213979721069336
+
+training|12|0|Mean Absolute Error Right|0.5990533828735352
+
+		------------------------------------------------
+training|12|0|Overall Accuracy|0.2900262467191601|221/762
+
+training|12|0|Overall Accuracy Left|0.510498687664042|389/762
+
+training|12|0|Accuracy Right|0.5616797900262467|428/762
+
+		------------------------------------------------
+training|12|0|Binary Accuracy|0.3228346456692913|0.3228346456692913/762
+
+training|12|0|Binary Accuracy Left|0.547244094488189|0.547244094488189/762
+
+training|12|0|Binary Accuracy Right|0.5800524934383202|0.5800524934383202/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+testing|12|0|Overall Mean Squared Error|0.671016275882721
+
+testing|12|0|Left Mean Squared Error|0.669181764125824
+
+testing|12|0|Right Mean Squared Error|0.6728507876396179
+
+		------------------------------------------------
+testing|12|0|Mean Absolute Error|0.7169145941734314
+
+testing|12|0|Mean Absolute Error Left|0.7150797247886658
+
+testing|12|0|Mean Absolute Error Right|0.718749463558197
+
+		------------------------------------------------
+testing|12|0|Overall Accuracy|0.06806282722513089|13/191
+
+testing|12|0|Overall Accuracy Left|0.21465968586387435|41/191
+
+testing|12|0|Accuracy Right|0.2198952879581152|42/191
+
+		------------------------------------------------
+testing|12|0|Binary Accuracy|0.13089005235602094|0.13089005235602094/191
+
+testing|12|0|Binary Accuracy Left|0.3036649214659686|0.3036649214659686/191
+
+testing|12|0|Binary Accuracy Right|0.2931937172774869|0.2931937172774869/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+training|13|0|Overall Mean Squared Error|0.6440462470054626
+
+training|13|0|Left Mean Squared Error|0.6919376254081726
+
+training|13|0|Right Mean Squared Error|0.5961548686027527
+
+		------------------------------------------------
+training|13|0|Mean Absolute Error|0.6233790516853333
+
+training|13|0|Mean Absolute Error Left|0.6481053233146667
+
+training|13|0|Mean Absolute Error Right|0.5986527800559998
+
+		------------------------------------------------
+training|13|0|Overall Accuracy|0.3123359580052493|238/762
+
+training|13|0|Overall Accuracy Left|0.5|381/762
+
+training|13|0|Accuracy Right|0.6062992125984252|462/762
+
+		------------------------------------------------
+training|13|0|Binary Accuracy|0.3425196850393701|0.3425196850393701/762
+
+training|13|0|Binary Accuracy Left|0.5380577427821522|0.5380577427821522/762
+
+training|13|0|Binary Accuracy Right|0.6233595800524935|0.6233595800524935/762
+
+training|10|1|Binary Accuracy|0.3333333333333333|0.3333333333333333/762
+
+training|10|1|Binary Accuracy Left|0.5393700787401575|0.5393700787401575/762
+
+training|10|1|Binary Accuracy Right|0.5958005249343832|0.5958005249343832/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+testing|10|1|Overall Mean Squared Error|0.6857892870903015
+
+testing|10|1|Left Mean Squared Error|0.8301712870597839
+
+testing|10|1|Right Mean Squared Error|0.5414072871208191
+
+		------------------------------------------------
+testing|10|1|Mean Absolute Error|0.7020283937454224
+
+testing|10|1|Mean Absolute Error Left|0.7471928596496582
+
+testing|10|1|Mean Absolute Error Right|0.6568639278411865
+
+		------------------------------------------------
+testing|10|1|Overall Accuracy|0.05235602094240838|10/191
+
+testing|10|1|Overall Accuracy Left|0.17277486910994763|33/191
+
+testing|10|1|Accuracy Right|0.2356020942408377|45/191
+
+		------------------------------------------------
+testing|10|1|Binary Accuracy|0.1256544502617801|0.1256544502617801/191
+
+testing|10|1|Binary Accuracy Left|0.3036649214659686|0.3036649214659686/191
+
+testing|10|1|Binary Accuracy Right|0.31413612565445026|0.31413612565445026/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+training|11|1|Overall Mean Squared Error|0.6222174167633057
+
+training|11|1|Left Mean Squared Error|0.6310624480247498
+
+training|11|1|Right Mean Squared Error|0.6133723258972168
+
+		------------------------------------------------
+training|11|1|Mean Absolute Error|0.6192874610424042
+
+training|11|1|Mean Absolute Error Left|0.62882399559021
+
+training|11|1|Mean Absolute Error Right|0.6097509264945984
+
+		------------------------------------------------
+training|11|1|Overall Accuracy|0.2637795275590551|201/762
+
+training|11|1|Overall Accuracy Left|0.49343832020997375|376/762
+
+training|11|1|Accuracy Right|0.541994750656168|413/762
+
+		------------------------------------------------
+training|11|1|Binary Accuracy|0.2992125984251969|0.2992125984251969/762
+
+training|11|1|Binary Accuracy Left|0.5275590551181102|0.5275590551181102/762
+
+training|11|1|Binary Accuracy Right|0.5695538057742782|0.5695538057742782/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+testing|11|1|Overall Mean Squared Error|0.6739893555641174
+
+testing|11|1|Left Mean Squared Error|0.8294588327407837
+
+testing|11|1|Right Mean Squared Error|0.5185197591781616
+
+		------------------------------------------------
+testing|11|1|Mean Absolute Error|0.6918386518955231
+
+testing|11|1|Mean Absolute Error Left|0.7465513348579407
+
+testing|11|1|Mean Absolute Error Right|0.6371259689331055
+
+		------------------------------------------------
+testing|11|1|Overall Accuracy|0.05235602094240838|10/191
+
+testing|11|1|Overall Accuracy Left|0.17277486910994763|33/191
+
+testing|11|1|Accuracy Right|0.2356020942408377|45/191
+
+		------------------------------------------------
+testing|11|1|Binary Accuracy|0.1256544502617801|0.1256544502617801/191
+
+testing|11|1|Binary Accuracy Left|0.3036649214659686|0.3036649214659686/191
+
+testing|11|1|Binary Accuracy Right|0.31413612565445026|0.31413612565445026/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+training|12|1|Overall Mean Squared Error|0.696384847164154
+
+training|12|1|Left Mean Squared Error|0.6304941773414612
+
+training|12|1|Right Mean Squared Error|0.7622755765914917
+
+		------------------------------------------------
+training|12|1|Mean Absolute Error|0.6495150327682495
+
+training|12|1|Mean Absolute Error Left|0.6348437070846558
+
+training|12|1|Mean Absolute Error Right|0.6641863584518433
+
+		------------------------------------------------
+training|12|1|Overall Accuracy|0.2650918635170604|202/762
+
+training|12|1|Overall Accuracy Left|0.4921259842519685|375/762
+
+training|12|1|Accuracy Right|0.531496062992126|405/762
+
+		------------------------------------------------
+training|12|1|Binary Accuracy|0.29658792650918636|0.29658792650918636/762
+
+training|12|1|Binary Accuracy Left|0.5288713910761155|0.5288713910761155/762
+
+training|12|1|Binary Accuracy Right|0.5616797900262467|0.5616797900262467/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+testing|12|1|Overall Mean Squared Error|0.7283519506454468
+
+testing|12|1|Left Mean Squared Error|0.8603533506393433
+
+testing|12|1|Right Mean Squared Error|0.5963505506515503
+
+		------------------------------------------------
+testing|12|1|Mean Absolute Error|0.7376291751861572
+
+testing|12|1|Mean Absolute Error Left|0.7832998037338257
+
+testing|12|1|Mean Absolute Error Right|0.6919585466384888
+
+		------------------------------------------------
+testing|12|1|Overall Accuracy|0.05235602094240838|10/191
+
+testing|12|1|Overall Accuracy Left|0.17277486910994763|33/191
+
+testing|12|1|Accuracy Right|0.2356020942408377|45/191
+
+		------------------------------------------------
+testing|12|1|Binary Accuracy|0.1256544502617801|0.1256544502617801/191
+
+testing|12|1|Binary Accuracy Left|0.3036649214659686|0.3036649214659686/191
+
+testing|12|1|Binary Accuracy Right|0.31413612565445026|0.31413612565445026/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+training|13|1|Overall Mean Squared Error|0.6417696475982666
+
+training|13|1|Left Mean Squared Error|0.6829817891120911
+
+training|13|1|Right Mean Squared Error|0.6005574464797974
+
+		------------------------------------------------
+training|13|1|Mean Absolute Error|0.6249855756759644
+
+training|13|1|Mean Absolute Error Left|0.6455378532409668
+
+training|13|1|Mean Absolute Error Right|0.6044332981109619
+
+		------------------------------------------------
+training|13|1|Overall Accuracy|0.29658792650918636|226/762
+
+training|13|1|Overall Accuracy Left|0.5091863517060368|388/762
+
+training|13|1|Accuracy Right|0.5616797900262467|428/762
+
+		------------------------------------------------
+training|13|1|Binary Accuracy|0.32545931758530183|0.32545931758530183/762
+
+training|13|1|Binary Accuracy Left|0.5511811023622047|0.5511811023622047/762
+
+training|13|1|Binary Accuracy Right|0.5813648293963255|0.5813648293963255/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+training|10|2|Binary Accuracy|0.3031496062992126|0.3031496062992126/762
+
+training|10|2|Binary Accuracy Left|0.5341207349081365|0.5341207349081365/762
+
+training|10|2|Binary Accuracy Right|0.573490813648294|0.573490813648294/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+testing|10|2|Overall Mean Squared Error|0.6591825485229492
+
+testing|10|2|Left Mean Squared Error|0.6411696076393127
+
+testing|10|2|Right Mean Squared Error|0.6771956086158752
+
+		------------------------------------------------
+testing|10|2|Mean Absolute Error|0.6991993486881256
+
+testing|10|2|Mean Absolute Error Left|0.683613657951355
+
+testing|10|2|Mean Absolute Error Right|0.7147850394248962
+
+		------------------------------------------------
+testing|10|2|Overall Accuracy|0.05235602094240838|10/191
+
+testing|10|2|Overall Accuracy Left|0.18848167539267016|36/191
+
+testing|10|2|Accuracy Right|0.1518324607329843|29/191
+
+		------------------------------------------------
+testing|10|2|Binary Accuracy|0.09424083769633508|0.09424083769633508/191
+
+testing|10|2|Binary Accuracy Left|0.28272251308900526|0.28272251308900526/191
+
+testing|10|2|Binary Accuracy Right|0.24607329842931938|0.24607329842931938/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+training|11|2|Overall Mean Squared Error|0.6517625451087952
+
+training|11|2|Left Mean Squared Error|0.6594513654708862
+
+training|11|2|Right Mean Squared Error|0.6440737247467041
+
+		------------------------------------------------
+training|11|2|Mean Absolute Error|0.6284022629261017
+
+training|11|2|Mean Absolute Error Left|0.6361780762672424
+
+training|11|2|Mean Absolute Error Right|0.6206264495849609
+
+		------------------------------------------------
+training|11|2|Overall Accuracy|0.27034120734908135|206/762
+
+training|11|2|Overall Accuracy Left|0.473753280839895|361/762
+
+training|11|2|Accuracy Right|0.562992125984252|429/762
+
+		------------------------------------------------
+training|11|2|Binary Accuracy|0.3031496062992126|0.3031496062992126/762
+
+training|11|2|Binary Accuracy Left|0.5091863517060368|0.5091863517060368/762
+
+training|11|2|Binary Accuracy Right|0.594488188976378|0.594488188976378/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+testing|11|2|Overall Mean Squared Error|0.6454703211784363
+
+testing|11|2|Left Mean Squared Error|0.6415002942085266
+
+testing|11|2|Right Mean Squared Error|0.649440348148346
+
+		------------------------------------------------
+testing|11|2|Mean Absolute Error|0.6851808726787567
+
+testing|11|2|Mean Absolute Error Left|0.6837950944900513
+
+testing|11|2|Mean Absolute Error Right|0.6865666508674622
+
+		------------------------------------------------
+testing|11|2|Overall Accuracy|0.05235602094240838|10/191
+
+testing|11|2|Overall Accuracy Left|0.18848167539267016|36/191
+
+testing|11|2|Accuracy Right|0.1518324607329843|29/191
+
+		------------------------------------------------
+testing|11|2|Binary Accuracy|0.09424083769633508|0.09424083769633508/191
+
+testing|11|2|Binary Accuracy Left|0.28272251308900526|0.28272251308900526/191
+
+testing|11|2|Binary Accuracy Right|0.24607329842931938|0.24607329842931938/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+training|12|2|Overall Mean Squared Error|0.656328558921814
+
+training|12|2|Left Mean Squared Error|0.6626962423324585
+
+training|12|2|Right Mean Squared Error|0.6499607563018799
+
+		------------------------------------------------
+training|12|2|Mean Absolute Error|0.6313824653625488
+
+training|12|2|Mean Absolute Error Left|0.6446553468704224
+
+training|12|2|Mean Absolute Error Right|0.6181095838546753
+
+		------------------------------------------------
+training|12|2|Overall Accuracy|0.28346456692913385|216/762
+
+training|12|2|Overall Accuracy Left|0.510498687664042|389/762
+
+training|12|2|Accuracy Right|0.5446194225721784|415/762
+
+		------------------------------------------------
+training|12|2|Binary Accuracy|0.30971128608923887|0.30971128608923887/762
+
+training|12|2|Binary Accuracy Left|0.547244094488189|0.547244094488189/762
+
+training|12|2|Binary Accuracy Right|0.5616797900262467|0.5616797900262467/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+testing|12|2|Overall Mean Squared Error|0.7131016850471497
+
+testing|12|2|Left Mean Squared Error|0.6882527470588684
+
+testing|12|2|Right Mean Squared Error|0.73795086145401
+
+		------------------------------------------------
+testing|12|2|Mean Absolute Error|0.743297278881073
+
+testing|12|2|Mean Absolute Error Left|0.7237246036529541
+
+testing|12|2|Mean Absolute Error Right|0.7628699541091919
+
+		------------------------------------------------
+testing|12|2|Overall Accuracy|0.05235602094240838|10/191
+
+testing|12|2|Overall Accuracy Left|0.18848167539267016|36/191
+
+testing|12|2|Accuracy Right|0.1518324607329843|29/191
+
+		------------------------------------------------
+testing|12|2|Binary Accuracy|0.09424083769633508|0.09424083769633508/191
+
+testing|12|2|Binary Accuracy Left|0.28272251308900526|0.28272251308900526/191
+
+testing|12|2|Binary Accuracy Right|0.24607329842931938|0.24607329842931938/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+training|13|2|Overall Mean Squared Error|0.6876610517501831
+
+training|13|2|Left Mean Squared Error|0.7156084775924683
+
+training|13|2|Right Mean Squared Error|0.6597136855125427
+
+		------------------------------------------------
+training|13|2|Mean Absolute Error|0.6347353756427765
+
+training|13|2|Mean Absolute Error Left|0.6521909832954407
+
+training|13|2|Mean Absolute Error Right|0.6172797679901123
+
+		------------------------------------------------
+training|13|2|Overall Accuracy|0.30577427821522307|233/762
+
+training|13|2|Overall Accuracy Left|0.5131233595800525|391/762
+
+training|13|2|Accuracy Right|0.5669291338582677|432/762
+
+		------------------------------------------------
+training|13|2|Binary Accuracy|0.33989501312335957|0.33989501312335957/762
+
+training|13|2|Binary Accuracy Left|0.55249343832021|0.55249343832021/762
+
+training|13|2|Binary Accuracy Right|0.5905511811023622|0.5905511811023622/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++		------------------------------------------------
+training|10|3|Binary Accuracy|0.3293963254593176|0.3293963254593176/762
+
+training|10|3|Binary Accuracy Left|0.531496062992126|0.531496062992126/762
+
+training|10|3|Binary Accuracy Right|0.6089238845144357|0.6089238845144357/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+testing|10|3|Overall Mean Squared Error|0.6977938413619995
+
+testing|10|3|Left Mean Squared Error|0.5750187039375305
+
+testing|10|3|Right Mean Squared Error|0.820568859577179
+
+		------------------------------------------------
+testing|10|3|Mean Absolute Error|0.697954535484314
+
+testing|10|3|Mean Absolute Error Left|0.6538417339324951
+
+testing|10|3|Mean Absolute Error Right|0.7420673370361328
+
+		------------------------------------------------
+testing|10|3|Overall Accuracy|0.06282722513089005|12/191
+
+testing|10|3|Overall Accuracy Left|0.24607329842931938|47/191
+
+testing|10|3|Accuracy Right|0.20418848167539266|39/191
+
+		------------------------------------------------
+testing|10|3|Binary Accuracy|0.1256544502617801|0.1256544502617801/191
+
+testing|10|3|Binary Accuracy Left|0.3193717277486911|0.3193717277486911/191
+
+testing|10|3|Binary Accuracy Right|0.3089005235602094|0.3089005235602094/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+training|11|3|Overall Mean Squared Error|0.6944168210029602
+
+training|11|3|Left Mean Squared Error|0.7027286887168884
+
+training|11|3|Right Mean Squared Error|0.6861051321029663
+
+		------------------------------------------------
+training|11|3|Mean Absolute Error|0.6442860066890717
+
+training|11|3|Mean Absolute Error Left|0.6526216268539429
+
+training|11|3|Mean Absolute Error Right|0.6359503865242004
+
+		------------------------------------------------
+training|11|3|Overall Accuracy|0.2637795275590551|201/762
+
+training|11|3|Overall Accuracy Left|0.48031496062992124|366/762
+
+training|11|3|Accuracy Right|0.5459317585301837|416/762
+
+		------------------------------------------------
+training|11|3|Binary Accuracy|0.30183727034120733|0.30183727034120733/762
+
+training|11|3|Binary Accuracy Left|0.5183727034120735|0.5183727034120735/762
+
+training|11|3|Binary Accuracy Right|0.5708661417322834|0.5708661417322834/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+testing|11|3|Overall Mean Squared Error|0.6908805966377258
+
+testing|11|3|Left Mean Squared Error|0.5761841535568237
+
+testing|11|3|Right Mean Squared Error|0.8055769801139832
+
+		------------------------------------------------
+testing|11|3|Mean Absolute Error|0.6876372396945953
+
+testing|11|3|Mean Absolute Error Left|0.6544617414474487
+
+testing|11|3|Mean Absolute Error Right|0.7208127379417419
+
+		------------------------------------------------
+testing|11|3|Overall Accuracy|0.06282722513089005|12/191
+
+testing|11|3|Overall Accuracy Left|0.24607329842931938|47/191
+
+testing|11|3|Accuracy Right|0.20418848167539266|39/191
+
+		------------------------------------------------
+testing|11|3|Binary Accuracy|0.1256544502617801|0.1256544502617801/191
+
+testing|11|3|Binary Accuracy Left|0.3193717277486911|0.3193717277486911/191
+
+testing|11|3|Binary Accuracy Right|0.3089005235602094|0.3089005235602094/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+training|12|3|Overall Mean Squared Error|0.6261076331138611
+
+training|12|3|Left Mean Squared Error|0.6777129173278809
+
+training|12|3|Right Mean Squared Error|0.5745024681091309
+
+		------------------------------------------------
+training|12|3|Mean Absolute Error|0.6178180277347565
+
+training|12|3|Mean Absolute Error Left|0.6460458040237427
+
+training|12|3|Mean Absolute Error Right|0.5895902514457703
+
+		------------------------------------------------
+training|12|3|Overall Accuracy|0.2926509186351706|223/762
+
+training|12|3|Overall Accuracy Left|0.5078740157480315|387/762
+
+training|12|3|Accuracy Right|0.5656167979002624|431/762
+
+		------------------------------------------------
+training|12|3|Binary Accuracy|0.32808398950131235|0.32808398950131235/762
+
+training|12|3|Binary Accuracy Left|0.5551181102362205|0.5551181102362205/762
+
+training|12|3|Binary Accuracy Right|0.5866141732283464|0.5866141732283464/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+testing|12|3|Overall Mean Squared Error|0.7394798994064331
+
+testing|12|3|Left Mean Squared Error|0.6187180876731873
+
+testing|12|3|Right Mean Squared Error|0.860241711139679
+
+		------------------------------------------------
+testing|12|3|Mean Absolute Error|0.7325640320777893
+
+testing|12|3|Mean Absolute Error Left|0.6868415474891663
+
+testing|12|3|Mean Absolute Error Right|0.7782865166664124
+
+		------------------------------------------------
+testing|12|3|Overall Accuracy|0.06282722513089005|12/191
+
+testing|12|3|Overall Accuracy Left|0.24607329842931938|47/191
+
+testing|12|3|Accuracy Right|0.20418848167539266|39/191
+
+		------------------------------------------------
+testing|12|3|Binary Accuracy|0.1256544502617801|0.1256544502617801/191
+
+testing|12|3|Binary Accuracy Left|0.3193717277486911|0.3193717277486911/191
+
+testing|12|3|Binary Accuracy Right|0.3089005235602094|0.3089005235602094/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+training|13|3|Overall Mean Squared Error|0.6326399445533752
+
+training|13|3|Left Mean Squared Error|0.6697589755058289
+
+training|13|3|Right Mean Squared Error|0.5955209732055664
+
+		------------------------------------------------
+training|13|3|Mean Absolute Error|0.6194416880607605
+
+training|13|3|Mean Absolute Error Left|0.6353316903114319
+
+training|13|3|Mean Absolute Error Right|0.6035516858100891
+
+		------------------------------------------------
+training|13|3|Overall Accuracy|0.3188976377952756|243/762
+
+training|13|3|Overall Accuracy Left|0.5223097112860893|398/762
+
+training|13|3|Accuracy Right|0.5643044619422573|430/762
+
+		------------------------------------------------
+training|13|3|Binary Accuracy|0.35039370078740156|0.35039370078740156/762
+
+training|13|3|Binary Accuracy Left|0.5616797900262467|0.5616797900262467/762
+
+training|13|3|Binary Accuracy Right|0.5918635170603674|0.5918635170603674/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+testing|13|1|Overall Mean Squared Error|0.683091402053833
+
+testing|13|1|Left Mean Squared Error|0.8813406229019165
+
+testing|13|1|Right Mean Squared Error|0.48484206199645996
+
+		------------------------------------------------
+testing|13|1|Mean Absolute Error|0.6778305172920227
+
+testing|13|1|Mean Absolute Error Left|0.8006737232208252
+
+testing|13|1|Mean Absolute Error Right|0.5549873113632202
+
+		------------------------------------------------
+testing|13|1|Overall Accuracy|0.10471204188481675|20/191
+
+testing|13|1|Overall Accuracy Left|0.17277486910994763|33/191
+
+testing|13|1|Accuracy Right|0.6858638743455497|131/191
+
+		------------------------------------------------
+testing|13|1|Binary Accuracy|0.17801047120418848|0.17801047120418848/191
+
+testing|13|1|Binary Accuracy Left|0.3036649214659686|0.3036649214659686/191
+
+testing|13|1|Binary Accuracy Right|0.6858638743455497|0.6858638743455497/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+training|14|1|Overall Mean Squared Error|0.6375932693481445
+
+training|14|1|Left Mean Squared Error|0.7160029411315918
+
+training|14|1|Right Mean Squared Error|0.5591835975646973
+
+		------------------------------------------------
+training|14|1|Mean Absolute Error|0.620054304599762
+
+training|14|1|Mean Absolute Error Left|0.6576987504959106
+
+training|14|1|Mean Absolute Error Right|0.5824098587036133
+
+		------------------------------------------------
+training|14|1|Overall Accuracy|0.29396325459317585|224/762
+
+training|14|1|Overall Accuracy Left|0.4868766404199475|371/762
+
+training|14|1|Accuracy Right|0.5826771653543307|444/762
+
+		------------------------------------------------
+training|14|1|Binary Accuracy|0.3241469816272966|0.3241469816272966/762
+
+training|14|1|Binary Accuracy Left|0.526246719160105|0.526246719160105/762
+
+training|14|1|Binary Accuracy Right|0.5918635170603674|0.5918635170603674/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+testing|14|1|Overall Mean Squared Error|0.7457023859024048
+
+testing|14|1|Left Mean Squared Error|0.8480795621871948
+
+testing|14|1|Right Mean Squared Error|0.64332515001297
+
+		------------------------------------------------
+testing|14|1|Mean Absolute Error|0.7433057725429535
+
+testing|14|1|Mean Absolute Error Left|0.7706521153450012
+
+testing|14|1|Mean Absolute Error Right|0.7159594297409058
+
+		------------------------------------------------
+testing|14|1|Overall Accuracy|0.05235602094240838|10/191
+
+testing|14|1|Overall Accuracy Left|0.17277486910994763|33/191
+
+testing|14|1|Accuracy Right|0.2356020942408377|45/191
+
+		------------------------------------------------
+testing|14|1|Binary Accuracy|0.1256544502617801|0.1256544502617801/191
+
+testing|14|1|Binary Accuracy Left|0.3036649214659686|0.3036649214659686/191
+
+testing|14|1|Binary Accuracy Right|0.31413612565445026|0.31413612565445026/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+training|15|1|Overall Mean Squared Error|0.6005805730819702
+
+training|15|1|Left Mean Squared Error|0.5966918468475342
+
+training|15|1|Right Mean Squared Error|0.6044692993164062
+
+		------------------------------------------------
+training|15|1|Mean Absolute Error|0.6061823964118958
+
+training|15|1|Mean Absolute Error Left|0.6072848439216614
+
+training|15|1|Mean Absolute Error Right|0.6050799489021301
+
+		------------------------------------------------
+training|15|1|Overall Accuracy|0.3136482939632546|239/762
+
+training|15|1|Overall Accuracy Left|0.520997375328084|397/762
+
+training|15|1|Accuracy Right|0.5656167979002624|431/762
+
+		------------------------------------------------
+training|15|1|Binary Accuracy|0.33727034120734906|0.33727034120734906/762
+
+training|15|1|Binary Accuracy Left|0.5577427821522309|0.5577427821522309/762
+
+training|15|1|Binary Accuracy Right|0.583989501312336|0.583989501312336/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+testing|15|1|Overall Mean Squared Error|0.6753648519515991
+
+testing|15|1|Left Mean Squared Error|0.8413407206535339
+
+testing|15|1|Right Mean Squared Error|0.5093891620635986
+
+		------------------------------------------------
+testing|15|1|Mean Absolute Error|0.6951106488704681
+
+testing|15|1|Mean Absolute Error Left|0.7633063197135925
+
+testing|15|1|Mean Absolute Error Right|0.6269149780273438
+
+		------------------------------------------------
+testing|15|1|Overall Accuracy|0.05235602094240838|10/191
+
+testing|15|1|Overall Accuracy Left|0.17277486910994763|33/191
+
+testing|15|1|Accuracy Right|0.2356020942408377|45/191
+
+		------------------------------------------------
+testing|15|1|Binary Accuracy|0.1256544502617801|0.1256544502617801/191
+
+testing|15|1|Binary Accuracy Left|0.3036649214659686|0.3036649214659686/191
+
+testing|15|1|Binary Accuracy Right|0.31413612565445026|0.31413612565445026/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 1 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+training|16|1|Overall Mean Squared Error|0.6993369460105896
+
+training|16|1|Left Mean Squared Error|0.6814472079277039
+
+training|16|1|Right Mean Squared Error|0.7172266840934753
+
+		------------------------------------------------
+training|16|1|Mean Absolute Error|0.6449359357357025
+
+training|16|1|Mean Absolute Error Left|0.6505511999130249
+
+training|16|1|Mean Absolute Error Right|0.6393206715583801
+
+		------------------------------------------------
+training|16|1|Overall Accuracy|0.23622047244094488|180/762
+
+training|16|1|Overall Accuracy Left|0.46194225721784776|352/762
+
+training|16|1|Accuracy Right|0.5118110236220472|390/762
+
+		------------------------------------------------
+training|16|1|Binary Accuracy|0.27165354330708663|0.27165354330708663/762
+
+training|16|1|Binary Accuracy Left|0.5|0.5/762
+
+training|16|1|Binary Accuracy Right|0.536745406824147|0.536745406824147/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 1
+testing|16|1|Overall Mean Squared Error|0.6746950745582581
+
+testing|16|1|Left Mean Squared Error|0.8504323363304138
+
+testing|16|1|Right Mean Squared Error|0.49895793199539185
+
+		------------------------------------------------
+testing|16|1|Mean Absolute Error|0.6939108371734619
+
+testing|16|1|Mean Absolute Error Left|0.7740438580513
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+testing|13|0|Overall Mean Squared Error|0.6265469789505005
+
+testing|13|0|Left Mean Squared Error|0.6967902183532715
+
+testing|13|0|Right Mean Squared Error|0.5563036799430847
+
+		------------------------------------------------
+testing|13|0|Mean Absolute Error|0.6491980850696564
+
+testing|13|0|Mean Absolute Error Left|0.7327297925949097
+
+testing|13|0|Mean Absolute Error Right|0.5656663775444031
+
+		------------------------------------------------
+testing|13|0|Overall Accuracy|0.1099476439790576|21/191
+
+testing|13|0|Overall Accuracy Left|0.21465968586387435|41/191
+
+testing|13|0|Accuracy Right|0.7068062827225131|135/191
+
+		------------------------------------------------
+testing|13|0|Binary Accuracy|0.17277486910994763|0.17277486910994763/191
+
+testing|13|0|Binary Accuracy Left|0.3036649214659686|0.3036649214659686/191
+
+testing|13|0|Binary Accuracy Right|0.7068062827225131|0.7068062827225131/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+training|14|0|Overall Mean Squared Error|0.6232978701591492
+
+training|14|0|Left Mean Squared Error|0.6013738512992859
+
+training|14|0|Right Mean Squared Error|0.6452218294143677
+
+		------------------------------------------------
+training|14|0|Mean Absolute Error|0.6141659617424011
+
+training|14|0|Mean Absolute Error Left|0.6184384226799011
+
+training|14|0|Mean Absolute Error Right|0.6098935008049011
+
+		------------------------------------------------
+training|14|0|Overall Accuracy|0.3228346456692913|246/762
+
+training|14|0|Overall Accuracy Left|0.515748031496063|393/762
+
+training|14|0|Accuracy Right|0.60498687664042|461/762
+
+		------------------------------------------------
+training|14|0|Binary Accuracy|0.3648293963254593|0.3648293963254593/762
+
+training|14|0|Binary Accuracy Left|0.5551181102362205|0.5551181102362205/762
+
+training|14|0|Binary Accuracy Right|0.6233595800524935|0.6233595800524935/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+testing|14|0|Overall Mean Squared Error|0.6862475872039795
+
+testing|14|0|Left Mean Squared Error|0.6532997488975525
+
+testing|14|0|Right Mean Squared Error|0.7191953063011169
+
+		------------------------------------------------
+testing|14|0|Mean Absolute Error|0.7236197292804718
+
+testing|14|0|Mean Absolute Error Left|0.7027655243873596
+
+testing|14|0|Mean Absolute Error Right|0.744473934173584
+
+		------------------------------------------------
+testing|14|0|Overall Accuracy|0.06806282722513089|13/191
+
+testing|14|0|Overall Accuracy Left|0.21465968586387435|41/191
+
+testing|14|0|Accuracy Right|0.2198952879581152|42/191
+
+		------------------------------------------------
+testing|14|0|Binary Accuracy|0.13089005235602094|0.13089005235602094/191
+
+testing|14|0|Binary Accuracy Left|0.3036649214659686|0.3036649214659686/191
+
+testing|14|0|Binary Accuracy Right|0.2931937172774869|0.2931937172774869/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+training|15|0|Overall Mean Squared Error|0.7025682926177979
+
+training|15|0|Left Mean Squared Error|0.7437248229980469
+
+training|15|0|Right Mean Squared Error|0.6614117622375488
+
+		------------------------------------------------
+training|15|0|Mean Absolute Error|0.6437488198280334
+
+training|15|0|Mean Absolute Error Left|0.6565545201301575
+
+training|15|0|Mean Absolute Error Right|0.6309431195259094
+
+		------------------------------------------------
+training|15|0|Overall Accuracy|0.3083989501312336|235/762
+
+training|15|0|Overall Accuracy Left|0.5078740157480315|387/762
+
+training|15|0|Accuracy Right|0.5564304461942258|424/762
+
+		------------------------------------------------
+training|15|0|Binary Accuracy|0.3425196850393701|0.3425196850393701/762
+
+training|15|0|Binary Accuracy Left|0.541994750656168|0.541994750656168/762
+
+training|15|0|Binary Accuracy Right|0.5813648293963255|0.5813648293963255/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+testing|15|0|Overall Mean Squared Error|0.613516628742218
+
+testing|15|0|Left Mean Squared Error|0.643797755241394
+
+testing|15|0|Right Mean Squared Error|0.5832355618476868
+
+		------------------------------------------------
+testing|15|0|Mean Absolute Error|0.6705929636955261
+
+testing|15|0|Mean Absolute Error Left|0.6955462694168091
+
+testing|15|0|Mean Absolute Error Right|0.6456396579742432
+
+		------------------------------------------------
+testing|15|0|Overall Accuracy|0.06806282722513089|13/191
+
+testing|15|0|Overall Accuracy Left|0.21465968586387435|41/191
+
+testing|15|0|Accuracy Right|0.2198952879581152|42/191
+
+		------------------------------------------------
+testing|15|0|Binary Accuracy|0.13089005235602094|0.13089005235602094/191
+
+testing|15|0|Binary Accuracy Left|0.3036649214659686|0.3036649214659686/191
+
+testing|15|0|Binary Accuracy Right|0.2931937172774869|0.2931937172774869/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 0 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+training|16|0|Overall Mean Squared Error|0.6771935224533081
+
+training|16|0|Left Mean Squared Error|0.7055135369300842
+
+training|16|0|Right Mean Squared Error|0.6488736867904663
+
+		------------------------------------------------
+training|16|0|Mean Absolute Error|0.6404245495796204
+
+training|16|0|Mean Absolute Error Left|0.660162091255188
+
+training|16|0|Mean Absolute Error Right|0.6206870079040527
+
+		------------------------------------------------
+training|16|0|Overall Accuracy|0.2335958005249344|178/762
+
+training|16|0|Overall Accuracy Left|0.46194225721784776|352/762
+
+training|16|0|Accuracy Right|0.5577427821522309|425/762
+
+		------------------------------------------------
+training|16|0|Binary Accuracy|0.2821522309711286|0.2821522309711286/762
+
+training|16|0|Binary Accuracy Left|0.5183727034120735|0.5183727034120735/762
+
+training|16|0|Binary Accuracy Right|0.5905511811023622|0.5905511811023622/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 0:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 0
+testing|16|0|Overall Mean Squared Error|0.6147196292877197
+
+testing|16|0|Left Mean Squared Error|0.656658947467804
+
+testing|16|0|Right Mean Squared Error|0.572780430316925
+
+
+METRICS FOR GPU ID: 2
+testing|13|2|Overall Mean Squared Error|0.6600943803787231
+
+testing|13|2|Left Mean Squared Error|0.718233585357666
+
+testing|13|2|Right Mean Squared Error|0.6019551753997803
+
+		------------------------------------------------
+testing|13|2|Mean Absolute Error|0.6594024002552032
+
+testing|13|2|Mean Absolute Error Left|0.7433854937553406
+
+testing|13|2|Mean Absolute Error Right|0.5754193067550659
+
+		------------------------------------------------
+testing|13|2|Overall Accuracy|0.11518324607329843|22/191
+
+testing|13|2|Overall Accuracy Left|0.18848167539267016|36/191
+
+testing|13|2|Accuracy Right|0.7539267015706806|144/191
+
+		------------------------------------------------
+testing|13|2|Binary Accuracy|0.18848167539267016|0.18848167539267016/191
+
+testing|13|2|Binary Accuracy Left|0.28272251308900526|0.28272251308900526/191
+
+testing|13|2|Binary Accuracy Right|0.7539267015706806|0.7539267015706806/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+training|14|2|Overall Mean Squared Error|0.6349869966506958
+
+training|14|2|Left Mean Squared Error|0.68607497215271
+
+training|14|2|Right Mean Squared Error|0.5838990211486816
+
+		------------------------------------------------
+training|14|2|Mean Absolute Error|0.6186437606811523
+
+training|14|2|Mean Absolute Error Left|0.6409102082252502
+
+training|14|2|Mean Absolute Error Right|0.5963773131370544
+
+		------------------------------------------------
+training|14|2|Overall Accuracy|0.2952755905511811|225/762
+
+training|14|2|Overall Accuracy Left|0.505249343832021|385/762
+
+training|14|2|Accuracy Right|0.5511811023622047|420/762
+
+		------------------------------------------------
+training|14|2|Binary Accuracy|0.32677165354330706|0.32677165354330706/762
+
+training|14|2|Binary Accuracy Left|0.5485564304461942|0.5485564304461942/762
+
+training|14|2|Binary Accuracy Right|0.5669291338582677|0.5669291338582677/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+testing|14|2|Overall Mean Squared Error|0.7294154763221741
+
+testing|14|2|Left Mean Squared Error|0.6710559725761414
+
+testing|14|2|Right Mean Squared Error|0.7877748608589172
+
+		------------------------------------------------
+testing|14|2|Mean Absolute Error|0.7526361048221588
+
+testing|14|2|Mean Absolute Error Left|0.7105163335800171
+
+testing|14|2|Mean Absolute Error Right|0.7947558760643005
+
+		------------------------------------------------
+testing|14|2|Overall Accuracy|0.05235602094240838|10/191
+
+testing|14|2|Overall Accuracy Left|0.18848167539267016|36/191
+
+testing|14|2|Accuracy Right|0.1518324607329843|29/191
+
+		------------------------------------------------
+testing|14|2|Binary Accuracy|0.09424083769633508|0.09424083769633508/191
+
+testing|14|2|Binary Accuracy Left|0.28272251308900526|0.28272251308900526/191
+
+testing|14|2|Binary Accuracy Right|0.24607329842931938|0.24607329842931938/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+training|15|2|Overall Mean Squared Error|0.6139644384384155
+
+training|15|2|Left Mean Squared Error|0.6344720721244812
+
+training|15|2|Right Mean Squared Error|0.5934568643569946
+
+		------------------------------------------------
+training|15|2|Mean Absolute Error|0.6112221479415894
+
+training|15|2|Mean Absolute Error Left|0.622434139251709
+
+training|15|2|Mean Absolute Error Right|0.6000101566314697
+
+		------------------------------------------------
+training|15|2|Overall Accuracy|0.33070866141732286|252/762
+
+training|15|2|Overall Accuracy Left|0.5393700787401575|411/762
+
+training|15|2|Accuracy Right|0.5866141732283464|447/762
+
+		------------------------------------------------
+training|15|2|Binary Accuracy|0.35826771653543305|0.35826771653543305/762
+
+training|15|2|Binary Accuracy Left|0.573490813648294|0.573490813648294/762
+
+training|15|2|Binary Accuracy Right|0.6036745406824147|0.6036745406824147/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+testing|15|2|Overall Mean Squared Error|0.6495786905288696
+
+testing|15|2|Left Mean Squared Error|0.6612757444381714
+
+testing|15|2|Right Mean Squared Error|0.6378816962242126
+
+		------------------------------------------------
+testing|15|2|Mean Absolute Error|0.6871781945228577
+
+testing|15|2|Mean Absolute Error Left|0.7019891738891602
+
+testing|15|2|Mean Absolute Error Right|0.6723672151565552
+
+		------------------------------------------------
+testing|15|2|Overall Accuracy|0.05235602094240838|10/191
+
+testing|15|2|Overall Accuracy Left|0.18848167539267016|36/191
+
+testing|15|2|Accuracy Right|0.1518324607329843|29/191
+
+		------------------------------------------------
+testing|15|2|Binary Accuracy|0.09424083769633508|0.09424083769633508/191
+
+testing|15|2|Binary Accuracy Left|0.28272251308900526|0.28272251308900526/191
+
+testing|15|2|Binary Accuracy Right|0.24607329842931938|0.24607329842931938/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 2 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+training|16|2|Overall Mean Squared Error|0.653242826461792
+
+training|16|2|Left Mean Squared Error|0.669739842414856
+
+training|16|2|Right Mean Squared Error|0.6367459297180176
+
+		------------------------------------------------
+training|16|2|Mean Absolute Error|0.6324456036090851
+
+training|16|2|Mean Absolute Error Left|0.6458745002746582
+
+training|16|2|Mean Absolute Error Right|0.619016706943512
+
+		------------------------------------------------
+training|16|2|Overall Accuracy|0.2388451443569554|182/762
+
+training|16|2|Overall Accuracy Left|0.47244094488188976|360/762
+
+training|16|2|Accuracy Right|0.5406824146981627|412/762
+
+		------------------------------------------------
+training|16|2|Binary Accuracy|0.2887139107611549|0.2887139107611549/762
+
+training|16|2|Binary Accuracy Left|0.5196850393700787|0.5196850393700787/762
+
+training|16|2|Binary Accuracy Right|0.5656167979002624|0.5656167979002624/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 2:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 2
+testing|16|2|Overall Mean Squared Error|0.6507638096809387
+
+testing|16|2|Left Mean Squared Error|0.6750356554985046
+
+testing|16|2|Right Mean Squared Error|0.6264919638633728
+
+		------------------------------------------------
+testing|16|2|Mean Absolute Error|0.6843830645084381
+
+testing|16|2|Mean Absolute Error Left|0.7137662768363953
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+testing|13|3|Overall Mean Squared Error|0.7268114686012268
+
+testing|13|3|Left Mean Squared Error|0.6466037631034851
+
+testing|13|3|Right Mean Squared Error|0.8070189952850342
+
+		------------------------------------------------
+testing|13|3|Mean Absolute Error|0.6707043051719666
+
+testing|13|3|Mean Absolute Error Left|0.7034367322921753
+
+testing|13|3|Mean Absolute Error Right|0.6379718780517578
+
+		------------------------------------------------
+testing|13|3|Overall Accuracy|0.13612565445026178|26/191
+
+testing|13|3|Overall Accuracy Left|0.24607329842931938|47/191
+
+testing|13|3|Accuracy Right|0.6910994764397905|132/191
+
+		------------------------------------------------
+testing|13|3|Binary Accuracy|0.193717277486911|0.193717277486911/191
+
+testing|13|3|Binary Accuracy Left|0.3193717277486911|0.3193717277486911/191
+
+testing|13|3|Binary Accuracy Right|0.6910994764397905|0.6910994764397905/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+training|14|3|Overall Mean Squared Error|0.6157059669494629
+
+training|14|3|Left Mean Squared Error|0.6728484630584717
+
+training|14|3|Right Mean Squared Error|0.5585635304450989
+
+		------------------------------------------------
+training|14|3|Mean Absolute Error|0.6117574870586395
+
+training|14|3|Mean Absolute Error Left|0.6462486386299133
+
+training|14|3|Mean Absolute Error Right|0.5772663354873657
+
+		------------------------------------------------
+training|14|3|Overall Accuracy|0.3031496062992126|231/762
+
+training|14|3|Overall Accuracy Left|0.489501312335958|373/762
+
+training|14|3|Accuracy Right|0.583989501312336|445/762
+
+		------------------------------------------------
+training|14|3|Binary Accuracy|0.33858267716535434|0.33858267716535434/762
+
+training|14|3|Binary Accuracy Left|0.531496062992126|0.531496062992126/762
+
+training|14|3|Binary Accuracy Right|0.6128608923884514|0.6128608923884514/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+testing|14|3|Overall Mean Squared Error|0.7506718635559082
+
+testing|14|3|Left Mean Squared Error|0.6029484272003174
+
+testing|14|3|Right Mean Squared Error|0.8983951807022095
+
+		------------------------------------------------
+testing|14|3|Mean Absolute Error|0.7399676740169525
+
+testing|14|3|Mean Absolute Error Left|0.6764258146286011
+
+testing|14|3|Mean Absolute Error Right|0.803509533405304
+
+		------------------------------------------------
+testing|14|3|Overall Accuracy|0.06282722513089005|12/191
+
+testing|14|3|Overall Accuracy Left|0.24607329842931938|47/191
+
+testing|14|3|Accuracy Right|0.20418848167539266|39/191
+
+		------------------------------------------------
+testing|14|3|Binary Accuracy|0.1256544502617801|0.1256544502617801/191
+
+testing|14|3|Binary Accuracy Left|0.3193717277486911|0.3193717277486911/191
+
+testing|14|3|Binary Accuracy Right|0.3089005235602094|0.3089005235602094/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+training|15|3|Overall Mean Squared Error|0.602729320526123
+
+training|15|3|Left Mean Squared Error|0.6748256683349609
+
+training|15|3|Right Mean Squared Error|0.5306330323219299
+
+		------------------------------------------------
+training|15|3|Mean Absolute Error|0.6060236990451813
+
+training|15|3|Mean Absolute Error Left|0.6319788694381714
+
+training|15|3|Mean Absolute Error Right|0.5800685286521912
+
+		------------------------------------------------
+training|15|3|Overall Accuracy|0.3136482939632546|239/762
+
+training|15|3|Overall Accuracy Left|0.5223097112860893|398/762
+
+training|15|3|Accuracy Right|0.5931758530183727|452/762
+
+		------------------------------------------------
+training|15|3|Binary Accuracy|0.3451443569553806|0.3451443569553806/762
+
+training|15|3|Binary Accuracy Left|0.5590551181102362|0.5590551181102362/762
+
+training|15|3|Binary Accuracy Right|0.6089238845144357|0.6089238845144357/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+testing|15|3|Overall Mean Squared Error|0.6969636678695679
+
+testing|15|3|Left Mean Squared Error|0.5936102271080017
+
+testing|15|3|Right Mean Squared Error|0.800317108631134
+
+		------------------------------------------------
+testing|15|3|Mean Absolute Error|0.6899549961090088
+
+testing|15|3|Mean Absolute Error Left|0.668987512588501
+
+testing|15|3|Mean Absolute Error Right|0.7109224796295166
+
+		------------------------------------------------
+testing|15|3|Overall Accuracy|0.06282722513089005|12/191
+
+testing|15|3|Overall Accuracy Left|0.24607329842931938|47/191
+
+testing|15|3|Accuracy Right|0.20418848167539266|39/191
+
+		------------------------------------------------
+testing|15|3|Binary Accuracy|0.1256544502617801|0.1256544502617801/191
+
+testing|15|3|Binary Accuracy Left|0.3193717277486911|0.3193717277486911/191
+
+testing|15|3|Binary Accuracy Right|0.3089005235602094|0.3089005235602094/191
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Have run 20 batches
+Have run 40 batches
+Have run 60 batches
+Have run 80 batches
+Have run 100 batches
+Have run 120 batches
+Have run 140 batches
+Have run 160 batches
+Have run 180 batches
+Have run 200 batches
+Have run 220 batches
+Have run 240 batches
+Have run 260 batches
+Have run 280 batches
+Have run 300 batches
+Have run 320 batches
+Have run 340 batches
+Have run 360 batches
+Have run 380 batches
+	Train Metrics (Training Data) for GPU ID 3 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+training|16|3|Overall Mean Squared Error|0.6282591223716736
+
+training|16|3|Left Mean Squared Error|0.6771199107170105
+
+training|16|3|Right Mean Squared Error|0.5793982744216919
+
+		------------------------------------------------
+training|16|3|Mean Absolute Error|0.6228588223457336
+
+training|16|3|Mean Absolute Error Left|0.6429151892662048
+
+training|16|3|Mean Absolute Error Right|0.6028024554252625
+
+		------------------------------------------------
+training|16|3|Overall Accuracy|0.24934383202099739|190/762
+
+training|16|3|Overall Accuracy Left|0.5|381/762
+
+training|16|3|Accuracy Right|0.536745406824147|409/762
+
+		------------------------------------------------
+training|16|3|Binary Accuracy|0.2887139107611549|0.2887139107611549/762
+
+training|16|3|Binary Accuracy Left|0.5485564304461942|0.5485564304461942/762
+
+training|16|3|Binary Accuracy Right|0.5564304461942258|0.5564304461942258/762
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Test Metrics for GPU ID 3:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+METRICS FOR GPU ID: 3
+testing|16|3|Overall Mean Squared Error|0.7016392350196838
+
+testing|16|3|Left Mean Squared Error|0.6065809726715088
+
+testing|16|3|Right Mean Squared Error|0.7966974973678589
+
+		------------------------------------------------
+testing|16|3|Mean Absolute Error|0.688578337430954
+
+testing|16|3|Mean Absolute Error Left|0.6790732145309448
+
