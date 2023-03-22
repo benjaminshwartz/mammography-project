@@ -173,7 +173,7 @@ class ConvLayer_reshaped(nn.Module):
         x = self.relu(x)
 #         x = self.pooling2d_1(x)
         # print(x.shape)
-
+        print('IN Proper place')
         x = self.conv2d_2(x)
         x = self.relu(x)
 #         x = self.pooling2d_2(x)
@@ -229,8 +229,8 @@ class EmbeddingBlock(nn.Module):
 
         batch_size = info.shape[0]
 
-        print(f'X_RAN SHAPE:{self.x_ran}')
-        print(f'Y_RAN SHAPE:{self.y_ran}')
+        # print(f'X_RAN SHAPE:{self.x_ran}')
+        # print(f'Y_RAN SHAPE:{self.y_ran}')
 
         batched_patches = info.unfold(
             2, self.x_ran, self.x_ran).unfold(3, self.y_ran, self.y_ran)
