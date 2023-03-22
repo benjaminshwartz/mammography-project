@@ -98,7 +98,7 @@ def single_main(batch_size: int = 1, device: str = 'cpu', sequential: bool = Fal
         split=split, sequential=sequential, batch=batch_size, size = size)
     print('Trying Batched')
     model = PaperModel(x_amount=32, y_amount=32, x_con=size[0], y_con=size[1],
-                       data_shape=(batch_size, 4, 50, 256), hidden_output_fnn=1024, dropout=.5,
+                       data_shape=(batch_size, 4, 197, 128), hidden_output_fnn=1024, dropout=.5,
                        number_of_layers=2, num_layers_global=10)
 
     model = model.to(device)
