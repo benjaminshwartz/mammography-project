@@ -59,10 +59,15 @@ class MammographyDataset(Dataset):
         ######NEED TO ADD RESIZING IN HERE######
         ###### RESIZE TO 448 x 448 WITH 196 PATCHES THAT ARE 32 x 32 #######
 
-        LCC = self.resize_fun(LCC)
-        RCC = self.resize_fun(RCC)
-        LMLO = self.resize_fun(LMLO)
-        RMLO = self.resize_fun(RMLO)
+        LCC = LCC[None,None,:,:]
+        RCC = RCC[None,None,:,:]
+        RMLO = RMLO[None,None,:,:]
+        LMLO = LMLO[None,None,:,:]
+
+        LCC = torch.squeeze(self.resize_fun(LCC))
+        RCC = torch.squeeze(self.resize_fun(RCC))
+        LMLO = torch.squeeze(self.resize_fun(LMLO))
+        RMLO = torch.squeeze(self.resize_fun(RMLO))
 
         LCC = (LCC - self.CC_mean)/self.CC_std
         LMLO = (LMLO - self.MLO_mean)/self.MLO_std
@@ -102,10 +107,15 @@ class MammographyDataset(Dataset):
 
             ######NEED TO ADD RESIZING IN HERE######
 
-            LCC = self.resize_fun(LCC)
-            RCC = self.resize_fun(RCC)
-            LMLO = self.resize_fun(LMLO)
-            RMLO = self.resize_fun(RMLO)
+            LCC = LCC[None,None,:,:]
+            RCC = RCC[None,None,:,:]
+            RMLO = RMLO[None,None,:,:]
+            LMLO = LMLO[None,None,:,:]
+
+            LCC = torch.squeeze(self.resize_fun(LCC))
+            RCC = torch.squeeze(self.resize_fun(RCC))
+            LMLO = torch.squeeze(self.resize_fun(LMLO))
+            RMLO = torch.squeeze(self.resize_fun(RMLO))
 
 
             assert(LCC.numel() == LMLO.numel())
