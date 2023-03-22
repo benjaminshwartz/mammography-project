@@ -42,7 +42,7 @@ def ddp_setup(rank, world_size, master_port):
 
 
 def main(rank: int, world_size: int, master_port: str, batch_size: int = 1,
-         device: str = 'cpu', sequential: bool = False, split: tuple = (.8, .2), path: str = None):
+         device: str = 'cpu', sequential: bool = False, split: tuple = (.8, .2), size: tuple = (448,448)):
 
     # print('in main')
     ddp_setup(rank, world_size, master_port)
@@ -58,9 +58,9 @@ def main(rank: int, world_size: int, master_port: str, batch_size: int = 1,
     #                    number_of_layers=10, num_layers_global=10, setting='C')
 
     #### Regression ####
-    model = PaperModel(rank, x_amount=7, y_amount=7, x_con=3500, y_con=2800,
-                       data_shape=(batch_size, 4, 50, 256), hidden_output_fnn=1024, dropout=.5,
-                       number_of_layers=10, num_layers_global=10, setting='R')
+    model = PaperModel(rank, x_amount=32, y_amount=32, x_con=size[0], y_con=size[1],
+                       data_shape=(batch_size, 4, 197, 128), hidden_output_fnn=1024, dropout=.5,
+                       number_of_layers=2, num_layers_global=10, setting='R')
 
     # model = model.to(device)
     # model = DDP(model, device_ids = device)
