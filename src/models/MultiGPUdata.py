@@ -23,8 +23,8 @@ class MammographyDataset(Dataset):
         self.resize_fun = T.Resize(size)
         #### REMEMBER TO CHANGE SELF.PATH WHEN CHANGING BETWEEN SMALL AND LARGE DATA SET
         
-        self.path = './all_data'
-        # self.path = './processed'
+        # self.path = './all_data'
+        self.path = './processed'
         # print('finished initilizing the Mamographydataset class')
         CC_stats, MLO_stats = self.mean_and_variance()
         
@@ -169,11 +169,11 @@ def get_train_test_dataset(split: tuple, sequential: bool, path: str = None, bat
     # dictionary = 'small_small_dic.pt'
     
     #Sample Dictionary
-    # dictionary = './small_dic.pt'
+    dictionary = './small_dic.pt'
     #
     # print(f'working directory {os.getcwd()}')
     #Real Dictionary
-    dictionary = './label_dict.pt'
+    # dictionary = './label_dict.pt'
 
     label_dic = pickle.load(open(dictionary, 'rb'))
     if sequential:
