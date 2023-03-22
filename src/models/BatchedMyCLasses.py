@@ -127,7 +127,75 @@ class ConvLayer(nn.Module):
         x = self.dnn(x)
 
         return x
+    
 
+class ConvLayer_reshaped(nn.Module):
+    def __init__(self, num_patch: int = 49 ):
+        super(ConvLayer_reshaped, self).__init__()
+        self.num_patch = num_patch
+    
+        n = num_patch
+#         self.conv2d_1 = nn.Conv2d(in_channels = 1, out_channels = 8, kernel_size = 13, stride = 1)
+        self.conv2d_1 = nn.Conv2d(in_channels = n*1, out_channels = n *8, kernel_size = 11, stride = 1, groups = n)
+        
+#         self.pooling2d_1 = nn.MaxPool2d(2)
+        
+        self.conv2d_2 = nn.Conv2d(in_channels = n*8, out_channels = n*16, kernel_size = 9, stride = 1, groups = n)
+
+#         self.pooling2d_2 = nn.MaxPool2d(2)
+        
+#         self.conv2d_3 = nn.Conv2d(in_channels = 16, out_channels = 32, kernel_size = 9, stride = 1, groups = n)
+        self.conv2d_3 = nn.Conv2d(in_channels = n*16, out_channels = n*32, kernel_size = 7, stride = 1, groups = n)
+
+        
+#         self.conv2d_4 = nn.Conv2d(in_channels = 32, out_channels = 32, kernel_size = 7, stride = 1, groups = n)
+        self.conv2d_4 = nn.Conv2d(in_channels = n*32, out_channels = n*32, kernel_size = 5, stride = 1, groups = n)
+
+#         self.pooling2d_3 = nn.MaxPool2d(2)
+        
+#         self.conv2d_5 = nn.Conv2d(in_channels = 32, out_channels = 64, kernel_size = 5, stride = 1, groups = n)
+        self.conv2d_5 = nn.Conv2d(in_channels = n*32, out_channels = n*64, kernel_size = 3, stride = 1, groups = n)
+
+
+        
+        self.dnn = nn.Linear(256,128)
+        
+        self.relu = nn.ReLU()
+        self.flatten = nn.Flatten()
+        
+
+    def forward(self, tensor, batch):
+        # print('IN FORWARD OF CONV LAYER')
+        tensor = tensor[:,]
+        # print(tensor.shape)
+        # print(f'THIS IS THE SHAPE OF THE TENSOR: {tensor.shape}')
+        x = self.conv2d_1(tensor)
+        x = self.relu(x)
+#         x = self.pooling2d_1(x)
+        # print(x.shape)
+
+        x = self.conv2d_2(x)
+        x = self.relu(x)
+#         x = self.pooling2d_2(x)
+
+        x = self.conv2d_3(x)
+        x = self.relu(x)
+        x = self.conv2d_4(x)
+        x = self.relu(x)
+
+#         x = self.pooling2d_3(x)
+
+        x = self.conv2d_5(x)
+        x = self.relu(x)
+
+        x = self.flatten(x)
+        # print(x.shape)
+        val = x.shape[1]/self.num_patch
+        x = torch.reshape(x, (batch, self.num_patch, int(val)))
+        # print(val)
+        x = self.dnn(x)
+
+        return x
 
 class EmbeddingBlock(nn.Module):
     # Data in this sense is the image that has not been translated into an array
@@ -150,8 +218,8 @@ class EmbeddingBlock(nn.Module):
         self.patches_matrix = torch.zeros(
             self.amount_of_patches, self.x_ran, self.y_ran)
 
-        self.cc_conv = ConvLayer()
-        self.mlo_conv = ConvLayer()
+        self.cc_conv = ConvLayer_reshaped(num_patch = self.amount_of_patches)
+        self.mlo_conv = ConvLayer_reshaped(num_patch = self.amount_of_patches)
 
     def forward(self, data):
         # recheck for proper class variables(change self. to strictly local variable)
@@ -170,7 +238,6 @@ class EmbeddingBlock(nn.Module):
 
         # print(f'THIS IS DATA LOCATION IN FORWARD OF EMBEDDING BLOCK: {data.get_device()}')
 
-        batched_positional_encoding = torch.zeros(batch_size, 4, 50, 256).to(data.get_device())
 
         LCC = batched_patches[:, 0]
         LMLO = batched_patches[:, 1]
@@ -192,6 +259,8 @@ class EmbeddingBlock(nn.Module):
         summer_LMLO = pos_encoding_LMLO.forward(LMLO)
         summer_RMLO = pos_encoding_RMLO.forward(RMLO)
 
+        batched_positional_encoding = torch.zeros(batch_size, 4, summer_LCC.shape[1], summer_LCC.shape[2]).to(data.get_device())
+
         batched_positional_encoding[:, 0] = summer_LCC
         batched_positional_encoding[:, 1] = summer_LMLO
         batched_positional_encoding[:, 2] = summer_RCC
@@ -203,12 +272,12 @@ class EmbeddingBlock(nn.Module):
 
 
 class MLP(nn.Module):
-    def __init__(self, hidden_output=1024, dropout=.5):
+    def __init__(self, input_layer,hidden_output=1024, dropout=.5):
         super(MLP, self).__init__()
-        self.fnn1 = nn.Linear(256, hidden_output)
+        self.fnn1 = nn.Linear(input_layer, hidden_output)
         self.gelu = nn.GELU()
         self.dropout1 = nn.Dropout(dropout)
-        self.fnn2 = nn.Linear(hidden_output, 256)
+        self.fnn2 = nn.Linear(hidden_output, input_layer)
         self.dropout2 = nn.Dropout(dropout)
 
     def forward(self, data):
@@ -248,14 +317,14 @@ class LocalEncoderBlock(nn.Module):
             [data_shape[2], data_shape[3]])
 
         self.attention = nn.MultiheadAttention(
-            embed_dim=256, num_heads=16, batch_first=True)
-        self.mlp_0 = MLP(
+            embed_dim=data_shape[3], num_heads=16, batch_first=True)
+        self.mlp_0 = MLP(input_layer=data_shape[3],
             hidden_output=hidden_output_fnn1, dropout=dropout)
-        self.mlp_1 = MLP(
+        self.mlp_1 = MLP(input_layer=data_shape[3],
             hidden_output=hidden_output_fnn1, dropout=dropout)
-        self.mlp_2 = MLP(
+        self.mlp_2 = MLP(input_layer=data_shape[3],
             hidden_output=hidden_output_fnn1, dropout=dropout)
-        self.mlp_3 = MLP(
+        self.mlp_3 = MLP(input_layer=data_shape[3],
             hidden_output=hidden_output_fnn1, dropout=dropout)
 
     def forward(self, data, batch):
@@ -353,8 +422,8 @@ class GlobalEncoderBlock(nn.Module):
         self.ln2 = nn.LayerNorm(data_shape)
 
         self.attention = nn.MultiheadAttention(
-            embed_dim=256, num_heads=16, batch_first=True)
-        self.mlp = MLP(hidden_output=hidden_output_fnn1, dropout=dropout)
+            embed_dim=data_shape[1], num_heads=16, batch_first=True)
+        self.mlp = MLP(input_layer = data_shape[1], hidden_output=hidden_output_fnn1, dropout=dropout)
 
     def forward(self, data):
         # print('IN FORWARD OF GLOBALENCODERBLOCK LAYER')
@@ -478,17 +547,17 @@ class PaperModel(nn.Module):
         if setting == 'C':
 
             self.left_head = ClassificationHead(
-                input_layer=1024, hidden_output_class=512, dropout=0.5)
+                input_layer=data_shape[3]*4, hidden_output_class=512, dropout=0.5)
 
             self.right_head = ClassificationHead(
-                input_layer=1024, hidden_output_class=512, dropout=0.5)
+                input_layer=data_shape[3]*4, hidden_output_class=512, dropout=0.5)
 
         elif setting == 'R':
             self.left_head = RegressionHead(
-                input_layer=1024, hidden_output_class=512, dropout=0.5)
+                input_layer=data_shape[3]*4, hidden_output_class=512, dropout=0.5)
 
             self.right_head = RegressionHead(
-                input_layer=1024, hidden_output_class=512, dropout=0.5)
+                input_layer=data_shape[3]*4, hidden_output_class=512, dropout=0.5)
 
     def forward(self, data):
         #X = self.embedding_block(data)
