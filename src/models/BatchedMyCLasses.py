@@ -101,6 +101,7 @@ class ConvLayer(nn.Module):
 
         # print('IN FORWARD OF CONV LAYER')
         # batch_size = tensor.shape()[0]
+        start = time.time()
         tensor = tensor[:,]
         # print(f'THIS IS THE SHAPE OF THE TENSOR: {tensor.shape}')
         x = self.conv2d_1(tensor)
@@ -125,6 +126,8 @@ class ConvLayer(nn.Module):
         # print(x.shape)
         x = torch.reshape(x, (batch, self.num_patch, 105280))
         x = self.dnn(x)
+        stop = time.time()
+        print(f'TIME OF CONVOLUTION FOR CONVLAYER: {start-stop}')
 
         return x
     
@@ -166,6 +169,7 @@ class ConvLayer_reshaped(nn.Module):
 
     def forward(self, tensor, batch):
         # print('IN FORWARD OF CONV LAYER')
+        start = time.time()
         tensor = tensor[:,]
         # print(tensor.shape)
         # print(f'THIS IS THE SHAPE OF THE TENSOR: {tensor.shape}')
@@ -194,6 +198,8 @@ class ConvLayer_reshaped(nn.Module):
         x = torch.reshape(x, (batch, self.num_patch, int(val)))
         # print(val)
         x = self.dnn(x)
+        stop = time.time()
+        print(f'TIME OF CONVOLUTION FOR CONVLAYER: {start-stop}')
 
         return x
 
@@ -225,6 +231,7 @@ class EmbeddingBlock(nn.Module):
         # recheck for proper class variables(change self. to strictly local variable)
         # print('IN FORWARD OF EMBEDDING BLOCK LAYER')
         # Data shape (batch size, num of views, x_length, y_length)
+        start = time.time()
         info = data
 
         batch_size = info.shape[0]
@@ -271,7 +278,10 @@ class EmbeddingBlock(nn.Module):
         batched_positional_encoding[:, 2] = summer_RCC
         batched_positional_encoding[:, 3] = summer_RMLO
 
+        stop = time.time()
+
         # print(f'THIS IS BATCHED POSITIONAL ENCODING LOCATION: {batched_positional_encoding.get_device()}')
+        print(f'TIME OF EMBEDDINGBLOCK FORWARD: {start-stop}')
 
         return batched_positional_encoding, batch_size
 
@@ -395,15 +405,22 @@ class VisualTransformer(nn.Module):
 
     def forward(self, data):
         # print('IN FORWARD OF VISUALTRANSFORMER LAYER')
+        start2 = time.time()
         x, batch = self.embedding_block.forward(data)
         x.to(self.rank)
         # print(f'THIS IS THE LOCATION OF X: {x.get_device()}')
         # print(x.shape)
         i = 0
         for blk in self.blks:
+            start = time.time()
             # print(f'This is {i} local attention run')
             i += 1
             x = blk(x, batch)
+            stop = time.time()
+            print(f'TIME FOR ONE LOCAL ENCODER BLOCK LAYER: {start-stop}')
+
+        stop2 = time.time()
+        print(f'TIME TO FINISH ONE PASS ON THE VISUAL TRANSFORMER: {start2 - stop2}')
 
 
 
@@ -469,19 +486,27 @@ class GlobalTransformer(nn.Module):
         # print('IN FORWARD OF GLOBALTRANSFORMER LAYER')
         #x = self.individual_transformer.forward(data)
 
+        start2 = time.time()
+
         shape0, shape1, shape2, shape3 = data.shape
         x = torch.reshape(data, (shape0, shape1 * shape2, shape3))
         i = 0
         for blk in self.blks:
             # print(f'This is {i} global attention run')
+            start = time.time()
             x = blk(x)
             i += 1
+            stop = time.time()
+            print(f'TIME FOR ONE LAYER OF GLOBALENCODER BLOCK:{start- stop}' )
 
 #         x = torch.squeeze(x)
         # print(x.shape)
         x = x[:, [0, 1 * shape2, 2 * shape2, 3 * shape2], :]
         x = torch.reshape(x, (x.shape[0], x.shape[1]*x.shape[2]))
 #         print(x.shape)
+
+        stop2 = time.time()
+        print(f'TIME TO PASS ONE TIME THROUGH THE GLOBAL TRANSFORMER BLOCK: {start2-stop2}')
         return x
 
 
