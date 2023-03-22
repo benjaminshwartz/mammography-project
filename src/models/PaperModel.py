@@ -59,7 +59,7 @@ def main(rank: int, world_size: int, master_port: str, batch_size: int = 1,
 
     #### Regression ####
     model = PaperModel(rank, x_amount=14, y_amount=14, x_con=size[0], y_con=size[1],
-                       data_shape=(batch_size, 4, 197, 128), hidden_output_fnn=1024, dropout=.5,
+                       data_shape=(batch_size, 4, 197, 128), hidden_output_fnn=1024, dropout=.1,
                        number_of_layers=2, num_layers_global=10, setting='R')
 
     # model = model.to(device)
@@ -98,7 +98,7 @@ def single_main(batch_size: int = 1, device: str = 'cpu', sequential: bool = Fal
         split=split, sequential=sequential, batch=batch_size, size = size)
     print('Trying Batched')
     model = PaperModel(x_amount=14, y_amount=14, x_con=size[0], y_con=size[1],
-                       data_shape=(batch_size, 4, 197, 128), hidden_output_fnn=1024, dropout=.5,
+                       data_shape=(batch_size, 4, 197, 128), hidden_output_fnn=1024, dropout=.1,
                        number_of_layers=2, num_layers_global=10)
 
     model = model.to(device)
@@ -128,7 +128,7 @@ if __name__ == "__main__":
 
     ##### MULTIGPU RUN ###########
     print('trying to run')
-    batch_size = 2
+    batch_size = 4
     device = 'cpu'
     sequential = False
     split = (.8, .2)

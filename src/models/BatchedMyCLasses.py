@@ -287,7 +287,7 @@ class EmbeddingBlock(nn.Module):
 
 
 class MLP(nn.Module):
-    def __init__(self, input_layer,hidden_output=1024, dropout=.5):
+    def __init__(self, input_layer,hidden_output=1024, dropout=.1):
         super(MLP, self).__init__()
         self.fnn1 = nn.Linear(input_layer, hidden_output)
         self.gelu = nn.GELU()
@@ -308,7 +308,7 @@ class MLP(nn.Module):
 
 
 class LocalEncoderBlock(nn.Module):
-    def __init__(self, data_shape, hidden_output_fnn1=1024, dropout=.5):
+    def __init__(self, data_shape, hidden_output_fnn1=1024, dropout=.1):
         super(LocalEncoderBlock, self).__init__()
         # self.device = 'cpu'
         # if torch.cuda.is_available():
@@ -392,7 +392,7 @@ class LocalEncoderBlock(nn.Module):
 class VisualTransformer(nn.Module):
     # embedding parameters, local encoder parameters
     def __init__(self, rank, x_amount=7, y_amount=7, x_con=3500, y_con=2800,
-                 data_shape=(10, 4, 50, 256), hidden_output_fnn=1024, dropout=.5,
+                 data_shape=(10, 4, 50, 256), hidden_output_fnn=1024, dropout=.1,
                  number_of_layers=10):
         super(VisualTransformer, self).__init__()
         self.rank = rank
@@ -428,7 +428,7 @@ class VisualTransformer(nn.Module):
 
 
 class GlobalEncoderBlock(nn.Module):
-    def __init__(self, data_shape=(200, 256), hidden_output_fnn1=1024, dropout=.5):
+    def __init__(self, data_shape=(200, 256), hidden_output_fnn1=1024, dropout=.1):
         super(GlobalEncoderBlock, self).__init__()
         self.device = 'cpu'
         if torch.cuda.is_available():
@@ -466,7 +466,7 @@ class GlobalEncoderBlock(nn.Module):
 
 class GlobalTransformer(nn.Module):
     def __init__(self, x_amount=7, y_amount=7, x_con=3500, y_con=2800,
-                 data_shape=(10, 4, 50, 256), hidden_output_fnn=1024, dropout=.5,
+                 data_shape=(10, 4, 50, 256), hidden_output_fnn=1024, dropout=.1,
                  number_of_layers=10, num_layers_global=10):
         super(GlobalTransformer, self).__init__()
         self.data_shape = data_shape
@@ -511,7 +511,7 @@ class GlobalTransformer(nn.Module):
 
 
 class ClassificationHead(nn.Module):
-    def __init__(self, input_layer=1024, hidden_output_class=512, dropout=0.5):
+    def __init__(self, input_layer=1024, hidden_output_class=512, dropout=0.1):
         super(ClassificationHead, self).__init__()
         self.ln1 = nn.LayerNorm(input_layer)
         self.fnn1 = nn.Linear(input_layer, hidden_output_class)
@@ -552,7 +552,7 @@ class RegressionHead(nn.Module):
 
 class PaperModel(nn.Module):
     def __init__(self, rank, x_amount=7, y_amount=7, x_con=3500, y_con=2800,
-                 data_shape=(10, 4, 50, 256), hidden_output_fnn=1024, dropout=.5,
+                 data_shape=(10, 4, 50, 256), hidden_output_fnn=1024, dropout=.1,
                  number_of_layers=10, num_layers_global=10, setting='C'):
 
         assert setting in {'C', 'R'}
