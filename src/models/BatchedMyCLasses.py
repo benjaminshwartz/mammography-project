@@ -173,7 +173,7 @@ class ConvLayer_reshaped(nn.Module):
         x = self.relu(x)
 #         x = self.pooling2d_1(x)
         # print(x.shape)
-        print('IN Proper place')
+        # print('IN Proper place')
         x = self.conv2d_2(x)
         x = self.relu(x)
 #         x = self.pooling2d_2(x)
@@ -246,6 +246,8 @@ class EmbeddingBlock(nn.Module):
         LMLO = batched_patches[:, 1]
         RCC = batched_patches[:, 2]
         RMLO = batched_patches[:, 3]
+
+        print(f'LCC SHAPE:'{LCC.shape})
 
         LCC = self.cc_conv.forward(LCC, batch_size )
         RCC = self.cc_conv.forward(RCC, batch_size )
