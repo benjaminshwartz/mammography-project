@@ -92,14 +92,14 @@ def main(rank: int, world_size: int, master_port: str, batch_size: int = 1,
     print(f'Time to run {num_epochs} epochs: {f-s} (HH:MM:SS)')
 
 
-def single_main(batch_size: int = 1, device: str = 'cpu', sequential: bool = False, split: tuple = (.8, .2), path: str = None):
+def single_main(batch_size: int = 1, device: str = 'cpu', sequential: bool = False, split: tuple = (.8, .2), size: tuple = (448,448)):
 
     training_gen, test_gen = get_train_test_dataloader(
-        split=split, sequential=sequential, batch=batch_size)
+        split=split, sequential=sequential, batch=batch_size, size = size)
     print('Trying Batched')
-    model = PaperModel(x_amount=7, y_amount=7, x_con=3500, y_con=2800,
+    model = PaperModel(x_amount=32, y_amount=32, x_con=size[0], y_con=size[1],
                        data_shape=(batch_size, 4, 50, 256), hidden_output_fnn=1024, dropout=.5,
-                       number_of_layers=10, num_layers_global=10)
+                       number_of_layers=2, num_layers_global=10)
 
     model = model.to(device)
 
@@ -132,12 +132,12 @@ if __name__ == "__main__":
     device = 'cpu'
     sequential = False
     split = (.8, .2)
-    path = None
+    size = (448,448)
     world_size = torch.cuda.device_count()
     master_port =  str(get_open_port())
     print(f'world size {world_size}')
     mp.spawn(main, args=(world_size, master_port, batch_size,
-             device, sequential, split, path,), nprocs = world_size)
+             device, sequential, split, size,), nprocs = world_size)
     print('done spawning')
 
     ###### SINGLE GPU RUN ########

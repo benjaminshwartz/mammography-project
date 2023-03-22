@@ -8,6 +8,7 @@ import random
 import pickle
 from torch.utils.data.distributed import DistributedSampler
 import os
+import torchvision.transforms as T 
 
 PATH = ""
 
@@ -15,16 +16,18 @@ s3_resource= boto.resource('s3')
 
 class MammographyDataset(Dataset):
 
-    def __init__(self, patient_id: list, labels: dict, path :str = None):
+    def __init__(self, patient_id: list, labels: dict, path :str = None, size: tuple = (448,448)):
         # print('initilizing the Mamographydataset class')
         self.patient_ids = patient_id
         self.labels = labels
+        self.resize_fun = T.Resize(size)
         #### REMEMBER TO CHANGE SELF.PATH WHEN CHANGING BETWEEN SMALL AND LARGE DATA SET
         
         self.path = './all_data'
         # self.path = './processed'
         # print('finished initilizing the Mamographydataset class')
         CC_stats, MLO_stats = self.mean_and_variance()
+        
         
         self.CC_mean, self.CC_std = CC_stats[0], CC_stats[1]
         self.MLO_mean, self.MLO_std = MLO_stats[0], MLO_stats[1]
@@ -51,6 +54,15 @@ class MammographyDataset(Dataset):
         LMLO = pickle.load((open(f'{self.path}/{id}/LMLO.pt','rb')))
         RCC = pickle.load((open(f'{self.path}/{id}/RCC_flipped.pt','rb')))
         RMLO = pickle.load((open(f'{self.path}/{id}/RMLO_flipped.pt','rb')))
+
+
+        ######NEED TO ADD RESIZING IN HERE######
+        ###### RESIZE TO 448 x 448 WITH 196 PATCHES THAT ARE 32 x 32 #######
+
+        LCC = self.resize_fun(LCC)
+        RCC = self.resize_fun(RCC)
+        LMLO = self.resize_fun(LMLO)
+        RMLO = self.resize_fun(RMLO)
 
         LCC = (LCC - self.CC_mean)/self.CC_std
         LMLO = (LMLO - self.MLO_mean)/self.MLO_std
@@ -80,11 +92,21 @@ class MammographyDataset(Dataset):
         squares_CC = 0
         squares_MLO = 0
 
+
         for patient in self.patient_ids:
             LCC = pickle.load((open(f'{self.path}/{patient}/LCC.pt','rb')))
             LMLO = pickle.load((open(f'{self.path}/{patient}/LMLO.pt','rb')))
             RCC = pickle.load((open(f'{self.path}/{patient}/RCC_flipped.pt','rb')))
             RMLO = pickle.load((open(f'{self.path}/{patient}/RMLO_flipped.pt','rb')))
+
+
+            ######NEED TO ADD RESIZING IN HERE######
+
+            LCC = self.resize_fun(LCC)
+            RCC = self.resize_fun(RCC)
+            LMLO = self.resize_fun(LMLO)
+            RMLO = self.resize_fun(RMLO)
+
 
             assert(LCC.numel() == LMLO.numel())
             assert(RCC.numel() == RMLO.numel())

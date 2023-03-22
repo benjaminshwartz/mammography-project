@@ -84,6 +84,8 @@ class MammographyDataset(Dataset):
             RCC = pickle.load((open(f'{self.path}/{patient}/RCC_flipped.pt','rb')))
             RMLO = pickle.load((open(f'{self.path}/{patient}/RMLO_flipped.pt','rb')))
 
+
+
             assert(LCC.numel() == LMLO.numel())
             assert(RCC.numel() == RMLO.numel())
             assert(LCC.numel() == RMLO.numel())
