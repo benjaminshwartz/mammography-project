@@ -247,7 +247,7 @@ class EmbeddingBlock(nn.Module):
         RCC = batched_patches[:, 2]
         RMLO = batched_patches[:, 3]
 
-        print(f'LCC SHAPE:{LCC.shape}')
+        # print(f'LCC SHAPE:{LCC.shape}')
 
         LCC = self.cc_conv.forward(LCC, batch_size )
         RCC = self.cc_conv.forward(RCC, batch_size )
