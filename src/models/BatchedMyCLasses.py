@@ -229,6 +229,8 @@ class EmbeddingBlock(nn.Module):
 
         batch_size = info.shape[0]
 
+        print(f'INFO SHAPE:{info.shape}')
+
         batched_patches = info.unfold(
             2, self.x_ran, self.x_ran).unfold(3, self.y_ran, self.y_ran)
         batched_patches = torch.reshape(batched_patches,
