@@ -531,7 +531,7 @@ class ClassificationHead(nn.Module):
 
 
 class RegressionHead(nn.Module):
-    def __init__(self, input_layer=1024, hidden_output_class=512, dropout=0.5):
+    def __init__(self, input_layer=1024, hidden_output_class=512, dropout=0.1):
         super(RegressionHead, self).__init__()
         self.ln1 = nn.LayerNorm(input_layer)
         self.fnn1 = nn.Linear(input_layer, hidden_output_class)
@@ -577,17 +577,17 @@ class PaperModel(nn.Module):
         if setting == 'C':
 
             self.left_head = ClassificationHead(
-                input_layer=data_shape[3]*4, hidden_output_class=512, dropout=0.5)
+                input_layer=data_shape[3]*4, hidden_output_class=512, dropout=0.1)
 
             self.right_head = ClassificationHead(
-                input_layer=data_shape[3]*4, hidden_output_class=512, dropout=0.5)
+                input_layer=data_shape[3]*4, hidden_output_class=512, dropout=0.1)
 
         elif setting == 'R':
             self.left_head = RegressionHead(
-                input_layer=data_shape[3]*4, hidden_output_class=512, dropout=0.5)
+                input_layer=data_shape[3]*4, hidden_output_class=512, dropout=0.1)
 
             self.right_head = RegressionHead(
-                input_layer=data_shape[3]*4, hidden_output_class=512, dropout=0.5)
+                input_layer=data_shape[3]*4, hidden_output_class=512, dropout=0.1)
 
     def forward(self, data):
         #X = self.embedding_block(data)
