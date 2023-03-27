@@ -27,17 +27,17 @@ class PositionalEncoding(nn.Module):
         # self.learned_embedding_vec = nn.Parameter(
         #     torch.zeros(self.batch_size, 1, self.position))
 
-        self.positional_matrix = torch.zeros(
-            self.embedded_dim, self.position).to(device)
+        self.positional_matrix = nn.Parameter(torch.zeros(
+            self.embedded_dim, self.position)).to(device)
         
         # self.positional_matrix = torch.zeros(
         #     self.embedded_dim, self.position)
 
-        for pos in range(self.position):
-            for i in range(int(self.embedded_dim/2)):
-                denom = pow(n, 2*i/self.embedded_dim)
-                self.positional_matrix[2*i, pos] = np.sin(pos/denom)
-                self.positional_matrix[2*i+1, pos] = np.cos(pos/denom)
+        # for pos in range(self.position):
+        #     for i in range(int(self.embedded_dim/2)):
+        #         denom = pow(n, 2*i/self.embedded_dim)
+        #         self.positional_matrix[2*i, pos] = np.sin(pos/denom)
+        #         self.positional_matrix[2*i+1, pos] = np.cos(pos/denom)
 
         self.positional_matrix = self.positional_matrix[None, :, :]
         self.positional_matrix = self.positional_matrix.tile(
