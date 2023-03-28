@@ -480,7 +480,7 @@ class GlobalTransformer(nn.Module):
         self.flatten = nn.Flatten()
 
         # self.class_head = classification_head(input_layer=data_shape[0]*data_shape[2],
-        #                                       hidden_output_class=512, dropout=.5)
+        #                                       hidden_output_class=512, dropout=.1)
 
     def forward(self, data):
         # print('IN FORWARD OF GLOBALTRANSFORMER LAYER')
